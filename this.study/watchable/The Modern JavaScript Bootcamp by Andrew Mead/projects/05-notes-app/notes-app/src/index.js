@@ -1,4 +1,4 @@
-import { createNote } from "./notes";
+import { loadNotes, createNote } from "./notes";
 import { setFilters } from "./filters";
 import { renderNotes } from "./views";
 
@@ -26,6 +26,7 @@ window.addEventListener("storage", e =>
 {
   if (e.key === "notes")
   {
+    loadNotes();
     renderNotes();
   }
 });

@@ -1,4 +1,4 @@
-import { updateNote, removeNote } from "./notes";
+import { loadNotes, updateNote, removeNote } from "./notes";
 import { initializeEditPage, generateLastEdited } from "./views";
 
 const titleElement = document.querySelector("#note-title");
@@ -31,6 +31,7 @@ window.addEventListener("storage", e =>
 {
   if (e.key === "notes")
   {
+    loadNotes();
     initializeEditPage(noteId);
   }
 });

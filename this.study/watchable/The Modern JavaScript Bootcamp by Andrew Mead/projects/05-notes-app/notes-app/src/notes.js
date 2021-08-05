@@ -152,6 +152,7 @@ const updateNote = (id, updates) =>
 loadNotes();
 
 export {
+  loadNotes,
   getNotes,
   createNote,
   removeNote,
