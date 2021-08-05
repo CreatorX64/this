@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cabin+Sketch&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles/main.css" />
+  <link rel="stylesheet" href="/styles/main.css" />
 </head>
 <body>
 
@@ -17,7 +17,7 @@
         <h1>Recipe App</h1>
       </a>
       <a href="#!" class="icon-github-link" target="_blank">
-        <img src="./images/gh-logo.svg" class="icon-github" alt="GitHub logo" />
+        <img src="/images/gh-logo.svg" class="icon-github" alt="GitHub logo" />
       </a>
     </div>
   </header>
@@ -25,27 +25,16 @@
   <main class="main">
     <div class="container">
       <section class="filters">
-        <input type="text" class="input-text" placeholder="Type to search recipes..." />
-        <label for="hide-recipes" class="hide-recipes-container">
-          <input type="checkbox" id="hide-recipes" name="hide-recipes" class="input-check" />
+        <input type="text" id="filter-title" class="input-text" placeholder="Type to search recipes..." />
+        <label class="hide-recipes-container">
+          <input type="checkbox" id="hide-recipes" class="input-check" />
           <span>Hide recipes with missing ingredients</span>
         </label>
       </section>
       <section class="recipes">
-        <a href="#!" class="recipe">
-          <h2>Roasted Beef</h2>
-          <p>You have some of the ingredients</p>
-        </a>
-        <a href="#!" class="recipe highlight">
-          <h2>Scrambled Eggs</h2>
-          <p>You have all the ingredients</p>
-        </a>
-        <a href="#!" class="recipe">
-          <h2>Ceaser's Salad</h2>
-          <p>You have none of the ingredients</p>
-        </a>
-        <button class="btn btn-primary btn-block" type="button">Add New Recipe</button>
+
       </section>
+      <button id="create-recipe" class="btn btn-primary btn-block" type="button">Add New Recipe</button>
     </div>
   </main>
 

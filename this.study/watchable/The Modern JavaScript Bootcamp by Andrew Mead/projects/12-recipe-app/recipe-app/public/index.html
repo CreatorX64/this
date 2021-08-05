@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Recipe App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cabin+Sketch&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles/main.css" />
+</head>
+<body>
+
+  <header class="page-header">
+    <div class="container">
+      <a href="/" class="page-title">
+        <h1>Recipe App</h1>
+      </a>
+      <a href="#!" class="icon-github-link" target="_blank">
+        <img src="/images/gh-logo.svg" class="icon-github" alt="GitHub logo" />
+      </a>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="container">
+      <section class="filters">
+        <input type="text" id="filter-title" class="input-text" placeholder="Type to search recipes..." />
+        <label class="hide-recipes-container">
+          <input type="checkbox" id="hide-recipes" class="input-check" />
+          <span>Hide recipes with missing ingredients</span>
+        </label>
+      </section>
+      <section class="recipes">
+
+      </section>
+      <button id="create-recipe" class="btn btn-primary btn-block" type="button">Add New Recipe</button>
+    </div>
+  </main>
+
+  <script src="/scripts/index-bundle.js"></script>
+
+</body>
+</html>
