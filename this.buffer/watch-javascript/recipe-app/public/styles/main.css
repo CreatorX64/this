@@ -7,6 +7,9 @@
   --medium-green-hover: #ADE6CD;
   --light-green: #FBFFFD;
   --light-blue: #8585e4;
+  --main-red: #D75A5A;
+  --main-red-hover: #b94545;
+  --light-red: #F6EEEE;
 }
 
 /* Reset styles */
@@ -70,9 +73,11 @@ h2 {
 }
 
 p,
+a,
 input,
 label,
-button {
+button,
+textarea {
   font-size: 1.4rem;
 }
 
@@ -122,18 +127,61 @@ button {
   opacity: 0.75;
 }
 
-.primary-button {
-  background-color: var(--main-green);
+.btn {
   color: #FFF;
   border: none;
-  padding: 16px;
-  width: 100%;
+  padding: 12px 16px;
   cursor: pointer;
   transition: all 0.2s;
+  text-decoration: none;
+  display: inline-block;
 }
 
-.primary-button:hover {
+.btn-block {
+  display: block;
+  width: 100%;
+}
+
+.btn-primary {
+  background-color: var(--main-green);
+}
+
+.btn-primary:hover {
   background-color: var(--main-green-hover);
+}
+
+.btn-secondary {
+  background-color: var(--light-black);
+}
+
+.btn-secondary:hover {
+  background-color: var(--main-black);
+}
+
+.btn-danger {
+  background-color: var(--main-red);
+  color: #FFF;
+}
+
+.btn-danger:hover {
+  background-color: var(--main-red-hover);
+}
+
+.input-text {
+  width: 100%;
+  outline: none;
+  border: 2px solid var(--main-green);
+  padding: 12px 16px;
+}
+
+.input-text:focus {
+  outline: 1px solid var(--light-blue);
+}
+
+.input-check {
+  width: 22px;
+  height: 22px;
+  margin-right: 8px;
 }
 
 /* Index page */
@@ -147,13 +195,6 @@ button {
 
 .filters input {
   flex: 1;
-  outline: none;
-  border: 2px solid var(--main-green);
-  padding: 8px 16px;
-}
-
-.filters input[type="text"]:focus {
-  outline: 1px solid var(--light-blue);
 }
 
 .filters label {
@@ -162,12 +203,6 @@ button {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-}
-
-.filters input[type="checkbox"] {
-  width: 24px;
-  height: 24px;
-  margin-right: 8px;
 }
 
 .recipe {
@@ -186,3 +221,116 @@ button {
 
 /* Edit page */
 
+.navigation {
+  padding: 20px 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.navigation .info {
+  margin-left: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--main-green);
+}
+
+.navigation .info img {
+  margin-right: 8px;
+}
+
+.form-details,
+.form-ingredients,
+.danger-zone {
+  margin-top: 20px;
+}
+
+.form-details .input-text {
+  margin-top: 16px;
+}
+
+.form-details textarea {
+  height: 160px;
+  resize: vertical;
+}
+
+.ingredient-list {
+  list-style: none;
+}
+
+.ingredient {
+  padding: 8px 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.2s;
+}
+
+.ingredient:hover {
+  background-color: var(--medium-green);
+}
+
+.ingredient label {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ingredient .remove {
+  text-decoration: none;
+  color: var(--light-black);
+  transition: all 0.2s;
+}
+
+.ingredient .remove:hover {
+  color: var(--main-red);
+}
+
+.new-ingredient {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+.new-ingredient input {
+  flex: 1;
+}
+
+.new-ingredient button {
+  margin-left: 12px;
+}
+
+.danger-zone {
+  margin-top: 40px;
+  background-color: var(--light-red);
+  border: 2px solid var(--main-red);
+  padding: 4px 16px 16px 16px;
+}
+
+@media (max-width: 620px) {
+  h1 {
+    font-size: 4.4rem;
+  }
+
+  .icon-github {
+    width: 32px;
+  }
+
+  .filters,
+  .navigation {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .filters label,
+  .navigation .info {
+    margin-left: 0;
+    margin-top: 16px;
+  }
+}

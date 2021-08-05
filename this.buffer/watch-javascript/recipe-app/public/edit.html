@@ -2,6 +2,7 @@
 
 <html>
 <head>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
   <title>Recipe App | Edit</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,17 +24,57 @@
 
   <main class="main">
     <div class="container">
+
       <section class="navigation">
-        <a href="/" class="secondary-button">Go Back</a>
-        <p><img src="./images/info-icon.svg" alt="Info icon" /> Changes are automatically saved</p>
+        <a href="/" class="btn btn-secondary">Go Back</a>
+        <p class="info">
+          <img src="./images/info-icon.svg" alt="Info icon" />
+          <span>Changes are automatically saved</span>
+        </p>
       </section>
+
       <section class="form-details">
-        <input type="text" placeholder="Recipe title..." />
-        <textarea placeholder="Recipe instructions..."></textarea>
+        <h2>Details</h2>
+        <input type="text" class="input-text" placeholder="Recipe title..." autofocus />
+        <textarea class="input-text" placeholder="Recipe instructions..."></textarea>
       </section>
+
       <section class="form-ingredients">
-        
+        <h2>Ingredients</h2>
+        <ul class="ingredient-list">
+          <li class="ingredient">
+            <label>
+              <input class="input-check" type="checkbox" />
+              <span>Rice</span>
+            </label>
+            <a class="remove" href="#!">remove</a>
+          </li>
+          <li class="ingredient">
+            <label>
+              <input class="input-check" type="checkbox" />
+              <span>Olive oil</span>
+            </label>
+            <a class="remove" href="#!">remove</a>
+          </li>
+          <li class="ingredient">
+            <label>
+              <input class="input-check" type="checkbox" />
+              <span>Parsley</span>
+            </label>
+            <a class="remove" href="#!">remove</a>
+          </li>
+        </ul>
+        <div class="new-ingredient">
+          <input type="text" class="input-text" placeholder="New ingredient..." />
+          <button class="btn btn-primary" type="button">Add</button>
+        </div>
       </section>
+
+      <section class="danger-zone">
+        <h2>Danger Zone</h2>
+        <button type="button" class="btn btn-danger">Delete Recipe</button>
+      </section>
+
     </div>
   </main>
 

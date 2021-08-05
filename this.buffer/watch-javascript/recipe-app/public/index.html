@@ -2,6 +2,7 @@
 
 <html>
 <head>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
   <title>Recipe App</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,9 +25,9 @@
   <main class="main">
     <div class="container">
       <section class="filters">
-        <input type="text" class="input-search" placeholder="Type to search recipes..." />
+        <input type="text" class="input-text" placeholder="Type to search recipes..." />
         <label for="hide-recipes" class="hide-recipes-container">
-          <input type="checkbox" id="hide-recipes" name="hide-recipes" />
+          <input type="checkbox" id="hide-recipes" name="hide-recipes" class="input-check" />
           <span>Hide recipes with missing ingredients</span>
         </label>
       </section>
@@ -43,7 +44,7 @@
           <h2>Ceaser's Salad</h2>
           <p>You have none of the ingredients</p>
         </a>
-        <button class="primary-button" type="button">Add New Recipe</button>
+        <button class="btn btn-primary btn-block" type="button">Add New Recipe</button>
       </section>
     </div>
   </main>
