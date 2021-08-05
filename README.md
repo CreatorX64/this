@@ -1,5 +1,3 @@
-# this
-
 This repository acts as a digital instance of my working memory. Specifically the part of it that's concerned with web development, hence the name *this* (for the pleasure of my fellow JS developers).
 
 ![a tree in front of a white wall](./_assets/tree.jpg)
