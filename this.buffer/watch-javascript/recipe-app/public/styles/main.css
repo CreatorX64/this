@@ -1,0 +1,188 @@
+:root {
+  --main-black: #363636;
+  --light-black: #565656;
+  --main-green: #5BA484;
+  --main-green-hover: #509979;
+  --medium-green: #EAFAF3;
+  --medium-green-hover: #ADE6CD;
+  --light-green: #FBFFFD;
+  --light-blue: #8585e4;
+}
+
+/* Reset styles */
+
+html {
+  box-sizing: border-box;
+  height: 100%;
+  font-size: 10px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  line-height: 1.5;
+}
+
+button,
+input,
+select,
+textarea {
+  box-sizing: inherit;
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  font-family: inherit;
+}
+
+/* IE shows a scrollbar when there is no need for one */
+textarea {
+  overflow: auto;
+}
+
+table {
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+/* General styles */
+
+body {
+  font-family: Poppins, sans-serif;
+  background-color: var(--light-green);
+}
+
+h1 {
+  font-size: 6rem;
+}
+
+h2 {
+  font-size: 2.4rem;
+  font-weight: 600;
+  margin: 8px 0;
+}
+
+p,
+input,
+label,
+button {
+  font-size: 1.4rem;
+}
+
+.main {
+  padding-bottom: 32px;
+}
+
+.container {
+  max-width: 800px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.page-header {
+  padding: 20px 0;
+  background-image: url("../images/pattern.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-bottom: 2px solid #CFE8DD;
+}
+
+.page-header .container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.page-header h1 {
+  color: var(--main-black);
+  font-family: "Cabin Sketch", sans-serif;
+  text-transform: uppercase;
+  font-weight: normal;
+}
+
+.page-header a {
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.page-header a:visited {
+  text-decoration: none;
+}
+
+.page-header a:hover {
+  opacity: 0.75;
+}
+
+.primary-button {
+  background-color: var(--main-green);
+  color: #FFF;
+  border: none;
+  padding: 16px;
+  width: 100%;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.primary-button:hover {
+  background-color: var(--main-green-hover);
+}
+
+/* Index page */
+
+.filters {
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.filters input {
+  flex: 1;
+  outline: none;
+  border: 2px solid var(--main-green);
+  padding: 8px 16px;
+}
+
+.filters input[type="text"]:focus {
+  outline: 1px solid var(--light-blue);
+}
+
+.filters label {
+  margin-left: 32px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.filters input[type="checkbox"] {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+}
+
+.recipe {
+  display: block;
+  text-decoration: none;
+  background-color: var(--medium-green);
+  padding: 24px;
+  margin-bottom: 16px;
+  transition: all 0.2s;
+  color: var(--main-black);
+}
+
+.recipe:hover {
+  background-color: var(--medium-green-hover);
+}
+
+/* Edit page */
+
