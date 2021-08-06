@@ -5,6 +5,11 @@
   grid-auto-rows: 10px;
 }
 
+.image-list > div {
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
 .image-list img {
-  width: 250px;
+  width: 100%;
 }
