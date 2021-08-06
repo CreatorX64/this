@@ -2,7 +2,7 @@
 
 This is an app that I built in response to a final project prompt that was given by a JavaScript course called [The Modern JavaScript Bootcamp](https://www.udemy.com/course/modern-javascript/).
 
-The app can be accessed from here: [Recipe App Netlify link](https://relaxed-boyd-fa3545.netlify.app/).
+The app can be accessed via here: [Recipe App Netlify link](https://relaxed-boyd-fa3545.netlify.app/).
 
 ![Recipe app homepage](./assets/screen-1.jpg)
 
