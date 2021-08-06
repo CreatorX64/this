@@ -22,6 +22,8 @@ All of the above types of items are developed through one of the following proce
 
 The main purpose of this repository is to act as a reference if I ever find myself needing to remember a concept, a term, or how an app feature was implemented in a specific use case. I do not claim ownership of any code or content you'll find here. The only reason I made this repository public is to expose to the outside world the materials that I use for self studying. I'm aware that most people choose to keep their grinding process hidden from the rest of the community. The existence of this repository is just my way of doing the opposite.
 
+I think as developers presenting bootcamp projects as part of our portfolio is misleading on two levels: (1) On displaying our skillset to others, and (2) on self assessing how much we've progressed at a skill. However, some people seem to be fine creating dedicated repositories for those types of projects. All of this is personal opinion of course, and that's another reason why choose to spare only 1 place in my GitHub account (which is the subfolder *this.study* in this repository) to hold projects that I wrote **following the guidance of someone else**.
+
 ## Structure
 
 There are five folders under this repository:
