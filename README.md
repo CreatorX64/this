@@ -22,8 +22,6 @@ All of the above types of items are developed through one of the following proce
 
 The main purpose of this repository is to act as a reference if I ever find myself needing to remember a concept, a term, or how an app feature was implemented in a specific use case. I do not claim ownership of any code or content you'll find here. The only reason I made this repository public is to expose to the outside world the materials that I use for self studying. I'm aware that most people choose to keep their grinding process hidden from the rest of the community. The existence of this repository is just my way of doing the opposite.
 
-I think as developers presenting bootcamp projects as part of our portfolio is misleading on two levels: (1) On displaying our skillset to others, and (2) on self assessing how much we've progressed at a skill. However, some people seem to be fine creating dedicated repositories for those types of projects. All of this is personal opinion of course, and that's another reason why choose to spare only 1 place in my GitHub account (which is the subfolder *this.study* in this repository) to hold projects that I wrote **following the guidance of someone else**.
-
 ## Structure
 
 There are five folders under this repository:
@@ -52,6 +50,8 @@ Below you can see a table that summarizes the purpose of each subfolder in this 
 There is no predefined structure under this folder because it contains code that I'm actively working on. I sometimes forego the luxury of tidiness in place of speed when I'm working on something new.
 
 ### this.study
+
+Some bootcamps advise students to present their final projects in their portfolio. Some even go far as to suggest presenting walkthrough projects to hiring managers as something that the student has built independently. Though, I think presenting bootcamp projects as part of our portfolios is misleading on two levels: (1) On displaying our skillset to others, and (2) on self-assessing how much we've progressed at a skill. Some people seem to be fine creating dedicated repositories for those types of projects, and that's okay. All of this is personal opinion, which is another reason why I chose to spare only one place in my GitHub account (which is the subfolder *this.study* in this repository) to hold projects that I wrote **following the guidance of someone else**.
 
 Projects in this folder are split under two folders: *watchable* and *readable*. The projects under *watchable* are projects that I built as part of a course, tutorial, or lesson that I watched. The projects under *readable* are projects that I build as part of a book, article, or blog post that I've read.
 
