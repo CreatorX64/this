@@ -4,6 +4,8 @@ This is an app that I built in response to a final project prompt that was given
 
 The app can be accessed from here: [Recipe App Netlify link](https://relaxed-boyd-fa3545.netlify.app/).
 
+![Recipe app homepage](./assets/screen-1.jpg)
+
 ## Stack
 
 The tech stack of the app includes following technologies:
