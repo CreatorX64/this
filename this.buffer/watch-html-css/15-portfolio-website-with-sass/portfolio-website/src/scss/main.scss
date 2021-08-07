@@ -1,6 +1,5 @@
 @import "config";
 @import "utilities";
-@import "item-grid";
 
 // General styles
 
@@ -311,6 +310,73 @@ img {
   }
 }
 
+// Work page
+@import "item-grid";
+
+// Contact page
+
+#contact {
+  &-a {
+    .text-fields {
+      display: grid;
+      grid-template-areas: 
+        "name email"
+        "subject phone"
+        "message message";
+      grid-gap: 1.2rem;
+      margin-bottom: 1.2rem;
+
+      // Grid areas
+
+      .name-input {
+        grid-area: name;
+      }
+      
+      .subject-input {
+        grid-area: subject;
+      }
+
+      .email-input {
+        grid-area: email;
+      }
+
+      .phone-input {
+        grid-area: phone;
+      }
+
+      .message-input {
+        grid-area: message;
+        height: 100px;
+        font: 400 13.3333px Arial;
+      }
+
+      .text-input {
+        padding: 0.5rem 1rem;
+      }
+    }
+
+    button[type="submit"] {
+      width: 50%;
+    }
+  }
+
+  &-b {
+    .contact-info {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      text-align: center;
+    }
+  }
+
+  &-c {
+    h1 {
+      text-align: center;
+      font-size: 4rem;
+      font-weight: 500;
+    }
+  }
+}
+
 // Footer
 #main-footer {
   background-color: $dark-color;
@@ -339,3 +405,6 @@ img {
     }
   }
 }
+
+// Media queries
+@import "media";
