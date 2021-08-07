@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Grid Area</title>
+  <style>
+
+    .header,
+    .content,
+    .sidebar,
+    .box-1,
+    .box-2,
+    .box-3,
+    .footer {
+      border: 1px solid #CCC;
+      padding: 0.5rem;
+    }
+
+    .container {
+      display: grid;
+      grid-template-areas: 
+        "header header header"
+        "content content sidebar"
+        "box-1 box-2 box-2"
+        "box-3 box-3 box-3"
+        "footer footer footer";
+      grid-gap: 1rem;
+    }
+
+    .header {
+      grid-area: header;
+      text-align: center;
+    }
+
+    .content {
+      grid-area: content;
+    }
+
+    .sidebar {
+      grid-area: sidebar;
+    }
+
+    .box-1 {
+      grid-area: box-1;
+    }
+    
+    .box-2 {
+      grid-area: box-2;
+    }
+    
+    .box-3 {
+      grid-area: box-3;
+    }
+
+    .footer {
+      grid-area: footer;
+      text-align: center;
+    }
+
+    @media (max-width: 500px) {
+      .container {
+        grid-template-areas: 
+          "header"
+          "content"
+          "sidebar"
+          "box-1"
+          "box-2"
+          "box-3"
+          "footer";
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header class="header">
+      <h1>My Website</h1>
+    </header>
+    <section class="content">
+      <h3>Welcome To My Site</h3>
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore, suscipit voluptas. Nulla itaque provident earum atque soluta veritatis, cum sit sed doloribus velit illum quo. Assumenda ex praesentium accusantium. Deserunt consectetur voluptatibus est voluptatum dolor distinctio, cum debitis aliquam itaque commodi at inventore. Earum maxime numquam quo? Laboriosam, sapiente facere!</p>
+    </section>
+    <aside class="sidebar">
+      <h3>Contact Us</h3>
+      <ul>
+        <li>Some Company</li>
+        <li>50 Main st, Boston MA</li>
+        <li>something@email.com</li>
+        <li>555-555-5555</li>
+      </ul>
+    </aside>
+    <div class="box-1">
+      <h3>Heading 1</h3>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dignissimos ullam laudantium, fugit et doloremque blanditiis eum enim suscipit magni ipsam, quasi non? Repellat amet nobis, optio voluptates quam rem maxime.</p>
+    </div>
+    <div class="box-2">
+      <h3>Heading 2</h3>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dignissimos ullam laudantium, fugit et doloremque blanditiis eum enim suscipit magni ipsam, quasi non? Repellat amet nobis, optio voluptates quam rem maxime.</p>
+    </div>
+    <div class="box-3">
+      <h3>Heading 3</h3>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dignissimos ullam laudantium, fugit et doloremque blanditiis eum enim suscipit magni ipsam, quasi non? Repellat amet nobis, optio voluptates quam rem maxime.</p>
+    </div>
+    <footer class="footer">
+      <p>Copyright &copy; 2021</p>
+    </footer>
+  </div>  
+
+</body>
+</html>
