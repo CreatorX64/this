@@ -35,6 +35,22 @@ input[class^="btn-"]:hover {
 .text-center {
   text-align: center; }
 
+.bg-main {
+  background-color: #FFBC00;
+  color: #FFF; }
+
+.bg-dark {
+  background-color: #333;
+  color: #FFF; }
+
+.bg-light {
+  background-color: #F4F4F4;
+  color: #000; }
+
+.bg-medium {
+  background-color: #CCC;
+  color: #000; }
+
 .py-1 {
   padding: 1rem 0; }
 
@@ -135,6 +151,11 @@ img {
       font-size: 4rem;
       line-height: 1.2; }
 
+#header-inner {
+  background: url("../img/showcase.jpg") no-repeat 20% 30%/cover;
+  height: 5.5rem;
+  border-bottom: 3px solid #FFBC00; }
+
 #home-a .specials {
   margin-top: 3rem;
   display: grid;
@@ -198,6 +219,72 @@ img {
     color: #FFF;
     padding: 1rem;
     transition: all 1s; }
+
+#about-a .about-info {
+  display: grid;
+  grid-template-areas: "bioimage bio bio" "aw1 aw2 aw3";
+  grid-gap: 1.2rem; }
+
+#about-a .bio-image {
+  grid-area: bioimage; }
+
+#about-a .bio {
+  grid-area: bio;
+  border-left: 3px solid #FFBC00;
+  padding: 0.8rem; }
+
+#about-a .award-1 {
+  grid-area: aw1; }
+
+#about-a .award-2 {
+  grid-area: aw2; }
+
+#about-a .award-3 {
+  grid-area: aw3; }
+
+#about-a .award-1 .fas,
+#about-a .award-2 .fas,
+#about-a .award-3 .fas {
+  color: #FFBC00;
+  margin: 1rem; }
+
+#about-b .progress {
+  overflow: hidden;
+  height: 20px;
+  background-color: #CCC;
+  border-radius: 5px;
+  margin-bottom: 0.6rem; }
+  #about-b .progress div {
+    height: 100%;
+    color: #FFF;
+    text-align: center;
+    background-color: #FFBC00; }
+
+#about-c .about-logos {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 2rem; }
+  #about-c .about-logos img {
+    width: 70%; }
+
+#about-d .testimonials {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 0.5rem; }
+  #about-d .testimonials ul {
+    list-style: none;
+    margin-top: 1rem;
+    display: flex;
+    align-items: center; }
+  #about-d .testimonials p {
+    border: 1px solid #CCC;
+    border-radius: 5px;
+    padding: 0.5rem; }
+  #about-d .testimonials img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 0.5rem; }
 
 #main-footer {
   background-color: #333;
