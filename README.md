@@ -1,6 +1,6 @@
 This repository acts as a digital instance of my working memory. Specifically the part of it that's concerned with web development, hence the name *this* (for the pleasure of my fellow JS developers).
 
-![a tree in front of a white wall](./_assets/tree.jpg)
+![a tree in front of a white wall](./assets/tree.jpg)
 *Photo by [Fabrice Villard](https://unsplash.com/@fabulu75)*
 
 ## Overview
@@ -26,13 +26,13 @@ The main purpose of this repository is to act as a reference *to me* if I ever f
 
 There are five folders under this repository:
 
-- \_assets
+- assets
 - this.buffer
 - this.study
 - this.template
 - this.workshop
 
-The *\_assets* folder acts as a catch-all folder for any file/folder that's not a project, like the tree image shown in this README.md file.
+The *assets* folder acts as a catch-all folder for any file/folder that's not a project, like the tree image shown in this README.md file.
 
 All the remaining four folders are designed to store files that are at different stages of learning and/or files for different purposes. This categorization makes it easy for me to pinpoint a resource/concept/code snippet that I need to remember in the least amount of time possible.
 
