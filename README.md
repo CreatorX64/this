@@ -72,3 +72,5 @@ Projects in this folder sit at the top level. Each folder in here contains a ful
 ## Contribution
 
 Being a source of reference doesn't make this repository closed to contribution. If you find yourself banging your head against the wall due to how a feature was implemented in a project, I would highly appreciate it if you let me know.
+
+Lastly, if you dig *really* hard enough, you may or may not come accross with several API keys that were used for various experiments and purposes. You don't need to bother sending me a warning email though :) All of the API keys are revoked before they make it to GitHub.
