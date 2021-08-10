@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import Accordion from "./Accordion";
 import Dropdown from "./Dropdown";
+import Header from "./Header";
 import Search from "./Search";
 import Route from "./Route";
 import Translate from "./Translate";
-import Header from "./Header";
 
 const items =
 [
@@ -41,6 +41,7 @@ const options =
 const App = () =>
 {
   const [selected, setSelected] = useState(options[0]);
+  
   return (
     <div>
       <Header />
