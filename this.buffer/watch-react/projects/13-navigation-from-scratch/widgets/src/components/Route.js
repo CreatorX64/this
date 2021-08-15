@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 
-const Route = ({ path, children }) =>
-{
+const Route = ({ path, children }) => {
   // This state exists for the sole purpose of re-rendering the component when
   // popstate event is dispatched. We could've easily used window.location.pathname
   // directly in the JSX. However, we needed our component to re-render on the
@@ -11,17 +10,14 @@ const Route = ({ path, children }) =>
   // the event handler.
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
 
-  useEffect(() =>
-  {
-    const onLocationChange = () =>
-    {
+  useEffect(() => {
+    const onLocationChange = () => {
       setCurrentPath(window.location.pathname);
     };
 
     window.addEventListener("popstate", onLocationChange);
 
-    return () =>
-    {
+    return () => {
       window.removeEventListener("popstate", onLocationChange);
     };
   }, []);

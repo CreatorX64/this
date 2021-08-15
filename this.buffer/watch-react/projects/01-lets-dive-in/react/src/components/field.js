@@ -1,7 +1,6 @@
 import React from "react";
 
-const Field = ({ label, value, onChange }) =>
-{
+const Field = ({ label, value, onChange }) => {
   return (
     <div>
       <label>{label}</label>

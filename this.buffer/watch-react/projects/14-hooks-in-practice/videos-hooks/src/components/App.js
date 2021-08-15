@@ -4,13 +4,11 @@ import SearchBar from "./SearchBar";
 import VideoDetail from "./VideoDetail";
 import VideoList from "./VideoList";
 
-const App = () =>
-{
+const App = () => {
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [videos, search] = useVideos("buildings");
 
-  useEffect(() =>
-  {
+  useEffect(() => {
     setSelectedVideo(videos[0]);
   }, [videos]);
 

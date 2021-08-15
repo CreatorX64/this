@@ -4,8 +4,7 @@ import Languages from "./components/languages";
 import Translate from "./components/translate";
 import "./styles.css";
 
-const App = () =>
-{
+const App = () => {
   const [language, setLanguage] = useState("ru");
   const [text, setText] = useState("");
 

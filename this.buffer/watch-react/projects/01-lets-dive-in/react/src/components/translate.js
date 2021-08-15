@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-const doTranslation = async (input, languageCode, cancelToken) =>
-{
-  try
-  {
+const doTranslation = async (input, languageCode, cancelToken) => {
+  try {
     const { data } = await axios.post(
       "https://translation.googleapis.com/language/translate/v2?key=AIzaSyCf0Xy0OnhxlduyEt3K8zP-sOuu-l_u6uA",
       {
@@ -16,20 +14,16 @@ const doTranslation = async (input, languageCode, cancelToken) =>
 
     return data.data.translations[0].translatedText;
   }
-  catch (err)
-  {
+  catch (err) {
     return "";
   }
 };
 
-const Translate = ({ language, text }) =>
-{
+const Translate = ({ language, text }) => {
   const [translated, setTranslated] = useState("");
 
-  useEffect(() =>
-  {
-    if (!text)
-    {
+  useEffect(() => {
+    if (!text) {
       return;
     }
 
@@ -37,10 +31,8 @@ const Translate = ({ language, text }) =>
 
     doTranslation(text, language, cancelToken).then(setTranslated);
 
-    return () =>
-    {
-      try
-      {
+    return () => {
+      try {
         cancelToken.cancel();
       }
       catch (err) { }

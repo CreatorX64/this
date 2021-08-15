@@ -1,8 +1,7 @@
 import React from "react";
 import Translate from "./Translate";
 
-const App = () =>
-{
+const App = () => {
   return (
     <div>
       <Translate />

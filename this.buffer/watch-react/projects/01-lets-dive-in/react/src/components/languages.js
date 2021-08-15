@@ -16,24 +16,20 @@ const LANGUAGES = [
   { label: "Thai", value: "th" }
 ];
 
-const Languages = ({ language, onLanguageChange }) =>
-{
-  if (language === undefined)
-  {
+const Languages = ({ language, onLanguageChange }) => {
+  if (language === undefined) {
     language = "es";
   }
 
   const languageConfig = LANGUAGES.find((l) => l.value === language);
-  
-  if (!languageConfig)
-  {
+
+  if (!languageConfig) {
     throw new Error(`Unknown language code '${language}'`);
   }
 
   const [open, setOpen] = useState(false);
 
-  const onSelect = (language) =>
-  {
+  const onSelect = (language) => {
     setOpen(false);
     onLanguageChange(language);
   };
@@ -52,8 +48,7 @@ const Languages = ({ language, onLanguageChange }) =>
         </div>
         <div className="dropdown-menu">
           <div className="dropdown-content">
-            {LANGUAGES.map(({ label, value }) =>
-            {
+            {LANGUAGES.map(({ label, value }) => {
               return (
                 <a
                   href="#"

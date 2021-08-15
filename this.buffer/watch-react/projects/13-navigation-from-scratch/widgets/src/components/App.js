@@ -6,8 +6,7 @@ import Search from "./Search";
 import Route from "./Route";
 import Translate from "./Translate";
 
-const items =
-[
+const items = [
   {
     title: "What is React?",
     content: "React is a frontend JavaScript library."
@@ -22,8 +21,7 @@ const items =
   }
 ];
 
-const options =
-[
+const options = [
   {
     label: "Red",
     value: "red"
@@ -38,10 +36,9 @@ const options =
   }
 ];
 
-const App = () =>
-{
+const App = () => {
   const [selected, setSelected] = useState(options[0]);
-  
+
   return (
     <div>
       <Header />

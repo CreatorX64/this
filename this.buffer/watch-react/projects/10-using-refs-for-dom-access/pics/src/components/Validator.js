@@ -1,15 +1,12 @@
 import React from "react";
 
-class Validator extends React.Component
-{
-  constructor(props)
-  {
+class Validator extends React.Component {
+  constructor(props) {
     super(props);
     this.state = { password: '' };
   }
 
-  render()
-  {
+  render() {
     return (
       <div className="ui segment">
         <form className="ui form">

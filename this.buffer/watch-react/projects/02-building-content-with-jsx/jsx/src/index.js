@@ -2,14 +2,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-const getTime = () =>
-{
+const getTime = () => {
   return new Date().toLocaleTimeString();
 };
 
 // Create a react component.
-const App = () =>
-{
+const App = () => {
   const buttonText = { text: "Click me" };
   const labelText = "Enter name:";
 

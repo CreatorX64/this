@@ -6,8 +6,7 @@ import CommentDetail from "./CommentDetail";
 import Message from "./Message";
 import Segment from "./Segment";
 
-const App = () =>
-{
+const App = () => {
   return (
     <div className="ui container comments">
       <ApprovalCard>

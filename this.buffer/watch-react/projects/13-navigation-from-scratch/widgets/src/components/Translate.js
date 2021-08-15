@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import Convert from "./Convert";
 import Dropdown from "./Dropdown";
 
-const options =
-[
+const options = [
   {
     label: "Afrikaans",
     value: "af"
@@ -26,8 +25,7 @@ const options =
   }
 ];
 
-const Translate = () =>
-{
+const Translate = () => {
   const [language, setLanguage] = useState(options[0]);
   const [text, setText] = useState("");
 
@@ -40,7 +38,7 @@ const Translate = () =>
             id="text"
             value={text}
             onChange={(e) => setText(e.target.value)}
-            />
+          />
         </div>
       </div>
       <Dropdown

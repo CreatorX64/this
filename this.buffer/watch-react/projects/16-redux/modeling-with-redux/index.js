@@ -1,35 +1,29 @@
 // Action creators (people dropping off a form)
 
-const createPolicy = (name, amount) =>
-{
+const createPolicy = (name, amount) => {
   // Action (the form)
   return {
     type: "CREATE_POLICY",
-    payload:
-    {
+    payload: {
       name: name,
       amount: amount
     }
   };
 };
 
-const deletePolicy = (name) =>
-{
+const deletePolicy = (name) => {
   return {
     type: "DELETE_POLICY",
-    payload:
-    {
+    payload: {
       name: name
     }
   };
 };
 
-const createClaim = (name, amountOfMoneyToCollect) =>
-{
+const createClaim = (name, amountOfMoneyToCollect) => {
   return {
     type: "CREATE_CLAIM",
-    payload:
-    {
+    payload: {
       name: name,
       amountOfMoneyToCollect: amountOfMoneyToCollect
     }
@@ -38,15 +32,11 @@ const createClaim = (name, amountOfMoneyToCollect) =>
 
 // Reducers (company departments)
 
-const accounting = (bagOfMoney = 100, action) =>
-{
+const accounting = (bagOfMoney = 100, action) => {
   // We care about this action (form)
-  if (action.type === "CREATE_CLAIM")
-  {
+  if (action.type === "CREATE_CLAIM") {
     return bagOfMoney - action.payload.amountOfMoneyToCollect;
-  }
-  else if (action.type === "CREATE_POLICY")
-  {
+  } else if (action.type === "CREATE_POLICY") {
     return bagOfMoney + action.payload.amount;
   }
 
@@ -54,24 +44,18 @@ const accounting = (bagOfMoney = 100, action) =>
   return bagOfMoney;
 };
 
-const claimsHistory = (oldListOfClaims = [], action) =>
-{
-  if (action.type === "CREATE_CLAIM")
-  {
+const claimsHistory = (oldListOfClaims = [], action) => {
+  if (action.type === "CREATE_CLAIM") {
     return [...oldListOfClaims, action.payload];
   }
 
   return oldListOfClaims;
 };
 
-const policies = (listOfPolicies = [], action) =>
-{
-  if (action.type === "CREATE_POLICY")
-  {
+const policies = (listOfPolicies = [], action) => {
+  if (action.type === "CREATE_POLICY") {
     return [...listOfPolicies, action.payload.name];
-  }
-  else if (action.type === "DELETE_POLICY")
-  {
+  } else if (action.type === "DELETE_POLICY") {
     return listOfPolicies.filter((name) => name !== action.payload.name);
   }
 
@@ -80,13 +64,11 @@ const policies = (listOfPolicies = [], action) =>
 
 const { combineReducers, createStore } = Redux;
 
-const ourDepartmnets = combineReducers(
-  {
-    accounting: accounting,
-    claimsHistory: claimsHistory,
-    policies: policies
-  }
-);
+const ourDepartmnets = combineReducers({
+  accounting: accounting,
+  claimsHistory: claimsHistory,
+  policies: policies
+});
 
 const store = createStore(ourDepartmnets);
 

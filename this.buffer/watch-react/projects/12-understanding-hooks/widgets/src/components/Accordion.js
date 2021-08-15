@@ -1,23 +1,17 @@
 import React, { useState } from "react";
 
-const Accordion = ({ items }) =>
-{
+const Accordion = ({ items }) => {
   const [activeIndex, setActiveIndex] = useState(null);
 
-  const onTitleClick = (index) =>
-  {
-    if (index === activeIndex)
-    {
+  const onTitleClick = (index) => {
+    if (index === activeIndex) {
       setActiveIndex(null);
-    }
-    else
-    {
+    } else {
       setActiveIndex(index);
     }
   };
 
-  const renderedItems = items.map((item, index) =>
-  {
+  const renderedItems = items.map((item, index) => {
     const active = index === activeIndex ? "active" : "";
 
     return (
