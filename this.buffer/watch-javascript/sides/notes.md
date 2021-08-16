@@ -50,3 +50,13 @@
 **Associativity**: What order operator functions get called in when functions have the *same* precendence: Left-to-right (*left associative*) or right-to-left (*right associative*). Associativity, along with operator precedence, is important in JavaScript because JavaScript is dynamically typed.
 
 **Coercion**: Converting a value from one type to another. This happens quite often in JavaScript because it's dynamically typed. We know that operators are specials functions that run some logic, so part of that logic is coercion. It is a fundamental part of the JavaScript language.
+
+## Section 4 - Objects and Functions
+
+**Namespace**: In modern coding, a *namespace* is a container for variables and functions. It is used typically to keep variables and functions with the same name separate, to keep them in different *spaces* defined by different *names*. JavaScript doesn't have the concept of a namespace, but because of the nature of objects in JavaScript, we don't need namespaces as a feature. We can fake it.
+
+**First Class Functions**: In a programming language that has *first class functions* (like JavaScript), everything you can do with other types you can do with functions. Assign them to variables, pass them around, create them on the fly.
+
+**Expression**: A unit of code that results in a value. It doesn't have to be saved to a variable.
+
+**Mutate**: To change something. Another related term, *immutable*, means **can't be changed**.
