@@ -1,4 +1,4 @@
-const getNotes = () => {
+const getNotes = function () {
   return "Your notes...";
 }
 
