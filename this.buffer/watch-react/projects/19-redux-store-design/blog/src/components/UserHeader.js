@@ -1,12 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchUser } from "../actions";
+
+// TODO: Turn this into a functional component after project ends
 
 class UserHeader extends Component {
-  componentDidMount() {
-    this.props.fetchUser(this.props.userId);
-  }
-
   render() {
     const { user } = this.props;
     
@@ -15,7 +12,9 @@ class UserHeader extends Component {
     }
 
     return (
-      <div className="header">{user.name}</div>
+      <div className="header">
+        {user.name}
+      </div>
     );
   }
 }
@@ -26,4 +25,4 @@ function mapStateToProps(state, ownProps) {
   };
 }
 
-export default connect(mapStateToProps, { fetchUser })(UserHeader);
+export default connect(mapStateToProps)(UserHeader);
