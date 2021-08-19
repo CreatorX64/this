@@ -1,10 +1,10 @@
 import React from "react";
-import PostList from "./PostList";
+import { ConnectedPostList } from "./PostList";
 
-export default function App() {
+export const App = () => {
   return (
     <div className="ui container">
-      <PostList />
+      <ConnectedPostList />
     </div>
   );
 };

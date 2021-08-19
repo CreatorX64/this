@@ -1,17 +1,15 @@
-import React, { Component } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { fetchPostsAndUsers } from "../actions";
-import UserHeader from "./UserHeader";
+import { ConnectedUserHeader } from "./UserHeader";
 
-// TODO: Turn this into a functional component after project ends
+const PostList = ({ posts, fetchPostsAndUsers }) => {
+  useEffect(() => {
+    fetchPostsAndUsers();
+  }, [fetchPostsAndUsers]);
 
-class PostList extends Component {
-  componentDidMount() {
-    this.props.fetchPostsAndUsers();
-  }
-
-  renderList() {
-    return this.props.posts.map((post) => {
+  const renderList = () => {
+    return posts.map((post) => {
       return (
         <div className="item" key={post.id}>
           <i className="large middle aligned icon user" />
@@ -20,25 +18,22 @@ class PostList extends Component {
               <h2>{post.title}</h2>
               <p>{post.body}</p>
             </div>
-            <UserHeader userId={post.userId} />
+            <ConnectedUserHeader userId={post.userId} />
           </div>
         </div>
       );
     });
-  }
+  };
 
-  render() {
-    return (
-      <div className="ui relaxed divided list">{this.renderList()}</div>
-    );
-  }
-}
+  return (
+    <div className="ui relaxed divided list">
+      {renderList()}
+    </div>
+  );
+};
 
-function mapStateToProps(state) {
+const mapStateToProps = (state) => {
   return { posts: state.posts };
-}
+};
 
-export default connect(
-  mapStateToProps,
-  { fetchPostsAndUsers }
-)(PostList);
+export const ConnectedPostList = connect(mapStateToProps, { fetchPostsAndUsers })(PostList);
