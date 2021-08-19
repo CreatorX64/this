@@ -1,5 +1,3 @@
-const getNotes = function () {
+export default function getNotes() {
   return "Your notes...";
 }
-
-export default getNotes;
