@@ -40,7 +40,7 @@ console.log(greeting);
 // (grouping operator) in JS, so it accepts expressions inside of it. You never put
 // statements inside of it. Because of this, when you put a function expression
 // inside of parentheses, the syntax parses knows that you intend to use a function
-// expression in there, so there aren't any errors.
+// expression in there, so there aren't any errors
 (function (name) {
   var greeting = "Hello";
   console.log(greeting + " " + name);

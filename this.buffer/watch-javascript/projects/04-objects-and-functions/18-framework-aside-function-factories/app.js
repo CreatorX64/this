@@ -21,13 +21,13 @@ var greetEnglish = makeGreeting("en");  // greetEnglish's closure points to "lan
 var greetSpanish = makeGreeting("es");  // greetSpanish's closure points to "language" being Spanish
 
 // When we execute each of them, the "language" will be found in each
-// scope chain (or in each closure) as "en" and "es"
+// scope chain (or in each closure) as "en" or "es"
 greetEnglish("John", "Doe");
 greetSpanish("John", "Doe");
 
 // The key thing to realize here is that every time we call a function, it gets
 // its own execution context. Any function created inside of it will point to that
-// execution context as its outer environment reference.
+// execution context as its outer environment reference
 
 // In summary, makeGreeting is returning a function that has access to what
 // the "language" variable was at the time that it was created, by pointing to

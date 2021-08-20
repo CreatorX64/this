@@ -35,7 +35,7 @@ var c = {
     self.name = "Updated c object";
     console.log(self);
     var setName = function (newName) {
-      self.name = newName;  // "this" is the global Window object in here!
+      self.name = newName;
     };
     setName("Updated again! The c object");
     console.log(self);
@@ -45,7 +45,7 @@ var c = {
   }
 };
 
-// c.log();
+c.log();
 
 // Inside a function, the value of "this" depends on how the function is called
 var test2 = c.test;

@@ -16,7 +16,7 @@ function greet(firstName, lastName, language) {
   // The "arguments" keyword holds a value that is "array-like". This means that
   // it looks like an array, acts like an array, but isn't exactly an array only in
   // the sense that it doesn't have all the features of a JavaScript array. However,
-  // it acts enough like an array that we can use it like an array in most circumstances.
+  // it acts enough like an array that we can use it like an array in most circumstances
   console.log(arguments);
   console.log("arg 0: " + arguments[0]);
   console.log("--------");

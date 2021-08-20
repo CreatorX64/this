@@ -29,11 +29,11 @@ sayHi("Tony");
 // it after some point in time where the outer function has already returned and
 // its execution context is gone. Then, when the inner function that was returned
 // is run and the code that makes use of the variable defined in the outer function
-// is ran, it will still work. This is because even though the outer function's
-// execution context is gone, its execution context's variable environmetn is still
+// is run, it will still work. This is because even though the outer function's
+// execution context is gone, its execution context's variable environment is still
 // kept around for the returned inner function to make use of. In effect, we say
 // that the inner function's execution context has "closed in" on the variable
-// environment that it would normally have reference to through scope chain even
+// environment that it would normally have reference to through scope chain, even
 // though its execution context is gone. So this phenomenon, of it closing in all
 // the variables that it supposed to have access to, is called a "closure". So it
 // doesn't matter when we invoke a function, we don't have to worry if its outer
@@ -42,4 +42,4 @@ sayHi("Tony");
 // supposed to have access to, that their scope is intact. Understanding what's
 // happening under the hood helps us to understand that closures aren't all that
 // complicated, they're just a feature that make sure when you run a function, it
-// works the way it supposed to.
+// works the way it supposed to
