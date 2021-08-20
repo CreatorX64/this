@@ -68,3 +68,5 @@
 **Whitespace**: Invisible characters that create literal *space* in your written code. These characters include carriage returns, tabs, spaces. They are not executed or translated by the engine becuase the syntax parser ignores them, but they make your code more readable. JavaScript is very liberal in terms of where it accepts whitespace.
 
 **Callback Function**: A function you give to another function, to be run when the other function is finished. So the function you call (i.e. invoke), *calls back* by calling the function you gave it when it finishes.
+
+**Function Currying**: Creating a copy of a function but with some preset parameters. Very useful in mathematical situations.
