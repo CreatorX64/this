@@ -1,8 +1,56 @@
+* {  /* Global reset */
+  margin: 0;
+  padding: 0;
+}
+
+/* Page sections */
+
 body {
   color: #444;
   font-family: sans-serif;
   border-top: 10px solid #1098AD;
+  position: relative;
 }
+
+.container {
+  width: 800px;
+  /* margin-left: auto;
+  margin-right: auto; */
+  margin: 0 auto;
+}
+
+.main-header {
+  background-color: #F7F7F7;
+  /* padding: 20px; */
+  /* padding-left: 40px;
+  padding-right: 40px; */
+  padding: 20px 40px;
+  margin-bottom: 60px;
+
+}
+
+nav {
+  font-size: 18px;
+  /* text-align: center; */
+}
+
+article {
+  margin-bottom: 60px;
+}
+
+.post-header {
+  margin-bottom: 40px;
+}
+
+aside {
+  background-color: #F7F7F7;
+  border-top: 5px solid #1098AD;
+  border-bottom: 5px solid #1098AD;
+  padding: 50px 0;
+  width: 500px;
+}
+
+/* Smaller elements */
 
 h1,
 h2,
@@ -18,10 +66,13 @@ h1 {
 
 h2 {
   font-size: 40px;
+  margin-bottom: 30px;
 }
 
 h3 {
   font-size: 30px;
+  margin-bottom: 20px;
+  margin-top: 40px;
 }
 
 h4 {
@@ -33,10 +84,22 @@ h4 {
 p {
   font-size: 22px;
   line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+ul,
+ol {
+  margin-left: 50px;
+  margin-bottom: 20px;
 }
 
 li {
   font-size: 20px;
+  margin-bottom: 10px;
+}
+
+li:last-child {
+  margin-bottom: 0;
 }
 
 #author {
@@ -55,16 +118,6 @@ li {
 
 .related {
   list-style: none;
-}
-
-.main-header {
-  background-color: #F7F7F7;
-}
-
-aside {
-  background-color: #F7F7F7;
-  border-top: 5px solid #1098AD;
-  border-bottom: 5px solid #1098AD;
 }
 
 /* Styling links (order of pseudo classes matters) */
@@ -94,6 +147,58 @@ a:active {
   font-style: italic;
 }
 
-nav {
-  font-size: 18px;
+.post-image {
+  width: 100%;
+
+  /* This is only necessary if the height was set in HTML */
+  /* height: auto; */
+}
+
+.author-image {
+  width: 50px;
+  height: 50px;
+}
+
+nav a:link {
+  margin-right: 30px;
+  margin-top: 10px;
+  display: inline-block;
+}
+
+nav a:link:last-child {
+  margin-right: 0;
+}
+
+.like-button {
+  font-size: 22px;
+  padding: 20px;
+  cursor: pointer;
+  position: absolute;
+  bottom: 50px;
+  right: 50px;
+}
+
+h1::first-letter {
+  font-style: normal;
+  margin-right: 5px;
+}
+
+/* h3 + p::first-line {
+  color: red;
+} */
+
+h2 {
+  position: relative;
+}
+h2::after {
+  content: "TOP";
+  background-color: #FFE70E;
+  color: #333;
+  font-size: 16px;
+  font-weight: bold;
+  display: inline-block;
+  padding: 5px 10px;
+  position: absolute;
+  top: -10px;
+  right: -25px;
 }
