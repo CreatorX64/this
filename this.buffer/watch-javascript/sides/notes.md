@@ -70,3 +70,9 @@
 **Callback Function**: A function you give to another function, to be run when the other function is finished. So the function you call (i.e. invoke), *calls back* by calling the function you gave it when it finishes.
 
 **Function Currying**: Creating a copy of a function but with some preset parameters. Very useful in mathematical situations.
+
+## Section 5 - Object-Oriented JavaScript and Prototypal Inheritance
+
+**Inheritance**: The general idea of inheritance is implemented differently in different languages. For our purposes, we only need to understand the most basic concept: One object gets access to the properties and methods of another object. **Classical inheritance** is what's currently best known and popular. It's there in C#, Java, and it's a way of sharing methods and properties of objects. It works but it has its problems. For instance, it's very verbose. **Prototypal inheritance** is much simpler. It's very flexible, extensible, powerful, and easy to understand. It's not perfect either. But when we talk about inheritance in JavaScript, it's different than what we may be talking about with other programming languages.
+
+**Reflection**: An object can look at itself, listing and changing its properties and methods. So a JavaScript object has the ability to look at its own properties and methods. We can use that to implement a very useful pattern called **extend**.
