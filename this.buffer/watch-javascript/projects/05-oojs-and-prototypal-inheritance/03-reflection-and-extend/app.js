@@ -12,7 +12,7 @@ var john = {
 };
 Object.setPrototypeOf(john, person);
 
-// for ... in will loop through each property in the object and it's prototypal
+// for...in will loop through each property in the object and it's prototypal
 // chain (until and not including Object.prototype) and it will assign the property
 // name to the variable in the loop header
 for (var prop in john) {
@@ -43,11 +43,10 @@ var jim = {
   }
 };
 
-// The "extend" function of the underscore library takes the first argument
+// The "extend" function of the "underscore" library takes the first argument
 // object, and copies all properties and methods from the remaining argument
 // objects to the first object. Internally, it uses reflection capabilities
-// of the JavaScript language to achieve this (it actually uses for...in
-// to achieve it)
+// of the JavaScript language to achieve this (it uses for...in syntax internally)
 _.extend(john, jane, jim);
 console.dir(john);
 
