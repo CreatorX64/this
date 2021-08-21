@@ -76,3 +76,11 @@
 **Inheritance**: The general idea of inheritance is implemented differently in different languages. For our purposes, we only need to understand the most basic concept: One object gets access to the properties and methods of another object. **Classical inheritance** is what's currently best known and popular. It's there in C#, Java, and it's a way of sharing methods and properties of objects. It works but it has its problems. For instance, it's very verbose. **Prototypal inheritance** is much simpler. It's very flexible, extensible, powerful, and easy to understand. It's not perfect either. But when we talk about inheritance in JavaScript, it's different than what we may be talking about with other programming languages.
 
 **Reflection**: An object can look at itself, listing and changing its properties and methods. So a JavaScript object has the ability to look at its own properties and methods. We can use that to implement a very useful pattern called **extend**.
+
+## Section 6 - Building Objects
+
+**Function Constructors**: A normal function that is used to construct objects. The **this** variable points to a new empty object, and that object is returned from the function automatically.
+
+**Polyfill**: Code that adds a feature which the engine *may* lack. We can have some code that checks to see if the engine has a feature, and if it doesn't we write some code that does the same thing that new feature would do in the newer browser. So we're *filling in* the gaps where an older engine might not have some features that the newer engines do.
+
+**Syntactic Sugar**: A different way to *type* something that doesn't change how it works under the hood.
