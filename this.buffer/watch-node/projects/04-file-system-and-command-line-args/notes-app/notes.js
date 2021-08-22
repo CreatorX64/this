@@ -1,5 +1,5 @@
-import chalk from "chalk";
 import * as fs from "fs";
+import chalk from "chalk";
 
 export const addNote = (title, body) => {
   const notes = loadNotes();

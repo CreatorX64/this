@@ -2,7 +2,7 @@ import Yargs from "yargs";
 import { hideBin } from "yargs/helpers";
 import * as notes from "./notes.js";
 
-// The hideBin function handles the process.argv.slice logic for you
+// The hideBin function handles the process.argv.slice logic for you.
 const yargs = Yargs(hideBin(process.argv));  // Yargs(process.argv.slice(2));
 
 // Customize yargs version
@@ -70,4 +70,6 @@ yargs.command({
   }
 });
 
+// This is required for yargs to parse the arguments according to the rules we
+// specified above.
 yargs.parse();
