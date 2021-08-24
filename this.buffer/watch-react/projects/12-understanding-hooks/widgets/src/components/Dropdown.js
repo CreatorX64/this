@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 
-const Dropdown = ({ label, options, selected, onSelectedChange }) => {
+export const Dropdown = ({ label, options, selected, onSelectedChange }) => {
   const [isOpen, setIsOpen] = useState(false);
   const ref = useRef();
 
@@ -16,7 +16,9 @@ const Dropdown = ({ label, options, selected, onSelectedChange }) => {
     document.body.addEventListener("click", onBodyClick, { capture: true });
 
     return () => {
-      document.body.removeEventListener("click", onBodyClick, { capture: true });
+      document.body.removeEventListener("click", onBodyClick, {
+        capture: true
+      });
     };
   }, []);
 
@@ -54,5 +56,3 @@ const Dropdown = ({ label, options, selected, onSelectedChange }) => {
     </div>
   );
 };
-
-export default Dropdown;

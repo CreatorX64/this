@@ -1,12 +1,10 @@
 import React from "react";
-import Translate from "./Translate";
+import { Translate } from "./Translate";
 
-const App = () => {
+export const App = () => {
   return (
     <div>
       <Translate />
     </div>
   );
 };
-
-export default App;

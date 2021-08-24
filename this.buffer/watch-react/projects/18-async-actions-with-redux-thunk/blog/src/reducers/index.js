@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
 
-export default combineReducers({
+export const reducers = combineReducers({
   replaceMe: () => 1
 });

@@ -1,6 +1,6 @@
 import React from "react";
 
-class ImageCard extends React.Component {
+export class ImageCard extends React.Component {
   constructor(props) {
     super(props);
 
@@ -16,21 +16,15 @@ class ImageCard extends React.Component {
     const height = this.imageRef.current.clientHeight;
     const spans = Math.ceil(height / 10);
     this.setState({ spans });
-  }
+  };
 
   render() {
     const { alt_description: description, urls } = this.props.image;
 
     return (
       <div style={{ gridRowEnd: `span ${this.state.spans}` }}>
-        <img
-          ref={this.imageRef}
-          alt={description}
-          src={urls.regular}
-        />
+        <img ref={this.imageRef} alt={description} src={urls.regular} />
       </div>
     );
   }
 }
-
-export default ImageCard;

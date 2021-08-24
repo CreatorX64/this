@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const Route = ({ path, children }) => {
+export const Route = ({ path, children }) => {
   // This state exists for the sole purpose of re-rendering the component when
   // popstate event is dispatched. We could've easily used window.location.pathname
   // directly in the JSX. However, we needed our component to re-render on the
@@ -24,5 +24,3 @@ const Route = ({ path, children }) => {
 
   return currentPath === path ? children : null;
 };
-
-export default Route;

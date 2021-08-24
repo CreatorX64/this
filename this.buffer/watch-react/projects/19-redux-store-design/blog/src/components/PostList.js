@@ -25,15 +25,13 @@ const PostList = ({ posts, fetchPostsAndUsers }) => {
     });
   };
 
-  return (
-    <div className="ui relaxed divided list">
-      {renderList()}
-    </div>
-  );
+  return <div className="ui relaxed divided list">{renderList()}</div>;
 };
 
 const mapStateToProps = (state) => {
   return { posts: state.posts };
 };
 
-export const ConnectedPostList = connect(mapStateToProps, { fetchPostsAndUsers })(PostList);
+export const ConnectedPostList = connect(mapStateToProps, {
+  fetchPostsAndUsers
+})(PostList);

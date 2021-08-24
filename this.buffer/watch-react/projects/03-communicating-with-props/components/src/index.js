@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import faker from "faker";
-import ApprovalCard from "./ApprovalCard";
-import CommentDetail from "./CommentDetail";
-import Message from "./Message";
-import Segment from "./Segment";
+import { ApprovalCard } from "./ApprovalCard";
+import { CommentDetail } from "./CommentDetail";
+import { Message } from "./Message";
+import { Segment } from "./Segment";
 
 const App = () => {
   return (
@@ -56,7 +56,11 @@ const App = () => {
         <div>
           <h4 className="ui header">For Your Information</h4>
           <p>
-            Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
+            Pellentesque habitant morbi tristique senectus et netus et malesuada
+            fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae,
+            ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam
+            egestas semper. Aenean ultricies mi vitae est. Mauris placerat
+            eleifend leo.
           </p>
         </div>
       </Segment>

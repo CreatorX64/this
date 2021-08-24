@@ -1,6 +1,6 @@
 import React from "react";
 
-const Message = (props) => {
+export const Message = (props) => {
   return (
     <div className="ui message">
       <div className="header">{props.header}</div>
@@ -8,5 +8,3 @@ const Message = (props) => {
     </div>
   );
 };
-
-export default Message;

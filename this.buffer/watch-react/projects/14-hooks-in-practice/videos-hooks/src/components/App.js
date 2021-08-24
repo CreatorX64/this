@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import useVideos from "../hooks/useVideos";
-import SearchBar from "./SearchBar";
-import VideoDetail from "./VideoDetail";
-import VideoList from "./VideoList";
+import { useVideos } from "../hooks/useVideos";
+import { SearchBar } from "./SearchBar";
+import { VideoDetail } from "./VideoDetail";
+import { VideoList } from "./VideoList";
 
-const App = () => {
+export const App = () => {
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [videos, search] = useVideos("buildings");
 
@@ -21,15 +21,10 @@ const App = () => {
             <VideoDetail video={selectedVideo} />
           </div>
           <div className="five wide column">
-            <VideoList
-              onVideoSelect={setSelectedVideo}
-              videos={videos}
-            />
+            <VideoList onVideoSelect={setSelectedVideo} videos={videos} />
           </div>
         </div>
       </div>
     </div>
   );
 };
-
-export default App;

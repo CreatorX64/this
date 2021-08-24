@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import Field from "./components/field";
-import Languages from "./components/languages";
-import Translate from "./components/translate";
+import { Field } from "./components/field";
+import { Languages } from "./components/languages";
+import { Translate } from "./components/translate";
 import "./styles.css";
 
-const App = () => {
+export const App = () => {
   const [language, setLanguage] = useState("ru");
   const [text, setText] = useState("");
 
@@ -17,5 +17,3 @@ const App = () => {
     </div>
   );
 };
-
-export default App;

@@ -1,31 +1,8 @@
 import React, { useState } from "react";
-import Convert from "./Convert";
-import Dropdown from "./Dropdown";
+import { Convert } from "./Convert";
+import { Dropdown } from "./Dropdown";
 
-const options = [
-  {
-    label: "Afrikaans",
-    value: "af"
-  },
-  {
-    label: "Arabic",
-    value: "ar"
-  },
-  {
-    label: "Dutch",
-    value: "nl"
-  },
-  {
-    label: "Hindi",
-    value: "hi"
-  },
-  {
-    label: "Turkish",
-    value: "tr"
-  }
-];
-
-const Translate = () => {
+export const Translate = () => {
   const [language, setLanguage] = useState(options[0]);
   const [text, setText] = useState("");
 
@@ -54,4 +31,25 @@ const Translate = () => {
   );
 };
 
-export default Translate;
+const options = [
+  {
+    label: "Afrikaans",
+    value: "af"
+  },
+  {
+    label: "Arabic",
+    value: "ar"
+  },
+  {
+    label: "Dutch",
+    value: "nl"
+  },
+  {
+    label: "Hindi",
+    value: "hi"
+  },
+  {
+    label: "Turkish",
+    value: "tr"
+  }
+];

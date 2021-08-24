@@ -1,6 +1,6 @@
 import React from "react";
 
-const CommentDetail = (props) => {
+export const CommentDetail = (props) => {
   return (
     <div className="comment">
       <a href="/" className="avatar">
@@ -18,5 +18,3 @@ const CommentDetail = (props) => {
     </div>
   );
 };
-
-export default CommentDetail;

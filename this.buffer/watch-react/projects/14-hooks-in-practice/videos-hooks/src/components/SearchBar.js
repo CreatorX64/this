@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const SearchBar = ({ onFormSubmit }) => {
+export const SearchBar = ({ onFormSubmit }) => {
   const [term, setTerm] = useState("");
 
   const onSubmit = (event) => {
@@ -24,5 +24,3 @@ const SearchBar = ({ onFormSubmit }) => {
     </div>
   );
 };
-
-export default SearchBar;

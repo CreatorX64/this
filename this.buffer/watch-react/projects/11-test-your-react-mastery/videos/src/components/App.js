@@ -1,10 +1,10 @@
 import React from "react";
-import youtube from "../apis/youtube";
-import SearchBar from "./SearchBar";
-import VideoDetail from "./VideoDetail";
-import VideoList from "./VideoList";
+import { youtube } from "../apis/youtube";
+import { SearchBar } from "./SearchBar";
+import { VideoDetail } from "./VideoDetail";
+import { VideoList } from "./VideoList";
 
-class App extends React.Component {
+export class App extends React.Component {
   state = { videos: [], selectedVideo: null };
 
   componentDidMount() {
@@ -44,5 +44,3 @@ class App extends React.Component {
     );
   }
 }
-
-export default App;

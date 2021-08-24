@@ -1,6 +1,6 @@
 import React from "react";
 
-const Link = ({ className, href, children }) => {
+export const Link = ({ className, href, children }) => {
   const onClick = (event) => {
     // If the user held ctrlKey (or metaKey in Mac), we won't manipulate the
     // default behavior. The link should open in new tab as expected.
@@ -22,5 +22,3 @@ const Link = ({ className, href, children }) => {
     </a>
   );
 };
-
-export default Link;

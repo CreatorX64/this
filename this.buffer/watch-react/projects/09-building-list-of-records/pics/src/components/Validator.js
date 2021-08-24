@@ -1,9 +1,9 @@
 import React from "react";
 
-class Validator extends React.Component {
+export class Validator extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { password: '' };
+    this.state = { password: "" };
   }
 
   render() {
@@ -18,11 +18,11 @@ class Validator extends React.Component {
               onChange={(e) => this.setState({ password: e.target.value })}
             />
           </div>
-          {this.state.password.length < 4 ? 'Password must be at least 4 characters' : ''}
+          {this.state.password.length < 4
+            ? "Password must be at least 4 characters"
+            : ""}
         </form>
       </div>
     );
   }
 }
-
-export default Validator;

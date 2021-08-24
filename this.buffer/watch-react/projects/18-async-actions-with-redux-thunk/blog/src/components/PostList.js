@@ -10,10 +10,8 @@ class PostList extends Component {
   }
 
   render() {
-    return (
-      <div>Post List</div>
-    );
+    return <div>Post List</div>;
   }
 }
 
-export default connect(null, { fetchPosts })(PostList);
+export const ConnectedPostList = connect(null, { fetchPosts })(PostList);

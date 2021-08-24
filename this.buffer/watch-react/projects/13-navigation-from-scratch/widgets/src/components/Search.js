@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
 import axios from "axios";
+import React, { useState, useEffect } from "react";
 
-const Search = () => {
+export const Search = () => {
   const [term, setTerm] = useState("programming");
   const [debouncedTerm, setDebouncedTerm] = useState(term);
   const [results, setResults] = useState([]);
@@ -48,9 +48,7 @@ const Search = () => {
           </a>
         </div>
         <div className="content">
-          <div className="header">
-            {result.title}
-          </div>
+          <div className="header">{result.title}</div>
           <span dangerouslySetInnerHTML={{ __html: result.snippet }}></span>
         </div>
       </div>
@@ -70,11 +68,7 @@ const Search = () => {
           />
         </div>
       </div>
-      <div className="ui celled list">
-        {renderedResults}
-      </div>
+      <div className="ui celled list">{renderedResults}</div>
     </div>
   );
 };
-
-export default Search;

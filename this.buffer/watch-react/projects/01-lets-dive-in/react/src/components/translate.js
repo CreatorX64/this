@@ -1,25 +1,7 @@
-import React, { useEffect, useState } from "react";
 import axios from "axios";
+import React, { useEffect, useState } from "react";
 
-const doTranslation = async (input, languageCode, cancelToken) => {
-  try {
-    const { data } = await axios.post(
-      "https://translation.googleapis.com/language/translate/v2?key=AIzaSyCf0Xy0OnhxlduyEt3K8zP-sOuu-l_u6uA",
-      {
-        q: input,
-        target: languageCode
-      },
-      { cancelToken: cancelToken.token }
-    );
-
-    return data.data.translations[0].translatedText;
-  }
-  catch (err) {
-    return "";
-  }
-};
-
-const Translate = ({ language, text }) => {
+export const Translate = ({ language, text }) => {
   const [translated, setTranslated] = useState("");
 
   useEffect(() => {
@@ -34,8 +16,7 @@ const Translate = ({ language, text }) => {
     return () => {
       try {
         cancelToken.cancel();
-      }
-      catch (err) { }
+      } catch (err) {}
     };
   }, [text, language]);
 
@@ -47,4 +28,19 @@ const Translate = ({ language, text }) => {
   );
 };
 
-export default Translate;
+const doTranslation = async (input, languageCode, cancelToken) => {
+  try {
+    const { data } = await axios.post(
+      "https://translation.googleapis.com/language/translate/v2?key=AIzaSyCf0Xy0OnhxlduyEt3K8zP-sOuu-l_u6uA",
+      {
+        q: input,
+        target: languageCode
+      },
+      { cancelToken: cancelToken.token }
+    );
+
+    return data.data.translations[0].translatedText;
+  } catch (err) {
+    return "";
+  }
+};
