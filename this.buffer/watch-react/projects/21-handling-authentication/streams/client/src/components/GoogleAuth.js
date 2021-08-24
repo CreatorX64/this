@@ -1,19 +1,23 @@
 import React from "react";
 
+// TODO: Convert this into a functional component when app is finished.
+
 export class GoogleAuth extends React.Component {
   state = { isSignedIn: null };
 
   componentDidMount() {
-    // Load the portion of Google JS library that we need
+    // Load the portion of Google JS library that we need.
     window.gapi.load("client:auth2", () => {
-      window.gapi.client.init({
-        clientId: process.env.REACT_APP_GOOGLE_OAUTH_CLIENT_ID,
-        scope: "email"
-      }).then(() => {
-        this.auth = window.gapi.auth2.getAuthInstance();
-        this.setState({ isSignedIn: this.auth.isSignedIn.get() });
-        this.auth.isSignedIn.listen(this.onAuthChange);
-      });
+      window.gapi.client
+        .init({
+          clientId: process.env.REACT_APP_GAPI_CLIENT_ID,
+          scope: "email"
+        })
+        .then(() => {
+          this.auth = window.gapi.auth2.getAuthInstance();
+          this.setState({ isSignedIn: this.auth.isSignedIn.get() });
+          this.auth.isSignedIn.listen(this.onAuthChange);
+        });
     });
   }
 
@@ -27,7 +31,7 @@ export class GoogleAuth extends React.Component {
 
   onSignOut = () => {
     this.auth.signOut();
-  }
+  };
 
   renderAuthButton() {
     if (this.state.isSignedIn === null) {
@@ -50,8 +54,6 @@ export class GoogleAuth extends React.Component {
   }
 
   render() {
-    return (
-      <div>{this.renderAuthButton()}</div>
-    );
+    return <div>{this.renderAuthButton()}</div>;
   }
 }
