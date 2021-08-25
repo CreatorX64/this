@@ -14,10 +14,11 @@
 // we look at in the next section), and as long as the function operand
 // doesn't return a value the object created by the "new" operator will be
 // returned from that function. If we explicitly return a value from that function,
-// the whole process will be cancelled and your returned object will be the result of
+// which might even be something like "return doSomething(this)" to manipulate the
+// new object before returning it, that returned object will be the result of
 // calling the function with the new operator. Apart from these special behaviors,
 // function constructors are just functions, so you can for instance pass parameters
-// to it in order to set properties of the new object
+// to it in order to set properties of the new object.
 
 // So in essence, the "new" operator makes the new object and function constructors
 // are used for adding properties and methods to that new object
