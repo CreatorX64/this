@@ -1,0 +1,19 @@
+import { SIGN_IN, SIGN_OUT } from "../actions/types";
+
+// As opposed to other const variables in JavaScript, writing all letters
+// uppercase means that do not ever change this value, even the original.
+const INITIAL_STATE = {
+  isSignedIn: null,
+  userId: null
+};
+
+export const authReducer = (state = INITIAL_STATE, action) => {
+  switch (action.type) {
+    case SIGN_IN:
+      return { ...state, isSignedIn: true, userId: action.payload };
+    case SIGN_OUT:
+      return { ...state, isSignedIn: false, userId: null };
+    default:
+      return state;
+  }
+};
