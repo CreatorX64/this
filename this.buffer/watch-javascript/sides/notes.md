@@ -18,7 +18,7 @@
 
 **Synchronous**: This is very similar to _single threaded_. In the context of programming, synchronous means _one at a time, in order_. One line of code being executed, for synchronous execution, at a time, in order.
 
-**Invocation**: Running a function. In JavaScript, by using parenthesis. Every function invocation creates a new execution context that's placed on top of the **execution stack**. Then, inside that execution context, JavaScript engine goes through the first phase of creating an execution context (the _creation phase_) where it sets up a **this** keyword, sets up an **arguments** keyword, creates a reference to the outer (lexical) environment for **scope chain**, and it goes through the process of **hoisting** (during hoisting, memory space which hold _undefined_ is allocated for variables declared with _var_, and memory space which holds the functions themselves is allocated for functions definded as a function statement), after which the engine proceeds to the second phase of execution context: _Execution phase_.
+**Invocation**: Running a function. In JavaScript, by using parenthesis. Every function invocation creates a new execution context that's placed on top of the **execution stack**. Then, inside that execution context, JavaScript engine goes through the first phase of creating an execution context (the _creation phase_) where it sets up a **this** keyword, sets up an **arguments** keyword, creates a reference to the outer (lexical) environment for **scope chain**, and it goes through the process of **hoisting** (during hoisting, memory space is allocated for variables [which hold _undefined_ for variables defined using _var_, but variables declared using _let_ or _const_ aren't given any value], and memory space which holds the functions themselves is allocated for functions definded as a function statement), after which the engine proceeds to the second phase of execution context: _Execution phase_.
 
 **Variable Environment**: Where the variables live and how they relate to each other in memory. Every execution context has its own variable environment. For instance, the global execution context's variable environment is the global object, or **window** object in the browser.
 
@@ -84,8 +84,8 @@
 
 **Polyfill**: Code that adds a feature which the engine _may_ lack. We can have some code that checks to see if the engine has a feature, and if it doesn't we write some code that does the same thing that new feature would do in the newer browser. So we're _filling in_ the gaps where an older engine might not have some features that the newer engines do.
 
-**Syntactic Sugar**: A different way to _type_ something that doesn't change how it works under the hood.
+**Syntactic Sugar**: A different way to type something that doesn't change how it works under the hood.
 
-## section 8 - Examining Famous Frameworks and Libraries
+## Section 8 - Examining Famous Frameworks and Libraries
 
 **Method Chaining**: Calling one method after another, and each method affects the parent object. So in _obj.method1().method2()_, both methods end up with a _this_ variable pointing to _obj_.
