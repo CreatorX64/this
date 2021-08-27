@@ -1,4 +1,5 @@
-* {  /* Global reset */
+* {
+  /* Global reset */
   margin: 0;
   padding: 0;
 }
@@ -8,7 +9,7 @@
 body {
   color: #444;
   font-family: sans-serif;
-  border-top: 10px solid #1098AD;
+  border-top: 10px solid #1098ad;
   position: relative;
 }
 
@@ -20,13 +21,12 @@ body {
 }
 
 .main-header {
-  background-color: #F7F7F7;
+  background-color: #f7f7f7;
   /* padding: 20px; */
   /* padding-left: 40px;
   padding-right: 40px; */
   padding: 20px 40px;
   margin-bottom: 60px;
-
 }
 
 nav {
@@ -43,9 +43,9 @@ article {
 }
 
 aside {
-  background-color: #F7F7F7;
-  border-top: 5px solid #1098AD;
-  border-bottom: 5px solid #1098AD;
+  background-color: #f7f7f7;
+  border-top: 5px solid #1098ad;
+  border-bottom: 5px solid #1098ad;
   padding: 50px 0;
   width: 500px;
 }
@@ -55,7 +55,7 @@ aside {
 h1,
 h2,
 h3 {
-  color: #1098AD;
+  color: #1098ad;
 }
 
 h1 {
@@ -122,17 +122,19 @@ li:last-child {
 
 /* Styling links (order of pseudo classes matters) */
 
-a {  /* This targets all links, including those that don't have href */
+a {
+  /* This targets all links, including those that don't have href */
   color: red;
 }
 
-a:link {  /* This targets links that have href */
-  color: #1098AD;
+a:link {
+  /* This targets links that have href */
+  color: #1098ad;
   text-decoration: none;
 }
 
 a:visited {
-  color: #1098AD;
+  color: #1098ad;
 }
 
 a:hover {
@@ -192,7 +194,7 @@ h2 {
 }
 h2::after {
   content: "TOP";
-  background-color: #FFE70E;
+  background-color: #ffe70e;
   color: #333;
   font-size: 16px;
   font-weight: bold;

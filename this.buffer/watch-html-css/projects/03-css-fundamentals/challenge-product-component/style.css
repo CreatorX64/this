@@ -25,7 +25,7 @@ p {
   text-align: center;
   font-size: 22px;
   text-transform: uppercase;
-  background-color: #F7F7F7;
+  background-color: #f7f7f7;
   padding: 15px;
 }
 
@@ -45,8 +45,8 @@ p {
 }
 
 .sale {
-  background-color: #EC2F2F;
-  color: #FFF;
+  background-color: #ec2f2f;
+  color: #fff;
   font-size: 12px;
   text-transform: uppercase;
   font-weight: bold;
@@ -79,19 +79,19 @@ p {
 }
 
 .color-blue {
-  background-color: #2F6EE2;
+  background-color: #2f6ee2;
 }
 
 .color-red {
-  background-color: #EC2F2F;
+  background-color: #ec2f2f;
 }
 
 .color-yellow {
-  background-color: #F0BF1E;
+  background-color: #f0bf1e;
 }
 
 .color-green {
-  background-color: #90CC20;
+  background-color: #90cc20;
 }
 
 .color-brown {
@@ -121,7 +121,7 @@ p {
 .add-cart {
   background-color: #000;
   border: none;
-  color: #FFF;
+  color: #fff;
   font-size: 20px;
   text-transform: uppercase;
   cursor: pointer;
@@ -132,5 +132,5 @@ p {
 
 .add-cart:hover {
   color: #000;
-  background-color: #FFF;
+  background-color: #fff;
 }
