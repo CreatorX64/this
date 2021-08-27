@@ -89,3 +89,7 @@
 ## Section 8 - Examining Famous Frameworks and Libraries
 
 **Method Chaining**: Calling one method after another, and each method affects the parent object. So in _obj.method1().method2()_, both methods end up with a _this_ variable pointing to _obj_.
+
+## Section 10 - BONUS Lectures
+
+**Transpile**: Convert the syntax of one programming language to another. In this case languages that don't really run anywhere, but instead are processed by _transpilers_ that generate JavaScript code.
