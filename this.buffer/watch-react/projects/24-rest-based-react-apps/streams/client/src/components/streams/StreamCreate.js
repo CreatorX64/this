@@ -54,7 +54,7 @@ class StreamCreate extends React.Component {
   }
 }
 
-const validate = (formValues) => {
+const validateForm = (formValues) => {
   const errors = {};
 
   if (!formValues.title) {
@@ -71,6 +71,6 @@ const validate = (formValues) => {
 export const ConnectedStreamCreate = connect(null, { createStream })(
   reduxForm({
     form: "streamCreate",
-    validate
+    validate: validateForm
   })(StreamCreate)
 );
