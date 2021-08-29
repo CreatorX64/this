@@ -1,5 +1,5 @@
-import { connect } from "react-redux";
 import React from "react";
+import { connect } from "react-redux";
 import { signIn, signOut } from "../actions";
 
 // TODO: Convert this into a functional component when app is finished.

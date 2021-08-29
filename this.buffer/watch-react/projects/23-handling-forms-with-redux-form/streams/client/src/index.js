@@ -1,7 +1,7 @@
-import { applyMiddleware, compose, createStore } from "redux";
-import { Provider } from "react-redux";
 import React from "react";
 import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
+import { applyMiddleware, compose, createStore } from "redux";
 import { App } from "./components/App";
 import { reducers } from "./reducers";
 
