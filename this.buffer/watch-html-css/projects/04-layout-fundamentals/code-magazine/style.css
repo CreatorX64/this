@@ -22,16 +22,16 @@ body {
 .main-header {
   background-color: #f7f7f7;
   padding: 20px 40px;
-  margin-bottom: 60px;
+  /* margin-bottom: 60px; */
 }
 
 nav {
   font-size: 18px;
 }
 
-article {
+/* article {
   margin-bottom: 60px;
-}
+} */
 
 .post-header {
   margin-bottom: 40px;
@@ -265,7 +265,9 @@ footer {
   margin-bottom: 5px;
 }
 
-.row {
+/* Flexbox Layout */
+
+/* .row {
   display: flex;
   align-items: flex-start;
   gap: 75px;
@@ -279,4 +281,22 @@ article {
 
 aside {
   flex: 0 0 300px;
+} */
+
+/* CSS Grid Layout */
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  align-items: start;
+  column-gap: 75px;
+  row-gap: 60px;
+}
+
+.main-header {
+  grid-column: 1 / -1;
+}
+
+footer {
+  grid-column: 1 / -1;
 }
