@@ -25,7 +25,7 @@ export class Collection<T, K> {
       response.data.forEach((value) => {
         this.models.push(this.assembleModel(value));
       });
+      this.trigger("change");
     });
-    this.trigger("change");
   }
 }
