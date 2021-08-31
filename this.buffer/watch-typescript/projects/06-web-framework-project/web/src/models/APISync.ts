@@ -1,7 +1,7 @@
 import axios, { AxiosPromise } from "axios";
 import { Syncable, UniqueEntity } from "./Model";
 
-export class APISync<T extends UniqueEntity> implements Syncable<T> {
+export class ApiSync<T extends UniqueEntity> implements Syncable<T> {
   constructor(public rootURL: string) {}
 
   fetch(id: number): AxiosPromise<T> {

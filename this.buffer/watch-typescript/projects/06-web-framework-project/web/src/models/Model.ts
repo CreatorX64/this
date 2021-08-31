@@ -29,17 +29,31 @@ export class Model<T extends UniqueEntity> {
     private sync: Syncable<T>
   ) {}
 
-  get get() {
-    return this.attributes.get.bind(this.attributes);
-  }
+  // These assignments will be moved to the top of the constructor function
+  // once the code is transpiled. So if there're any existing code in the
+  // constructor body, these assignments will go above them. However, in the
+  // constructor, our use of "parameter properties" will ensure that the
+  // properties are set before the constructor body is run. So we can use this
+  // shorthand syntax only because we've used parameter properties in our
+  // constructor to pass in the dependecies of these shorthands. If we didn't
+  // use parameter properties and instead initialized those properties manually,
+  // the below shorthands would break because we would effectively be accessing
+  // our class properties' properties before initializing them.
+  get = this.attributes.get.bind(this.attributes);
+  on = this.events.on.bind(this.events);
+  trigger = this.events.trigger.bind(this.events);
 
-  get on() {
-    return this.events.on.bind(this.events);
-  }
+  // get get() {
+  //   return this.attributes.get.bind(this.attributes);
+  // }
 
-  get trigger() {
-    return this.events.trigger.bind(this.events);
-  }
+  // get on() {
+  //   return this.events.on.bind(this.events);
+  // }
+
+  // get trigger() {
+  //   return this.events.trigger.bind(this.events);
+  // }
 
   set(update: T): void {
     this.attributes.set(update);

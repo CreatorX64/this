@@ -1,5 +1,6 @@
-import { APISync } from "./APISync";
+import { ApiSync } from "./ApiSync";
 import { Attributes } from "./Attributes";
+import { Collection } from "./Collection";
 import { Eventing } from "./Eventing";
 import { Model } from "./Model";
 
@@ -12,11 +13,22 @@ export interface UserProps {
 }
 
 export class User extends Model<UserProps> {
-  static build(attrs: UserProps) {
+  static buildUser(attrs: UserProps) {
     return new User(
       new Attributes<UserProps>(attrs),
       new Eventing(),
-      new APISync<UserProps>(ROOT_URL)
+      new ApiSync<UserProps>(ROOT_URL)
     );
+  }
+
+  static buildUserCollection(): Collection<User, UserProps> {
+    return new Collection<User, UserProps>(ROOT_URL, (json: UserProps) =>
+      User.buildUser(json)
+    );
+  }
+
+  setRandomAge(): void {
+    const age = Math.round(Math.random() * 100);
+    this.set({ age });
   }
 }
