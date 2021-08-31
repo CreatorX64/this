@@ -69,6 +69,7 @@ export class Model<T extends UniqueEntity> {
 
     this.sync.fetch(id).then((response: AxiosResponse): void => {
       this.set(response.data);
+      this.events.trigger("change");
     });
   }
 
