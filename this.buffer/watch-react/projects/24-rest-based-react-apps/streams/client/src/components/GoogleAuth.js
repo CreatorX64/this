@@ -1,10 +1,8 @@
-import React from "react";
+import React, { Component } from "react";
 import { connect } from "react-redux";
 import { signIn, signOut } from "../actions";
 
-// TODO: Convert this into a functional component when app is finished.
-
-export class GoogleAuth extends React.Component {
+export class GoogleAuth extends Component {
   componentDidMount() {
     // Load the portion of Google JS library that we need.
     window.gapi.load("client:auth2", () => {

@@ -4,7 +4,7 @@ import { Header } from "./Header";
 import { history } from "../history";
 import { ConnectedStreamCreate } from "./streams/StreamCreate";
 import { StreamDelete } from "./streams/StreamDelete";
-import { StreamEdit } from "./streams/StreamEdit";
+import { ConnectedStreamEdit } from "./streams/StreamEdit";
 import { ConnectedStreamList } from "./streams/StreamList";
 import { StreamShow } from "./streams/StreamShow";
 
@@ -16,7 +16,11 @@ export const App = () => {
           <Header />
           <Route path="/" exact component={ConnectedStreamList} />
           <Route path="/streams/new" exact component={ConnectedStreamCreate} />
-          <Route path="/streams/edit" exact component={StreamEdit} />
+          <Route
+            path="/streams/edit/:id"
+            exact
+            component={ConnectedStreamEdit}
+          />
           <Route path="/streams/delete" exact component={StreamDelete} />
           <Route path="/streams/show" exact component={StreamShow} />
         </div>
