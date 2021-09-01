@@ -4,8 +4,8 @@ import { createStream } from "../../actions";
 import { ConnectedStreamForm } from "./StreamForm";
 
 class StreamCreate extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.onSubmit = this.onSubmit.bind(this);
   }
 

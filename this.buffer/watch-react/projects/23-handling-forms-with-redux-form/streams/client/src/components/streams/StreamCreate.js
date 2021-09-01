@@ -2,8 +2,8 @@ import React from "react";
 import { Field, reduxForm } from "redux-form";
 
 class StreamCreate extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.renderInput = this.renderInput.bind(this);
   }
 
