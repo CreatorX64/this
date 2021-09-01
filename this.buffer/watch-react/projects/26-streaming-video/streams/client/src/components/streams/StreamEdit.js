@@ -5,8 +5,8 @@ import { fetchStream, editStream } from "../../actions";
 import { ConnectedStreamForm } from "./StreamForm";
 
 class StreamEdit extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.onSubmit = this.onSubmit.bind(this);
   }
 
