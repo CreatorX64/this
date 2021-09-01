@@ -1,10 +1,11 @@
 import React, { Component } from "react";
-import { Field, reduxForm } from "redux-form";
+import { Form, Field } from "react-final-form";
 
-class StreamForm extends Component {
+export class StreamForm extends Component {
   constructor(props) {
     super(props);
     this.onSubmit = this.onSubmit.bind(this);
+    this.renderForm = this.renderForm.bind(this);
     this.renderInput = this.renderInput.bind(this);
   }
 
@@ -34,12 +35,23 @@ class StreamForm extends Component {
     }
   }
 
-  render() {
+  validateForm(formValues) {
+    const errors = {};
+
+    if (!formValues.title) {
+      errors.title = "You must enter a title";
+    }
+
+    if (!formValues.description) {
+      errors.description = "You must enter a description";
+    }
+
+    return errors;
+  }
+
+  renderForm({ handleSubmit }) {
     return (
-      <form
-        onSubmit={this.props.handleSubmit(this.onSubmit)}
-        className="ui form error"
-      >
+      <form onSubmit={handleSubmit} className="ui form error">
         <Field name="title" component={this.renderInput} label="Enter title" />
         <Field
           name="description"
@@ -50,23 +62,16 @@ class StreamForm extends Component {
       </form>
     );
   }
+
+  render() {
+    return (
+      <Form
+        initialValues={this.props.initialValues}
+        onSubmit={this.onSubmit}
+        validate={this.validateForm}
+        className="ui form error"
+        render={this.renderForm}
+      />
+    );
+  }
 }
-
-const validateForm = (formValues) => {
-  const errors = {};
-
-  if (!formValues.title) {
-    errors.title = "You must enter a title";
-  }
-
-  if (!formValues.description) {
-    errors.description = "You must enter a description";
-  }
-
-  return errors;
-};
-
-export const ConnectedStreamForm = reduxForm({
-  form: "streamForm",
-  validate: validateForm
-})(StreamForm);
