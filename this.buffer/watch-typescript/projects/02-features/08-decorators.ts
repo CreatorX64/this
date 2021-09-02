@@ -1,3 +1,6 @@
+// It is important to remember that each property and method decoarators are
+// run in order, and at the very last class decorator is run.
+
 @classDecorator
 class Boat {
   @testDecorator
