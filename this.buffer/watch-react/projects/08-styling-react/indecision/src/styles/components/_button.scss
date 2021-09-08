@@ -1,0 +1,58 @@
+@use "sass:color";
+@use "../base/global" as g;
+
+// Big button
+
+.big-button {
+  background-color: g.$purple;
+  border: none;
+  border-bottom: 0.8rem solid color.scale(g.$purple, $lightness: -20%);
+  color: g.$white;
+  font-size: g.$l-size;
+  font-weight: bold;
+  margin-bottom: g.$xl-size;
+  padding: 2.4rem;
+  width: 100%;
+  outline: none;
+}
+
+.big-button:active {
+  border-bottom: none;
+  transform: translateY(0.8rem);
+  margin-bottom: g.$xl-size + 0.8rem;
+}
+
+.big-button:disabled {
+  opacity: 0.5;
+}
+
+// Normal/small button
+
+.button {
+  background-color: g.$purple;
+  border: none;
+  border-bottom: 0.5rem solid color.scale(g.$purple, $lightness: -20%);
+  color: g.$white;
+  font-weight: 500;
+  padding: g.$s-size;
+}
+
+.button:active {
+  border-bottom: none;
+  transform: translateY(0.5rem);
+}
+
+.button--link {
+  background: none;
+  border: none;
+  color: g.$off-white;
+  padding: 0;
+}
+
+.button--link:active {
+  transform: none;
+}
+
+.button--link:hover {
+  text-decoration: underline;
+}

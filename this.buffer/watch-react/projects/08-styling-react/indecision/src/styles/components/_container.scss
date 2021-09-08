@@ -1,0 +1,7 @@
+@use "../base/global" as g;
+
+.container {
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 0 g.$m-size;
+}

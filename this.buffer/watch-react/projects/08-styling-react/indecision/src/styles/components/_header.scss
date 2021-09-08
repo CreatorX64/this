@@ -1,19 +1,21 @@
+@use "../base/global" as g;
+
 .header {
-  background-color: #20222b;
-  color: #fff;
-  margin-bottom: 4.8rem;
-  padding: 1.6rem 0;
+  background-color: g.$off-black;
+  color: g.$white;
+  margin-bottom: g.$xl-size;
+  padding: g.$m-size 0;
 }
 
 // BEM (Block Element Modifier)
 .header__title {
-  font-size: 3.2rem;
+  font-size: g.$l-size;
   margin: 0;
 }
 
 .header__sub-title {
-  color: #a5afd7;
-  font-size: 1.6rem;
+  color: g.$off-white;
+  font-size: g.$m-size;
   font-weight: 500;
   margin: 0;
 }
