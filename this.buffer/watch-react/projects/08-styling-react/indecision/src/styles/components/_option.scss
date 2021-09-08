@@ -1,0 +1,21 @@
+@use "sass:color";
+@use "../base/global" as g;
+
+.option {
+  border-bottom: 1px solid color.scale(g.$light-blue, $lightness: 14%);
+  display: flex;
+  justify-content: space-between;
+  padding: g.$l-size g.$m-size;
+}
+
+.option__text {
+  color: g.$white;
+  font-weight: 500;
+  font-size: 2rem;
+  margin: 0;
+}
+
+.option__text__count {
+  color: color.scale(g.$light-blue, $lightness: 36%);
+  font-weight: bold;
+}

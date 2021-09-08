@@ -1,0 +1,31 @@
+@use "sass:color";
+@use "../base/global" as g;
+
+// Widget
+
+.widget {
+  background-color: g.$light-blue;
+  margin-bottom: g.$xl-size;
+}
+
+.widget__message {
+  border-bottom: 1px solid color.scale(g.$light-blue, $lightness: 14%);
+  color: g.$off-white;
+  margin: 0;
+  padding: g.$l-size;
+  text-align: center;
+}
+
+// Widget header
+
+.widget-header {
+  background-color: g.$blue;
+  color: g.$off-white;
+  display: flex;
+  justify-content: space-between;
+  padding: g.$m-size;
+}
+
+.widget-header__title {
+  margin: 0;
+}

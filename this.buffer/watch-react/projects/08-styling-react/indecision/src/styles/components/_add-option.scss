@@ -1,0 +1,29 @@
+@use "sass:color";
+@use "../base/global" as g;
+
+// Add option error
+
+.add-option-error {
+  color: g.$off-white;
+  font-style: italic;
+  margin: g.$m-size 0 0 0;
+  padding: 0 g.$m-size;
+}
+
+// Add option form
+
+.add-option {
+  display: flex;
+  padding: g.$m-size;
+}
+
+.add-option__input {
+  background-color: g.$dark-blue;
+  border: none;
+  border-bottom: 0.5rem solid color.scale(g.$dark-blue, $lightness: -16%);
+  color: g.$off-white;
+  flex-grow: 1;
+  margin-right: g.$s-size;
+  outline: 2px solid g.$light-blue;
+  padding: g.$s-size;
+}
