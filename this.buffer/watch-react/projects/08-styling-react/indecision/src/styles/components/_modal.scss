@@ -1,0 +1,40 @@
+@use "../base/global" as g;
+
+.ReactModalPortal > div {
+  opacity: 0;
+}
+
+.ReactModalPortal .ReactModal__Overlay {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  transition: opacity 200ms ease-in-out;
+}
+
+.ReactModalPortal .ReactModal__Overlay--after-open {
+  opacity: 1;
+}
+
+.ReactModalPortal .ReactModal__Overlay--before-close {
+  opacity: 0;
+}
+
+.modal {
+  background-color: g.$light-blue;
+  color: g.$white;
+  max-width: 30rem;
+  outline: none;
+  padding: g.$l-size;
+  text-align: center;
+}
+
+.modal__title {
+  margin: 0 0 g.$m-size 0;
+}
+
+.modal__body {
+  font-size: 1.8rem;
+  font-weight: 400;
+  margin: 0 0 g.$l-size 0;
+  word-break: break-all;
+}

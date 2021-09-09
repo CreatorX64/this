@@ -14,6 +14,7 @@
 
 .add-option {
   display: flex;
+  flex-direction: column;
   padding: g.$m-size;
 }
 
@@ -23,7 +24,18 @@
   border-bottom: 0.5rem solid color.scale(g.$dark-blue, $lightness: -16%);
   color: g.$off-white;
   flex-grow: 1;
-  margin-right: g.$s-size;
+  margin: 0 0 g.$s-size 0;
+  // margin-right: g.$s-size;
   outline: 2px solid g.$light-blue;
   padding: g.$s-size;
+}
+
+@media (min-width: g.$desktop-breakpoint) {
+  .add-option {
+    flex-direction: row;
+  }
+
+  .add-option__input {
+    margin: 0 g.$s-size 0 0;
+  }
 }

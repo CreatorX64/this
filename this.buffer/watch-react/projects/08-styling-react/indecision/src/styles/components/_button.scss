@@ -8,18 +8,12 @@
   border: none;
   border-bottom: 0.8rem solid color.scale(g.$purple, $lightness: -20%);
   color: g.$white;
-  font-size: g.$l-size;
+  font-size: g.$ml-size;
   font-weight: bold;
-  margin-bottom: g.$xl-size;
+  margin-bottom: g.$m-size;
   padding: 2.4rem;
   width: 100%;
   outline: none;
-}
-
-.big-button:active {
-  border-bottom: none;
-  transform: translateY(0.8rem);
-  margin-bottom: g.$xl-size + 0.8rem;
 }
 
 .big-button:disabled {
@@ -37,11 +31,6 @@
   padding: g.$s-size;
 }
 
-.button:active {
-  border-bottom: none;
-  transform: translateY(0.5rem);
-}
-
 .button--link {
   background: none;
   border: none;
@@ -49,10 +38,13 @@
   padding: 0;
 }
 
-.button--link:active {
-  transform: none;
-}
-
 .button--link:hover {
   text-decoration: underline;
+}
+
+@media (min-width: g.$desktop-breakpoint) {
+  .big-button {
+    font-size: g.$l-size;
+    margin-bottom: g.$xl-size;
+  }
 }

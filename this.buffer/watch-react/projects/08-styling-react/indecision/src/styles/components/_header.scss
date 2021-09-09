@@ -3,7 +3,7 @@
 .header {
   background-color: g.$off-black;
   color: g.$white;
-  margin-bottom: g.$xl-size;
+  margin-bottom: g.$m-size;
   padding: g.$m-size 0;
 }
 
@@ -18,4 +18,10 @@
   font-size: g.$m-size;
   font-weight: 500;
   margin: 0;
+}
+
+@media (min-width: g.$desktop-breakpoint) {
+  .header {
+    margin-bottom: g.$xl-size;
+  }
 }
