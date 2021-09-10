@@ -1,7 +1,8 @@
 import React from "react";
+import { ConnectedExpenseList as ExpenseList } from "./ExpenseList";
 
 export const ExpenseDashboardPage = () => (
   <div>
-    <p>This is from my dashboard component</p>
+    <ExpenseList />
   </div>
 );
