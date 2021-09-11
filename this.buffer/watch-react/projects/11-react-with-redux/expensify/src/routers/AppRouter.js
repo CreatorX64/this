@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import { AddExpensePage } from "../components/AddExpensePage";
-import { EditExpensePage } from "../components/EditExpensePage";
+import { ConnectedAddExpensePage as AddExpensePage } from "../components/AddExpensePage";
+import { ConnectedEditExpensePage as EditExpensePage } from "../components/EditExpensePage";
 import { ExpenseDashboardPage } from "../components/ExpenseDashboardPage";
 import { Header } from "../components/Header";
 import { HelpPage } from "../components/HelpPage";

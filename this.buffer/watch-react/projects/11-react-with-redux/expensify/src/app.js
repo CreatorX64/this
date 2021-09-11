@@ -1,6 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
+import { LocalizationProvider } from "@mui/lab";
+import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import { addExpense } from "./actions";
 import { AppRouter } from "./routers/AppRouter";
 import { configureStore } from "./store/configureStore";
@@ -16,7 +18,9 @@ store.dispatch(addExpense({ description: "Rent", amount: 109500 }));
 
 ReactDOM.render(
   <Provider store={store}>
-    <AppRouter />
+    <LocalizationProvider dateAdapter={AdapterDateFns}>
+      <AppRouter />
+    </LocalizationProvider>
   </Provider>,
   document.querySelector(APP_ELEM_SELECTOR)
 );

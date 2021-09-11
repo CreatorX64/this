@@ -1,8 +1,10 @@
+import { startOfMonth, endOfMonth, getUnixTime, fromUnixTime } from "date-fns";
+
 const filtersReducerDefaultState = {
   text: "",
   sortBy: "date", // "date" or "amount"
-  startDate: null,
-  endDate: null
+  startDate: startOfMonth(new Date()),
+  endDate: endOfMonth(new Date())
 };
 
 export const filtersReducer = (state = filtersReducerDefaultState, action) => {
