@@ -6,7 +6,6 @@ export const expensesReducer = (
 ) => {
   switch (action.type) {
     case "ADD_EXPENSE":
-      // return state.concat(action.expense);
       return [...state, action.expense];
     case "REMOVE_EXPENSE":
       return state.filter(({ id }) => id !== action.id);

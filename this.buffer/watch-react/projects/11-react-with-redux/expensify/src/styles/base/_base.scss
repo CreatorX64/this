@@ -1,8 +1,9 @@
 @use "../base/global" as g;
 
-html {
-  font-size: 62.5%;
-}
+// Commented out to be compatible with Material UI
+// html {
+//   font-size: 62.5%;
+// }
 
 body {
   font-family: "Helvetica", "Arial", sans-serif;

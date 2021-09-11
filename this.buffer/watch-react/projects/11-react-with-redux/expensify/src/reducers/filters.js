@@ -1,6 +1,6 @@
 const filtersReducerDefaultState = {
   text: "",
-  sortBy: "date", // date or amount
+  sortBy: "date", // "date" or "amount"
   startDate: null,
   endDate: null
 };
