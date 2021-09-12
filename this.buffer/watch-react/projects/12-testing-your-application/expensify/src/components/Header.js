@@ -10,8 +10,5 @@ export const Header = () => (
     <NavLink to="/create" activeClassName="is-active" exact>
       Create Expense
     </NavLink>
-    <NavLink to="/help" activeClassName="is-active" exact>
-      Help
-    </NavLink>
   </header>
 );
