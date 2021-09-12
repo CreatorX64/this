@@ -1,7 +1,7 @@
 import React from "react";
-import { getUnixTime, fromUnixTime } from "date-fns";
 import { TextField } from "@mui/material";
 import { DatePicker } from "@mui/lab";
+import { DateTime } from "luxon";
 
 export class ExpenseForm extends React.Component {
   constructor(props) {
@@ -13,7 +13,7 @@ export class ExpenseForm extends React.Component {
       description: expense ? expense.description : "",
       note: expense ? expense.note : "",
       amount: expense ? (expense.amount / 100).toString() : "",
-      createdAt: expense ? fromUnixTime(expense.createdAt) : new Date(),
+      createdAt: expense ? expense.createdAt : DateTime.utc(),
       error: ""
     };
   }
@@ -53,15 +53,7 @@ export class ExpenseForm extends React.Component {
       this.props.onSubmit({
         description: this.state.description,
         amount: Number(this.state.amount) * 100, // We're working with pennies
-        createdAt: getUnixTime(
-          new Date(
-            Date.UTC(
-              this.state.createdAt.getFullYear(),
-              this.state.createdAt.getMonth(),
-              this.state.createdAt.getDate()
-            )
-          )
-        ),
+        createdAt: this.state.createdAt,
         note: this.state.note
       });
     }

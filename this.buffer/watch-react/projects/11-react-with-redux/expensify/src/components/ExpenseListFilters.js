@@ -15,7 +15,6 @@ class ExpenseListFilters extends React.Component {
   constructor(props) {
     super(props);
 
-    // const rangePickerValue = [];
     this.state = {
       rangePickerValue: [props.filters.startDate, props.filters.endDate]
     };
@@ -25,22 +24,8 @@ class ExpenseListFilters extends React.Component {
     this.setState(() => ({ rangePickerValue: newValue }));
 
     const [startDate, endDate] = newValue;
-    this.props.setStartDate(
-      startDate &&
-        new Date(
-          Date.UTC(
-            startDate.getFullYear(),
-            startDate.getMonth(),
-            startDate.getDate()
-          )
-        )
-    );
-    this.props.setEndDate(
-      endDate &&
-        new Date(
-          Date.UTC(endDate.getFullYear(), endDate.getMonth(), endDate.getDate())
-        )
-    );
+    this.props.setStartDate(startDate);
+    this.props.setEndDate(endDate);
   };
 
   render() {

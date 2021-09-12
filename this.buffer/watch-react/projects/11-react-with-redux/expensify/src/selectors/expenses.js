@@ -1,21 +1,19 @@
-import { isEqual, isBefore, isAfter, fromUnixTime } from "date-fns";
-
 export const getVisibleExpenses = (
   expenses,
   { text, sortBy, startDate, endDate }
 ) => {
   return expenses
     .filter((expense) => {
-      const createdAt = fromUnixTime(expense.createdAt);
-
-      console.log(createdAt, endDate);
+      const { createdAt } = expense;
 
       const startDateMatch = startDate
-        ? isEqual(startDate, createdAt) || isBefore(startDate, createdAt)
+        ? startDate.hasSame(createdAt, "day") || startDate < createdAt
         : true;
+
       const endDateMatch = endDate
-        ? isEqual(endDate, createdAt) || isAfter(endDate, createdAt)
+        ? endDate.hasSame(createdAt, "day") || endDate > createdAt
         : true;
+
       const textMatch = expense.description
         .toLowerCase()
         .includes(text.toLowerCase());

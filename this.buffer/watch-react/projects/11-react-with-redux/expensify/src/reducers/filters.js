@@ -1,10 +1,10 @@
-import { startOfMonth, endOfMonth, getUnixTime, fromUnixTime } from "date-fns";
+import { DateTime } from "luxon";
 
 const filtersReducerDefaultState = {
   text: "",
   sortBy: "date", // "date" or "amount"
-  startDate: startOfMonth(new Date()),
-  endDate: endOfMonth(new Date())
+  startDate: DateTime.utc().startOf("month"),
+  endDate: DateTime.utc().endOf("month")
 };
 
 export const filtersReducer = (state = filtersReducerDefaultState, action) => {
