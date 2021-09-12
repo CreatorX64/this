@@ -24,8 +24,6 @@ class ExpenseListFilters extends React.Component {
 
     const [startDate, endDate] = newValue;
 
-    // this.props.setStartDate(startDate && startDate.startOf("day"));
-    // this.props.setEndDate(endDate && endDate.endOf("day"));
     this.props.setStartDate(startDate);
     this.props.setEndDate(endDate);
   };
