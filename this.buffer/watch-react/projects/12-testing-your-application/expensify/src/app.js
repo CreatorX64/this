@@ -17,7 +17,7 @@ store.dispatch(addExpense({ description: "Water bill", amount: 4500 }));
 store.dispatch(
   addExpense({
     description: "Gas bill",
-    createdAt: DateTime.local(2021, 9, 15)
+    createdAt: DateTime.local(2021, 6, 15)
   })
 );
 store.dispatch(addExpense({ description: "Rent", amount: 109500 }));
