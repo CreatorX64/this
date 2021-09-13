@@ -45,7 +45,7 @@ test("should setup add expense action object with default values", () => {
       description: "",
       note: "",
       amount: 0,
-      createdAt: expect.any(DateTime)
+      createdAt: DateTime.fromMillis(0)
     }
   });
 });

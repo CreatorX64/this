@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack",
     "serve": "webpack serve --open",
-    "test": "jest"
+    "test": "jest --config=jest.config.json"
   },
   "author": "",
   "license": "ISC",
@@ -14,9 +14,13 @@
     "@babel/core": "^7.15.5",
     "@babel/preset-env": "^7.15.4",
     "@babel/preset-react": "^7.14.5",
+    "@wojtekmaj/enzyme-adapter-react-17": "^0.6.3",
     "babel-loader": "^8.2.2",
     "css-loader": "^6.2.0",
+    "enzyme": "^3.11.0",
+    "enzyme-to-json": "^3.6.2",
     "jest": "^27.1.1",
+    "raf": "^3.4.1",
     "react-test-renderer": "^17.0.2",
     "sass": "^1.39.0",
     "sass-loader": "^12.1.0",
