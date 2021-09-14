@@ -154,6 +154,7 @@ thumb
 sketch
 
 build
+bundle*
 
 .env.local
 .env.development.local
