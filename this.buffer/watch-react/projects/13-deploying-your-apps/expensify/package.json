@@ -6,7 +6,9 @@
   "scripts": {
     "build-dev": "webpack --config webpack.dev.js",
     "build-prod": "webpack --config webpack.prod.js",
-    "start": "webpack serve --open --config webpack.dev.js",
+    "heroku-postbuild": "npm run build-prod",
+    "serve-dev": "webpack serve --open --config webpack.dev.js",
+    "start": "node server/server.js",
     "test": "jest --config=jest.config.json"
   },
   "author": "",
