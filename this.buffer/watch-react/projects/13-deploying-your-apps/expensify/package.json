@@ -42,6 +42,7 @@
     "express": "^4.17.1",
     "luxon": "^1.28.0",
     "normalize.css": "^8.0.1",
+    "numeral": "^2.0.6",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-modal": "^3.14.3",
