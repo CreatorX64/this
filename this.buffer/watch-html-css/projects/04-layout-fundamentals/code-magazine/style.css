@@ -171,7 +171,8 @@ h1::first-letter {
 h2 {
   position: relative;
 }
-h2::after {
+
+/* h2::after {
   content: "TOP";
   background-color: #ffe70e;
   color: #333;
@@ -182,7 +183,7 @@ h2::after {
   position: absolute;
   top: -10px;
   right: -25px;
-}
+} */
 
 /* Floats */
 

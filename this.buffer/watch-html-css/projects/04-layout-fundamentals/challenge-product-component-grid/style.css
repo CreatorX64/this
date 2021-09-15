@@ -42,7 +42,6 @@ p {
 /* Product information */
 
 .product-info {
-  flex: 1;
   margin-top: 20px;
 }
 
@@ -133,7 +132,6 @@ p {
 /* Product details */
 
 .product-details {
-  flex: 1;
   margin-top: 20px;
 }
 
