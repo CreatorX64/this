@@ -1,7 +1,12 @@
 import { DateTime } from "luxon";
-import { push, ref } from "firebase/database";
+import { get, push, ref } from "firebase/database";
 import { db } from "../firebase/firebase";
-import { ADD_EXPENSE, REMOVE_EXPENSE, EDIT_EXPENSE } from "./types";
+import {
+  ADD_EXPENSE,
+  REMOVE_EXPENSE,
+  EDIT_EXPENSE,
+  SET_EXPENSES
+} from "./types";
 
 export const addExpense = (expense) => ({
   type: ADD_EXPENSE,
@@ -41,3 +46,20 @@ export const editExpense = (id, updates) => ({
   id,
   updates
 });
+
+export const setExpenses = (expenses) => ({
+  type: SET_EXPENSES,
+  expenses
+});
+
+export const startSetExpenses = () => {
+  return (dispatch) => {
+    return get(ref(db, "expenses")).then((snapshot) => {
+      const expenses = [];
+      snapshot.forEach((childSnapshot) => {
+        expenses.push({ id: childSnapshot.key, ...childSnapshot.val() });
+      });
+      dispatch(setExpenses(expenses));
+    });
+  };
+};

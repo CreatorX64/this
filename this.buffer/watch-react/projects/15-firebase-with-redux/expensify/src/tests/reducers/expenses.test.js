@@ -1,6 +1,12 @@
 import { expect, test } from "@jest/globals";
 import { DateTime } from "luxon";
-import { ADD_EXPENSE, EDIT_EXPENSE, INIT, REMOVE_EXPENSE } from "../../actions";
+import {
+  ADD_EXPENSE,
+  EDIT_EXPENSE,
+  INIT,
+  REMOVE_EXPENSE,
+  SET_EXPENSES
+} from "../../actions";
 import { expenses } from "../fixtures/expenses";
 import { expensesReducer, expensesDefaults } from "../../reducers/expenses";
 
@@ -54,4 +60,13 @@ test("should not edit an expense if expense not found", () => {
   };
   const state = expensesReducer(expenses, action);
   expect(state).toEqual(expenses);
+});
+
+test("should set expenses", () => {
+  const action = {
+    type: SET_EXPENSES,
+    expenses: [expenses[1]]
+  };
+  const state = expensesReducer(expenses, action);
+  expect(state).toEqual([expenses[1]]);
 });
