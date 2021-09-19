@@ -14,24 +14,18 @@ export const startAddExpense = (expense = {}) => {
       description = "",
       note = "",
       amount = 0,
-      createdAt = DateTime.now()
+      createdAt = DateTime.now().toMillis()
     } = expense;
 
     const expenseDto = {
       description,
       note,
       amount,
-      // Serialize DateTime instance into Unix timestamp to store in DB
-      createdAt: createdAt.toMillis()
+      createdAt
     };
 
-    push(ref(db, "expenses"), expenseDto).then((ref) => {
-      const newExpense = {
-        ...expenseDto,
-        id: ref.key,
-        // Deserialize DateTime instance from Unix timestamp to use in app
-        createdAt: DateTime.fromMillis(expenseDto.createdAt)
-      };
+    return push(ref(db, "expenses"), expenseDto).then((ref) => {
+      const newExpense = { ...expenseDto, id: ref.key };
       dispatch(addExpense(newExpense));
     });
   };

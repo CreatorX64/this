@@ -1,3 +1,4 @@
+import { DateTime } from "luxon";
 import numeral from "numeral";
 import React from "react";
 import { Link } from "react-router-dom";
@@ -9,7 +10,7 @@ export const ExpenseListItem = ({ id, description, amount, createdAt }) => (
     </h3>
     <p>
       {numeral(amount / 100).format("$0,0.00")} -{" "}
-      {createdAt && createdAt.toFormat("MMMM d, yyyy")}
+      {createdAt && DateTime.fromMillis(createdAt).toFormat("MMMM d, yyyy")}
     </p>
   </div>
 );

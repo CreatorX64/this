@@ -1,10 +1,12 @@
+import { DateTime } from "luxon";
+
 export const getVisibleExpenses = (
   expenses,
   { text, sortBy, startDate, endDate }
 ) => {
   return expenses
     .filter((expense) => {
-      const { createdAt } = expense;
+      const createdAt = DateTime.fromMillis(expense.createdAt);
 
       const startDateMatch = startDate
         ? startDate.hasSame(createdAt, "day") || startDate < createdAt

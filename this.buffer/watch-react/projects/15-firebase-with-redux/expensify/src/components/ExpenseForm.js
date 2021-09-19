@@ -13,7 +13,9 @@ export class ExpenseForm extends React.Component {
       description: expense ? expense.description : "",
       note: expense ? expense.note : "",
       amount: expense ? (expense.amount / 100).toString() : "",
-      createdAt: expense ? expense.createdAt : DateTime.now(),
+      createdAt: expense
+        ? DateTime.fromMillis(expense.createdAt)
+        : DateTime.now(),
       error: ""
     };
   }
@@ -53,7 +55,7 @@ export class ExpenseForm extends React.Component {
       this.props.onSubmit({
         description: this.state.description,
         amount: Number(this.state.amount) * 100, // We're working with pennies
-        createdAt: this.state.createdAt,
+        createdAt: this.state.createdAt.toMillis(),
         note: this.state.note
       });
     }
