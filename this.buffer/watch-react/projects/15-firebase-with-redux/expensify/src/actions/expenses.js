@@ -8,20 +8,34 @@ export const addExpense = (expense) => ({
   expense
 });
 
-export const startAddExpense =
-  (expenseData = {}) =>
-  (dispatch) => {
+export const startAddExpense = (expense = {}) => {
+  return (dispatch) => {
     const {
       description = "",
       note = "",
       amount = 0,
       createdAt = DateTime.now()
-    } = expenseData;
-    const expense = { description, note, amount, createdAt };
-    push(ref(db, "expenses"), expense).then((ref) => {
-      dispatch(addExpense({ ...expense, id: ref.key }));
+    } = expense;
+
+    const expenseDto = {
+      description,
+      note,
+      amount,
+      // Serialize DateTime instance into Unix timestamp to store in DB
+      createdAt: createdAt.toMillis()
+    };
+
+    push(ref(db, "expenses"), expenseDto).then((ref) => {
+      const newExpense = {
+        ...expenseDto,
+        id: ref.key,
+        // Deserialize DateTime instance from Unix timestamp to use in app
+        createdAt: DateTime.fromMillis(expenseDto.createdAt)
+      };
+      dispatch(addExpense(newExpense));
     });
   };
+};
 
 export const removeExpense = (id) => ({
   type: REMOVE_EXPENSE,
