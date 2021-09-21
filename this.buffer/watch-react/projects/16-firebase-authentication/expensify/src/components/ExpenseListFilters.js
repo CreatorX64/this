@@ -9,34 +9,41 @@ import {
   sortByAmount,
   setStartDate,
   setEndDate
-} from "../actions";
+} from "../actions/filters";
 
 export class ExpenseListFilters extends React.Component {
   constructor(props) {
     super(props);
+
+    this.onRangePickerValueChange = this.onRangePickerValueChange.bind(this);
+    this.onTextChange = this.onTextChange.bind(this);
+    this.onSortChange = this.onSortChange.bind(this);
+
     this.state = {
       rangePickerValue: [props.filters.startDate, props.filters.endDate]
     };
   }
 
-  onRangePickerValueChange = (newValue) => {
+  onRangePickerValueChange(newValue) {
     this.setState(() => ({ rangePickerValue: newValue }));
 
     const [startDate, endDate] = newValue;
 
     this.props.setStartDate(startDate);
     this.props.setEndDate(endDate);
-  };
+  }
 
-  onTextChange = (e) => this.props.setTextFilter(e.target.value);
+  onTextChange(e) {
+    this.props.setTextFilter(e.target.value);
+  }
 
-  onSortChange = (e) => {
+  onSortChange(e) {
     if (e.target.value === "date") {
       this.props.sortByDate();
     } else if (e.target.value === "amount") {
       this.props.sortByAmount();
     }
-  };
+  }
 
   render() {
     return (
@@ -76,17 +83,19 @@ export class ExpenseListFilters extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => ({
-  filters: state.filters
-});
+function mapStateToProps(state) {
+  return {
+    filters: state.filters
+  };
+}
 
-const mapDispatchToProps = (dispatch) => ({
-  setTextFilter: (text) => dispatch(setTextFilter(text)),
-  sortByDate: () => dispatch(sortByDate()),
-  sortByAmount: () => dispatch(sortByAmount()),
-  setStartDate: (startDate) => dispatch(setStartDate(startDate)),
-  setEndDate: (endDate) => dispatch(setEndDate(endDate))
-});
+const mapDispatchToProps = {
+  setTextFilter,
+  sortByDate,
+  sortByAmount,
+  setStartDate,
+  setEndDate
+};
 
 export const ConnectedExpenseListFilters = connect(
   mapStateToProps,

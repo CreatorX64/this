@@ -9,13 +9,15 @@ import {
   setExpenses,
   startSetExpenses,
   startAddExpense,
+  startRemoveExpense,
+  startEditExpense
+} from "../../actions/expenses";
+import {
   ADD_EXPENSE,
   EDIT_EXPENSE,
   REMOVE_EXPENSE,
-  SET_EXPENSES,
-  startRemoveExpense,
-  startEditExpense
-} from "../../actions";
+  SET_EXPENSES
+} from "../../actions/types";
 import { expenses } from "../fixtures/expenses";
 import { db } from "../../firebase/firebase";
 

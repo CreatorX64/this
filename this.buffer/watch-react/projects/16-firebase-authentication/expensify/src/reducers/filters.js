@@ -5,7 +5,7 @@ import {
   SORT_BY_DATE,
   SET_START_DATE,
   SET_END_DATE
-} from "../actions";
+} from "../actions/types";
 
 export const filtersDefaults = {
   text: "",
@@ -14,7 +14,7 @@ export const filtersDefaults = {
   endDate: DateTime.now().endOf("month")
 };
 
-export const filtersReducer = (state = filtersDefaults, action) => {
+export function filtersReducer(state = filtersDefaults, action) {
   switch (action.type) {
     case SET_TEXT_FILTER:
       return { ...state, text: action.text };
@@ -29,4 +29,4 @@ export const filtersReducer = (state = filtersDefaults, action) => {
     default:
       return state;
   }
-};
+}

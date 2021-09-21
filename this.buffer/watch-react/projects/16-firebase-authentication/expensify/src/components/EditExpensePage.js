@@ -1,18 +1,24 @@
 import React from "react";
 import { connect } from "react-redux";
-import { startEditExpense, startRemoveExpense } from "../actions";
+import { startEditExpense, startRemoveExpense } from "../actions/expenses";
 import { ExpenseForm } from "./ExpenseForm";
 
 export class EditExpensePage extends React.Component {
-  onSubmit = (expense) => {
+  constructor(props) {
+    super(props);
+    this.onSubmit = this.onSubmit.bind(this);
+    this.onRemove = this.onRemove.bind(this);
+  }
+
+  onSubmit(expense) {
     this.props.startEditExpense(this.props.match.params.id, expense);
     this.props.history.push("/");
-  };
+  }
 
-  onRemove = () => {
+  onRemove() {
     this.props.startRemoveExpense(this.props.expense.id);
     this.props.history.push("/");
-  };
+  }
 
   render() {
     return (
@@ -24,16 +30,18 @@ export class EditExpensePage extends React.Component {
   }
 }
 
-const mapStateToProps = (state, props) => ({
-  expense: state.expenses.find(
-    (expense) => expense.id === props.match.params.id
-  )
-});
+function mapStateToProps(state, props) {
+  return {
+    expense: state.expenses.find(
+      (expense) => expense.id === props.match.params.id
+    )
+  };
+}
 
-const mapDispatchToProps = (dispatch) => ({
-  startEditExpense: (id, expense) => dispatch(startEditExpense(id, expense)),
-  startRemoveExpense: (id) => dispatch(startRemoveExpense(id))
-});
+const mapDispatchToProps = {
+  startEditExpense,
+  startRemoveExpense
+};
 
 export const ConnectedEditExpensePage = connect(
   mapStateToProps,

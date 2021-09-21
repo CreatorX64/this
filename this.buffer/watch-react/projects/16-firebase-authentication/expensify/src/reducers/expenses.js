@@ -3,11 +3,11 @@ import {
   REMOVE_EXPENSE,
   EDIT_EXPENSE,
   SET_EXPENSES
-} from "../actions";
+} from "../actions/types";
 
 export const expensesDefaults = [];
 
-export const expensesReducer = (state = expensesDefaults, action) => {
+export function expensesReducer(state = expensesDefaults, action) {
   switch (action.type) {
     case ADD_EXPENSE:
       return [...state, action.expense];
@@ -26,4 +26,4 @@ export const expensesReducer = (state = expensesDefaults, action) => {
     default:
       return state;
   }
-};
+}

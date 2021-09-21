@@ -8,13 +8,15 @@ import {
   SET_EXPENSES
 } from "./types";
 
-export const addExpense = (expense) => ({
-  type: ADD_EXPENSE,
-  expense
-});
+export function addExpense(expense) {
+  return {
+    type: ADD_EXPENSE,
+    expense
+  };
+}
 
-export const startAddExpense = (expense = {}) => {
-  return (dispatch) => {
+export function startAddExpense(expense = {}) {
+  return function (dispatch) {
     const {
       description = "",
       note = "",
@@ -34,42 +36,48 @@ export const startAddExpense = (expense = {}) => {
       dispatch(addExpense(newExpense));
     });
   };
-};
+}
 
-export const removeExpense = (id) => ({
-  type: REMOVE_EXPENSE,
-  id
-});
+export function removeExpense(id) {
+  return {
+    type: REMOVE_EXPENSE,
+    id
+  };
+}
 
-export const startRemoveExpense = (id) => {
-  return (dispatch) => {
+export function startRemoveExpense(id) {
+  return function (dispatch) {
     return remove(ref(db, `expenses/${id}`)).then(() => {
       dispatch(removeExpense(id));
     });
   };
-};
+}
 
-export const editExpense = (id, updates) => ({
-  type: EDIT_EXPENSE,
-  id,
-  updates
-});
+export function editExpense(id, updates) {
+  return {
+    type: EDIT_EXPENSE,
+    id,
+    updates
+  };
+}
 
-export const startEditExpense = (id, updates) => {
-  return (dispatch) => {
+export function startEditExpense(id, updates) {
+  return function (dispatch) {
     return update(ref(db, `expenses/${id}`), updates).then(() => {
       dispatch(editExpense(id, updates));
     });
   };
-};
+}
 
-export const setExpenses = (expenses) => ({
-  type: SET_EXPENSES,
-  expenses
-});
+export function setExpenses(expenses) {
+  return {
+    type: SET_EXPENSES,
+    expenses
+  };
+}
 
-export const startSetExpenses = () => {
-  return (dispatch) => {
+export function startSetExpenses() {
+  return function (dispatch) {
     return get(ref(db, "expenses")).then((snapshot) => {
       const expenses = [];
       snapshot.forEach((childSnapshot) => {
@@ -78,4 +86,4 @@ export const startSetExpenses = () => {
       dispatch(setExpenses(expenses));
     });
   };
-};
+}

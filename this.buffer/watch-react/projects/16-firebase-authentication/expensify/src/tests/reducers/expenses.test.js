@@ -6,7 +6,7 @@ import {
   INIT,
   REMOVE_EXPENSE,
   SET_EXPENSES
-} from "../../actions";
+} from "../../actions/types";
 import { expenses } from "../fixtures/expenses";
 import { expensesReducer, expensesDefaults } from "../../reducers/expenses";
 

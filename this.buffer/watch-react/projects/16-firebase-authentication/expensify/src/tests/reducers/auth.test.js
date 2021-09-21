@@ -1,5 +1,5 @@
 import { expect, test } from "@jest/globals";
-import { LOGIN, LOGOUT } from "../../actions";
+import { LOGIN, LOGOUT } from "../../actions/types";
 import { authReducer } from "../../reducers/auth";
 
 test("should set uid for login", () => {

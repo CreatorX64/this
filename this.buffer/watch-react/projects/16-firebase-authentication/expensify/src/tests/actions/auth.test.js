@@ -1,5 +1,6 @@
 import { expect, test } from "@jest/globals";
-import { LOGIN, login, LOGOUT, logout } from "../../actions";
+import { login, logout } from "../../actions/auth";
+import { LOGIN, LOGOUT } from "../../actions/types";
 
 test("should generate login action object", () => {
   const uid = "abc123";

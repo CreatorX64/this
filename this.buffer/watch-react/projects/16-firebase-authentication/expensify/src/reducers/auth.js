@@ -1,6 +1,6 @@
-import { LOGIN, LOGOUT } from "../actions";
+import { LOGIN, LOGOUT } from "../actions/types";
 
-export const authReducer = (state = {}, action) => {
+export function authReducer(state = {}, action) {
   switch (action.type) {
     case LOGIN:
       return { uid: action.uid };
@@ -9,4 +9,4 @@ export const authReducer = (state = {}, action) => {
     default:
       return state;
   }
-};
+}

@@ -1,9 +1,8 @@
 import { DateTime } from "luxon";
 
-export const getVisibleExpenses = (
-  expenses,
-  { text, sortBy, startDate, endDate }
-) => {
+export function getVisibleExpenses(expenses, filters) {
+  const { text, sortBy, startDate, endDate } = filters;
+
   return expenses
     .filter((expense) => {
       const createdAt = DateTime.fromMillis(expense.createdAt);
@@ -29,4 +28,4 @@ export const getVisibleExpenses = (
         return a.amount < b.amount ? 1 : -1;
       }
     });
-};
+}

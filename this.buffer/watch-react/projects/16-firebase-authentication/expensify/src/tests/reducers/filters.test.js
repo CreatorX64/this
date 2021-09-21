@@ -8,7 +8,7 @@ import {
   SET_TEXT_FILTER,
   SORT_BY_AMOUNT,
   SORT_BY_DATE
-} from "../../actions";
+} from "../../actions/types";
 
 test("should setup default filter values", () => {
   const state = filtersReducer(undefined, { type: INIT });

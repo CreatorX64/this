@@ -6,25 +6,35 @@ import {
   SET_END_DATE
 } from "./types";
 
-export const setTextFilter = (text = "") => ({
-  type: SET_TEXT_FILTER,
-  text
-});
+export function setTextFilter(text = "") {
+  return {
+    type: SET_TEXT_FILTER,
+    text
+  };
+}
 
-export const sortByAmount = () => ({
-  type: SORT_BY_AMOUNT
-});
+export function sortByAmount() {
+  return {
+    type: SORT_BY_AMOUNT
+  };
+}
 
-export const sortByDate = () => ({
-  type: SORT_BY_DATE
-});
+export function sortByDate() {
+  return {
+    type: SORT_BY_DATE
+  };
+}
 
-export const setStartDate = (startDate = null) => ({
-  type: SET_START_DATE,
-  startDate
-});
+export function setStartDate(startDate = null) {
+  return {
+    type: SET_START_DATE,
+    startDate
+  };
+}
 
-export const setEndDate = (endDate = null) => ({
-  type: SET_END_DATE,
-  endDate
-});
+export function setEndDate(endDate = null) {
+  return {
+    type: SET_END_DATE,
+    endDate
+  };
+}

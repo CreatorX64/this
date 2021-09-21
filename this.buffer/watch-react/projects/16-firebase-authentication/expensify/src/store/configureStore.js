@@ -6,13 +6,12 @@ import { filtersReducer } from "../reducers/filters";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-export const configureStore = () => {
-  return createStore(
-    combineReducers({
-      auth: authReducer,
-      expenses: expensesReducer,
-      filters: filtersReducer
-    }),
-    composeEnhancers(applyMiddleware(thunk))
-  );
-};
+const reducers = combineReducers({
+  auth: authReducer,
+  expenses: expensesReducer,
+  filters: filtersReducer
+});
+
+export function configureStore() {
+  return createStore(reducers, composeEnhancers(applyMiddleware(thunk)));
+}
