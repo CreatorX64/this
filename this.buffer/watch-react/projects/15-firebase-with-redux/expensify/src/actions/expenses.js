@@ -1,5 +1,5 @@
 import { DateTime } from "luxon";
-import { get, push, ref, remove } from "firebase/database";
+import { get, push, ref, remove, update } from "firebase/database";
 import { db } from "../firebase/firebase";
 import {
   ADD_EXPENSE,
@@ -54,6 +54,14 @@ export const editExpense = (id, updates) => ({
   id,
   updates
 });
+
+export const startEditExpense = (id, updates) => {
+  return (dispatch) => {
+    return update(ref(db, `expenses/${id}`), updates).then(() => {
+      dispatch(editExpense(id, updates));
+    });
+  };
+};
 
 export const setExpenses = (expenses) => ({
   type: SET_EXPENSES,
