@@ -1,9 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Redirect, Route } from "react-router-dom";
-import { ConnectedHeader as Header } from "../components/Header";
 
-export function PrivateRoute(props) {
+export function PublicRoute(props) {
   const { isAuthenticated, component: Component, ...rest } = props;
 
   return (
@@ -11,12 +10,9 @@ export function PrivateRoute(props) {
       {...rest}
       component={(props) =>
         isAuthenticated ? (
-          <div>
-            <Header />
-            <Component {...props} />
-          </div>
+          <Redirect to="/dashboard" />
         ) : (
-          <Redirect to="/" />
+          <Component {...props} />
         )
       }
     />
@@ -29,4 +25,4 @@ function mapStateToProps(state) {
   };
 }
 
-export const ConnectedPrivateRoute = connect(mapStateToProps)(PrivateRoute);
+export const ConnectedPublicRoute = connect(mapStateToProps)(PublicRoute);
