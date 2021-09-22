@@ -1,0 +1,24 @@
+@use "../base/global" as g;
+
+.box-layout {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url("/images/bg.jpg");
+  background-size: cover;
+}
+
+.box-layout__box {
+  background: fade-out(#fff, 0.15);
+  border-radius: 3px;
+  padding: g.$l-size g.$m-size;
+  text-align: center;
+  width: 250px;
+}
+
+.box-layout__title {
+  margin: 0 0 g.$m-size 0;
+  line-height: 1;
+}
