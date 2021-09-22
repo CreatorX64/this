@@ -69,39 +69,42 @@ export class ExpenseForm extends React.Component {
 
   render() {
     return (
-      <div>
-        {this.state.error && <p>{this.state.error}</p>}
-        <form onSubmit={this.onSubmit}>
-          <input
-            type="text"
-            placeholder="Description"
-            value={this.state.description}
-            onChange={this.onDescriptionChange}
-            autoFocus
-          />
-          <input
-            type="text"
-            placeholder="Amount"
-            value={this.state.amount}
-            onChange={this.onAmountChange}
-          />
-          <DatePicker
-            label="Created At"
-            inputFormat="dd/MM/yyyy"
-            value={this.state.createdAt}
-            onChange={this.onDateChange}
-            renderInput={(props) => <TextField {...props} />}
-            showDaysOutsideCurrentMonth={false}
-            inputProps={{ readOnly: true }}
-          />
-          <textarea
-            placeholder="Add a note for your expense (optional)"
-            value={this.state.note}
-            onChange={this.onNoteChange}
-          />
-          <button>Add Expense</button>
-        </form>
-      </div>
+      <form className="form" onSubmit={this.onSubmit}>
+        {this.state.error && <p className="form__error">{this.state.error}</p>}
+        <input
+          type="text"
+          className="text-input"
+          placeholder="Description"
+          value={this.state.description}
+          onChange={this.onDescriptionChange}
+          autoFocus
+        />
+        <input
+          type="text"
+          className="text-input"
+          placeholder="Amount"
+          value={this.state.amount}
+          onChange={this.onAmountChange}
+        />
+        <DatePicker
+          label="Created At"
+          inputFormat="dd/MM/yyyy"
+          value={this.state.createdAt}
+          onChange={this.onDateChange}
+          renderInput={(props) => <TextField {...props} />}
+          showDaysOutsideCurrentMonth={false}
+          inputProps={{ readOnly: true }}
+        />
+        <textarea
+          className="textarea"
+          placeholder="Add a note for your expense (optional)"
+          value={this.state.note}
+          onChange={this.onNoteChange}
+        />
+        <div>
+          <button className="button">Save Expense</button>
+        </div>
+      </form>
     );
   }
 }

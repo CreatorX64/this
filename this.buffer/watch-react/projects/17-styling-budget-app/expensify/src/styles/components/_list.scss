@@ -1,0 +1,66 @@
+@use "../base/global" as g;
+
+.list-header {
+  background-color: g.$off-white;
+  border: 1px solid darken(g.$off-white, 7%);
+  color: g.$grey;
+  display: flex;
+  justify-content: space-between;
+  padding: g.$s-size g.$m-size;
+}
+
+.list-body {
+  margin-bottom: g.$m-size;
+
+  @media (min-width: g.$desktop-breakpoint) {
+    margin-bottom: g.$l-size;
+  }
+}
+
+.list-item {
+  border: 1px solid darken(g.$off-white, 7%);
+  border-top: none;
+  color: g.$dark-grey;
+  display: flex;
+  flex-direction: column;
+  gap: g.$s-size;
+  padding: g.$s-size;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background: g.$off-white;
+  }
+
+  @media (min-width: g.$desktop-breakpoint) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: g.$m-size;
+  }
+}
+
+.list-item__title {
+  margin: 0;
+  word-break: break-word;
+}
+
+.list-item__sub-title {
+  color: g.$grey;
+  font-size: g.$font-size-small;
+}
+
+.list-item__data {
+  margin: 0;
+}
+
+.list-item--message {
+  justify-content: center;
+  align-items: center;
+  color: g.$grey;
+  padding: g.$m-size;
+
+  &:hover {
+    background: none;
+  }
+}

@@ -1,81 +1,123 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render ExpenseListFilters 1`] = `
-<div>
-  <input
-    onChange={[Function]}
-    type="text"
-    value=""
-  />
-  <select
-    onChange={[Function]}
-    value="date"
+<div
+  className="content-container"
+>
+  <div
+    className="input-group"
   >
-    <option
-      value="date"
+    <div
+      className="input-group__item"
     >
-      Date
-    </option>
-    <option
-      value="amount"
+      <input
+        className="text-input"
+        onChange={[Function]}
+        placeholder="Search expenses"
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      className="input-group__item"
     >
-      Amount
-    </option>
-  </select>
-  <ForwardRef(DateRangePicker)
-    calendars={1}
-    clearable={true}
-    endText="End date"
-    inputFormat="dd/MM/yyyy"
-    onChange={[Function]}
-    renderInput={[Function]}
-    startText="Start date"
-    value={
-      Array [
-        null,
-        null,
-      ]
-    }
-  />
+      <select
+        className="select"
+        onChange={[Function]}
+        value="date"
+      >
+        <option
+          value="date"
+        >
+          Date
+        </option>
+        <option
+          value="amount"
+        >
+          Amount
+        </option>
+      </select>
+    </div>
+    <div
+      className="input-group__item"
+    >
+      <ForwardRef(DateRangePicker)
+        calendars={1}
+        clearable={true}
+        endText="End date"
+        inputFormat="dd/MM/yyyy"
+        onChange={[Function]}
+        renderInput={[Function]}
+        startText="Start date"
+        value={
+          Array [
+            null,
+            null,
+          ]
+        }
+      />
+    </div>
+  </div>
 </div>
 `;
 
 exports[`should render ExpenseListFilters with alt filters 1`] = `
-<div>
-  <input
-    onChange={[Function]}
-    type="text"
-    value="bills"
-  />
-  <select
-    onChange={[Function]}
-    value="amount"
+<div
+  className="content-container"
+>
+  <div
+    className="input-group"
   >
-    <option
-      value="date"
+    <div
+      className="input-group__item"
     >
-      Date
-    </option>
-    <option
-      value="amount"
+      <input
+        className="text-input"
+        onChange={[Function]}
+        placeholder="Search expenses"
+        type="text"
+        value="bills"
+      />
+    </div>
+    <div
+      className="input-group__item"
     >
-      Amount
-    </option>
-  </select>
-  <ForwardRef(DateRangePicker)
-    calendars={1}
-    clearable={true}
-    endText="End date"
-    inputFormat="dd/MM/yyyy"
-    onChange={[Function]}
-    renderInput={[Function]}
-    startText="Start date"
-    value={
-      Array [
-        "1970-01-01T02:00:00.000+02:00",
-        "1970-01-04T02:00:00.000+02:00",
-      ]
-    }
-  />
+      <select
+        className="select"
+        onChange={[Function]}
+        value="amount"
+      >
+        <option
+          value="date"
+        >
+          Date
+        </option>
+        <option
+          value="amount"
+        >
+          Amount
+        </option>
+      </select>
+    </div>
+    <div
+      className="input-group__item"
+    >
+      <ForwardRef(DateRangePicker)
+        calendars={1}
+        clearable={true}
+        endText="End date"
+        inputFormat="dd/MM/yyyy"
+        onChange={[Function]}
+        renderInput={[Function]}
+        startText="Start date"
+        value={
+          Array [
+            "1970-01-01T02:00:00.000+02:00",
+            "1970-01-04T02:00:00.000+02:00",
+          ]
+        }
+      />
+    </div>
+  </div>
 </div>
 `;

@@ -2,7 +2,7 @@ import { createBrowserHistory } from "history";
 import React from "react";
 import { Route, Router, Switch } from "react-router-dom";
 import { ConnectedPrivateRoute as PrivateRoute } from "./PrivateRoute";
-import { ConnectedPublicRoute as PublicRoute } from "../components/PublicRoute";
+import { ConnectedPublicRoute as PublicRoute } from "./PublicRoute";
 import { ConnectedAddExpensePage as AddExpensePage } from "../components/AddExpensePage";
 import { ConnectedEditExpensePage as EditExpensePage } from "../components/EditExpensePage";
 import { ExpenseDashboardPage } from "../components/ExpenseDashboardPage";

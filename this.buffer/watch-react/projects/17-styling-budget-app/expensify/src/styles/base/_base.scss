@@ -5,6 +5,10 @@
 //   font-size: 62.5%;
 // }
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   color: g.$dark-grey;
   font-family: "Inter", "Arial", sans-serif;

@@ -1,176 +1,202 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render ExpenseForm 1`] = `
-<div>
-  <form
-    onSubmit={[Function]}
-  >
-    <input
-      autoFocus={true}
-      onChange={[Function]}
-      placeholder="Description"
-      type="text"
-      value=""
-    />
-    <input
-      onChange={[Function]}
-      placeholder="Amount"
-      type="text"
-      value=""
-    />
-    <ForwardRef(DatePicker)
-      inputFormat="dd/MM/yyyy"
-      inputProps={
-        Object {
-          "readOnly": true,
-        }
+<form
+  className="form"
+  onSubmit={[Function]}
+>
+  <input
+    autoFocus={true}
+    className="text-input"
+    onChange={[Function]}
+    placeholder="Description"
+    type="text"
+    value=""
+  />
+  <input
+    className="text-input"
+    onChange={[Function]}
+    placeholder="Amount"
+    type="text"
+    value=""
+  />
+  <ForwardRef(DatePicker)
+    inputFormat="dd/MM/yyyy"
+    inputProps={
+      Object {
+        "readOnly": true,
       }
-      label="Created At"
-      onChange={[Function]}
-      renderInput={[Function]}
-      showDaysOutsideCurrentMonth={false}
-      value={"1970-01-01T02:00:00.000+02:00"}
-    />
-    <textarea
-      onChange={[Function]}
-      placeholder="Add a note for your expense (optional)"
-      value=""
-    />
-    <button>
-      Add Expense
+    }
+    label="Created At"
+    onChange={[Function]}
+    renderInput={[Function]}
+    showDaysOutsideCurrentMonth={false}
+    value={"1970-01-01T02:00:00.000+02:00"}
+  />
+  <textarea
+    className="textarea"
+    onChange={[Function]}
+    placeholder="Add a note for your expense (optional)"
+    value=""
+  />
+  <div>
+    <button
+      className="button"
+    >
+      Save Expense
     </button>
-  </form>
-</div>
+  </div>
+</form>
 `;
 
 exports[`should render ExpenseForm with expense 1`] = `
-<div>
-  <form
-    onSubmit={[Function]}
-  >
-    <input
-      autoFocus={true}
-      onChange={[Function]}
-      placeholder="Description"
-      type="text"
-      value="Rent"
-    />
-    <input
-      onChange={[Function]}
-      placeholder="Amount"
-      type="text"
-      value="1095"
-    />
-    <ForwardRef(DatePicker)
-      inputFormat="dd/MM/yyyy"
-      inputProps={
-        Object {
-          "readOnly": true,
-        }
+<form
+  className="form"
+  onSubmit={[Function]}
+>
+  <input
+    autoFocus={true}
+    className="text-input"
+    onChange={[Function]}
+    placeholder="Description"
+    type="text"
+    value="Rent"
+  />
+  <input
+    className="text-input"
+    onChange={[Function]}
+    placeholder="Amount"
+    type="text"
+    value="1095"
+  />
+  <ForwardRef(DatePicker)
+    inputFormat="dd/MM/yyyy"
+    inputProps={
+      Object {
+        "readOnly": true,
       }
-      label="Created At"
-      onChange={[Function]}
-      renderInput={[Function]}
-      showDaysOutsideCurrentMonth={false}
-      value={"1969-12-28T02:00:00.000+02:00"}
-    />
-    <textarea
-      onChange={[Function]}
-      placeholder="Add a note for your expense (optional)"
-      value=""
-    />
-    <button>
-      Add Expense
+    }
+    label="Created At"
+    onChange={[Function]}
+    renderInput={[Function]}
+    showDaysOutsideCurrentMonth={false}
+    value={"1969-12-28T02:00:00.000+02:00"}
+  />
+  <textarea
+    className="textarea"
+    onChange={[Function]}
+    placeholder="Add a note for your expense (optional)"
+    value=""
+  />
+  <div>
+    <button
+      className="button"
+    >
+      Save Expense
     </button>
-  </form>
-</div>
+  </div>
+</form>
 `;
 
 exports[`should render error for invalid form submission 1`] = `
-<div>
-  <form
-    onSubmit={[Function]}
-  >
-    <input
-      autoFocus={true}
-      onChange={[Function]}
-      placeholder="Description"
-      type="text"
-      value=""
-    />
-    <input
-      onChange={[Function]}
-      placeholder="Amount"
-      type="text"
-      value=""
-    />
-    <ForwardRef(DatePicker)
-      inputFormat="dd/MM/yyyy"
-      inputProps={
-        Object {
-          "readOnly": true,
-        }
+<form
+  className="form"
+  onSubmit={[Function]}
+>
+  <input
+    autoFocus={true}
+    className="text-input"
+    onChange={[Function]}
+    placeholder="Description"
+    type="text"
+    value=""
+  />
+  <input
+    className="text-input"
+    onChange={[Function]}
+    placeholder="Amount"
+    type="text"
+    value=""
+  />
+  <ForwardRef(DatePicker)
+    inputFormat="dd/MM/yyyy"
+    inputProps={
+      Object {
+        "readOnly": true,
       }
-      label="Created At"
-      onChange={[Function]}
-      renderInput={[Function]}
-      showDaysOutsideCurrentMonth={false}
-      value={"1970-01-01T02:00:00.000+02:00"}
-    />
-    <textarea
-      onChange={[Function]}
-      placeholder="Add a note for your expense (optional)"
-      value=""
-    />
-    <button>
-      Add Expense
+    }
+    label="Created At"
+    onChange={[Function]}
+    renderInput={[Function]}
+    showDaysOutsideCurrentMonth={false}
+    value={"1970-01-01T02:00:00.000+02:00"}
+  />
+  <textarea
+    className="textarea"
+    onChange={[Function]}
+    placeholder="Add a note for your expense (optional)"
+    value=""
+  />
+  <div>
+    <button
+      className="button"
+    >
+      Save Expense
     </button>
-  </form>
-</div>
+  </div>
+</form>
 `;
 
 exports[`should render error for invalid form submission 2`] = `
-<div>
-  <p>
+<form
+  className="form"
+  onSubmit={[Function]}
+>
+  <p
+    className="form__error"
+  >
     Please provide description and amount.
   </p>
-  <form
-    onSubmit={[Function]}
-  >
-    <input
-      autoFocus={true}
-      onChange={[Function]}
-      placeholder="Description"
-      type="text"
-      value=""
-    />
-    <input
-      onChange={[Function]}
-      placeholder="Amount"
-      type="text"
-      value=""
-    />
-    <ForwardRef(DatePicker)
-      inputFormat="dd/MM/yyyy"
-      inputProps={
-        Object {
-          "readOnly": true,
-        }
+  <input
+    autoFocus={true}
+    className="text-input"
+    onChange={[Function]}
+    placeholder="Description"
+    type="text"
+    value=""
+  />
+  <input
+    className="text-input"
+    onChange={[Function]}
+    placeholder="Amount"
+    type="text"
+    value=""
+  />
+  <ForwardRef(DatePicker)
+    inputFormat="dd/MM/yyyy"
+    inputProps={
+      Object {
+        "readOnly": true,
       }
-      label="Created At"
-      onChange={[Function]}
-      renderInput={[Function]}
-      showDaysOutsideCurrentMonth={false}
-      value={"1970-01-01T02:00:00.000+02:00"}
-    />
-    <textarea
-      onChange={[Function]}
-      placeholder="Add a note for your expense (optional)"
-      value=""
-    />
-    <button>
-      Add Expense
+    }
+    label="Created At"
+    onChange={[Function]}
+    renderInput={[Function]}
+    showDaysOutsideCurrentMonth={false}
+    value={"1970-01-01T02:00:00.000+02:00"}
+  />
+  <textarea
+    className="textarea"
+    onChange={[Function]}
+    placeholder="Add a note for your expense (optional)"
+    value=""
+  />
+  <div>
+    <button
+      className="button"
+    >
+      Save Expense
     </button>
-  </form>
-</div>
+  </div>
+</form>
 `;

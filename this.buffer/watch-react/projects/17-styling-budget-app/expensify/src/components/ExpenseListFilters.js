@@ -47,37 +47,51 @@ export class ExpenseListFilters extends React.Component {
 
   render() {
     return (
-      <div>
-        <input
-          type="text"
-          value={this.props.filters.text}
-          onChange={this.onTextChange}
-        />
-        <select value={this.props.filters.sortBy} onChange={this.onSortChange}>
-          <option value="date">Date</option>
-          <option value="amount">Amount</option>
-        </select>
-        <DateRangePicker
-          startText="Start date"
-          endText="End date"
-          inputFormat="dd/MM/yyyy"
-          value={this.state.rangePickerValue}
-          onChange={this.onRangePickerValueChange}
-          calendars={1}
-          clearable={true}
-          renderInput={(startProps, endProps) => (
-            <React.Fragment>
-              <TextField {...startProps} />
-              <Box sx={{ mx: 2 }}> to </Box>
-              <TextField {...endProps} />
-              <Button
-                onClick={() => this.onRangePickerValueChange([null, null])}
-              >
-                Clear
-              </Button>
-            </React.Fragment>
-          )}
-        />
+      <div className="content-container">
+        <div className="input-group">
+          <div className="input-group__item">
+            <input
+              type="text"
+              className="text-input"
+              placeholder="Search expenses"
+              value={this.props.filters.text}
+              onChange={this.onTextChange}
+            />
+          </div>
+          <div className="input-group__item">
+            <select
+              className="select"
+              value={this.props.filters.sortBy}
+              onChange={this.onSortChange}
+            >
+              <option value="date">Date</option>
+              <option value="amount">Amount</option>
+            </select>
+          </div>
+          <div className="input-group__item">
+            <DateRangePicker
+              startText="Start date"
+              endText="End date"
+              inputFormat="dd/MM/yyyy"
+              value={this.state.rangePickerValue}
+              onChange={this.onRangePickerValueChange}
+              calendars={1}
+              clearable={true}
+              renderInput={(startProps, endProps) => (
+                <React.Fragment>
+                  <TextField {...startProps} />
+                  <Box sx={{ mx: 2 }}> to </Box>
+                  <TextField {...endProps} />
+                  <Button
+                    onClick={() => this.onRangePickerValueChange([null, null])}
+                  >
+                    Clear
+                  </Button>
+                </React.Fragment>
+              )}
+            />
+          </div>
+        </div>
       </div>
     );
   }

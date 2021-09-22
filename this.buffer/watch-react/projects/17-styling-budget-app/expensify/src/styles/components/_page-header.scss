@@ -1,7 +1,7 @@
 @use "../base/global" as g;
 
 .page-header {
-  background-color: #f7f7f7;
+  background-color: g.$off-white;
   margin-bottom: g.$l-size;
   padding: g.$l-size 0;
 }

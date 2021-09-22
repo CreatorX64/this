@@ -1,0 +1,23 @@
+.text-input {
+  box-sizing: content-box;
+  border: 1px solid rgba(0, 0, 0, 0.27);
+  height: 23px;
+  padding: 16.5px 14px;
+  font-size: 16px;
+  border-radius: 3px;
+}
+
+.text-input:focus,
+.text-input:focus-visible {
+  outline: none;
+  border: 2px solid #5678f7;
+}
+
+.select {
+  @extend .text-input;
+}
+
+.textarea {
+  @extend .text-input;
+  height: 100px;
+}

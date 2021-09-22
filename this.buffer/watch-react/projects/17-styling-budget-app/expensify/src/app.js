@@ -6,6 +6,7 @@ import { LocalizationProvider } from "@mui/lab";
 import AdapterLuxon from "@mui/lab/AdapterLuxon";
 import { login, logout } from "./actions/auth";
 import { startSetExpenses } from "./actions/expenses";
+import { LoadingPage } from "./components/LoadingPage";
 import { AppRouter, history } from "./routers/AppRouter";
 import { APP_ELEM_SELECTOR } from "./static";
 import { configureStore } from "./store/configureStore";
@@ -30,7 +31,7 @@ function renderApp() {
   }
 }
 
-ReactDOM.render(<p>Loading...</p>, document.querySelector(APP_ELEM_SELECTOR));
+ReactDOM.render(<LoadingPage />, document.querySelector(APP_ELEM_SELECTOR));
 
 onAuthStateChanged(getAuth(), (user) => {
   if (user) {

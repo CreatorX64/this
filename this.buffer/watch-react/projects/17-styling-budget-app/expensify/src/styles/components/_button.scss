@@ -9,8 +9,13 @@
   line-height: 1;
   padding: g.$s-size;
   text-decoration: none;
+  border-radius: 3px;
 }
 
 .button--link {
   background: none;
+}
+
+.button--secondary {
+  background-color: #888;
 }
