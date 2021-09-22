@@ -1,0 +1,13 @@
+@use "../base/global" as g;
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: g.$m-size;
+  margin-bottom: g.$m-size;
+}
+
+.form__error {
+  margin: 0 0 g.$m-size 0;
+  font-style: italic;
+}

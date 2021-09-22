@@ -1,0 +1,21 @@
+@use "../base/global" as g;
+
+.header {
+  background-color: g.$dark-blue;
+}
+
+.header__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: g.$s-size 0;
+}
+
+.header__title {
+  color: g.$white;
+  text-decoration: none;
+
+  h1 {
+    margin: 0;
+  }
+}

@@ -1,0 +1,13 @@
+@use "../base/global" as g;
+
+.show-for-mobile {
+  @media (min-width: g.$desktop-breakpoint) {
+    display: none;
+  }
+}
+
+.show-for-desktop {
+  @media (max-width: g.$desktop-breakpoint - 0.01px) {
+    display: none;
+  }
+}

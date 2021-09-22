@@ -1,0 +1,13 @@
+@use "../base/global" as g;
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: g.$m-size;
+  gap: g.$s-size;
+
+  @media (min-width: g.$desktop-breakpoint) {
+    flex-direction: row;
+    margin-bottom: g.$l-size;
+  }
+}

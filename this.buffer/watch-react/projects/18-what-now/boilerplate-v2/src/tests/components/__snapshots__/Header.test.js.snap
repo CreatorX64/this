@@ -15,7 +15,7 @@ exports[`should render Header 1`] = `
         to="/dashboard"
       >
         <h1>
-          Expensify
+          Boilerplate
         </h1>
       </Link>
       <button

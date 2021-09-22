@@ -1,0 +1,21 @@
+@use "../base/global" as g;
+
+.button {
+  background-color: g.$blue;
+  border: none;
+  color: g.$white;
+  display: inline-block;
+  font-size: g.$font-size-large;
+  line-height: 1;
+  padding: g.$s-size;
+  text-decoration: none;
+  border-radius: 3px;
+}
+
+.button--link {
+  background: none;
+}
+
+.button--secondary {
+  background-color: #888;
+}

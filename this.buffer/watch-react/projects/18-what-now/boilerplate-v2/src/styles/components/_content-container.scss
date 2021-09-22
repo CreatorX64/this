@@ -1,0 +1,7 @@
+@use "../base/global" as g;
+
+.content-container {
+  margin: 0 auto;
+  padding: 0 g.$m-size;
+  max-width: 800px;
+}

@@ -1,0 +1,20 @@
+@use "../base/global" as g;
+
+.page-header {
+  background-color: g.$off-white;
+  margin-bottom: g.$l-size;
+  padding: g.$l-size 0;
+}
+
+.page-header__actions {
+  margin-top: g.$m-size;
+}
+
+.page-header__title {
+  font-weight: 300;
+  margin: 0;
+
+  span {
+    font-weight: 700;
+  }
+}

@@ -1,0 +1,29 @@
+@use "./global" as g;
+
+// Commented out to be compatible with Material UI
+// html {
+//   font-size: 62.5%;
+// }
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  color: g.$dark-grey;
+  font-family: "Inter", "Arial", sans-serif;
+  font-size: g.$m-size;
+  line-height: 1.6;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+.is-active {
+  font-weight: bold;
+}
