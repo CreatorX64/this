@@ -5,9 +5,9 @@ import hbs from "hbs";
 
 const app = express();
 
-// Define paths for Express configuration.
+// Define paths for configuration.
 const execDirPath = path.dirname(fileURLToPath(import.meta.url));
-const pubDirPath = path.join(execDirPath, "..", "public");
+const publicPath = path.join(execDirPath, "..", "public");
 const viewsPath = path.join(execDirPath, "..", "templates", "views");
 const partialsPath = path.join(execDirPath, "..", "templates", "partials");
 
@@ -17,7 +17,7 @@ app.set("views", viewsPath);
 hbs.registerPartials(partialsPath);
 
 // Setup static directory to serve.
-app.use(express.static(pubDirPath));
+app.use(express.static(publicPath));
 
 app.get("/", (req, res) => {
   res.render("index", {

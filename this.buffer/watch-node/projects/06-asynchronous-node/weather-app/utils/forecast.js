@@ -1,6 +1,6 @@
 import request from "postman-request";
 
-export const forecast = (latitude, longitude, callback) => {
+export function forecast(latitude, longitude, callback) {
   const url =
     "http://api.weatherstack.com/current?access_key=" +
     process.env.WEATHERSTACK_API_KEY +
@@ -26,4 +26,4 @@ export const forecast = (latitude, longitude, callback) => {
       );
     }
   });
-};
+}
