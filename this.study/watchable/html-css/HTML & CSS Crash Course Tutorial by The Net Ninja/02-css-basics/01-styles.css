@@ -1,0 +1,35 @@
+h1 {
+  color: orange;
+  background-color: slategrey;
+  font-size: 20px;
+  /* text-decoration: line-through; */
+  text-decoration: underline;
+  /* text-decoration: none; */
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+}
+
+p {
+  color: slategrey;
+  text-align: right;
+  line-height: 30px;
+  letter-spacing: 3px;
+  column-count: 2;
+  column-gap: 60px;
+}
+
+ul {
+  /* border-width: 4px;
+  border-style: solid;
+  border-color: crimson; */
+  /* border: 4px solid crimson; */
+  border-bottom: 4px dotted crimson;
+  border-left: 4px dashed #25bb2d;
+}
+
+li {
+  /* list-style-type: square; */
+  list-style-type: none;
+  /* text-shadow: 2px 2px lightgrey; */
+  text-shadow: 2px 2px #e9e9e9;
+}
