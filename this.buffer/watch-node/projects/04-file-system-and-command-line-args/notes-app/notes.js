@@ -1,6 +1,21 @@
 import * as fs from "fs";
 import chalk from "chalk";
 
+function saveNotes(notes) {
+  const dataJSON = JSON.stringify(notes);
+  fs.writeFileSync("notes.json", dataJSON);
+}
+
+function loadNotes() {
+  try {
+    const dataBuffer = fs.readFileSync("notes.json");
+    const dataJSON = dataBuffer.toString();
+    return JSON.parse(dataJSON);
+  } catch (e) {
+    return [];
+  }
+}
+
 export function addNote(title, body) {
   const notes = loadNotes();
   const isDuplicate = notes.some((note) => note.title === title);
@@ -41,20 +56,5 @@ export function removeNote(title) {
     console.log(chalk.green.inverse("Note removed!"));
   } else {
     console.log(chalk.red.inverse("No note found!"));
-  }
-}
-
-function saveNotes(notes) {
-  const dataJSON = JSON.stringify(notes);
-  fs.writeFileSync("notes.json", dataJSON);
-}
-
-function loadNotes() {
-  try {
-    const dataBuffer = fs.readFileSync("notes.json");
-    const dataJSON = dataBuffer.toString();
-    return JSON.parse(dataJSON);
-  } catch (e) {
-    return [];
   }
 }

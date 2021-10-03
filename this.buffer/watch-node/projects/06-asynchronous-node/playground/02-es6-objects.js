@@ -22,12 +22,11 @@ const product = {
 
 // const label = product.label;
 // const stock = product.stock;
+const { label: productLabel, stock, rating = 5 } = product;
 
-// const { label: productLabel, stock, rating = 5 } = product;
-
-// console.log(productLabel);
-// console.log(product);
-// console.log(rating);
+console.log(productLabel);
+console.log(product);
+console.log(rating);
 
 function transaction(type, { label, stock }) {
   console.log(type, label, stock);
