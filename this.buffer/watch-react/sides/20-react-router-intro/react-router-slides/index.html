@@ -1,0 +1,377 @@
+
+
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <!--<title>Client-Side Routing with React Router &mdash; Demo  documentation</title>-->
+  <title>Client-Side Routing with React Router</title>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+  <link rel="stylesheet" href="_static/revealjs/css/reveal.css"/>
+  <link rel="stylesheet" href="_static/revealjs/css/theme/white.css" id="theme"/>
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css"/>
+  <link rel="stylesheet" href="_static/revealjs-sphinx.css"/>
+
+</head>
+<body>
+  <div class="reveal">
+
+    <footer id="slide-footer"></footer>
+
+    <div class="slides">
+      <section>
+        <h2>Client-Side Routing with React Router</h2>
+
+        <div class="event"></div>
+      </section>
+
+      
+  <section  ><section>
+<h2>Goals</h2>
+</section><section  ><h3>Goals</h3>
+<div class="docutils container">
+<ul class="simple">
+<li class="fragment">Describe what client-side routing is and why it’s useful</li>
+<li class="fragment">Compare client-side routing to server-side routing</li>
+<li class="fragment">Implement basic client-side routing with React Router</li>
+</ul>
+</div>
+</section></section><section  ><section>
+<h2>Server-Side Routing</h2>
+</section><section  ><h3>Server-Side Routing</h3>
+<ul class="simple">
+<li>Traditional routing is “Server-side routing”<ul>
+<li>Clicking a <cite>&lt;a&gt;</cite> link causes browser to request a new page &amp; replace entire DOM</li>
+</ul>
+</li>
+<li>Server decides what HTML to return based on URL requested, entire page refreshes</li>
+</ul>
+</section></section><section  ><section>
+<h2>Client-Side Routing</h2>
+</section><section  ><h3>Faking Client Side Routing</h3>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text">demo/nonrouted/src/App.js</span></div>
+<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nx">App</span> <span class="k">extends</span> <span class="nx">Component</span> <span class="p">{</span>
+  <span class="nx">state</span> <span class="o">=</span> <span class="p">{</span><span class="nx">page</span><span class="p">:</span> <span class="s">&quot;home&quot;</span><span class="p">};</span>
+
+  <span class="nx">goToPage</span><span class="p">(</span><span class="nx">page</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span><span class="nx">page</span><span class="p">:</span> <span class="nx">page</span><span class="p">});</span>
+  <span class="p">}</span>
+
+  <span class="nx">showRightPage</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">page</span> <span class="o">===</span> <span class="s">&quot;home&quot;</span><span class="p">)</span> <span class="k">return</span> <span class="p">&lt;</span><span class="nt">Home</span> <span class="p">/&gt;;</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">page</span> <span class="o">===</span> <span class="s">&quot;eat&quot;</span><span class="p">)</span> <span class="k">return</span> <span class="p">&lt;</span><span class="nt">Eat</span> <span class="p">/&gt;;</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">page</span> <span class="o">===</span> <span class="s">&quot;drink&quot;</span><span class="p">)</span> <span class="k">return</span> <span class="p">&lt;</span><span class="nt">Drink</span> <span class="p">/&gt;;</span>
+  <span class="p">}</span>
+
+  <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="p">&lt;</span><span class="nt">main</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">nav</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">a</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{()</span> <span class="o">=&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">goToPage</span><span class="p">(</span><span class="s">&#39;home&#39;</span><span class="p">)}&gt;</span>Home<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">a</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{()</span> <span class="o">=&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">goToPage</span><span class="p">(</span><span class="s">&#39;eat&#39;</span><span class="p">)}&gt;</span>Eat<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">a</span> <span class="na">onClick</span><span class="o">=</span><span class="p">{()</span> <span class="o">=&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">goToPage</span><span class="p">(</span><span class="s">&#39;drink&#39;</span><span class="p">)}&gt;</span>Drink<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">nav</span><span class="p">&gt;</span>
+        <span class="p">{</span> <span class="k">this</span><span class="p">.</span><span class="nx">showRightPage</span><span class="p">()</span> <span class="p">}</span>
+      <span class="p">&lt;/</span><span class="nt">main</span><span class="p">&gt;</span>
+    <span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</section><section  ><h3>Faking Client Side Routing</h3>
+<p>That’s <em>okay</em></p>
+<div class="docutils container">
+<ul class="simple">
+<li class="fragment">It does let us show different “pages”<ul>
+<li class="fragment">All in the front-end, without loading new pages from server</li>
+</ul>
+</li>
+<li class="fragment">But we don’t get<ul>
+<li class="fragment">A different URL as we move around “pages”</li>
+<li class="fragment">The ability to use the back/forward browser buttons ⬅️ ➡️ 😭</li>
+<li class="fragment">Any way to bookmark a “page” on the site 📖 📑 😱</li>
+<li class="fragment">More complex route/pattern matching</li>
+</ul>
+</li>
+</ul>
+</div>
+</section><section  ><h3>Real Client-Side Routing</h3>
+<p><strong>React can give us real Client-Side Routing</strong></p>
+</section><section  ><h3>Client-Side Routing: What?</h3>
+<div class="docutils container">
+<ul class="simple">
+<li class="fragment">Client-side routing handles mapping between URL bar and the content a user <span class="raw-reveal"><br></span>
+sees via <em>browser</em> rather than via <em>server</em>.</li>
+<li class="fragment">Sites that exclusively use client-side routing are
+<strong>single-page applications</strong>.</li>
+<li class="fragment">We use JavaScript to manipulate the URL bar with a Web API called History</li>
+</ul>
+</div>
+</section></section><section  ><section>
+<h2>React Router</h2>
+</section><section  ><h3>Installation</h3>
+<p>To get started with React Router, install <cite>react-router-dom</cite>.</p>
+<pre class="console literal-block">
+$ <span class="cmd">create-react-app routed</span>
+$ <span class="cmd">cd routed</span>
+$ <span class="cmd">npm install react-router-dom</span>
+</pre>
+</section><section  ><h3>Including the Router</h3>
+<div class="fragment docutils container">
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-text">demo/routed/src/index.js</span></div>
+<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="hll"><span class="k">import</span> <span class="p">{</span><span class="nx">BrowserRouter</span><span class="p">}</span> <span class="nx">from</span> <span class="s">&quot;react-router-dom&quot;</span><span class="p">;</span>
+</span>
+<span class="nx">ReactDOM</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span>
+<span class="hll">    <span class="p">&lt;</span><span class="nt">BrowserRouter</span><span class="p">&gt;</span>
+</span>      <span class="p">&lt;</span><span class="nt">App</span> <span class="p">/&gt;</span>
+<span class="hll">    <span class="p">&lt;/</span><span class="nt">BrowserRouter</span><span class="p">&gt;,</span>
+</span>    <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s">&quot;root&quot;</span><span class="p">)</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="fragment docutils container">
+<p>Wrap your <cite>&lt;App /&gt;</cite> renders with a <cite>BrowserRouter</cite></p>
+</div>
+<div class="fragment docutils container">
+<p>There are other routers besides <cite>BrowserRouter</cite> — don’t worry about them.</p>
+</div>
+</section></section><section  ><section>
+<h2>Routes, Switch, and Links</h2>
+</section><section  ><h3>A Sample Application</h3>
+<div class="literal-block-wrapper docutils container" id="id6">
+<div class="code-block-caption"><span class="caption-text">App.js</span></div>
+<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="k">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">Component</span> <span class="p">}</span> <span class="nx">from</span> <span class="s">&quot;react&quot;</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">Home</span> <span class="nx">from</span> <span class="s">&quot;./Home&quot;</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">Eat</span> <span class="nx">from</span> <span class="s">&quot;./Eat&quot;</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">Drink</span> <span class="nx">from</span> <span class="s">&quot;./Drink&quot;</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">NavBar</span> <span class="nx">from</span> <span class="s">&quot;./NavBar&quot;</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span><span class="nx">Route</span><span class="p">,</span> <span class="nx">Switch</span><span class="p">}</span> <span class="nx">from</span> <span class="s">&quot;react-router-dom&quot;</span><span class="p">;</span>
+
+<span class="kd">class</span> <span class="nx">App</span> <span class="k">extends</span> <span class="nx">Component</span> <span class="p">{</span>
+  <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">className</span><span class="o">=</span><span class="s">&quot;App&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">NavBar</span> <span class="p">/&gt;</span>
+          <span class="p">&lt;</span><span class="nt">Switch</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">Route</span> 
+              <span class="na">exact</span> <span class="na">path</span><span class="o">=</span><span class="s">&quot;/&quot;</span>      
+              <span class="na">render</span><span class="o">=</span><span class="p">{()</span> <span class="o">=&gt;</span> <span class="p">&lt;</span><span class="nt">Home</span> <span class="p">/&gt;}</span> <span class="p">/&gt;</span>
+            <span class="p">&lt;</span><span class="nt">Route</span> 
+              <span class="na">exact</span> <span class="na">path</span><span class="o">=</span><span class="s">&quot;/eat&quot;</span>  
+              <span class="na">render</span><span class="o">=</span><span class="p">{()</span> <span class="o">=&gt;</span> <span class="p">&lt;</span><span class="nt">Eat</span> <span class="p">/&gt;}</span> <span class="p">/&gt;</span>
+            <span class="p">&lt;</span><span class="nt">Route</span> 
+              <span class="na">exact</span> <span class="na">path</span><span class="o">=</span><span class="s">&quot;/drink&quot;</span>
+              <span class="na">render</span><span class="o">=</span><span class="p">{()</span> <span class="o">=&gt;</span> <span class="p">&lt;</span><span class="nt">Drink</span> <span class="p">/&gt;}</span> <span class="p">/&gt;</span>
+          <span class="p">&lt;/</span><span class="nt">Switch</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="nx">App</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</section><section  ><h3><cite>Route</cite> Component</h3>
+<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">Route</span> <span class="na">exact</span> <span class="na">path</span><span class="o">=</span><span class="s">&quot;/eat&quot;</span> <span class="na">render</span><span class="o">=</span><span class="p">{()</span> <span class="o">=&gt;</span> <span class="p">&lt;</span><span class="nt">Eat</span> <span class="p">/&gt;}</span> <span class="p">/&gt;</span>
+</pre></div>
+</div>
+<div class="docutils container">
+<ul class="simple">
+<li class="fragment"><cite>Route</cite> component acts as translation service between routes &amp;
+components.<ul>
+<li class="fragment">Tell it path to look for in URL, and what to render when it finds match.</li>
+</ul>
+</li>
+<li class="fragment">Props you can set on a <cite>Route</cite>:<ul>
+<li class="fragment"><cite>exact</cite> <em>(optional bool)</em>, does path need to match <em>exactly</em>? <span class="raw-reveal"><br></span>
+<em>/foo/bar</em> in URL bar will match <code class="docutils literal notranslate"><span class="pre">path=&quot;/foo&quot;</span></code> — but match won’t be
+<em>exact.</em></li>
+<li class="fragment"><cite>path</cite>: path that must match</li>
+<li class="fragment"><cite>render</cite> what should be rendered (expects function that returns JSX)</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="fragment docutils container">
+<p>That example: “when path is exactly <em>/eat</em>, render <cite>&lt;Eat /&gt;</cite> component”</p>
+</div>
+</section><section  ><h3><cite>Switch Component</cite></h3>
+<div class="literal-block-wrapper docutils container" id="id7">
+<div class="code-block-caption"><span class="caption-text">App.js</span></div>
+<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span>          <span class="p">&lt;</span><span class="nt">Switch</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">Route</span> 
+              <span class="na">exact</span> <span class="na">path</span><span class="o">=</span><span class="s">&quot;/&quot;</span>      
+              <span class="na">render</span><span class="o">=</span><span class="p">{()</span> <span class="o">=&gt;</span> <span class="p">&lt;</span><span class="nt">Home</span> <span class="p">/&gt;}</span> <span class="p">/&gt;</span>
+            <span class="p">&lt;</span><span class="nt">Route</span> 
+              <span class="na">exact</span> <span class="na">path</span><span class="o">=</span><span class="s">&quot;/eat&quot;</span>  
+              <span class="na">render</span><span class="o">=</span><span class="p">{()</span> <span class="o">=&gt;</span> <span class="p">&lt;</span><span class="nt">Eat</span> <span class="p">/&gt;}</span> <span class="p">/&gt;</span>
+            <span class="p">&lt;</span><span class="nt">Route</span> 
+              <span class="na">exact</span> <span class="na">path</span><span class="o">=</span><span class="s">&quot;/drink&quot;</span>
+              <span class="na">render</span><span class="o">=</span><span class="p">{()</span> <span class="o">=&gt;</span> <span class="p">&lt;</span><span class="nt">Drink</span> <span class="p">/&gt;}</span> <span class="p">/&gt;</span>
+          <span class="p">&lt;/</span><span class="nt">Switch</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="docutils container">
+<ul class="simple">
+<li class="fragment">Since we only expect one of these to match, wrap in <cite>&lt;Switch&gt;</cite></li>
+<li class="fragment">This stops searching once it finds a match</li>
+<li class="fragment">This is <em>almost</em> always what you want</li>
+</ul>
+</div>
+</section><section  ><h3><cite>Link</cite> Component</h3>
+<div class="docutils container">
+<ul class="simple">
+<li class="fragment">The <cite>&lt;Link&gt;</cite> component acts as a replacement for <cite>&lt;a&gt;</cite> tags.</li>
+<li class="fragment">Instead of an <cite>href</cite> attribute, <cite>&lt;Link&gt;</cite> uses a <cite>to</cite> prop.</li>
+<li class="fragment">Clicking on <cite>&lt;Link&gt;</cite> does <em>not</em> issue a GET request.<ul>
+<li>JS intercepts click and does client-side routing</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="fragment docutils container">
+<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Go to <span class="p">&lt;</span><span class="nt">Link</span> <span class="na">to</span><span class="o">=</span><span class="s">&quot;/drink&quot;</span><span class="p">&gt;</span>drinks<span class="p">&lt;/</span><span class="nt">Link</span><span class="p">&gt;</span> page<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+</section><section  ><h3><cite>NavLink</cite> Component</h3>
+<div class="docutils container">
+<ul class="simple">
+<li class="fragment"><cite>&lt;NavLink&gt;</cite> is just like link, with one additional feature<ul>
+<li class="fragment">If at page that link would go to, the <cite>&lt;a&gt;</cite> gets a CSS class of <em>active</em></li>
+<li class="fragment">This lets you stylize links to “page you are already at” using the <code class="docutils literal notranslate"><span class="pre">activeStyle</span></code> (in-line) or <code class="docutils literal notranslate"><span class="pre">activeClassName</span></code> props</li>
+<li class="fragment">You should include an <cite>exact</cite> prop here as well</li>
+</ul>
+</li>
+<li class="fragment">Very helpful for navigation menus</li>
+</ul>
+</div>
+</section><section  ><h3>A Sample Navigation Bar</h3>
+<div class="fragment docutils container">
+<div class="literal-block-wrapper docutils container" id="id8">
+<div class="code-block-caption"><span class="caption-text">Nav.js</span></div>
+<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="k">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span><span class="nx">Component</span><span class="p">}</span> <span class="nx">from</span> <span class="s">&quot;react&quot;</span><span class="p">;</span>
+<span class="hll"><span class="k">import</span> <span class="p">{</span><span class="nx">NavLink</span><span class="p">}</span> <span class="nx">from</span> <span class="s">&quot;react-router-dom&quot;</span><span class="p">;</span>
+</span><span class="k">import</span> <span class="s">&#39;./NavBar.css&#39;</span><span class="p">;</span>
+
+<span class="kd">class</span> <span class="nx">NavBar</span> <span class="k">extends</span> <span class="nx">Component</span> <span class="p">{</span>
+  <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">activeStyle</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="nx">fontWeight</span><span class="p">:</span> <span class="s">&quot;bold&quot;</span><span class="p">,</span>
+      <span class="nx">color</span><span class="p">:</span> <span class="s">&quot;mediumorchid&quot;</span>
+    <span class="p">};</span>
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="p">&lt;</span><span class="nt">nav</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">NavLink</span> <span class="na">exact</span> <span class="na">to</span><span class="o">=</span><span class="s">&quot;/&quot;</span>
+            <span class="na">activeStyle</span><span class="o">=</span><span class="p">{</span><span class="nx">activeStyle</span><span class="p">}&gt;</span>Home<span class="p">&lt;/</span><span class="nt">NavLink</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">NavLink</span> <span class="na">exact</span> <span class="na">to</span><span class="o">=</span><span class="s">&quot;/eat&quot;</span>
+            <span class="na">activeStyle</span><span class="o">=</span><span class="p">{</span><span class="nx">activeStyle</span><span class="p">}&gt;</span>Eat<span class="p">&lt;/</span><span class="nt">NavLink</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">NavLink</span> <span class="na">exact</span> <span class="na">to</span><span class="o">=</span><span class="s">&quot;/drink&quot;</span>
+            <span class="na">activeStyle</span><span class="o">=</span><span class="p">{</span><span class="nx">activeStyle</span><span class="p">}&gt;</span>Drink<span class="p">&lt;/</span><span class="nt">NavLink</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">nav</span><span class="p">&gt;</span>
+    <span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="nx">NavBar</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section></section><section  ><section>
+<h2>Wrap-Up</h2>
+</section><section  ><h3>Wrap-Up</h3>
+<div class="docutils container">
+<ul class="simple">
+<li class="fragment">With React-Router, you can get “client-side routing”<ul>
+<li class="fragment">“Moving around site” doesn’t require server load</li>
+<li class="fragment">URL bar, bookmarks, and back/forward button still work</li>
+</ul>
+</li>
+<li class="fragment">You need to<ul>
+<li class="fragment">Wrap contents of your <cite>&lt;App&gt;</cite> with a <cite>&lt;BrowserRouter&gt;</cite></li>
+<li class="fragment">Use a <cite>&lt;Route&gt;</cite> component for each different route</li>
+<li class="fragment">For navigation links to those routes, use a <cite>&lt;Link&gt;</cite></li>
+</ul>
+</li>
+</ul>
+</div>
+</section><section  ><h3>Client-side vs. Server-side</h3>
+<div class="compare docutils container">
+<div class="docutils container">
+<p><strong>Client-side Routing</strong></p>
+<div class="docutils container">
+<ul class="simple">
+<li class="fragment">Potentially improved UI/UX</li>
+<li class="fragment">More modern architecture</li>
+<li class="fragment">Potentially worse SEO</li>
+</ul>
+</div>
+</div>
+<div class="docutils container">
+<p><strong>Server-side Routing</strong></p>
+<div class="docutils container">
+<ul class="simple">
+<li class="fragment">Page reload with every URL change</li>
+<li class="fragment">More traditional architecture</li>
+<li class="fragment">Potentially better SEO</li>
+</ul>
+</div>
+</div>
+<div class="fragment docutils container">
+<p>Which is better? <strong>It depends.</strong></p>
+</div>
+</div>
+</section></section><section  ><section>
+<h2>Looking Ahead</h2>
+</section><section  ><h3>Coming Up</h3>
+<div class="docutils container">
+<ul class="simple">
+<li class="fragment">More on route props</li>
+<li class="fragment">Redirecting with React Router</li>
+<li class="fragment">How to organize your routes</li>
+</ul>
+</div>
+</section></section>
+
+
+    </div>
+  </div>
+
+<script src="_static/revealjs/lib/js/head.min.js"></script>
+<script src="_static/revealjs/js/reveal.js"></script>
+<script>
+  Reveal.initialize({
+    controlsBackArrows: "faded",
+    progress: true,
+    slideNumber: true,
+    maxScale: 5,
+    width: 1280,
+    height: 800,
+    margin: 0.1,
+    transition: 'slide',
+    dependencies: [
+      {src: "_static/revealjs/plugin/notes/notes.js", async: true},
+    ]
+  });
+  // External links should open in new window
+  var externalLinks = document.getElementsByClassName("external");
+  for (var i = 0; i < externalLinks.length; i++)
+    externalLinks[i].setAttribute('target', '_blank');
+</script>
+
+</body>
+</html>

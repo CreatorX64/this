@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>ES2015 Module Exercise</title>
+
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/handouts-sphinx.css" />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,400italic,600italic,700italic|Inconsolata:400,700"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
+  <body>
+    <div id="page-wrapper">
+      <div id="page-sidebar">
+        <header>
+          <p class="project">Demo</p>
+
+          <p class="title">ES2015 Module Exercise</p>
+
+          <p class="backlink"><a href=""> &laquo; Back to Homepage</a></p>
+        </header>
+        <div id="toc">
+          <ul>
+            <li>
+              <a class="reference internal" href="#">ES2015 Module Exercise</a>
+              <ul>
+                <li>
+                  <a class="reference internal" href="#requirements"
+                    >Requirements</a
+                  >
+                </li>
+                <li>
+                  <a class="reference internal" href="#testing-this"
+                    >Testing This</a
+                  >
+                </li>
+                <li>
+                  <a class="reference internal" href="#solution">Solution</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div id="page-content">
+        <div class="section" id="es2015-module-exercise">
+          <h1>ES2015 Module Exercise</h1>
+          <p>
+            This exercise gives you practice with ES2015-style import/export.
+          </p>
+          <p>
+            So that we can work with import/export, we’ll use
+            <cite>create-react-app</cite> to get a starter skeleton. However, we
+            won’t be building an actual React app.
+          </p>
+          <p>
+            So: start by deleting <em>everything</em> inside of the
+            <cite>src/</cite> directory, and then doing your work inside of this
+            now-empty directory.
+          </p>
+          <div class="section" id="requirements">
+            <h2>Requirements</h2>
+            <p>For this assignment you should create three JavaScript files:</p>
+            <dl class="docutils">
+              <dt>src/helpers.js</dt>
+              <dd>
+                <p class="first">
+                  This file should export two array helper functions:
+                </p>
+                <ul class="last simple">
+                  <li>
+                    <cite>choice(items)</cite>: returns a randomly selected item
+                    from array of items
+                  </li>
+                  <li>
+                    <cite>remove(items, item)</cite>: removes the first matching
+                    item from items, if item exists, and returns it. Otherwise
+                    returns undefined.
+                  </li>
+                </ul>
+              </dd>
+              <dt>src/foods.js</dt>
+              <dd>
+                <p class="first">
+                  This file should export this array of fruits:
+                </p>
+                <div class="last highlight-default notranslate">
+                  <div class="highlight">
+                    <pre><span></span><span class="p">[</span>
+  <span class="s2">&quot;🍇&quot;</span><span class="p">,</span> <span class="s2">&quot;🍈&quot;</span><span class="p">,</span> <span class="s2">&quot;🍉&quot;</span><span class="p">,</span> <span class="s2">&quot;🍊&quot;</span><span class="p">,</span> <span class="s2">&quot;🍋&quot;</span><span class="p">,</span> <span class="s2">&quot;🍌&quot;</span><span class="p">,</span> <span class="s2">&quot;🍍&quot;</span><span class="p">,</span> <span class="s2">&quot;🍎&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;🍏&quot;</span><span class="p">,</span> <span class="s2">&quot;🍐&quot;</span><span class="p">,</span> <span class="s2">&quot;🍒&quot;</span><span class="p">,</span> <span class="s2">&quot;🍓&quot;</span><span class="p">,</span> <span class="s2">&quot;🥝&quot;</span><span class="p">,</span> <span class="s2">&quot;🍅&quot;</span><span class="p">,</span> <span class="s2">&quot;🥑&quot;</span><span class="p">,</span>
+<span class="p">];</span>
+</pre>
+                  </div>
+                </div>
+              </dd>
+              <dt>src/index.js</dt>
+              <dd>
+                <p class="first">
+                  This file should import the fruits and both array helpers. It
+                  should then:
+                </p>
+                <ul class="last simple">
+                  <li>Randomly draw a fruit from the array</li>
+                  <li>
+                    Log the message “I’d like one <em>RANDOMFRUIT</em>, please.”
+                  </li>
+                  <li>Log the message “Here you go: <em>RANDOMFRUIT</em>”</li>
+                  <li>Log the message “Delicious! May I have another?”</li>
+                  <li>Remove the fruit from the array of fruits</li>
+                  <li>
+                    Log the message “I’m sorry, we’re all out. We have
+                    <em>FRUITSLEFT</em> left.”
+                  </li>
+                </ul>
+              </dd>
+            </dl>
+          </div>
+          <div class="section" id="testing-this">
+            <h2>Testing This</h2>
+            <p>
+              Run this with
+              <code class="docutils literal notranslate"
+                ><span class="pre">npm</span>
+                <span class="pre">start</span></code
+              >
+              and you should see something like this in your browser console:
+            </p>
+            <div class="highlight-text notranslate">
+              <div class="highlight">
+                <pre><span></span>I&#39;d like one 🍉, please
+
+Here you go: 🍉
+
+Delicious! May I have another?
+
+I&#39;m sorry, we&#39;re all out. We have 14 left.
+</pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+  </body>
+</html>

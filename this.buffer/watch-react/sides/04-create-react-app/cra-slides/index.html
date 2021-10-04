@@ -1,0 +1,349 @@
+
+
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <!--<title>React: CRA, Modules, & More &mdash; Demo  documentation</title>-->
+  <title>React: CRA, Modules, &amp; More</title>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+  <link rel="stylesheet" href="_static/revealjs/css/reveal.css"/>
+  <link rel="stylesheet" href="_static/revealjs/css/theme/white.css" id="theme"/>
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css"/>
+  <link rel="stylesheet" href="_static/revealjs-sphinx.css"/>
+
+</head>
+<body>
+  <div class="reveal">
+
+    <footer id="slide-footer"></footer>
+
+    <div class="slides">
+      <section>
+        <h2>React: CRA, Modules, &amp; More</h2>
+
+        <div class="event"></div>
+      </section>
+
+      
+  <section  ><section>
+<h2>Goals</h2>
+</section><section  ><h3>Goals</h3>
+<div class="docutils container">
+<ul class="simple">
+<li class="fragment">Understand what Create React App is and how to use it</li>
+<li class="fragment">Use ES2015 modules to share code across files</li>
+<li class="fragment">Comparte default vs. non-default exports</li>
+<li class="fragment">Write smoke and snapshot tests for React components</li>
+</ul>
+</div>
+</section></section><section  ><section>
+<h2>Create React App</h2>
+</section><section  ><h3>Create React App</h3>
+<p>React is a front-end library — you don’t need server-side stuff.</p>
+<p>You <em>can</em> get <cite>react.js</cite> and <cite>react-dom.js</cite> from a CDN.</p>
+<p>You <em>can</em> transpile JSX in the browser at runtime.</p>
+<div class="fragment docutils container">
+<p>But there’s a better way!</p>
+</div>
+</section><section  ><h3>Create React App</h3>
+<p><strong>Create-React-App</strong> is a utility script that:</p>
+<div class="docutils container">
+<ul class="simple">
+<li class="fragment">Creates a skeleton react project</li>
+<li class="fragment">Sets it up so that JS files are run through Babel automatically</li>
+<li class="fragment">Lets us use super-modern Javascript features/idioms</li>
+<li class="fragment">Makes testing &amp; deployment much easier</li>
+</ul>
+</div>
+</section><section  ><h3>Installing</h3>
+<p>Only once: install <em>create-react-app</em>:</p>
+<pre class="console literal-block">
+$ <span class="cmd">npm install -g create-react-app</span>
+</pre>
+<div class="fragment docutils container">
+<p>Then to create each React project you want:</p>
+<pre class="console literal-block">
+$ <span class="cmd">create-react-app my-app-name</span>
+</pre>
+</div>
+</section><section  ><h3>Skeleton</h3>
+<p>This provides a nice starter skeleton:</p>
+<pre class="literal-block">
+├── README.md               <span class="tan">README, can edit or delete</span>
+├── package-lock.json       <span class="tan">Lock file, don't edit directly</span>
+├── package.json            <span class="tan">Can edit, as usual</span>
+│
+├── public                  <span class="tan">Rarely need to edit these</span>
+│&nbsp;&nbsp; ├── favicon.ico
+│&nbsp;&nbsp; ├── index.html              <span class="tan">Main HTML page of site</span>
+│&nbsp;&nbsp; └── manifest.json
+│
+└── src                     <span class="tan">Where React stuff goes</span>
+ &nbsp;&nbsp; ├── App.css                 <span class="tan">CSS for example component</span>
+ &nbsp;&nbsp; ├── App.js                  <span class="tan">Example component</span>
+ &nbsp;&nbsp; ├── App.test.js             <span class="tan">Tests for App component</span>
+ &nbsp;&nbsp; ├── index.css               <span class="tan">Site-wide CSS</span>
+ &nbsp;&nbsp; ├── index.js                <span class="tan">Start of JS</span>
+ &nbsp;&nbsp; ├── logo.svg                <span class="tan">React logo</span>
+ &nbsp;&nbsp; └── serviceWorker.js        <span class="tan">(Ignore this for now)</span>
+</pre>
+</section><section  ><h3>Starting Your App</h3>
+<pre class="console literal-block">
+$ <span class="cmd">npm start</span>
+</pre>
+</section><section  ><h3>Webpack</h3>
+<p>CRA is built on top of “Webpack”, a JS utility that:</p>
+<div class="docutils container">
+<ul class="simple">
+<li class="fragment">Enables module importing/exporting<ul>
+<li class="fragment">Packages up all CSS/images/JS into a single file for browser</li>
+<li class="fragment">Dramatically reduces # of HTTP requests for performance</li>
+</ul>
+</li>
+<li class="fragment">Hot reloading: when you change a source file, automatically reloads<ul>
+<li class="fragment">Is very clever and tries to only reload relevant files</li>
+</ul>
+</li>
+<li class="fragment">Enables easy testing &amp; deployment</li>
+</ul>
+</div>
+</section></section><section  ><section>
+<h2>Modules</h2>
+</section><section  ><h3>Modules</h3>
+<p>CRA uses ES2015 “modules”</p>
+<p>This is a newer, standardized version of Node’s <cite>require()</cite></p>
+<p>You use this to export/import classes/data/functions between JS files</p>
+</section><section  ><h3>Sample Component</h3>
+<div class="literal-block-wrapper docutils container" id="id6">
+<div class="code-block-caption"><span class="caption-text">demo/my-app-name/src/App.js</span></div>
+<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="hll"><span class="k">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">Component</span> <span class="p">}</span> <span class="nx">from</span> <span class="s">&quot;react&quot;</span><span class="p">;</span>
+</span><span class="hll"><span class="k">import</span> <span class="nx">logo</span> <span class="nx">from</span> <span class="s">&quot;./logo.svg&quot;</span><span class="p">;</span>
+</span><span class="hll"><span class="k">import</span> <span class="s">&quot;./App.css&quot;</span><span class="p">;</span>
+</span>
+<span class="kd">class</span> <span class="nx">App</span> <span class="k">extends</span> <span class="nx">Component</span> <span class="p">{</span>
+  <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">className</span><span class="o">=</span><span class="s">&quot;App&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">header</span> <span class="na">className</span><span class="o">=</span><span class="s">&quot;App-header&quot;</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="p">{</span><span class="nx">logo</span><span class="p">}</span> <span class="na">className</span><span class="o">=</span><span class="s">&quot;App-logo&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;logo&quot;</span> <span class="p">/&gt;</span>
+          <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
+            Edit <span class="p">&lt;</span><span class="nt">code</span><span class="p">&gt;</span>src/App.js<span class="p">&lt;/</span><span class="nt">code</span><span class="p">&gt;</span> and save to reload.
+          <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>This React app is INCREDIBLE.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">header</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="hll"><span class="k">export</span> <span class="k">default</span> <span class="nx">App</span><span class="p">;</span>
+</span></pre></div>
+</div>
+</div>
+</section><section  ><h3>Importing “Default” Export</h3>
+<div class="literal-block-wrapper docutils container" id="id7">
+<div class="code-block-caption"><span class="caption-text">demo/import-export/mystuff.js</span></div>
+<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">myFunc</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s">&quot;Hi&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="nx">myFunc</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id8">
+<div class="code-block-caption"><span class="caption-text">demo/import-export/index.js</span></div>
+<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="c1">// Must start with dot --- &quot;mystuff&quot; would be a npm module!</span>
+
+<span class="k">import</span> <span class="nx">myFunc</span> <span class="nx">from</span> <span class="s">&#39;./mystuff&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</section><section  ><h3>Importing Non-Default Named Things</h3>
+<div class="literal-block-wrapper docutils container" id="id9">
+<div class="code-block-caption"><span class="caption-text">demo/import-export/mystuff.js</span></div>
+<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">myFunc</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s">&quot;Hi&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="nx">myFunc</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id10">
+<div class="code-block-caption"><span class="caption-text">demo/import-export/index.js</span></div>
+<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="k">import</span> <span class="p">{</span> <span class="nx">otherFunc</span><span class="p">,</span> <span class="nx">luckyNumber</span><span class="p">}</span> <span class="nx">from</span> <span class="s">&quot;./mythings&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</section><section  ><h3>Importing Both</h3>
+<div class="literal-block-wrapper docutils container" id="id11">
+<div class="code-block-caption"><span class="caption-text">demo/import-export/both.js</span></div>
+<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">mainFunc</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s">&quot;Ok&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">msg</span> <span class="o">=</span> <span class="s">&quot;Awesome!&quot;</span><span class="p">;</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="nx">mainFunc</span><span class="p">;</span>
+<span class="k">export</span> <span class="p">{</span> <span class="nx">msg</span> <span class="p">};</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id12">
+<div class="code-block-caption"><span class="caption-text">demo/import-export/index.js</span></div>
+<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="k">import</span> <span class="nx">mainFunc</span><span class="p">,</span> <span class="p">{</span> <span class="nx">msg</span> <span class="p">}</span> <span class="nx">from</span> <span class="s">&quot;./both&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</section><section  ><h3>To Default or Not?</h3>
+<div class="docutils container">
+<ul class="simple">
+<li class="fragment">Conventionally, default exports are used <span class="raw-reveal"><br></span> when there’s a “most likely” thing to exporting.</li>
+<li class="fragment">For example, in a React component file, <span class="raw-reveal"><br></span> it’s common to have the component be the default export.</li>
+<li class="fragment">You never <strong>need</strong> to make a default export, but it can be helpful to indicate the most important thing in a file.</li>
+</ul>
+</div>
+</section><section  ><h3>Resources</h3>
+<p><a class="reference external" href="https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export">Export</a></p>
+<p><a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import">Import</a></p>
+</section></section><section  ><section>
+<h2>CRA and Components</h2>
+</section><section  ><h3>CRA and Components</h3>
+<p>Good style:</p>
+<div class="docutils container">
+<ul class="simple">
+<li class="fragment">Each React component goes in separate file<ul>
+<li><cite>src/Car.js</cite> for <cite>Car</cite> component</li>
+<li><cite>src/House.js</cite> for <cite>House</cite> component</li>
+</ul>
+</li>
+<li class="fragment">Components extends <cite>Component</cite> (imported from React)<ul>
+<li>Export the component as the default object</li>
+</ul>
+</li>
+<li class="fragment">Skeleton assumes top object is <cite>App</cite> in <cite>App.js</cite><ul>
+<li>Best to keep this</li>
+</ul>
+</li>
+</ul>
+</div>
+</section></section><section  ><section>
+<h2>Assets and CRA</h2>
+</section><section  ><h3>Assets and CRA</h3>
+<p>To include images and CSS, you can import them in JS files!</p>
+<div class="literal-block-wrapper docutils container" id="id13">
+<div class="code-block-caption"><span class="caption-text">demo/my-app-name/src/App.js</span></div>
+<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="k">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">Component</span> <span class="p">}</span> <span class="nx">from</span> <span class="s">&quot;react&quot;</span><span class="p">;</span>
+<span class="hll"><span class="k">import</span> <span class="nx">logo</span> <span class="nx">from</span> <span class="s">&quot;./logo.svg&quot;</span><span class="p">;</span>
+</span><span class="hll"><span class="k">import</span> <span class="s">&quot;./App.css&quot;</span><span class="p">;</span>
+</span>
+<span class="kd">class</span> <span class="nx">App</span> <span class="k">extends</span> <span class="nx">Component</span> <span class="p">{</span>
+  <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">className</span><span class="o">=</span><span class="s">&quot;App&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">header</span> <span class="na">className</span><span class="o">=</span><span class="s">&quot;App-header&quot;</span><span class="p">&gt;</span>
+<span class="hll">          <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="p">{</span><span class="nx">logo</span><span class="p">}</span> <span class="na">className</span><span class="o">=</span><span class="s">&quot;App-logo&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;logo&quot;</span> <span class="p">/&gt;</span>
+</span>          <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
+            Edit <span class="p">&lt;</span><span class="nt">code</span><span class="p">&gt;</span>src/App.js<span class="p">&lt;/</span><span class="nt">code</span><span class="p">&gt;</span> and save to reload.
+          <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>This React app is INCREDIBLE.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">header</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="nx">App</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</section><section  ><h3>CSS</h3>
+<div class="docutils container">
+<ul>
+<li class="fragment"><p class="first">Make a CSS file for each React component</p>
+<ul class="simple">
+<li><cite>House.css</cite> for <cite>House</cite> component</li>
+</ul>
+</li>
+<li class="fragment"><p class="first">Import it at the top of <cite>House.js</cite></p>
+<ul class="simple">
+<li>Create-React-App will automatically load that CSS</li>
+</ul>
+</li>
+<li class="fragment"><p class="first">Conventional to add <code class="docutils literal notranslate"><span class="pre">className=&quot;House&quot;</span></code> onto <cite>House</cite> div</p>
+<ul>
+<li><p class="first">And use that as prefix for sub-items to style:</p>
+<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">className</span><span class="o">=</span><span class="s">&quot;House&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">p</span> <span class="na">className</span><span class="o">=</span><span class="s">&quot;House-title&quot;</span><span class="p">&gt;{</span> <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">title</span> <span class="p">}&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">p</span> <span class="na">className</span><span class="o">=</span><span class="s">&quot;House-address&quot;</span><span class="p">&gt;{</span> <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">addr</span> <span class="p">}&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section><section  ><h3>Images</h3>
+<div class="docutils container">
+<ul>
+<li class="fragment"><p class="first">Store images in <cite>src/</cite> folder with the components</p>
+</li>
+<li class="fragment"><p class="first">Load them where needed, and use imported name where path should go:</p>
+<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="k">import</span> <span class="nx">puppy</span> <span class="nx">from</span> <span class="s">&quot;./puppy.jpg&quot;</span><span class="p">;</span>
+
+<span class="kd">class</span> <span class="nx">Animal</span> <span class="k">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
+  <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="p">{</span><span class="nx">puppy</span><span class="p">}</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;Cute puppy!&quot;</span> <span class="p">/&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+</section><section  ><h3>Building for Deployment</h3>
+<p><code class="docutils literal notranslate"><span class="pre">npm</span> <span class="pre">run</span> <span class="pre">build</span></code> makes <cite>build/</cite> folder of static files</p>
+<p>You can serve from a web server.</p>
+</section></section>
+
+
+    </div>
+  </div>
+
+<script src="_static/revealjs/lib/js/head.min.js"></script>
+<script src="_static/revealjs/js/reveal.js"></script>
+<script>
+  Reveal.initialize({
+    controlsBackArrows: "faded",
+    progress: true,
+    slideNumber: true,
+    maxScale: 5,
+    width: 1280,
+    height: 800,
+    margin: 0.1,
+    transition: 'slide',
+    dependencies: [
+      {src: "_static/revealjs/plugin/notes/notes.js", async: true},
+    ]
+  });
+  // External links should open in new window
+  var externalLinks = document.getElementsByClassName("external");
+  for (var i = 0; i < externalLinks.length; i++)
+    externalLinks[i].setAttribute('target', '_blank');
+</script>
+
+</body>
+</html>

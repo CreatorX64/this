@@ -1,0 +1,125 @@
+
+
+
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>Module Fruits Solution</title>
+
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css"/>
+    <link rel="stylesheet" href="../_static/handouts-sphinx.css"/>
+
+    
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,400italic,600italic,700italic|Inconsolata:400,700'
+          rel='stylesheet' type='text/css'>
+    
+</head>
+<body>
+<div id="page-wrapper">
+    <div id="page-sidebar">
+        <header>
+            <p class="project">Demo</p>
+
+            <p class="title">Module Fruits Solution</p>
+
+            <p class="backlink"><a href=""> &laquo; Back to Homepage</a></p>
+
+        </header>
+        <div id="toc">
+            <ul>
+<li><a class="reference internal" href="#">Module Fruits Solution</a><ul>
+<li><a class="reference internal" href="#helpers-js">helpers.js</a></li>
+<li><a class="reference internal" href="#fruits-js">fruits.js</a></li>
+<li><a class="reference internal" href="#index-js">index.js</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+    </div>
+    <div id="page-content">
+        
+  <div class="section" id="module-fruits-solution">
+<h1>Module Fruits Solution</h1>
+<p><a class="reference external" href="../../react-modules-fruits-solution.zip">Download solution</a></p>
+<div class="section" id="helpers-js">
+<h2>helpers.js</h2>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">fruits/src/helpers.js</span></div>
+<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="cm">/** choose a random item. */</span>
+
+<span class="kd">function</span> <span class="nx">choice</span><span class="p">(</span><span class="nx">items</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">idx</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="nx">items</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span>
+  <span class="k">return</span> <span class="nx">items</span><span class="p">[</span><span class="nx">idx</span><span class="p">];</span>
+<span class="p">}</span>
+
+
+<span class="cm">/** return copy of array w/o first appearance of item</span>
+<span class="cm"> *</span>
+<span class="cm"> * If not found, return undefined.</span>
+<span class="cm"> *</span>
+<span class="cm"> **/</span>
+
+<span class="kd">function</span> <span class="nx">remove</span><span class="p">(</span><span class="nx">item</span><span class="p">,</span> <span class="nx">items</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="m">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">items</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">items</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">===</span> <span class="nx">item</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="p">[...</span><span class="nx">items</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="nx">i</span><span class="p">),</span> <span class="p">...</span><span class="nx">items</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="nx">i</span> <span class="o">+</span> <span class="m">1</span><span class="p">)]</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+
+<span class="k">export</span> <span class="p">{</span><span class="nx">choice</span><span class="p">,</span> <span class="nx">remove</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="fruits-js">
+<h2>fruits.js</h2>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">fruits/src/fruits.js</span></div>
+<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span> <span class="nx">fruits</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="s">&quot;🍇&quot;,</span><span class="p"> </span>&quot;<span class="s">🍈&quot;, </span><span class="p">&quot;</span>🍉<span class="s">&quot;, &quot;</span><span class="p">🍊</span>&quot;<span class="s">, &quot;🍋</span><span class="p">&quot;</span>,<span class="s"> &quot;🍌&quot;</span><span class="p">,</span> <span class="s">&quot;🍍&quot;,</span><span class="p"> </span>&quot;<span class="s">🍎&quot;,</span>
+<span class="p"> </span> <span class="s">&quot;🍏&quot;,</span><span class="p"> </span>&quot;🍐&quot;<span class="s">, &quot;🍒</span><span class="p">&quot;</span>,<span class="s"> &quot;🍓&quot;</span><span class="p">,</span> <span class="s">&quot;🥝&quot;,</span><span class="p"> </span>&quot;<span class="s">🍅&quot;, </span><span class="p">&quot;</span>🥑<span class="s">&quot;</span>
+<span class="s">];</span><span class="p"></span>
+
+
+<span class="s">exp</span><span class="p">o</span>r<span class="s">t de</span>f<span class="p">au</span>lt <span class="k">fruits</span>;<span class="k"></span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="index-js">
+<h2>index.js</h2>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">fruits/src/index.js</span></div>
+<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span><span class="k">import</span> <span class="nx">fruits</span> <span class="nx">from</span> <span class="s">&#39;./fruits&#39;</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span><span class="nx">choice</span><span class="p">,</span> <span class="nx">remove</span><span class="p">}</span> <span class="nx">from</span> <span class="s">&#39;./helpers&#39;</span><span class="p">;</span>
+
+<span class="kd">let</span> <span class="nx">fruit</span> <span class="o">=</span> <span class="nx">choice</span><span class="p">(</span><span class="nx">fruits</span><span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`</span><span class="s">I&#39;d like one </span><span class="si">${</span><span class="nx">fruit</span><span class="si">}</span><span class="s">, please</span><span class="sb">`</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`</span><span class="s">Here you go: </span><span class="si">${</span><span class="nx">fruit</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`</span><span class="s">Delicious! May I have another?</span><span class="sb">`</span><span class="p">);</span>
+
+<span class="kd">let</span> <span class="nx">remaining</span> <span class="o">=</span> <span class="nx">remove</span><span class="p">(</span><span class="nx">fruit</span><span class="p">,</span> <span class="nx">fruits</span><span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`</span><span class="s">I&#39;m sorry, we&#39;re all out. We have </span><span class="si">${</span><span class="nx">remaining</span><span class="p">.</span><span class="nx">length</span><span class="si">}</span><span class="s"> left.</span><span class="sb">`</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+    </div>
+</div>
+<script type="text/javascript" src="../_static/jquery.js"></script>
+<script type="text/javascript" src="../_static/underscore.js"></script>
+<script type="text/javascript" src="../_static/doctools.js"></script>
+<script type="text/javascript" src="../_static/language_data.js"></script> 
+</body>
+</html>

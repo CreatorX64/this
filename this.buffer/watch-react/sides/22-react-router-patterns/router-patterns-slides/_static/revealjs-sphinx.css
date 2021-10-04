@@ -1,0 +1,395 @@
+/**
+ * Slide stylesheet for Sphinx -> RevealJS
+ *
+ * IMPORTANT: DO NOT NAME classes with names starting with "slide";
+ * This breaks the JavaScript!
+ *
+ * RevealJS sets many styles itself, for us to override those w/o
+ * !important, we often have to add .reveal to our selectors. Those
+ * are there for a reason -- don't delete them!
+ *
+ * Stuff like  are variable replacements from
+ * `theme.conf`
+ *
+ * This assumes it is overriding RevealJS and presumes a light-background.
+ *
+ * Joel Burton <joel@joelburton.com>
+ *
+ */
+
+
+/* TODO: minify this and the reveal core CSS/JS! */
+
+
+/* ================= COMMON ELEMENTS =================== */
+
+.reveal {
+    font-size: 38px;
+}
+
+/* Theme logo at the bottom left of every slide. */
+#slide-footer {
+    background-size: contain;
+    background-image: url("footer-logo.png");
+    background-repeat: no-repeat;
+    height: 4vw;
+    width: 6vw;
+    position: absolute;
+    bottom: 2vw;
+    left: 2vw;
+}
+
+/* "Section" headings */
+.reveal h2 {
+    padding: 0.3em 0.4em;
+    border-radius: 0.5em;
+    /* Override RevealJS's uppercasing of this. */
+    text-transform: none;
+    color: rgb(247, 122, 123);
+    border: solid 1px rgb(247, 122, 123);
+}
+
+/* Title on ordinary slides */
+.reveal h3 {
+    margin-bottom: 0.5em;
+    /* Override RevealJS's uppercasing of this. */
+    text-transform: none;
+    color: rgb(247, 122, 123);
+}
+
+/* Subsection of a slide */
+.reveal h4 {
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+    /* Override RevealJS's uppercasing of this. */
+    text-transform: none;
+    color: rgb(247, 122, 123);
+}
+
+
+/* ================= TITLE SLIDE =================== */
+
+/* don't show overall top-heading; we have a slide for this, instead */
+.reveal h1 {
+    display: none;
+}
+
+ /*don't show version # on title slide */
+.reveal div.event {
+    display: none;
+}
+
+/* The title slides is the first h2 */
+.reveal > .slides > section:first-of-type h2 {
+    background-color: rgb(247, 122, 123);
+    color: white;
+}
+
+
+/* =============== CODE LISTING BLOCKS =============== */
+
+
+div.highlight {
+    background-color: transparent;
+}
+
+/* Code highlight blocks have margins above them ... */
+div[class *= "highlight-"] {
+    margin: 1.75rem 0 2.25rem 0;
+}
+
+/* ... except if there's a caption; the margin will go above that */
+.code-block-caption + div[class *= "highlight-"] {
+    margin-top: -0.4rem;
+}
+
+.literal-block-wrapper {
+    margin-top: 1.75rem;
+}
+
+/* Captions above code blocks (typically file names of code.) */
+.reveal .code-block-caption {
+    font-style: italic;
+    font-size: 80%;
+}
+
+/* Code blocks and literal blocks have breathing room since there's a border.
+   They also have a fixed min/max size. */
+div.highlight pre,
+pre.literal-block {
+    padding: 0.5em;
+    max-width: 50rem;
+    min-width: 30rem;
+    font-family: Consolas,"Andale Mono WT","Andale Mono","Lucida Console","Lucida Sans Typewriter","DejaVu Sans Mono","Bitstream Vera Sans Mono","Liberation Mono","Nimbus Mono L",Monaco,"Courier New",Courier,monospace;
+}
+
+pre.literal-block {
+    /* These aren't getting margins from highlight-
+       Since the font here is smaller, the ems are bigger to compensate */
+    margin-top: 1.75rem;
+    margin-bottom: 2.25rem;
+}
+
+/* Can put a big class on pre (or container of a pre) to get bigger font size;
+   this is useful for larger, more critical code block examples. */
+.reveal pre.big,
+.big pre {
+    font-size: 100%;
+}
+
+.reveal pre.small,
+.small pre {
+    font-size: 50%;
+}
+
+/* ================ CUSTOM ROLE COLORS ================= */
+/* These should be in bold since they're hard to read otherwise */
+
+.reveal .red { color: #d00; font-weight: bold; }
+.reveal .green { color: #3b3; font-weight: bold; }
+.reveal .orange { color: #f80; font-weight: bold; }
+.reveal .tan { color: #a85; font-weight: bold; }
+.reveal .blue { color: #28c; font-weight: bold; }
+.reveal .white { color: #fff; font-weight: bold; }
+.reveal .gray, .reveal .grey { color: #666; font-weight: bold;  }
+.reveal .comment { color: #666; font-weight: bold; font-style: italic; }
+.reveal .gone { color: #666; text-decoration: line-through; font-weight: bold; }
+.reveal .inv-red { background-color: #d00; color: #fff; font-weight: bold; }
+
+.reveal .slides section .fragment.highlight-red.visible { color: #d00; }
+.reveal .slides section .fragment.highlight-green.visible { color: #3b3; }
+.reveal .slides section .fragment.highlight-blue.visible { color: #28c; }
+
+.reveal .slides section .fragment.highlight-current-red.current-fragment { color: #d00; }
+.reveal .slides section .fragment.highlight-current-green.current-fragment { color: #3b3; }
+.reveal .slides section .fragment.highlight-current-blue.current-fragment { color: #28c; }
+
+/* ================= CONSOLE ==================*/
+/* black-background PRE sections showing terminal output */
+
+.reveal .console {
+    background-color: black;
+    color: #ddd;
+    padding: 1em;
+    border-radius: 0.4em;
+    /*margin: 2em auto;*/
+    max-width: 40em;
+}
+
+.reveal .console .cmd {
+    font-weight: bold;
+    color: yellow;
+}
+
+.reveal .console a { color: inherit !important; }
+
+/* Make these lighter than usual so they show up better
+   (They still inherit bold and other stuff from their defs above; just tweak color here */
+.reveal .console .red { color: #f77; }
+.reveal .console .green { color: #7f7; }
+.reveal .console .orange { color: #fc3; }
+.reveal .console .tan { color: #db8; }
+.reveal .console .blue { color: #4af; }
+.reveal .console .white { color: #fff; }
+.reveal .console .gray, .reveal .console .grey { color: #999 }
+.reveal .console .comment { color: #999 }
+.reveal .console .gone { color: #999; }
+.reveal .console .inv-red { background-color: #f33; }
+
+.reveal .slides section .console .fragment.highlight-red.visible { font-weight: bold; color: #f77; }
+.reveal .slides section .console .fragment.highlight-green.visible { font-weight: bold; color: #7f7; }
+.reveal .slides section .console .fragment.highlight-blue.visible { font-weight: bold; color: #4af; }
+
+.reveal .slides section .console .fragment.highlight-current-red.current-fragment { font-weight: bold; color: #f77; }
+.reveal .slides section .console .fragment.highlight-current-green.current-fragment { font-weight: bold; color: #7f7; }
+.reveal .slides section .console .fragment.highlight-current-blue.current-fragment { font-weight: bold; color: #4af; }
+
+
+/* =============== LISTS AND SUCH ================= */
+
+/* Don't change symbols as we get deeper */
+.reveal ul ul,
+.reveal ul ul ul {
+    list-style-type: disc;
+}
+
+/* "simple" lists are those where the bullets don't have paragraphs inside them
+   they're a little too tight for display, so open them up a bit. */
+
+.reveal ul.simple > li {
+    margin-bottom: 0.4em;
+}
+
+.reveal ul.simple > li > ul {
+    margin-top: 0.4em;
+    font-size: 90%;
+}
+
+.reveal ul.simple > li > ul > li > ul {
+    font-size: 90%;
+}
+
+.reveal dd {
+    margin-bottom: 0.5em !important;
+}
+
+
+/* ============ INLINE CODING AND LITERALS =======*
+
+/* Things like ``this``; used for inline code samples, etc. */
+.docutils.literal {
+    border: solid 1px #FF400F;
+    font-family: Consolas,"Andale Mono WT","Andale Mono","Lucida Console","Lucida Sans Typewriter","DejaVu Sans Mono","Bitstream Vera Sans Mono","Liberation Mono","Nimbus Mono L",Monaco,"Courier New",Courier,monospace;
+    padding: 0 0.1em;
+}
+
+/* Things like `this`; used for filenames, technical terms, etc. */
+.reveal cite {
+    font-style: italic;
+    font-weight: bold;
+}
+
+/* ================ TABLES ==================== */
+
+/* Text is smaller and less padding, so we can fit more in */
+table.docutils {
+    font-size: 75%;
+    /* Reveal sets L/R margins, so don't try to set those here */
+    margin-top: 1em 0;
+    margin-bottom: 1em;
+}
+
+.reveal table.docutils th,
+.reveal table.docutils td {
+    border-color: #999;
+    padding: 0.1em 0.3em;
+}
+
+.reveal .td-center th:not(:first-child),
+.reveal .td-center td:not(:first-child) {
+    text-align: center;
+}
+
+.reveal .td-right th:not(:first-child),
+.reveal .td-right td:not(:first-child) {
+    text-align: right;
+}
+
+table.hlist td {
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    vertical-align: top;
+}
+
+/* ================ IMAGES ==================*/
+
+/* Images have no border and are centered */
+.reveal section img {
+    box-shadow: none;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+}
+
+.reveal section img.math {
+    display: inline;
+    vertical-align: baseline;
+    margin: 0 0.3em;
+}
+
+.reveal div.math {
+    margin: 1em 0;
+}
+
+/* Can add a class of "image-border" on image to give it border */
+.reveal img.image-border {
+    border: solid 1px #333;
+}
+
+
+/* ================ MISC ==================*/
+
+.reveal blockquote {
+    box-shadow: 0 0 2px rgb(247, 122, 123);
+}
+
+.reveal blockquote p.attribution {
+    display: block;
+    text-align: right;
+    font-style: normal;
+    font-size: 80%;
+    margin-top: 1em;
+    padding-top: 0;
+    padding-right: 1em;
+}
+
+/* Used to show huge, bold text, like on interslides */
+.reveal .text-heavy {
+    font-size: 200%;
+    font-weight: bold !important;
+}
+
+.reveal dd p.first {
+    /* Don't add space before first para in a dd */
+    margin-top: 0;
+}
+
+/* A wrapper container to present inner containers side-by-side */
+
+.compare > div {
+    width: 49%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.compare23 > div:first-child { width: 39%; }
+.compare23 > div:last-child { width: 59%; }
+
+.compare32 > div:first-child { width: 59%; }
+.compare32 > div:last-child { width: 39%; }
+
+.compare12 > div:first-child { width: 32%; }
+.compare12 > div:last-child { width: 65%; }
+
+.compare21 > div:first-child { width: 65%; }
+.compare21 > div:last-child { width: 32%; }
+
+.reveal .compare > div > *:first-child {
+    /* Don't space out the first thing inside a compare */
+    margin-top: 0 !important;
+}
+.reveal h3 + .compare > div > *:first-child {
+    /* Except if it's the first thing on the slide, to add breathing room. */
+    margin-top: 0.75em !important;
+}
+
+
+/* Typography fix: superscripts are too big by default, make them smaller */
+.reveal sup,
+.reveal sub {
+    font-size: 70%;
+}
+
+/* Link colors */
+.reveal a {
+  color: rgb(247, 122, 123);
+}
+
+.reveal a:hover {
+  color: #FF400F;
+}
+
+
+/* ================ REVEALJS CHROME ==================*/
+/* Stylize Reveal widgets to match client color/client light color */
+
+.reveal .controls { color: rgb(247, 122, 123); font-size: 7.5pt; }
+
+.reveal .progress span {
+  background: rgb(247, 122, 123);
+}
+
+::selection {
+    color: #386d7f
+}
