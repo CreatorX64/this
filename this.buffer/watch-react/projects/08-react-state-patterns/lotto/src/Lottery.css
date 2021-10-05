@@ -1,0 +1,25 @@
+.lottery {
+  width: 40em;
+  margin: 1em auto;
+  border: 2px solid #808080;
+  border-radius: 10px;
+  padding: 1em 0 2em 0;
+  text-align: center;
+}
+
+.lottery__button {
+  margin-top: 1em;
+  border-radius: 10px;
+  padding: 8px 16px;
+  background-color: #00008b;
+  color: #fff;
+  font-size: 120%;
+  cursor: pointer;
+}
+
+.lottery__balls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+}
