@@ -1,0 +1,21 @@
+.button-list {
+  width: 800px;
+  height: 200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 8px;
+  border: 3px solid #eee;
+}
+
+.button-list__button {
+  display: inline-block;
+  padding: 10px 16px;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 8px;
+}
