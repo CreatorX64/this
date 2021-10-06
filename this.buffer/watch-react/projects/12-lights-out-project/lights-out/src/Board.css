@@ -1,0 +1,24 @@
+.board {
+  margin: 0 auto;
+}
+
+.board__table {
+  border-radius: 10px;
+  box-shadow: 0 0 50px #fff, -10px 0 80px #f0f, 10px 0 80px #0ff;
+}
+
+.board__table tr:first-child td:first-child {
+  border-radius: 10px 0 0 0 !important;
+}
+
+.board__table tr:first-child td:last-child {
+  border-radius: 0 10px 0 0 !important;
+}
+
+.board__table tr:last-child td:last-child {
+  border-radius: 0 0 10px 0 !important;
+}
+
+.board__table tr:last-child td:first-child {
+  border-radius: 0 0 0 10px !important;
+}
