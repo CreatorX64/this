@@ -22,15 +22,15 @@
 /*         NAVIGATION           */
 /********************************/
 
-.main-nav-list {
+.nav__list {
   list-style: none;
   display: flex;
   align-items: center;
   gap: 3.2rem;
 }
 
-.main-nav-link:link,
-.main-nav-link:visited {
+.nav__link:link,
+.nav__link:visited {
   display: inline-block;
   text-decoration: none;
   color: #333;
@@ -39,21 +39,21 @@
   transition: all 0.3s;
 }
 
-.main-nav-link:hover,
-.main-nav-link:active {
+.nav__link:hover,
+.nav__link:active {
   color: #cf711f;
 }
 
-.main-nav-link.nav-cta:link,
-.main-nav-link.nav-cta:visited {
+.nav__link--cta:link,
+.nav__link--cta:visited {
   padding: 1.2rem 2.4rem;
   border-radius: 9px;
   color: #fff;
   background-color: #e67e22;
 }
 
-.main-nav-link.nav-cta:hover,
-.main-nav-link.nav-cta:active {
+.nav__link--cta:hover,
+.nav__link--cta:active {
   background-color: #cf711f;
 }
 
@@ -76,28 +76,28 @@
   align-items: center;
 }
 
-.hero-description {
+.hero__description {
   font-size: 2rem;
   line-height: 1.6;
   margin-bottom: 4.8rem;
 }
 
-.hero-img {
+.hero__img {
   width: 100%;
 }
 
-.delivered-meals {
+.delivered {
   display: flex;
   align-items: center;
   gap: 1.6rem;
   margin-top: 8rem;
 }
 
-.delivered-images {
+.delivered__images {
   display: flex;
 }
 
-.delivered-images img {
+.delivered__image {
   height: 4.8rem;
   width: 4.8rem;
   border-radius: 50%;
@@ -105,18 +105,13 @@
   border: 3px solid #fdf2e9;
 }
 
-.delivered-images img:last-child {
+.delivered__image--last {
   margin: 0;
 }
 
-.delivered-text {
+.delivered__text {
   font-size: 1.8rem;
   font-weight: 600;
-}
-
-.delivered-text span {
-  color: #cf711f;
-  font-weight: 700;
 }
 
 /********************************/
@@ -127,7 +122,7 @@
   padding: 4.8rem 0 3.2rem 0;
 }
 
-.heading-featured-in {
+.heading--featured-in {
   font-size: 1.4rem;
   text-transform: uppercase;
   letter-spacing: 0.75px;
@@ -142,7 +137,7 @@
   justify-content: space-around;
 }
 
-.logos img {
+.logos__img {
   height: 3.2rem;
   filter: brightness(0);
   opacity: 50%;
@@ -156,27 +151,27 @@
   padding: 9.6rem 0;
 }
 
-.step-number {
+.step__number {
   font-size: 8.6rem;
   font-weight: 600;
   color: #ddd;
   margin-bottom: 1.2rem;
 }
 
-.step-description {
+.step__description {
   font-size: 1.8rem;
   line-height: 1.8;
 }
 
-.step-img-box {
+.step__img-box {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.step-img-box::before,
-.step-img-box::after {
+.step__img-box::before,
+.step__img-box::after {
   content: "";
   display: block;
   border-radius: 50%;
@@ -186,7 +181,7 @@
   transform: translate(-50%, -50%);
 }
 
-.step-img-box::before {
+.step__img-box::before {
   width: 60%;
   /* height: 60%; */
   padding-bottom: 60%;
@@ -194,14 +189,14 @@
   z-index: -2;
 }
 
-.step-img-box::after {
+.step__img-box::after {
   width: 45%;
   padding-bottom: 45%;
   background-color: #fae5d3;
   z-index: -1;
 }
 
-.step-img {
+.step__img {
   width: 35%;
 }
 
@@ -229,17 +224,21 @@
   box-shadow: 0 3.2rem 6.4rem rgba(0, 0, 0, 0.06);
 }
 
-.meal-content {
+.meal__img {
+  width: 100%;
+}
+
+.meal__content {
   padding: 3.2rem 4.8rem 4.8rem 4.8rem;
 }
 
-.meal-tags {
+.meal__tags {
   margin-bottom: 1.2rem;
   display: flex;
   gap: 0.4rem;
 }
 
-.tag {
+.meal__tag {
   display: inline-block;
   padding: 0.4rem 0.8rem;
   font-size: 1.2rem;
@@ -249,72 +248,48 @@
   font-weight: 600;
 }
 
-.tag-vegetarian {
+.meal__tag--vegetarian {
   background-color: #51cf66;
 }
 
-.tag-vegan {
+.meal__tag--vegan {
   background-color: #94d82d;
 }
 
-.tag-paleo {
+.meal__tag--paleo {
   background-color: #ffd43b;
 }
 
-.meal-title {
+.meal__title {
   font-size: 2.4rem;
   color: #333;
   font-weight: 600;
   margin-bottom: 3.2rem;
 }
 
-.meal-attributes {
+.meal__attributes {
   list-style: none;
   display: flex;
   flex-direction: column;
   gap: 2rem;
 }
 
-.meal-attribute {
+.meal__attribute {
   font-size: 1.8rem;
   display: flex;
   align-items: center;
   gap: 1.6rem;
 }
 
-.meal-icon {
+.meal__icon {
   height: 2.4rem;
   width: 2.4rem;
   color: #e67e22;
 }
 
-.meal-img {
-  width: 100%;
-}
-
 .all-recipes {
   text-align: center;
   font-size: 1.8rem;
-}
-
-.list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 1.6rem;
-}
-
-.list-item {
-  font-size: 1.8rem;
-  display: flex;
-  align-items: center;
-  gap: 1.6rem;
-}
-
-.list-icon {
-  width: 3rem;
-  height: 3rem;
-  color: #e67e22;
 }
 
 /********************************/
@@ -339,19 +314,19 @@
   column-gap: 8rem;
 }
 
-.testimonial-img {
+.testimonial__img {
   width: 6.4rem;
   border-radius: 50%;
   margin-bottom: 1.2rem;
 }
 
-.testimonial-text {
+.testimonial__text {
   font-size: 1.8rem;
   line-height: 1.8;
   margin-bottom: 1.6rem;
 }
 
-.testimonial-name {
+.testimonial__name {
   font-size: 1.6rem;
   color: #6f6f6f;
 }
@@ -363,16 +338,202 @@
   padding: 1.6rem;
 }
 
-.gallery-item {
+.gallery__item {
   overflow: hidden;
 }
 
-.gallery-item img {
+.gallery__img {
   display: block;
   width: 100%;
   transition: all 0.4s;
 }
 
-.gallery-item img:hover {
+.gallery__img:hover {
   transform: scale(1.1);
+}
+
+/********************************/
+/*       PRICING SECTION        */
+/********************************/
+
+.section-pricing {
+  padding: 9.6rem 0;
+}
+
+.pricing-plan {
+  border-radius: 11px;
+  padding: 4.8rem;
+  width: 75%;
+  border: 2px solid #fdf2e9;
+}
+
+.pricing-plan--starter {
+  justify-self: end;
+}
+
+.pricing-plan--complete {
+  background-color: #fdf2e9;
+  position: relative;
+  overflow: hidden;
+}
+
+.pricing-plan--complete::after {
+  content: "Best value";
+  position: absolute;
+  top: 6%;
+  right: -18%;
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #333;
+  background-color: #ffd43b;
+  padding: 0.8rem 8rem;
+  transform: rotate(45deg);
+}
+
+.pricing-plan__header {
+  text-align: center;
+  margin-bottom: 4.8rem;
+}
+
+.pricing-plan__name {
+  color: #cf711f;
+  font-weight: 600;
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.75;
+  margin-bottom: 3.2rem;
+}
+
+.pricing-plan__price {
+  font-size: 6.2rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1.6rem;
+}
+
+.pricing-plan__price span {
+  font-size: 3rem;
+  font-weight: 500;
+  margin-right: 0.8rem;
+}
+
+.pricing-plan__text {
+  font-size: 1.6rem;
+  line-height: 1.6;
+  color: #6f6f6f;
+}
+
+.pricing-plan__cta {
+  margin-top: 4.8rem;
+  text-align: center;
+}
+
+.plan__details {
+  font-size: 1.6rem;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.feature__icon {
+  height: 3.2rem;
+  width: 3.2rem;
+  margin-bottom: 3.2rem;
+  padding: 1.6rem;
+  border-radius: 50%;
+  color: #e67e22;
+  background-color: #fdf2e9;
+}
+
+.feature__title {
+  margin-bottom: 1.6rem;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #333;
+}
+
+.feature__text {
+  font-size: 1.8rem;
+  line-height: 1.8;
+}
+
+/********************************/
+/*         CTA SECTION          */
+/********************************/
+
+.section-cta {
+  padding: 9.6rem 0;
+}
+
+.cta {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  /* background-color: #e67e22; */
+  box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.15);
+  border-radius: 11px;
+  background-image: linear-gradient(to bottom right, #eb984e, #e67e22);
+  overflow: hidden;
+}
+
+.cta__text-box {
+  padding: 4.8rem 6.4rem 6.4rem 6.4rem;
+  color: #45260a;
+}
+
+.cta__heading {
+  color: inherit;
+  margin-bottom: 3.2rem;
+}
+
+.cta__text {
+  font-size: 1.8rem;
+  line-height: 1.8;
+  margin-bottom: 4.8rem;
+}
+
+.cta__img-box {
+  background-image: linear-gradient(
+      to bottom right,
+      rgba(235, 152, 78, 0.35),
+      rgba(230, 126, 34, 0.35)
+    ),
+    url("../img/eating.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.cta__form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 3.2rem;
+  row-gap: 2.4rem;
+}
+
+.cta__label {
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 500;
+  margin-bottom: 1.2rem;
+}
+
+.cta__input,
+.cta__select {
+  width: 100%;
+  padding: 1.2rem;
+  font-size: 1.8rem;
+  font-family: inherit;
+  border: none;
+  color: inherit;
+  background-color: #fdf2e9;
+  border-radius: 9px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.cta__input::placeholder {
+  color: #aaa;
+}
+
+.cta *:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.8rem rgba(253, 242, 233, 0.5);
 }
