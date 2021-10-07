@@ -3,11 +3,13 @@
 // "nakaH si eman ym iH"
 
 function reverse(text) {
-  if (typeof text !== "string" || text.length < 2) {
+  if (typeof text !== "string") {
     return null;
+  } else if (text.length < 2) {
+    return text;
   }
 
-  // This is the short version, but we want to implement reverse logic ourselves.
+  // Short version. But we want to implement the reverse() logic ourselves.
   // return str.split("").reverse().join("");
 
   let reversedLetters = [];
