@@ -38,7 +38,8 @@ export class Hangman extends Component {
     const { answer, correctGuesses } = this.state;
     return answer
       .split("")
-      .map((letter) => (correctGuesses.has(letter) ? letter : "_"));
+      .map((letter) => (correctGuesses.has(letter) ? letter : "_"))
+      .join("");
   }
 
   handleGuess(event) {
@@ -65,7 +66,7 @@ export class Hangman extends Component {
 
   render() {
     const isLoser = this.state.nWrong >= this.props.maxWrongs;
-    const isWinner = this.getGuessedWord().join("") === this.state.answer;
+    const isWinner = this.getGuessedWord() === this.state.answer;
     const altText = `${this.state.nWrong}/${this.props.maxWrongs} guesses`;
     let gameState = this.generateButtons();
 
