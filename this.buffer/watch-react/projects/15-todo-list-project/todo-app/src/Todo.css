@@ -1,0 +1,91 @@
+.todo {
+  display: flex;
+  margin: 0 -3rem 4px;
+  padding: 1.1rem 3rem;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.todo__task {
+  position: relative;
+  transition: opacity 0.4s linear;
+}
+
+.todo__task--completed {
+  opacity: 0.6;
+}
+
+.todo__task--completed::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -0.5rem;
+  display: block;
+  width: 0%;
+  height: 2px;
+  background-color: #fff;
+  animation: strikeitem 0.5s ease-out 0s forwards;
+}
+
+@keyframes strikeitem {
+  to {
+    width: calc(100% + 1rem);
+  }
+}
+
+.todo__buttons {
+  flex-shrink: 0;
+  padding-left: 0.7em;
+}
+
+.todo__button {
+  border: none;
+  font-size: 1em;
+  margin: 0.4em;
+  background: none;
+  cursor: pointer;
+  color: #fff;
+}
+
+.todo__edit-form {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.todo__edit-label {
+  min-width: 100%;
+  margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+}
+
+.todo__edit-input,
+.todo__edit-button {
+  font-family: "Quicksand", sans-serif;
+  height: 3rem;
+}
+
+.todo__edit-input {
+  flex-grow: 1;
+  border: none;
+  background-color: #f7f1f1;
+  padding: 0 1.5em;
+  font-size: initial;
+}
+
+.todo__edit-button {
+  padding: 0 1.3rem;
+  border: none;
+  background-color: #f66;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  margin-left: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-out;
+}
+
+.todo__edit-button:hover {
+  background-color: #ff5e5e;
+}
