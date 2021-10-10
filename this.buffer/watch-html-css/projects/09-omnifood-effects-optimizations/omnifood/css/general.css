@@ -1,0 +1,287 @@
+/*
+
+# TYPOGRAPHY
+
+- Font sizes (px): 10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+
+- Font weights:
+  - Default: 400
+  - Medium: 500
+  - Semi-bold: 600
+  - Bold: 700
+
+- Line heights:
+  - Default: 1
+  - Heading: 1.05
+  - Medium: 1.2
+  - Paragraph: 1.6
+  - Large: 1.8
+
+- Letter spacing:
+  - 0.5px
+  - 0.75px
+
+# COLORS
+
+- Primary: #e67e22
+  - Tints:
+    - #fdf2e9
+    - #fae5d3
+    - ##eb984e
+  - Shades:
+    - #cf711f
+    - #45260a
+
+- Accents:
+
+- Greys:
+  - #888
+  - #767676 (lightest grey allowed on #fff)
+  - #6f6f6f (lightest grey allowed on #fdf2e9)
+  - #555
+  - #333
+
+# SHADOWS
+
+- 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
+
+# WHITESPACE
+
+- Spacing (px): 2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+
+# BORDER RADIUS
+
+- Border radius:
+  - Default: 9px
+  - Medium: 11px
+
+*/
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+*:focus {
+  outline: none;
+  /* outline: 4px dotted #e67e22; */
+  /* outline-offset: 8px; */
+  box-shadow: 0 0 0 0.8rem rgba(230, 126, 34, 0.5);
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+  /* This is the easiest & fastest way to achieve smooth scrolling on Chrome,
+  Firefox, etc. but it doesn't work on Safari. So we need to implement a
+  solution in JavaScript that works accross all browsers. */
+  /* scroll-behavior: smooth; */
+}
+
+body {
+  font-family: "Rubik", sans-serif;
+  line-height: 1;
+  font-weight: 400;
+  color: #555;
+  /* Only setting this on the html doesn't work. It should be set on both
+  the html and body elements. Also, overflow-x on the page level only works
+  if there's nothing absolutely positioned in relation to body. */
+  overflow-x: hidden;
+}
+
+/********************************/
+/*     REUSABLE COMPONENTS      */
+/********************************/
+
+.container {
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 0 3.2rem;
+}
+
+.grid {
+  display: grid;
+  column-gap: 6.4rem;
+  row-gap: 9.6rem;
+  /* margin-bottom: 9.6rem; */
+}
+
+/* .grid:last-child {
+  margin-bottom: 0;
+} */
+
+.grid:not(:last-child) {
+  margin-bottom: 9.6rem;
+}
+
+.grid--2-cols {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid--3-cols {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid--4-cols {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.grid--5-cols {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.grid--center-v {
+  align-items: center;
+}
+
+.heading {
+  font-weight: 700;
+  /* color: #45260a; */
+  /* color: #343a40; */
+  /* We could use the dark colors above, but we use a plain grey color because
+  that best fits our website personality (startup/upbeat). */
+  color: #333;
+  letter-spacing: -0.5px;
+}
+
+.heading--primary {
+  font-size: 5.2rem;
+  line-height: 1.05;
+  margin-bottom: 3.2rem;
+}
+
+.heading--secondary {
+  font-size: 4.4rem;
+  line-height: 1.2;
+  margin-bottom: 9.6rem;
+}
+
+.heading--tertiary {
+  font-size: 3rem;
+  line-height: 1.2;
+  margin-bottom: 3.2rem;
+}
+
+.subheading {
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #cf711f;
+  text-transform: uppercase;
+  margin-bottom: 1.6rem;
+  letter-spacing: 0.75px;
+}
+
+.btn,
+.btn:link,
+.btn:visited {
+  display: inline-block;
+  text-decoration: none;
+  font-family: inherit;
+  font-size: 2rem;
+  font-weight: 600;
+  padding: 1.6rem 3.2rem;
+  border: none;
+  border-radius: 9px;
+  cursor: pointer;
+  /* Put transition on original state */
+  transition: all 0.3s;
+}
+
+.btn--full:link,
+.btn--full:visited {
+  background-color: #e67e22;
+  color: #fff;
+}
+
+.btn--full:hover,
+.btn--full:active {
+  background-color: #cf711f;
+}
+
+.btn--outline:link,
+.btn--outline:visited {
+  background-color: #fff;
+  color: #555;
+}
+
+.btn--outline:hover,
+.btn--outline:active {
+  background-color: #fdf2e9;
+  /* border: 3px solid #fff; */
+  /* Trick to add border inside */
+  box-shadow: inset 0 0 0 3px #fff;
+}
+
+.btn--form {
+  align-self: end;
+  padding: 1.2rem;
+  color: #fdf2e9;
+  background-color: #45260a;
+}
+
+.btn--form:hover {
+  color: #555;
+  background-color: #fff;
+}
+
+.link:link,
+.link:visited {
+  display: inline-block;
+  color: #e67e22;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+  transition: all 0.3s;
+}
+
+.link:hover,
+.link:active {
+  color: #cf711f;
+  border-bottom: 1px solid transparent;
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.list__item {
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  line-height: 1.2;
+}
+
+.list__icon {
+  width: 3rem;
+  height: 3rem;
+  color: #e67e22;
+}
+
+/* HELPER/SETTINGS CLASSES */
+
+.margin-right-sm {
+  margin-right: 1.6rem !important;
+}
+
+.margin-bottom-md {
+  margin-bottom: 4.8rem !important;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.emphasize {
+  color: #cf711f;
+  font-weight: 700;
+}
+
+strong {
+  font-weight: 500;
+}
