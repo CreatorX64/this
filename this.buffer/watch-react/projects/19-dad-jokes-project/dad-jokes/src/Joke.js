@@ -45,14 +45,20 @@ export class Joke extends Component {
     return (
       <div className="Joke">
         <div className="Joke__buttons">
-          <i className="fas fa-arrow-up Joke__vote-icon" onClick={upVote} />
+          <i
+            className="fas fa-arrow-up Joke__vote-icon Joke__vote-icon--up"
+            onClick={upVote}
+          />
           <span
             className="Joke__votes"
             style={{ borderColor: this.getColor() }}
           >
             {votes}
           </span>
-          <i className="fas fa-arrow-down Joke__vote-icon" onClick={downVote} />
+          <i
+            className="fas fa-arrow-down Joke__vote-icon Joke__vote-icon--down"
+            onClick={downVote}
+          />
         </div>
         <div className="Joke__text">{text}</div>
         <div className="Joke__smiley-icon">
