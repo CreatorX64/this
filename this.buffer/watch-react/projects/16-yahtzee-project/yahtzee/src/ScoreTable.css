@@ -11,7 +11,7 @@
 .ScoreTable table {
   width: 100%;
   margin: 0 auto;
-  min-width: 400px;
+  /* min-width: 400px; */
 }
 
 .ScoreTable-section {
