@@ -6,7 +6,7 @@ import "./Deck.css";
 export class Deck extends Component {
   constructor(props) {
     super(props);
-    this.state = { deck: null, drawnCards: [] };
+    this.state = { deck: null, drawnCards: [], isGameOver: false };
     this.getCard = this.getCard.bind(this);
     this.createNewDeck = this.createNewDeck.bind(this);
     this.apiBaseUrl = "https://www.deckofcardsapi.com/api/deck";
