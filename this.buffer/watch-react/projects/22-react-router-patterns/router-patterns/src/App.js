@@ -1,7 +1,9 @@
 import { Component } from "react";
 import { Route, Switch } from "react-router-dom";
 import { Food } from "./Food";
+import { FoodSearch } from "./FoodSearch";
 import { Meal } from "./Meal";
+import { NavbarWithRouter as Navbar } from "./Navbar";
 import "./App.css";
 
 export class App extends Component {
@@ -29,14 +31,20 @@ export class App extends Component {
           render={(routeProps) => <Food authenticated={true} {...routeProps} />}
         /> */}
 
+        <Navbar />
         <Switch>
-          <Route exact path="/food/:name" component={Food} />
+          <Route path="/food/:name" component={Food} exact />
           <Route
-            exact
             path="/food/:foodName/drink/:drinkName"
             component={Meal}
+            exact
           />
-          <Route exact path="/" render={() => <h1>Homepage</h1>} />
+          <Route path="/" component={FoodSearch} exact />
+          {/* <Route
+            path="/"
+            render={(routeProps) => <FoodSearch {...routeProps} />}
+            exact
+          /> */}
           <Route render={() => <h1>ERROR: NOT FOUND!</h1>} />
         </Switch>
       </div>
