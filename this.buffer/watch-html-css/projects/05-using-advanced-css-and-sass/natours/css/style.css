@@ -132,18 +132,6 @@ body {
   margin-bottom: 8rem;
 }
 
-.btn::after {
-  content: "";
-  display: inline-block;
-  height: 100%;
-  width: 100%;
-  border-radius: 10rem;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  transition: all 0.4s;
-}
 .btn:link, .btn:visited {
   position: relative;
   text-transform: uppercase;
@@ -166,6 +154,18 @@ body {
   transform: translateY(-1px);
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
+.btn::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 10rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all 0.4s;
+}
 .btn--white {
   background-color: #fff;
   color: #777;
@@ -184,7 +184,7 @@ body {
   display: inline-block;
   text-decoration: none;
   border-bottom: 1px solid #55c57a;
-  padding: 3px;
+  padding: 0.6rem 1.2rem;
   transition: all 0.2s;
 }
 .btn-text:hover {

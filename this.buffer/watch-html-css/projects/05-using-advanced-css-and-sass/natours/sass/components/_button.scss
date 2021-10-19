@@ -1,17 +1,4 @@
 .btn {
-  &::after {
-    content: "";
-    display: inline-block;
-    height: 100%;
-    width: 100%;
-    border-radius: 10rem;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    transition: all 0.4s;
-  }
-
   &:link,
   &:visited {
     position: relative;
@@ -39,6 +26,19 @@
     box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
   }
 
+  &::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.4s;
+  }
+
   &--white {
     background-color: $color-white;
     color: $color-grey-dark;
@@ -62,7 +62,7 @@
     display: inline-block;
     text-decoration: none;
     border-bottom: 1px solid $color-primary;
-    padding: 3px;
+    padding: 0.6rem 1.2rem;
     transition: all 0.2s;
   }
 
