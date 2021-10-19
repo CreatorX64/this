@@ -24,19 +24,19 @@ export class ColorBox extends Component {
         <div style={{ backgroundColor }} className="ColorBox">
           <div
             style={{ backgroundColor }}
-            className={`ColorBox__overlay ${isCopied ? "show" : ""}`}
+            className={`copy-overlay ${isCopied ? "show" : ""}`}
           />
-          <div className={`ColorBox__copy-message  ${isCopied ? "show" : ""}`}>
+          <div className={`copy-msg  ${isCopied ? "show" : ""}`}>
             <h1>Copied!</h1>
             <p>{backgroundColor}</p>
           </div>
-          <div className="ColorBox__container">
-            <div className="ColorBox__content">
+          <div className="copy-container">
+            <div className="box-content">
               <span>{name}</span>
             </div>
-            <button className="ColorBox__copy-button">Copy</button>
+            <button className="copy-button">Copy</button>
           </div>
-          <span className="ColorBox__see-more">More</span>
+          <span className="see-more">More</span>
         </div>
       </CopyToClipboard>
     );

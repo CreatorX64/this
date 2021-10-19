@@ -5,10 +5,10 @@
   display: inline-block;
   position: relative;
   cursor: pointer;
-  margin-bottom: -3.6px;
+  margin-bottom: -4.5px;
 }
 
-.ColorBox__content {
+.box-content {
   position: absolute;
   width: 100%;
   left: 0;
@@ -20,7 +20,7 @@
   font-size: 12px;
 }
 
-.ColorBox__copy-button {
+.copy-button {
   width: 100px;
   height: 30px;
   position: absolute;
@@ -41,11 +41,11 @@
   transition: opacity 0.4s ease;
 }
 
-.ColorBox:hover .ColorBox__copy-button {
+.ColorBox:hover .copy-button {
   opacity: 1;
 }
 
-.ColorBox__see-more {
+.see-more {
   background-color: rgba(255, 255, 255, 0.3);
   position: absolute;
   border: none;
@@ -59,7 +59,7 @@
   text-transform: uppercase;
 }
 
-.ColorBox__overlay {
+.copy-overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -71,13 +71,13 @@
   transition: transform 0.6s ease-in-out;
 }
 
-.ColorBox__overlay.show {
+.copy-overlay.show {
   opacity: 1;
   z-index: 10;
   transform: scale(50);
 }
 
-.ColorBox__copy-message {
+.copy-msg {
   position: fixed;
   left: 0;
   right: 0;
@@ -93,7 +93,7 @@
   color: #fff;
 }
 
-.ColorBox__copy-message.show {
+.copy-msg.show {
   opacity: 1;
   transform: scale(1);
   z-index: 20;
@@ -101,7 +101,7 @@
   transition-delay: 0.3s;
 }
 
-.ColorBox__copy-message h1 {
+.copy-msg h1 {
   font-weight: 400;
   text-shadow: 1px 2px #000;
   background: rgba(255, 255, 255, 0.2);
@@ -112,7 +112,7 @@
   text-transform: uppercase;
 }
 
-.ColorBox__copy-message p {
+.copy-msg p {
   font-size: 2rem;
   font-weight: 300;
 }
