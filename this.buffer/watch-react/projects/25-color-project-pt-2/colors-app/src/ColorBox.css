@@ -1,44 +1,45 @@
+/* TODO: If it is not done in the course, convert this whole thing to be a flex or grid layout, whichever makes most sense. */
+
 .ColorBox {
+  position: relative;
+  display: inline-block;
   width: 20%;
   height: 25%;
-  margin: 0 auto;
-  display: inline-block;
-  position: relative;
-  cursor: pointer;
   margin-bottom: -4.5px;
+  cursor: pointer;
 }
 
 .box-content {
   position: absolute;
-  width: 100%;
   left: 0;
   bottom: 0;
+  width: 100%;
   padding: 10px;
-  color: black;
+  font-size: 12px;
   letter-spacing: 1px;
   text-transform: uppercase;
-  font-size: 12px;
+  color: black;
 }
 
 .copy-button {
-  width: 100px;
-  height: 30px;
   position: absolute;
-  display: inline-block;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
+  display: inline-block;
+  width: 100px;
+  height: 30px;
+  border: none;
   outline: none;
-  background-color: rgba(255, 255, 255, 0.3);
+  text-align: center;
   font-size: 1rem;
   line-height: 30px;
-  color: #fff;
   text-transform: uppercase;
-  border: none;
-  cursor: pointer;
   opacity: 0;
+  transform: translate(-50%, -50%);
   transition: opacity 0.4s ease;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.3);
+  color: #fff;
 }
 
 .ColorBox:hover .copy-button {
@@ -46,17 +47,17 @@
 }
 
 .see-more {
-  background-color: rgba(255, 255, 255, 0.3);
   position: absolute;
-  border: none;
   right: 0;
   bottom: 0;
-  color: #fff;
   width: 60px;
   height: 30px;
+  border: none;
   text-align: center;
   line-height: 30px;
   text-transform: uppercase;
+  background-color: rgba(255, 255, 255, 0.3);
+  color: #fff;
 }
 
 .copy-overlay {
@@ -88,8 +89,8 @@
   align-items: center;
   justify-content: center;
   font-size: 4rem;
-  transform: scale(0.1);
   opacity: 0;
+  transform: scale(0.1);
   color: #fff;
 }
 
@@ -102,14 +103,14 @@
 }
 
 .copy-msg h1 {
-  font-weight: 400;
-  text-shadow: 1px 2px #000;
-  background: rgba(255, 255, 255, 0.2);
   width: 100%;
-  text-align: center;
   margin-bottom: 0;
   padding: 1rem;
+  font-weight: 400;
+  text-align: center;
   text-transform: uppercase;
+  text-shadow: 1px 2px #000;
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .copy-msg p {

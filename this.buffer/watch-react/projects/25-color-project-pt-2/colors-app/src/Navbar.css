@@ -1,19 +1,19 @@
 .Navbar {
   display: flex;
-  align-items: center;
   justify-content: flex-start;
-  height: 6vh;
+  align-items: center;
+  /* height: 6vh; */
 }
 
 .logo {
-  margin-right: 15px;
-  padding: 0 13px;
-  font-size: 22px;
-  background-color: #eceff1;
-  font-family: Roboto, sans-serif;
-  height: 100%;
   display: flex;
   align-items: center;
+  height: 100%;
+  margin-right: 15px;
+  padding: 0 13px;
+  font-family: Roboto, sans-serif;
+  font-size: 22px;
+  background-color: #eceff1;
 }
 
 .logo a {
@@ -44,9 +44,9 @@
   margin-left: -7px;
   margin-top: -3px;
   border: 2px solid green;
+  outline: none;
   box-shadow: none;
   background-color: green;
-  outline: none;
 }
 
 .select-container {

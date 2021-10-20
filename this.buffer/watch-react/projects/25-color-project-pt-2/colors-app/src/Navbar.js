@@ -1,7 +1,7 @@
 import { Component } from "react";
 import { Link } from "react-router-dom";
-import CloseIcon from "@mui/icons-material/Close";
 import { IconButton, MenuItem, Select, Snackbar } from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close";
 import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
 import "./Navbar.css";
@@ -16,7 +16,7 @@ export class Navbar extends Component {
 
   handleFormatChange(event) {
     this.setState({ format: event.target.value, isSnackbarOpen: true });
-    this.props.handleChange(event.target.value);
+    this.props.changeFormat(event.target.value);
   }
 
   closeSnackbar() {
