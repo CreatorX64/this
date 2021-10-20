@@ -3,14 +3,14 @@
 }
 
 body {
-  color: #333;
-  font-family: arial;
-  max-width: 650px;
-  margin: 0 auto;
-  padding: 0 16px;
   display: flex;
   flex-direction: column;
+  max-width: 650px;
   min-height: 100vh;
+  margin: 0 auto;
+  padding: 0 16px;
+  font-family: Arial, sans-serif;
+  color: #333;
 }
 
 header {
@@ -19,29 +19,21 @@ header {
 }
 
 h1 {
-  font-size: 64px;
   margin-bottom: 16px;
+  font-size: 64px;
 }
 
 header a {
-  color: #888;
   margin-right: 16px;
   text-decoration: none;
+  color: #888;
 }
 
 footer {
-  color: #888;
-  border-top: 1px solid #eee;
   margin-top: 16px;
+  border-top: 1px solid #eee;
   padding: 16px 0;
-}
-
-.main-content {
-  flex-grow: 1;
-}
-
-.portrait {
-  width: 250px;
+  color: #888;
 }
 
 input {
@@ -50,9 +42,17 @@ input {
 }
 
 button {
-  cursor: pointer;
   border: 1px solid #888;
+  padding: 8px;
   background-color: #888;
   color: #fff;
-  padding: 8px;
+  cursor: pointer;
+}
+
+.main-content {
+  flex-grow: 1;
+}
+
+.portrait {
+  width: 250px;
 }

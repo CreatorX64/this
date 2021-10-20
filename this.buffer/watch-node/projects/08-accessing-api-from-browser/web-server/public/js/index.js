@@ -9,9 +9,9 @@ weatherForm.addEventListener("submit", (e) => {
   messageOne.textContent = "Loading...";
   messageTwo.textContent = "";
 
-  const location = searchInput.value;
+  const address = searchInput.value;
 
-  fetch(`/weather?address=${location}`)
+  fetch(`/weather?address=${address}`)
     .then((response) => {
       return response.json();
     })
