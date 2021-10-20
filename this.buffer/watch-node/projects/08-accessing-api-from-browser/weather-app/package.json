@@ -1,18 +1,21 @@
 {
-  "name": "web-server",
+  "name": "weather-app",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon src/app.js -e js,hbs"
+    "start": "node src/app.js",
+    "serve-dev": "nodemon -e js,hbs -r dotenv/config src/app.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
-    "hbs": "^4.1.2"
+    "hbs": "^4.1.2",
+    "postman-request": "^2.88.1-postman.30"
   },
   "devDependencies": {
     "nodemon": "^2.0.12"
