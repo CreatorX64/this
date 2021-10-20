@@ -1,9 +1,9 @@
 .card {
   // Functionality
 
-  perspective: 150rem;
   position: relative;
   height: 52rem;
+  perspective: 150rem;
 
   &:hover &__side--front {
     transform: rotateY(-180deg);
@@ -14,16 +14,16 @@
   }
 
   &__side {
-    height: 52rem;
-    transition: all 0.8s ease;
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    backface-visibility: hidden;
+    height: 100%;
     border-radius: 3px;
     overflow: hidden;
+    backface-visibility: hidden;
     box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
+    transition: all 0.8s ease;
 
     &--front {
       background-color: $color-white;
@@ -61,10 +61,10 @@
   // Front side
 
   &__picture {
-    background-size: cover;
     height: 23rem;
-    background-blend-mode: screen;
     clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    background-size: cover;
+    background-blend-mode: screen;
 
     &--1 {
       background-image: linear-gradient(
@@ -95,15 +95,15 @@
   }
 
   &__heading {
+    position: absolute;
+    top: 12rem;
+    right: 2rem;
+    width: 75%;
+    text-align: right;
     font-size: 2.8rem;
     font-weight: 300;
     text-transform: uppercase;
     color: $color-white;
-    position: absolute;
-    top: 12rem;
-    right: 2rem;
-    text-align: right;
-    width: 75%;
   }
 
   &__heading-span {
@@ -145,9 +145,9 @@
       margin: 0 auto;
 
       li {
+        padding: 1rem;
         text-align: center;
         font-size: 1.5rem;
-        padding: 1rem;
 
         &:not(:last-child) {
           border-bottom: 1px solid $color-grey-light-2;
