@@ -1,0 +1,54 @@
+.Navbar {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  /* height: 6vh; */
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  margin-right: 15px;
+  padding: 0 13px;
+  font-family: Roboto, sans-serif;
+  font-size: 22px;
+  background-color: #eceff1;
+}
+
+.logo a {
+  text-decoration: none;
+  color: #000;
+}
+
+.slider {
+  display: inline-block;
+  width: 340px;
+  margin: 0 16px;
+}
+
+.rc-slider-track {
+  background-color: transparent;
+}
+
+.rc-slider-rail {
+  height: 8px;
+}
+
+.rc-slider-handle,
+.rc-slider-handle:active,
+.rc-slider-handle:focus,
+.rc-slider-handle:hover {
+  width: 13px;
+  height: 13px;
+  margin-top: -3px;
+  border: 2px solid green;
+  outline: none;
+  box-shadow: none;
+  background-color: green;
+}
+
+.select-container {
+  margin-left: auto;
+  margin-right: 1rem;
+}
