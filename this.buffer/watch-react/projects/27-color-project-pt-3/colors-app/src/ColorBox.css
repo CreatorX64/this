@@ -1,27 +1,9 @@
-/* TODO: If it is not done in the course, convert this whole thing to be a flex or grid layout, whichever makes most sense. */
-
-.ColorBox {
-  position: relative;
-  display: inline-block;
-  width: 20%;
-  height: 25%;
-  margin-bottom: -4.5px;
-  cursor: pointer;
+/* .ColorBox.go-back {
+  background-color: #000;
 }
 
-.box-content {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  padding: 10px;
-  font-size: 12px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: black;
-}
-
-.copy-button {
+.copy-button,
+.back-button {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -34,19 +16,56 @@
   font-size: 1rem;
   line-height: 30px;
   text-transform: uppercase;
-  opacity: 0;
+  text-decoration: none;
   transform: translate(-50%, -50%);
   transition: opacity 0.4s ease;
   cursor: pointer;
   background-color: rgba(255, 255, 255, 0.3);
   color: #fff;
+} */
+
+/* .ColorBox {
+  position: relative;
+  display: inline-block;
+  width: 20%;
+  height: 25%;
+  margin-bottom: -4.5px;
+  cursor: pointer;
+}
+
+.SingleColorPalette .ColorBox {
+  height: 50%;
+} */
+
+/* .box-content {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 10px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: black;
+} */
+
+/* .light-text {
+  color: #fff;
+}
+
+.ColorBox .dark-text {
+  color: #333;
+} */
+
+/* .copy-button {
+  opacity: 0;
 }
 
 .ColorBox:hover .copy-button {
   opacity: 1;
-}
+} */
 
-.see-more {
+/* .see-more {
   position: absolute;
   right: 0;
   bottom: 0;
@@ -58,9 +77,9 @@
   text-transform: uppercase;
   background-color: rgba(255, 255, 255, 0.3);
   color: #fff;
-}
+} */
 
-.copy-overlay {
+/* .copy-overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -70,15 +89,15 @@
   opacity: 0;
   transform: scale(0.1);
   transition: transform 0.6s ease-in-out;
-}
+} */
 
-.copy-overlay.show {
+/* .copy-overlay.show {
   opacity: 1;
   z-index: 10;
   transform: scale(50);
-}
+} */
 
-.copy-msg {
+/* .copy-msg {
   position: fixed;
   left: 0;
   right: 0;
@@ -92,17 +111,17 @@
   opacity: 0;
   transform: scale(0.1);
   color: #fff;
-}
+} */
 
-.copy-msg.show {
+/* .copy-msg.show {
   opacity: 1;
   transform: scale(1);
   z-index: 20;
   transition: all 0.4s ease-in-out;
   transition-delay: 0.3s;
-}
+} */
 
-.copy-msg h1 {
+/* .copy-msg h1 {
   width: 100%;
   margin-bottom: 0;
   padding: 1rem;
@@ -111,9 +130,9 @@
   text-transform: uppercase;
   text-shadow: 1px 2px #000;
   background: rgba(255, 255, 255, 0.2);
-}
+} */
 
-.copy-msg p {
+/* .copy-msg p {
   font-size: 2rem;
   font-weight: 300;
-}
+} */

@@ -1,5 +1,5 @@
-/** @jsxImportSource @emotion/react */
 import { Component } from "react";
+import { withStyles } from "@mui/styles";
 import MiniPalette from "./MiniPalette";
 
 const styles = {
@@ -32,7 +32,7 @@ const styles = {
   }
 };
 
-export default class PaletteList extends Component {
+class PaletteList extends Component {
   constructor(props) {
     super(props);
     this.goToPalette = this.goToPalette.bind(this);
@@ -43,15 +43,15 @@ export default class PaletteList extends Component {
   }
 
   render() {
-    const { palettes } = this.props;
+    const { classes, palettes } = this.props;
 
     return (
-      <div css={styles.root}>
-        <div css={styles.container}>
-          <nav css={styles.nav}>
+      <div className={classes.root}>
+        <div className={classes.container}>
+          <nav className={classes.nav}>
             <h1>React Colors</h1>
           </nav>
-          <div css={styles.palettes}>
+          <div className={classes.palettes}>
             {palettes.map((palette) => (
               <MiniPalette
                 {...palette}
@@ -65,3 +65,5 @@ export default class PaletteList extends Component {
     );
   }
 }
+
+export default withStyles(styles)(PaletteList);

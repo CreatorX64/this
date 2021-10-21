@@ -24,7 +24,7 @@
 .slider {
   display: inline-block;
   width: 340px;
-  margin: 0 10px;
+  margin: 0 16px;
 }
 
 .rc-slider-track {
@@ -41,7 +41,6 @@
 .rc-slider-handle:hover {
   width: 13px;
   height: 13px;
-  margin-left: -7px;
   margin-top: -3px;
   border: 2px solid green;
   outline: none;

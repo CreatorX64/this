@@ -29,7 +29,7 @@ export default class Palette extends Component {
         name={color.name}
         backgroundColor={color[format]}
         moreUrl={`/palette/${id}/${color.id}`}
-        showMoreLink
+        showFullPalette
       />
     ));
 

@@ -1,4 +1,4 @@
-/** @jsxImportSource @emotion/react */
+import { withStyles } from "@mui/styles";
 
 const styles = {
   root: {
@@ -43,22 +43,24 @@ const styles = {
   }
 };
 
-export default function MiniPalette(props) {
-  const { paletteName, emoji, colors, handleClick } = props;
+function MiniPalette(props) {
+  const { classes, paletteName, emoji, colors, handleClick } = props;
   const miniColorBoxes = colors.map((color) => (
     <div
-      css={styles.miniColor}
       key={color.id}
+      className={classes.miniColor}
       style={{ backgroundColor: color.color }}
     />
   ));
 
   return (
-    <div css={styles.root} onClick={handleClick}>
-      <div css={styles.colors}>{miniColorBoxes}</div>
-      <h5 css={styles.title}>
-        {paletteName} <span css={styles.emoji}>{emoji}</span>
+    <div className={classes.root} onClick={handleClick}>
+      <div className={classes.colors}>{miniColorBoxes}</div>
+      <h5 className={classes.title}>
+        {paletteName} <span className={classes.emoji}>{emoji}</span>
       </h5>
     </div>
   );
 }
+
+export default withStyles(styles)(MiniPalette);
