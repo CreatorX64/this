@@ -12,6 +12,7 @@
   &__shape {
     width: 15rem;
     height: 15rem;
+    overflow: hidden;
     float: left;
     shape-outside: circle(50% at 50% 50%);
     -webkit-clip-path: circle(50% at 50% 50%);

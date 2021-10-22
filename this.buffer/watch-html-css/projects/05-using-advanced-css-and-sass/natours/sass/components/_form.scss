@@ -56,35 +56,32 @@
   }
 
   &__radio-label {
-    font-size: $default-font-size;
-    cursor: pointer;
     position: relative;
     padding-left: 4.3rem;
+    font-size: $default-font-size;
+    cursor: pointer;
   }
 
   &__radio-button {
-    height: 3rem;
-    width: 3rem;
-    border: 5px solid $color-primary;
-    border-radius: 50%;
-    display: inline-block;
     position: absolute;
     left: 0;
     top: -0.4rem;
+    display: inline-block;
+    width: 3rem;
+    height: 3rem;
+    border: 5px solid $color-primary;
+    border-radius: 50%;
 
     &::after {
+      @include abscenter;
       content: "";
       display: block;
-      height: 1.3rem;
       width: 1.3rem;
+      height: 1.3rem;
       border-radius: 50%;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background-color: $color-primary;
       opacity: 0;
       transition: opacity 0.2s;
+      background-color: $color-primary;
     }
   }
 
