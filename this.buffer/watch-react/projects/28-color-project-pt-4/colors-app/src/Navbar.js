@@ -1,12 +1,13 @@
+import CloseIcon from "@mui/icons-material/Close";
+import { IconButton, MenuItem, Select, Snackbar } from "@mui/material";
+import { withStyles } from "@mui/styles";
 import { Component } from "react";
 import { Link } from "react-router-dom";
-import { IconButton, MenuItem, Select, Snackbar } from "@mui/material";
-import CloseIcon from "@mui/icons-material/Close";
 import Slider from "rc-slider";
+import styles from "./styles/NavbarStyles";
 import "rc-slider/assets/index.css";
-import "./Navbar.css";
 
-export default class Navbar extends Component {
+class Navbar extends Component {
   constructor(props) {
     super(props);
     this.state = { format: "hex", isSnackbarOpen: false };
@@ -24,30 +25,29 @@ export default class Navbar extends Component {
   }
 
   render() {
-    const { level, changeLevel, showAllColors } = this.props;
+    const { classes, level, changeLevel, showAllColors } = this.props;
     const { format } = this.state;
 
     return (
-      <header className="Navbar">
-        <div className="logo">
+      <header className={classes.Navbar}>
+        <div className={classes.logo}>
           <Link to="/">React Color Picker</Link>
         </div>
         {showAllColors && (
-          <div className="slider-container">
+          <div>
             <span>Level: {level}</span>
-            <div className="slider">
+            <div className={classes.slider}>
               <Slider
                 defaultValue={level}
                 min={100}
                 max={900}
                 step={100}
                 onChange={changeLevel}
-                // onAfterChange={changeLevel}
               />
             </div>
           </div>
         )}
-        <div className="select-container">
+        <div className={classes.selectContainer}>
           <Select value={format} onChange={this.handleFormatChange}>
             <MenuItem value="hex">HEX - #ffffff</MenuItem>
             <MenuItem value="rgb">RGB - rgb(255, 255, 255)</MenuItem>
@@ -80,3 +80,5 @@ export default class Navbar extends Component {
     );
   }
 }
+
+export default withStyles(styles)(Navbar);

@@ -1,9 +1,15 @@
-export default function PaletteFooter(props) {
-  const { paletteName, emoji } = props;
+import { withStyles } from "@mui/styles";
+import styles from "./styles/PaletteFooterStyles";
+
+function PaletteFooter(props) {
+  const { classes, paletteName, emoji } = props;
+
   return (
-    <footer className="Palette-footer">
+    <footer className={classes.PaletteFooter}>
       {paletteName}
-      <span className="emoji">{emoji}</span>
+      <span className={classes.emoji}>{emoji}</span>
     </footer>
   );
 }
+
+export default withStyles(styles)(PaletteFooter);
