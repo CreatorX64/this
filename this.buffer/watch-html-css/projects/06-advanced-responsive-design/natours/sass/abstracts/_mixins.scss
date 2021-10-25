@@ -1,0 +1,66 @@
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+}
+
+@mixin abscenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// Media Query Manager
+
+/*
+Screen Sizes
+0 - 600: Phone
+600 - 900: Tablet portrait
+900 - 1200: Tablet landscape
+1200 - 1800: Desktop
+1800+: Big desktop
+*/
+
+// We could do it like this, but there's a better way below.
+// @mixin respond-phone {
+//   @media (max-width: 600px) {
+//     @content;
+//   }
+// }
+
+/*
+$breakpoint argument choices:
+- phone: Phone
+- tab-port: Tablet portrait
+- tab-land: Tablet landscape
+- big-desktop: Desktop big
+*/
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    // 600px
+    @media (max-width: 37.5em) {
+      @content;
+    }
+  }
+  @if $breakpoint == tab-port {
+    // 900px
+    @media (max-width: 56.25em) {
+      @content;
+    }
+  }
+  @if $breakpoint == tab-land {
+    // 1200px
+    @media (max-width: 75em) {
+      @content;
+    }
+  }
+  @if $breakpoint == big-desktop {
+    // 1800px
+    @media (min-width: 112.5em) {
+      @content;
+    }
+  }
+}

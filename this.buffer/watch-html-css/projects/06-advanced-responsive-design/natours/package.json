@@ -1,0 +1,18 @@
+{
+  "name": "natours",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "compile-sass": "sass sass/main.scss css/style.css",
+    "watch-sass": "sass sass/main.scss css/style.css -w",
+    "serve-dev": "live-server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "live-server": "^1.2.1",
+    "sass": "^1.43.2"
+  }
+}
