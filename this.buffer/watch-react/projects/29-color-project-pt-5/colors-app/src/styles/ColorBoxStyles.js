@@ -65,7 +65,7 @@ const styles = {
     fontSize: "12px",
     letterSpacing: "1px",
     textTransform: "uppercase",
-    color: "black"
+    color: "#000"
   },
   copyOverlay: {
     position: "absolute",

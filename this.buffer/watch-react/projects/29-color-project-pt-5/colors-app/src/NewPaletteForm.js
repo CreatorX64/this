@@ -1,19 +1,19 @@
-import { Component } from "react";
+import { arrayMoveImmutable } from "array-move";
+import {
+  Box,
+  Button,
+  Drawer,
+  CssBaseline,
+  Typography,
+  Divider,
+  IconButton
+} from "@mui/material";
 import { styled } from "@mui/material/styles";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Drawer from "@mui/material/Drawer";
-import CssBaseline from "@mui/material/CssBaseline";
-import MuiAppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
-import Divider from "@mui/material/Divider";
-import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
-import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-import { ChromePicker } from "react-color";
-import DraggableColorBox from "./DraggableColorBox";
-import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
+import { ChevronLeft as ChevronLeftIcon } from "@mui/icons-material";
+import { Component } from "react";
+import ColorPickerForm from "./ColorPickerForm";
+import DraggableColorList from "./DraggableColorList";
+import PaletteFormNav from "./PaletteFormNav";
 
 const drawerWidth = 400;
 
@@ -37,23 +37,6 @@ const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
   })
 );
 
-const AppBar = styled(MuiAppBar, {
-  shouldForwardProp: (prop) => prop !== "open"
-})(({ theme, open }) => ({
-  transition: theme.transitions.create(["margin", "width"], {
-    easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.leavingScreen
-  }),
-  ...(open && {
-    width: `calc(100% - ${drawerWidth}px)`,
-    marginLeft: `${drawerWidth}px`,
-    transition: theme.transitions.create(["margin", "width"], {
-      easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen
-    })
-  })
-}));
-
 const DrawerHeader = styled("div")(({ theme }) => ({
   display: "flex",
   alignItems: "center",
@@ -64,32 +47,27 @@ const DrawerHeader = styled("div")(({ theme }) => ({
 }));
 
 export default class NewPaletteForm extends Component {
+  static defaultProps = {
+    maxColors: 20
+  };
+
   constructor(props) {
     super(props);
+
     this.state = {
-      open: false,
-      currentColor: "teal",
-      currentName: "",
-      colors: []
+      open: true,
+      colors: this.props.palettes[0].colors
     };
+
     this.handleDrawerOpen = this.handleDrawerOpen.bind(this);
     this.handleDrawerClose = this.handleDrawerClose.bind(this);
-    this.updateCurrentColor = this.updateCurrentColor.bind(this);
     this.addNewColor = this.addNewColor.bind(this);
     this.handleChange = this.handleChange.bind(this);
-  }
-
-  componentDidMount() {
-    ValidatorForm.addValidationRule("isColorNameUnique", (value) => {
-      return this.state.colors.every(
-        ({ name }) => name.toLowerCase() !== value.toLowerCase()
-      );
-    });
-    ValidatorForm.addValidationRule("isColorUnique", (value) => {
-      return this.state.colors.every(
-        ({ color }) => color !== this.state.currentColor
-      );
-    });
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.removeColor = this.removeColor.bind(this);
+    this.onSortEnd = this.onSortEnd.bind(this);
+    this.clearColors = this.clearColors.bind(this);
+    this.addRandomColor = this.addRandomColor.bind(this);
   }
 
   handleDrawerOpen() {
@@ -100,45 +78,64 @@ export default class NewPaletteForm extends Component {
     this.setState({ open: false });
   }
 
-  updateCurrentColor(newColor) {
-    this.setState({ currentColor: newColor.hex });
-  }
-
-  addNewColor() {
-    const newColor = {
-      color: this.state.currentColor,
-      name: this.state.currentName
-    };
+  addNewColor(newColor) {
     this.setState({
       colors: [...this.state.colors, newColor],
-      currentName: ""
+      newColorName: ""
     });
   }
 
   handleChange(event) {
-    this.setState({ currentName: event.target.value });
+    this.setState({ [event.target.name]: event.target.value });
+  }
+
+  handleSubmit(newPaletteName) {
+    const newPalette = {
+      id: newPaletteName.toLowerCase().replace(/ /g, "-"),
+      paletteName: newPaletteName,
+      colors: this.state.colors
+    };
+    this.props.savePalette(newPalette);
+    this.props.history.push("/");
+  }
+
+  clearColors() {
+    this.setState({ colors: [] });
+  }
+
+  addRandomColor() {
+    const allColors = this.props.palettes.map((p) => p.colors).flat();
+    const randomIndex = Math.floor(Math.random() * allColors.length);
+    const randomColor = allColors[randomIndex];
+    this.setState({ colors: [...this.state.colors, randomColor] });
+  }
+
+  removeColor(colorName) {
+    this.setState({
+      colors: this.state.colors.filter((color) => color.name !== colorName)
+    });
+  }
+
+  onSortEnd({ oldIndex, newIndex }) {
+    this.setState(({ colors }) => ({
+      colors: arrayMoveImmutable(colors, oldIndex, newIndex)
+    }));
   }
 
   render() {
+    const { maxColors, palettes } = this.props;
+    const { colors, open } = this.state;
+    const isPaletteFull = colors.length >= maxColors;
+
     return (
       <Box sx={{ display: "flex" }}>
         <CssBaseline />
-        <AppBar position="fixed" open={this.state.open}>
-          <Toolbar>
-            <IconButton
-              color="inherit"
-              aria-label="open drawer"
-              onClick={this.handleDrawerOpen}
-              edge="start"
-              sx={{ mr: 2, ...(this.state.open && { display: "none" }) }}
-            >
-              <MenuIcon />
-            </IconButton>
-            <Typography variant="h6" noWrap component="div">
-              Persistent drawer
-            </Typography>
-          </Toolbar>
-        </AppBar>
+        <PaletteFormNav
+          open={open}
+          palettes={palettes}
+          handleSubmit={this.handleSubmit}
+          handleDrawerOpen={this.handleDrawerOpen}
+        />
         <Drawer
           sx={{
             width: drawerWidth,
@@ -150,7 +147,7 @@ export default class NewPaletteForm extends Component {
           }}
           variant="persistent"
           anchor="left"
-          open={this.state.open}
+          open={open}
         >
           <DrawerHeader>
             <IconButton onClick={this.handleDrawerClose}>
@@ -160,47 +157,36 @@ export default class NewPaletteForm extends Component {
           <Divider />
           <Typography variant="h4">Design Your Palette</Typography>
           <div>
-            <Button variant="contained" color="secondary">
+            <Button
+              variant="contained"
+              color="secondary"
+              onClick={this.clearColors}
+            >
               Clear Palette
             </Button>
-            <Button variant="contained" color="primary">
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={this.addRandomColor}
+              disabled={isPaletteFull}
+            >
               Random Color
             </Button>
           </div>
-          <ChromePicker
-            color={this.state.currentColor}
-            onChangeComplete={this.updateCurrentColor}
+          <ColorPickerForm
+            isPaletteFull={isPaletteFull}
+            addNewColor={this.addNewColor}
+            colors={colors}
           />
-          <ValidatorForm onSubmit={this.addNewColor}>
-            <TextValidator
-              value={this.state.currentName}
-              onChange={this.handleChange}
-              validators={["required", "isColorNameUnique", "isColorUnique"]}
-              errorMessages={[
-                "Enter a color name",
-                "Color name must be unique",
-                "Color already used"
-              ]}
-            />
-            <Button
-              variant="contained"
-              type="submit"
-              color="primary"
-              style={{ backgroundColor: this.state.currentColor }}
-            >
-              Add Color
-            </Button>
-          </ValidatorForm>
         </Drawer>
-        <Main open={this.state.open}>
+        <Main open={open}>
           <DrawerHeader />
-          {this.state.colors.map((color) => (
-            <DraggableColorBox
-              key={color.name}
-              color={color.color}
-              name={color.name}
-            />
-          ))}
+          <DraggableColorList
+            colors={colors}
+            removeColor={this.removeColor}
+            axis="xy"
+            onSortEnd={this.onSortEnd}
+          />
         </Main>
       </Box>
     );
