@@ -27,6 +27,11 @@
     display: table-cell;
     width: 33.333333%;
     vertical-align: middle;
+
+    @include respond(tab-port) {
+      display: block;
+      width: 100%;
+    }
   }
 
   &__right {
@@ -34,11 +39,24 @@
     width: 66.666667%;
     padding: 3rem 5rem;
     vertical-align: middle;
+
+    @include respond(tab-port) {
+      display: block;
+      width: 100%;
+    }
+
+    @include respond(phone) {
+      padding: 3rem;
+    }
   }
 
   &__img {
     display: block;
     width: 100%;
+
+    @include respond(tab-port) {
+      display: none;
+    }
   }
 
   &__text {
@@ -51,6 +69,11 @@
     -ms-hyphens: auto;
     -webkit-hyphens: auto;
     hyphens: auto;
+
+    @include respond(phone) {
+      column-count: 1;
+      margin-bottom: 2rem;
+    }
   }
 
   // Open states
