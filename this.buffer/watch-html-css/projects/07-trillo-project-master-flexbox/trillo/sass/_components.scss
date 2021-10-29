@@ -1,0 +1,112 @@
+// Logo
+
+.logo {
+  height: 3.25rem;
+  margin-left: 2rem;
+}
+
+// Search box
+
+.search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 40%;
+
+  &__input {
+    width: 90%;
+    margin-right: -3.25rem;
+    border: none;
+    border-radius: 100px;
+    padding: 0.7rem 2rem;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    background-color: var(--color-grey-light-2);
+    transition: all 0.2s;
+
+    &:focus {
+      outline: none;
+      width: 100%;
+      background-color: var(--color-grey-light-3);
+    }
+
+    &::placeholder {
+      font-weight: 100;
+      color: var(--color-grey-light-4);
+    }
+  }
+
+  &__input:focus + &__button {
+    background-color: var(--color-grey-light-3);
+  }
+
+  &__button {
+    border: none;
+    background-color: var(--color-grey-light-2);
+
+    &:focus {
+      outline: none;
+    }
+
+    &:active {
+      transform: translateY(2px);
+    }
+  }
+
+  &__icon {
+    height: 2rem;
+    width: 2rem;
+    fill: var(--color-grey-dark-3);
+  }
+}
+
+// User navigation
+
+.user-nav {
+  align-self: stretch;
+  display: flex;
+  align-items: stretch;
+
+  & > * {
+    display: flex;
+    align-items: center;
+    padding: 0 2rem;
+    cursor: pointer;
+  }
+
+  & > *:hover {
+    background-color: var(--color-grey-light-2);
+  }
+
+  &__icon-box {
+    position: relative;
+  }
+
+  &__icon {
+    width: 2.25rem;
+    height: 2.25rem;
+    fill: var(--color-grey-dark-2);
+  }
+
+  &__notification {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: 50%;
+    font-size: 0.8rem;
+    color: #fff;
+    background-color: var(--color-primary);
+  }
+
+  &__user-photo {
+    height: 3.75rem;
+    margin-right: 1rem;
+    border-radius: 50%;
+  }
+}
