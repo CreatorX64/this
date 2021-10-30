@@ -3,8 +3,8 @@ const searchInput = document.querySelector("input");
 const messageOne = document.querySelector(".message-one");
 const messageTwo = document.querySelector(".message-two");
 
-weatherForm.addEventListener("submit", (e) => {
-  e.preventDefault();
+weatherForm.addEventListener("submit", (event) => {
+  event.preventDefault();
 
   messageOne.textContent = "Loading...";
   messageTwo.textContent = "";
