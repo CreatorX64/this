@@ -1,0 +1,176 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+
+* {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: "Nunito", sans-serif;
+  font-weight: 400;
+  color: #333;
+  background-image: linear-gradient(to top left, #753682 0%, #bf2e34 100%);
+}
+
+/* LAYOUT */
+
+main {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  width: 100rem;
+  height: 60rem;
+  border-radius: 9px;
+  background-color: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.25);
+  filter: blur();
+  backdrop-filter: blur(200px);
+}
+
+.player {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  padding: 9rem;
+  transition: all 0.75s;
+}
+
+/* ELEMENTS */
+
+.name {
+  position: relative;
+  margin-bottom: 1rem;
+  font-size: 4rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  word-spacing: 2px;
+}
+
+.score {
+  margin-bottom: auto;
+  font-size: 8rem;
+  font-weight: 300;
+  color: #c7365f;
+}
+
+.current {
+  width: 65%;
+  padding: 2rem;
+  border-radius: 9px;
+  opacity: 0.8;
+  text-align: center;
+  color: #fff;
+  background-color: #c7365f;
+  transition: all 0.75s;
+}
+
+.current-label {
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  font-size: 1.7rem;
+  color: #ddd;
+}
+
+.current-score {
+  font-size: 3.5rem;
+}
+
+.player--active {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.player--active .name {
+  font-weight: 700;
+}
+
+.player--active .score {
+  font-weight: 400;
+}
+
+.player--active .current {
+  opacity: 1;
+}
+
+/* ABSOLUTE POSITIONED ELEMENTS */
+
+.btn {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  border: none;
+  border-radius: 50rem;
+  padding: 0.7rem 2.5rem;
+  font-family: inherit;
+  font-size: 1.8rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #444;
+  background: none;
+  background-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn::first-letter {
+  display: inline-block;
+  margin-right: 0.7rem;
+  font-size: 2.4rem;
+}
+
+.btn--new {
+  top: 4rem;
+}
+
+.btn--roll {
+  top: 39.3rem;
+}
+
+.btn--hold {
+  top: 46.1rem;
+}
+
+.btn:active {
+  transform: translate(-50%, 3px);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.dice {
+  position: absolute;
+  top: 16.5rem;
+  left: 50%;
+  height: 10rem;
+  border-radius: 8px;
+  transform: translateX(-50%);
+  box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.2);
+}
+
+.player--winner {
+  background-color: #2f2f2f;
+}
+
+.player--winner .name {
+  font-weight: 700;
+  color: #c7365f;
+}
+
+.hidden {
+  display: none;
+}

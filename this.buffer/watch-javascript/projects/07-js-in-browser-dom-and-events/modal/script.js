@@ -1,9 +1,9 @@
 "use strict";
 
-const elemModal = document.querySelector(".modal");
 const elemOverlay = document.querySelector(".overlay");
-const btnCloseModal = document.querySelector(".close-modal");
+const elemModal = document.querySelector(".modal");
 const btnsOpenModal = document.querySelectorAll(".show-modal");
+const btnCloseModal = document.querySelector(".close-modal");
 
 for (let i = 0; i < btnsOpenModal.length; i++) {
   btnsOpenModal[i].addEventListener("click", openModal);
