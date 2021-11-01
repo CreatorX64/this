@@ -122,3 +122,111 @@ matilda.calcAge(); // matilda object
 const func = jonas.calcAge;
 func(); // undefined in strict mode, window in sloppy mode
 */
+
+/*
+//-- Regular functions vs. arrow functions
+
+var firstName = "Matilda";
+
+const jonas = {
+  firstName: "Jonas",
+  year: 1991,
+  calcAge: function () {
+    // console.log(this);
+
+    // const isMillenial = function () {
+    //   console.log(this); // undefined in strict mode, window in sloppy mode
+    //   console.log(this.year >= 1981 && this.year <= 1996);
+    // };
+
+    const isMillenial = () => {
+      console.log(this); // jonas object
+    };
+
+    isMillenial();
+  },
+  // Never use arrow functions as methods! This is for demonstration purposes.
+  greet: () => {
+    console.log(this);
+    // When we call this method, this line will print "Matilda", because var
+    // attaches the variable on the window object and "this" refers to the
+    // window object in this context.
+    console.log(`Hey ${this.firstName}`);
+  }
+};
+jonas.greet(); // window
+jonas.calcAge();
+
+// Arguments keyword
+
+const addExpr = function (a, b) {
+  console.log(arguments);
+  return a + b;
+};
+addExpr(2, 5);
+addExpr(2, 5, 8, 4, 5);
+
+var addArrow = (a, b) => {
+  // console.log(arguments); // ReferenceError!
+  return a + b;
+};
+addArrow(2, 4, 5);
+*/
+
+/*
+//-- Primitives (value types) vs. Objects (reference types)
+
+// Prmitive types
+
+let age = 30;
+let oldAge = 30;
+age = 31;
+console.log(age);
+console.log(oldAge);
+
+let lastName = "Williams";
+let oldLastName = lastName;
+lastName = "Davis";
+console.log(lastName, oldLastName);
+
+// reference types
+
+const me = {
+  name: "Jonas",
+  age: 30
+};
+const friend = me;
+friend.age = 27;
+console.log("Friend:", friend); // {name: 'Jonas', age: 27}
+console.log("Me:", me); // {name: 'Jonas', age: 27}
+
+const jessica = {
+  firstName: "Jessica",
+  lastName: "Williams",
+  age: 27
+};
+const marriedJessica = jessica;
+marriedJessica.lastName = "Davis";
+console.log("Before marriage:", jessica);
+console.log("After marriage:", marriedJessica);
+
+// Copying objects
+
+const jessica2 = {
+  firstName: "Jessica",
+  lastName: "Williams",
+  age: 27,
+  family: ["Alice", "Bob"]
+};
+
+const jessicaCopy = Object.assign({}, jessica2); // Shallow copy, not deep clone
+jessicaCopy.lastName = "Davis";
+console.log("Before marriage:", jessica2);
+console.log("After marriage:", jessicaCopy);
+
+jessicaCopy.family.push("Mary");
+jessicaCopy.family.push("John");
+
+console.log("Before marriage:", jessica2);
+console.log("After marriage:", jessicaCopy);
+*/
