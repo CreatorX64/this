@@ -9,6 +9,18 @@ let secretNumber = Math.trunc(Math.random() * 20) + 1;
 let score = 20;
 let highScore = 0;
 
+const displayMessage = (message) => {
+  document.querySelector(".message").textContent = message;
+};
+
+const displayScore = (score) => {
+  document.querySelector(".score").textContent = score;
+};
+
+const displayHighScore = (score) => {
+  document.querySelector(".highscore").textContent = score;
+};
+
 btnCheck.addEventListener("click", () => {
   const guess = Number(inputGuess.value);
 
@@ -46,15 +58,3 @@ btnAgain.addEventListener("click", () => {
   document.body.style.backgroundColor = "#222";
   elemNumber.style.width = "15rem";
 });
-
-function displayMessage(message) {
-  document.querySelector(".message").textContent = message;
-}
-
-function displayScore(score) {
-  document.querySelector(".score").textContent = score;
-}
-
-function displayHighScore(score) {
-  document.querySelector(".highscore").textContent = score;
-}

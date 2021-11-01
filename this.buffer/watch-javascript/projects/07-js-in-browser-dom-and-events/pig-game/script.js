@@ -16,6 +16,31 @@ let activePlayer; // 0 or 1, depending on which player is active.
 let currentScore; // Running score of the active player.
 let isPlaying; // Current status of the game.
 
+const setupNewGame = () => {
+  elemScore0.textContent = 0;
+  elemScore1.textContent = 0;
+  elemCurrentScore0.textContent = 0;
+  elemCurrentScore1.textContent = 0;
+  elemPlayer0.classList.remove("player--winner");
+  elemPlayer1.classList.remove("player--winner");
+  elemPlayer0.classList.add("player--active");
+  elemPlayer1.classList.remove("player--active");
+  elemDice.classList.add("hidden");
+
+  scores = [0, 0];
+  activePlayer = 0;
+  currentScore = 0;
+  isPlaying = true;
+};
+
+const switchPlayer = () => {
+  document.querySelector(`.current--${activePlayer}`).textContent = 0;
+  currentScore = 0;
+  activePlayer = activePlayer === 0 ? 1 : 0;
+  elemPlayer0.classList.toggle("player--active");
+  elemPlayer1.classList.toggle("player--active");
+};
+
 setupNewGame();
 
 // Roll dice functionality.
@@ -67,28 +92,3 @@ btnHold.addEventListener("click", () => {
 });
 
 btnNew.addEventListener("click", setupNewGame);
-
-function setupNewGame() {
-  elemScore0.textContent = 0;
-  elemScore1.textContent = 0;
-  elemCurrentScore0.textContent = 0;
-  elemCurrentScore1.textContent = 0;
-  elemPlayer0.classList.remove("player--winner");
-  elemPlayer1.classList.remove("player--winner");
-  elemPlayer0.classList.add("player--active");
-  elemPlayer1.classList.remove("player--active");
-  elemDice.classList.add("hidden");
-
-  scores = [0, 0];
-  activePlayer = 0;
-  currentScore = 0;
-  isPlaying = true;
-}
-
-function switchPlayer() {
-  document.querySelector(`.current--${activePlayer}`).textContent = 0;
-  currentScore = 0;
-  activePlayer = activePlayer === 0 ? 1 : 0;
-  elemPlayer0.classList.toggle("player--active");
-  elemPlayer1.classList.toggle("player--active");
-}

@@ -5,6 +5,16 @@ const elemModal = document.querySelector(".modal");
 const btnsOpenModal = document.querySelectorAll(".show-modal");
 const btnCloseModal = document.querySelector(".close-modal");
 
+const openModal = () => {
+  elemModal.classList.remove("hidden");
+  elemOverlay.classList.remove("hidden");
+};
+
+const closeModal = () => {
+  elemModal.classList.add("hidden");
+  elemOverlay.classList.add("hidden");
+};
+
 for (let i = 0; i < btnsOpenModal.length; i++) {
   btnsOpenModal[i].addEventListener("click", openModal);
 }
@@ -16,13 +26,3 @@ document.addEventListener("keydown", (event) => {
     closeModal();
   }
 });
-
-function openModal() {
-  elemModal.classList.remove("hidden");
-  elemOverlay.classList.remove("hidden");
-}
-
-function closeModal() {
-  elemModal.classList.add("hidden");
-  elemOverlay.classList.add("hidden");
-}
