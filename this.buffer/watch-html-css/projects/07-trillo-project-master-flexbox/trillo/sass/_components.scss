@@ -13,6 +13,12 @@
   justify-content: center;
   flex: 0 0 40%;
 
+  @media only screen and (max-width: $bp-smallest) {
+    order: 1;
+    flex: 0 0 100%;
+    background-color: var(--color-grey-light-2);
+  }
+
   &__input {
     width: 90%;
     margin-right: -3.25rem;
@@ -114,15 +120,28 @@
 // Side navigation
 
 .side-nav {
+  margin-top: 3.5rem;
   font-size: 1.4rem;
   list-style: none;
-  margin-top: 3.5rem;
+
+  @media only screen and (max-width: $bp-medium) {
+    display: flex;
+    margin: 0;
+  }
 
   &__item {
     position: relative;
 
     &:not(:last-child) {
       margin-bottom: 0.5rem;
+
+      @media only screen and (max-width: $bp-medium) {
+        margin: 0;
+      }
+    }
+
+    @media only screen and (max-width: $bp-medium) {
+      flex: 1;
     }
   }
 
@@ -152,14 +171,24 @@
 
   &__link:link,
   &__link:visited {
+    position: relative; // For z-index to take effect.
     z-index: 10;
-    position: relative;
     display: flex;
     align-items: center;
     padding: 1.5rem 3rem;
     text-decoration: none;
     text-transform: uppercase;
     color: var(--color-grey-light-1);
+
+    @media only screen and (max-width: $bp-medium) {
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+      flex-direction: column;
+      padding: 1.5rem 0.5rem;
+    }
   }
 
   &__icon {
@@ -167,6 +196,13 @@
     height: 1.75rem;
     margin-right: 2rem;
     fill: currentColor;
+
+    @media only screen and (max-width: $bp-small) {
+      width: 1.5rem;
+      height: 1.5rem;
+      margin-right: 0;
+      margin-bottom: 0.7rem;
+    }
   }
 }
 
@@ -177,6 +213,10 @@
   font-size: 1.2rem;
   text-align: center;
   color: var(--color-grey-light-4);
+
+  @media only screen and (max-width: $bp-medium) {
+    display: none;
+  }
 }
 
 // Gallery
@@ -203,6 +243,11 @@
     font-weight: 300;
     letter-spacing: 1px;
     text-transform: uppercase;
+
+    @media only screen and (max-width: $bp-small) {
+      font-size: 1.8rem;
+      padding: 1.25rem 2rem;
+    }
   }
 
   &__stars {
@@ -237,12 +282,20 @@
     padding: 0 2.25rem;
     color: #fff;
     background-color: var(--color-primary);
+
+    @media only screen and (max-width: $bp-small) {
+      padding: 0 1.5rem;
+    }
   }
 
   &__rating-average {
     margin-bottom: -3px;
     font-size: 2.25rem;
     font-weight: 300;
+
+    @media only screen and (max-width: $bp-small) {
+      font-size: 1.8rem;
+    }
   }
 
   &__rating-count {
@@ -280,23 +333,6 @@
   &:focus {
     outline: none;
     animation: pulsate 1s infinite;
-  }
-}
-
-@keyframes pulsate {
-  0% {
-    transform: scale(1);
-    box-shadow: none;
-  }
-
-  50% {
-    transform: scale(1.05);
-    text-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.25);
-  }
-
-  100% {
-    transform: scale(1);
-    box-shadow: none;
   }
 }
 
@@ -351,6 +387,10 @@
   font-size: 1.3rem;
   color: var(--color-grey-dark-3);
 
+  &__friends {
+    display: flex;
+  }
+
   &__photo {
     box-sizing: content-box;
     width: 4rem;
@@ -359,7 +399,7 @@
     border-radius: 50%;
 
     &:not(:last-child) {
-      margin-right: -1.5rem;
+      margin-right: -2rem;
     }
   }
 }
@@ -373,6 +413,23 @@
   background-color: #fff;
   box-shadow: var(--shadow-light);
   overflow: hidden;
+
+  @media only screen and (max-width: $bp-medium) {
+    padding: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  &::before {
+    content: "\201C";
+    position: absolute;
+    top: -2.75rem;
+    left: -1rem;
+    z-index: 1;
+    font-family: sans-serif;
+    font-size: 20rem;
+    line-height: 1;
+    color: var(--color-grey-light-2);
+  }
 
   &__text {
     position: relative;
@@ -413,16 +470,100 @@
     font-weight: 300;
     color: var(--color-primary);
   }
+}
 
-  &::before {
-    content: "\201C";
+// Call to action
+
+.cta {
+  padding: 3.5rem 0;
+  text-align: center;
+
+  @media only screen and (max-width: $bp-medium) {
+    padding: 2.5rem 0;
+  }
+
+  &__book-now {
+    margin-bottom: 2.5rem;
+    font-size: 2rem;
+    font-weight: 300;
+    text-transform: uppercase;
+  }
+}
+
+// Call to action button
+
+.btn {
+  position: relative;
+  overflow: hidden;
+  border: none;
+  border-radius: 100px;
+  font-size: 1.5rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  color: #fff;
+  background-image: linear-gradient(
+    to right,
+    var(--color-primary-light),
+    var(--color-primary-dark)
+  );
+  cursor: pointer;
+
+  &__visible {
+    display: inline-block;
+    // We need to define explicit width & height for the transateY(100%) to work below.
+    width: 100%;
+    height: 100%;
+    padding: 2rem 7.5rem;
+    transition: all 0.2s;
+  }
+
+  &__invisible {
     position: absolute;
-    top: -2.75rem;
-    left: -1rem;
-    z-index: 1;
-    font-family: sans-serif;
-    font-size: 20rem;
-    line-height: 1;
-    color: var(--color-grey-light-2);
+    top: -100%;
+    left: 0;
+    display: inline-block;
+    // We need to define explicit width & height for the "top: 100%" to work above.
+    width: 100%;
+    height: 100%;
+    padding: 2rem 0;
+    transition: all 0.2s;
+  }
+
+  &:hover {
+    background-image: linear-gradient(
+      to left,
+      var(--color-primary-light),
+      var(--color-primary-dark)
+    );
+  }
+
+  &:hover &__visible {
+    transform: translateY(100%);
+  }
+
+  &:hover &__invisible {
+    top: 0;
+  }
+
+  &:focus {
+    outline: none;
+    animation: pulsate 1s infinite;
+  }
+}
+
+@keyframes pulsate {
+  0% {
+    transform: scale(1);
+    box-shadow: none;
+  }
+
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.25);
+  }
+
+  100% {
+    transform: scale(1);
+    box-shadow: none;
   }
 }
