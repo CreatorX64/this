@@ -1,0 +1,43 @@
+.container {
+  width: 1000px;
+  margin: 30px auto;
+  background-color: #ddd;
+  display: grid;
+  width: 90%;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-rows: repeat(2, minmax(150px, min-content));
+  grid-auto-rows: 150px;
+}
+.container .item {
+  padding: 20px;
+  color: white;
+  font-family: sans-serif;
+  font-size: 30px;
+  background-color: orangered;
+}
+.container .item--1 {
+  background-color: orangered;
+}
+.container .item--2 {
+  background-color: yellowgreen;
+}
+.container .item--3 {
+  background-color: blueviolet;
+}
+.container .item--4 {
+  background-color: palevioletred;
+}
+.container .item--5 {
+  background-color: royalblue;
+}
+.container .item--6 {
+  background-color: goldenrod;
+}
+.container .item--7 {
+  background-color: crimson;
+}
+.container .item--8 {
+  background-color: darkslategrey;
+}
+
+/*# sourceMappingURL=style.css.map */
