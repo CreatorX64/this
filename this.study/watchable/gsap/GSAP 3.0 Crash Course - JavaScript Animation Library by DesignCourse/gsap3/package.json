@@ -1,0 +1,18 @@
+{
+  "name": "gsap3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm-run-all --parallel watch-sass serve-dev",
+    "watch-sass": "sass css/main.scss css/main.css -w",
+    "serve-dev": "live-server"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "live-server": "^1.2.1",
+    "npm-run-all": "^4.1.5",
+    "sass": "^1.43.4"
+  }
+}

@@ -1,0 +1,79 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  display: grid;
+  grid-template-columns: auto 30%;
+  height: 100%;
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+}
+
+.content {
+  display: grid;
+  place-content: center;
+  height: 100vh;
+  margin-left: 20%;
+
+  &__lead {
+    width: 70%;
+  }
+
+  &__heading {
+    position: relative;
+    font-size: 3em;
+  }
+
+  &__heading-line {
+    display: block;
+  }
+
+  &__heading-line::after {
+    content: " ";
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    transform-origin: 100% 0;
+  }
+
+  &__copy {
+    width: 80%;
+    margin-bottom: 2em;
+    font-size: 1.2em;
+    line-height: 1.7em;
+  }
+
+  &__link {
+    display: inline-block;
+    padding: 1em;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: white;
+    background: #b100f2;
+  }
+}
+
+.aside {
+  height: 100vh;
+  background: url("../images/windows.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  &__image {
+    position: absolute;
+    top: 20%;
+    right: 15%;
+    width: 34%;
+  }
+}
+
+.line {
+  position: absolute;
+}
