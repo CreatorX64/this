@@ -1,3 +1,3 @@
-export const getNotes = () => {
+export function getNotes() {
   return "Your notes...";
-};
+}

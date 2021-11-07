@@ -1,6 +1,6 @@
 import request from "postman-request";
 
-export const geocode = (address, callback) => {
+export function geocode(address, callback) {
   const url =
     "https://api.mapbox.com/geocoding/v5/mapbox.places/" +
     encodeURIComponent(address) +
@@ -21,4 +21,4 @@ export const geocode = (address, callback) => {
       });
     }
   });
-};
+}

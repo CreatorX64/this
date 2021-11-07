@@ -28,8 +28,8 @@ console.log(productLabel);
 console.log(product);
 console.log(rating);
 
-const transaction = (type, { label, stock }) => {
+function transaction(type, { label, stock }) {
   console.log(type, label, stock);
-};
+}
 
 transaction("order", product);
