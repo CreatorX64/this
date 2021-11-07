@@ -1,9 +1,9 @@
-function doWorkCallback(callback) {
+const doWorkCallback = (callback) => {
   setTimeout(() => {
     // callback("This is my error!", null);
     callback(null, [1, 4, 7]);
   }, 2000);
-}
+};
 
 doWorkCallback((error, result) => {
   if (error) {

@@ -2,8 +2,8 @@ import path from "path";
 import { fileURLToPath } from "url";
 import express from "express";
 import hbs from "hbs";
-import forecast from "./utils/forecast.js";
-import geocode from "./utils/geocode.js";
+import { forecast } from "./utils/forecast.js";
+import { geocode } from "./utils/geocode.js";
 
 const app = express();
 const port = process.env.PORT || 3000;

@@ -6,7 +6,7 @@
 //                          rejected
 //
 
-function doWorkPromise() {
+const doWorkPromise = () => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       // resolve([7, 4, 1]);
@@ -19,7 +19,7 @@ function doWorkPromise() {
       // reject("New error!");
     }, 2000);
   });
-}
+};
 
 doWorkPromise()
   .then((result) => {
