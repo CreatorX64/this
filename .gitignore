@@ -135,6 +135,7 @@ dist
 !/.yarn/plugins
 !/.yarn/releases
 !/.yarn/sdks
+!.yarn/versions
 .yarn/cache
 .yarn/unplugged
 .yarn/build-state.yml
