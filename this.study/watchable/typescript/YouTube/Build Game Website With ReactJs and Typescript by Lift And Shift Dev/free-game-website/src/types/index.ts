@@ -5,7 +5,7 @@ export type Game = {
   short_description: string;
   game_url: string;
   genre: string;
-  platfrom: string;
+  platform: string;
   publisher: string;
   developer: string;
   release_date: string;

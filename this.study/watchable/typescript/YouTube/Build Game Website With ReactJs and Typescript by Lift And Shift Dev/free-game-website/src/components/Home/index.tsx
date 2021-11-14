@@ -2,6 +2,10 @@ import React, { FC } from "react";
 import { GameList } from "components/GameList";
 import { withErrorBoundary } from "hoc/withErrorBoundary";
 
-const Home: FC = () => <GameList />;
+const Home: FC = () => (
+  <main>
+    <GameList />
+  </main>
+);
 
-export const HomeWithError = withErrorBoundary(Home);
+export const HomeWithErrorBoundary = withErrorBoundary(Home);

@@ -1,12 +1,18 @@
-import React, { FC, useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
-import { GameListRenderer } from "./GameListRenderer";
 import { Game } from "types";
+import { Filter } from "components/GameList/types";
 import { API_HOST, API_KEY } from "./constants";
 
-export const GameListContainer: FC = () => {
+type Response = {
+  games: Game[];
+  error?: string;
+};
+
+export const useFetch = (params: Filter): Response => {
   const [games, setGames] = useState<Game[]>([]);
   const [error, setError] = useState<string>("");
+  const { platform, genre, tag, sortBy } = params;
 
   useEffect(() => {
     axios
@@ -17,12 +23,15 @@ export const GameListContainer: FC = () => {
           "x-rapidapi-key": API_KEY
         },
         params: {
-          platform: "browser"
+          platform,
+          category: genre,
+          tag,
+          "sort-by": sortBy
         }
       })
       .then((res) => setGames(res.data))
       .catch((err) => setError(err.message));
-  }, []);
+  }, [platform, genre, tag, sortBy]);
 
-  return <GameListRenderer error={error} games={games} />;
+  return { games, error };
 };

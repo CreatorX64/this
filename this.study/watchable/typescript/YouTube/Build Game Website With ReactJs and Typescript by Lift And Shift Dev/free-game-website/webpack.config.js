@@ -6,7 +6,8 @@ module.exports = {
   entry: ["core-js/stable", "regenerator-runtime/runtime", "./src/index.tsx"],
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: "[name].[contenthash].bundle.js"
+    filename: "[name].[contenthash].bundle.js",
+    assetModuleFilename: "assets/[name].[hash].[ext]"
   },
   module: {
     rules: [
@@ -14,6 +15,10 @@ module.exports = {
         test: /\.tsx?$/,
         exclude: /node_modules/,
         use: ["babel-loader", "stylelint-custom-processor-loader"]
+      },
+      {
+        test: /\.svg/,
+        type: "asset/resource"
       }
     ]
   },
