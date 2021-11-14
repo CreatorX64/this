@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    // Basic options
     "target": "ESNext",
     "module": "CommonJS",
     "lib": ["ES6", "DOM"],
@@ -12,22 +13,23 @@
     "importHelpers": true,
     "downlevelIteration": true,
     "isolatedModules": true,
-
     // Strict type checking
     "strict": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
     "noImplicitThis": true,
     "alwaysStrict": true,
-
     // Additional checks
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
-
     // Module resolution options
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "paths": {
+      "*": ["node_modules", "src/*"] // Relative to the "baseUrl"
+    }
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "**/*.spec.ts", "**/*.spec.tsx"]
