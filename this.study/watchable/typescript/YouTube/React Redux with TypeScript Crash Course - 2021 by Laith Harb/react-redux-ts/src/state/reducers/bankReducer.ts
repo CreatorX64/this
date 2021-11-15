@@ -1,17 +1,17 @@
-import { ActionType } from "../action-types";
 import { Action } from "../actions";
+import { ActionType } from "../action-types";
 
 const initialState = 0;
 
-export function bankReducer(state: number = initialState, action: Action) {
+export const bankReducer = (state: number = initialState, action: Action) => {
   switch (action.type) {
-    case ActionType.Deposit:
+    case ActionType.DEPOSIT:
       return state + action.payload;
-    case ActionType.Withdraw:
+    case ActionType.WITHDRAW:
       return state - action.payload;
-    case ActionType.Bankrupt:
+    case ActionType.BANKRUPT:
       return 0;
     default:
       return state;
   }
-}
+};

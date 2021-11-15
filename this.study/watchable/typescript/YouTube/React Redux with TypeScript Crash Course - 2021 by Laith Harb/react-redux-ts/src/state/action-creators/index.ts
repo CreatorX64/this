@@ -1,29 +1,29 @@
 import { Dispatch } from "redux";
-import { Action } from "../actions";
 import { ActionType } from "../action-types";
+import { BankruptAction, DepositAction, WithdrawAction } from "../actions";
 
-export function depositMoney(amount: number) {
-  return function (dispatch: Dispatch<Action>) {
+export const depositMoney = (amount: number) => {
+  return (dispatch: Dispatch<DepositAction>) => {
     dispatch({
-      type: ActionType.Deposit,
+      type: ActionType.DEPOSIT,
       payload: amount
     });
   };
-}
+};
 
-export function withdrawMoney(amount: number) {
-  return function (dispatch: Dispatch<Action>) {
+export const withdrawMoney = (amount: number) => {
+  return (dispatch: Dispatch<WithdrawAction>) => {
     dispatch({
-      type: ActionType.Withdraw,
+      type: ActionType.WITHDRAW,
       payload: amount
     });
   };
-}
+};
 
-export function bankrupt() {
-  return function (dispatch: Dispatch<Action>) {
+export const bankrupt = () => {
+  return (dispatch: Dispatch<BankruptAction>) => {
     dispatch({
-      type: ActionType.Bankrupt
+      type: ActionType.BANKRUPT
     });
   };
-}
+};
