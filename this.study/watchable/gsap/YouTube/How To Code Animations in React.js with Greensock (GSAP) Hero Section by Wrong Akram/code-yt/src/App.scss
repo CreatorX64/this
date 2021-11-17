@@ -1,0 +1,152 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap");
+
+$app-width: 1440px;
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+  width: $app-width;
+  min-width: $app-width;
+  margin: 0 auto;
+}
+
+.hero {
+  visibility: hidden;
+  height: 100vh;
+  overflow: hidden;
+
+  &__inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 24px;
+    height: 100vh;
+  }
+
+  &__content {
+    width: 50%;
+  }
+
+  &__title-container {
+    width: 400px;
+    margin: 0 auto;
+    color: #323232;
+  }
+
+  &__title {
+    margin-bottom: 24px;
+    font-size: 32px;
+    font-weight: 700;
+  }
+
+  &__line {
+    display: block;
+    height: 44px;
+    margin: 0;
+    overflow: hidden;
+  }
+
+  &__line-inner {
+    display: block;
+  }
+
+  &__desc {
+    line-height: 24px;
+    font-size: 14px;
+    font-weight: 300;
+    padding-right: 48px;
+    margin-bottom: 56px;
+  }
+
+  &__images {
+    width: 50%;
+    height: 100vh;
+    position: relative;
+  }
+
+  &__image-container {
+    position: absolute;
+    overflow: hidden;
+
+    &--girl {
+      right: 0;
+      top: 0;
+      width: 45%;
+      height: 50%;
+    }
+
+    &--boy {
+      left: 0;
+      bottom: 24px;
+      width: 52%;
+      height: 65%;
+    }
+  }
+
+  &__image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+  }
+}
+
+.button-row {
+  position: relative;
+
+  &:focus {
+    outline: none;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -68px;
+    width: 50px;
+    height: 1px;
+    background-color: #dfdfdf;
+  }
+}
+
+.button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border: none;
+  padding: 0;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+  cursor: pointer;
+  background: none;
+
+  &__icon {
+    position: absolute;
+    left: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background-color: #007fff;
+  }
+}
