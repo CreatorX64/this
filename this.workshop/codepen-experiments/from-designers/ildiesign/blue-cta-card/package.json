@@ -1,0 +1,14 @@
+{
+  "name": "blue-cta-card",
+  "version": "1.0.0",
+  "description": "Blue CTA card component.",
+  "main": "index.js",
+  "scripts": {
+    "watch-sass": "sass styles/main.scss styles/build/main.css --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "sass": "^1.43.4"
+  }
+}

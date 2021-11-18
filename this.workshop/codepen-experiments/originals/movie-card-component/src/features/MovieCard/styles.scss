@@ -1,0 +1,145 @@
+.container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1280px;
+}
+
+.card {
+  display: flex;
+  width: 86.4rem;
+  border-radius: 8px;
+  padding: 40px;
+  background: linear-gradient(to right, #016070, #002a3d);
+
+  &__image-box {
+    flex: 0 0 29.5rem;
+    margin-left: 6.9rem;
+  }
+
+  &__image {
+    height: 274px;
+    border-radius: 8px;
+    transform-origin: center;
+  }
+
+  &__info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__genre {
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    color: rgba(#fff, 0.6);
+    font-weight: 600;
+  }
+
+  &__rating-box {
+    display: flex;
+    align-items: center;
+    font-size: 1.4rem;
+    color: #fff;
+  }
+
+  &__icon {
+    width: 1.6rem;
+    height: 1.6rem;
+    margin-right: 0.8rem;
+  }
+
+  &__title {
+    margin-top: 0.4rem;
+    margin-bottom: 2.4rem;
+    font-size: 3.6rem;
+    font-weight: 700;
+    color: #fff;
+  }
+
+  &__description {
+    margin-bottom: 3.2rem;
+    font-size: 1.6rem;
+    color: #e2e2e2;
+    line-height: 1.8;
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 2.4rem;
+  }
+
+  &__button {
+    border: none;
+    border-radius: 8px;
+    padding: 1.6rem 2.4rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    cursor: pointer;
+    color: #fff;
+    background-color: none;
+    background: linear-gradient(
+      135deg,
+      #d6379b 25%,
+      #d136c1 50%,
+      #9434a4 75%,
+      #84309d
+    );
+    background-size: 200%;
+    background-position: 0%;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      background-position: 50%;
+    }
+
+    &:active {
+      background-position: 100%;
+    }
+  }
+
+  &__link {
+    border-bottom: 1px solid transparent;
+    padding-bottom: 2px;
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+    text-decoration: none;
+    color: rgba(#fff, 0.7);
+    transition: all 0.2s ease;
+
+    &:hover {
+      color: rgba(#fff, 0.9);
+    }
+  }
+}
+
+.faded {
+  opacity: 0.5;
+}
+
+.arrow {
+  width: 4rem;
+  height: 4rem;
+  opacity: 0.7;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    opacity: 0.4;
+  }
+
+  &--left {
+    left: 10%;
+  }
+
+  &--right {
+    right: 10%;
+  }
+}

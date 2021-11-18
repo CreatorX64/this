@@ -1,0 +1,271 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@700;900&family=Open+Sans&display=swap");
+
+$font-copy: "Open Sans", sans-serif;
+$font-heading: "Lato", sans-serif;
+
+$color-white: #fff;
+$color-primary-dark: #6a097d;
+$color-primary-light: #c060a1;
+$color-text-dark: #171717;
+$color-text-light: rgba(23, 23, 23, 0.38);
+$color-bg-light: #fcfcfc;
+$color-bg-dark: #f1d4d4;
+
+$screen-md: 580px;
+$screen-sm: 390px;
+
+// Base & Layout
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%; // 10px
+
+  @media only screen and (max-width: $screen-md) {
+    font-size: 50%;
+  }
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: $font-copy;
+  font-size: 1.8rem;
+  color: $color-text-dark;
+  line-height: 1.5;
+  background: linear-gradient(to right bottom, $color-bg-light, $color-bg-dark);
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 4rem;
+}
+
+// Component
+
+.signup {
+  max-width: 53.6rem;
+
+  &__header {
+    margin-bottom: 6.2rem;
+    padding-left: 6.5rem;
+
+    @media only screen and (max-width: $screen-sm) {
+      padding-left: 4.8rem;
+      margin-bottom: 4.2rem;
+    }
+  }
+
+  &__title {
+    margin-bottom: 0.4rem;
+    font-family: $font-heading;
+    font-weight: 900;
+    font-size: 7.2rem;
+    letter-spacing: -1.6px;
+    color: $color-primary-dark;
+
+    @supports (-webkit-background-clip: text) or (background-clip: text) {
+      color: transparent;
+      background: linear-gradient(
+        to right bottom,
+        $color-primary-light,
+        $color-primary-dark
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+
+    @media only screen and (max-width: $screen-sm) {
+      font-size: 6.4rem;
+    }
+  }
+
+  &__info {
+    font-size: 1.6rem;
+  }
+
+  &__card {
+    border-radius: 1.2rem;
+    padding: 4rem;
+    background-color: $color-bg-light;
+    box-shadow: 0 1.2rem 2.4rem rgba(0, 0, 0, 0.03);
+
+    @media only screen and (max-width: $screen-sm) {
+      padding: 3.6rem 2.8rem;
+    }
+  }
+
+  &__steps {
+    position: relative;
+  }
+
+  &__step-1,
+  &__step-2 {
+    transition: all 0.3s;
+    display: inline-block;
+  }
+
+  &__step-2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: center;
+  }
+
+  %input {
+    border: 2px solid rgba($color-primary-light, 0.3);
+    border-radius: 0.8rem;
+    padding: 2.4rem;
+    font-family: inherit;
+    font-size: inherit;
+    transition: border 0.2s;
+
+    @media only screen and (max-width: $screen-sm) {
+      padding: 2rem;
+    }
+  }
+
+  %input:focus {
+    outline: none;
+    border: 2px solid rgba($color-primary-light, 0.84);
+  }
+
+  &__input {
+    @extend %input;
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 2.4rem;
+  }
+
+  &__input::placeholder {
+    color: rgba($color-text-dark, 0.38);
+  }
+
+  &__button {
+    display: inline-block;
+    width: 100%;
+    border: none;
+    border-radius: 0.8rem;
+    padding: 1.4rem;
+    background: linear-gradient(to right bottom, $color-primary-light, #a8548d);
+    cursor: pointer;
+    margin-bottom: 4rem;
+
+    @media only screen and (max-width: $screen-sm) {
+      padding: 1rem;
+    }
+  }
+
+  &__button:focus {
+    outline: none;
+  }
+
+  &__button:hover &__icon,
+  &__button:focus &__icon {
+    transform: translateX(8px);
+  }
+
+  &__icon {
+    width: 4rem;
+    stroke: $color-white;
+    transition: transform 0.2s;
+  }
+
+  // Can't use an SVG file as a background in the CodePen free tier, so had to commit this crime...
+  &__style-icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 22rem;
+    height: 22rem;
+    pointer-events: none;
+    opacity: 0.08;
+    stroke: $color-primary-light;
+  }
+
+  &__subtitle {
+    color: $color-primary-light;
+    margin-bottom: 2.6rem;
+  }
+
+  &__status {
+    margin-bottom: 5.9rem;
+  }
+
+  &__input-group {
+    margin-bottom: 1.6rem;
+  }
+
+  &__inline-input {
+    @extend %input;
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    width: 7rem;
+    height: 7rem;
+
+    &:not(:last-child) {
+      margin-right: 4rem;
+
+      @media only screen and (max-width: $screen-md) {
+        margin-right: 1rem;
+      }
+    }
+
+    @media only screen and (max-width: $screen-sm) {
+      width: 5.2rem;
+      height: 5.2rem;
+      padding: 1.7rem !important;
+    }
+  }
+
+  &__link:link,
+  &__link:visited {
+    font-size: 1.4rem;
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 2px;
+    text-decoration: none;
+    color: $color-primary-light;
+    transition: color 0.2s;
+  }
+
+  &__link:hover,
+  &__link:active {
+    color: rgba($color-primary-light, 0.8);
+  }
+
+  &__progress {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.4rem;
+  }
+
+  &__progress-item {
+    width: 1.2rem;
+    height: 1.2rem;
+    border: 2px solid $color-primary-light;
+    display: inline-block;
+    border-radius: 50%;
+  }
+
+  &__progress-item--active {
+    background-color: $color-primary-light;
+  }
+}
+
+// Utility
+
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
