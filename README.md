@@ -59,7 +59,7 @@ Each project's folder name is derived from the following template:
 
 > <CONTENT_NAME> by <CONTENT_CREATOR>
 
-where *<CONTENT_NAME>* is the name of a book/course/tutorial and *<CONTENT_CREATOR>* the tha name of the author/teacher.
+where *<CONTENT_NAME>* is the name of a book/course/tutorial and *<CONTENT_CREATOR>* is the name of the author/teacher.
 
 ### this.template
 
