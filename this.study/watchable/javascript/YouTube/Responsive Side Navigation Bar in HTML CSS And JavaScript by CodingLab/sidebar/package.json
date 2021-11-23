@@ -1,0 +1,19 @@
+{
+  "name": "sidebar",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "serve-dev": "live-server public/",
+    "watch-ts": "tsc -w",
+    "start": "concurrently npm:watch-ts npm:serve-dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^6.4.0",
+    "live-server": "^1.2.1",
+    "typescript": "^4.5.2"
+  }
+}
