@@ -1,0 +1,21 @@
+{
+  "name": "personal-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build-css": "tailwindcss -i index.css -o tailwind.css",
+    "watch-css": "tailwindcss -i index.css -o tailwind.css --watch",
+    "serve-dev": "live-server .",
+    "start": "concurrently npm:watch-css npm:serve-dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "tailwindcss": "^2.2.19"
+  },
+  "devDependencies": {
+    "concurrently": "^6.4.0",
+    "live-server": "^1.2.1"
+  }
+}
