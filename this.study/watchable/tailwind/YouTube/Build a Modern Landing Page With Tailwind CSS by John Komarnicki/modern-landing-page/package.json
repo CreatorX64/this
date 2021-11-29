@@ -1,0 +1,21 @@
+{
+  "name": "modern-landing-page",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build-css": "tailwind build -i src/style.css -o public/style.css",
+    "watch-css": "tailwind build -i src/style.css -o public/style.css --watch",
+    "serve-dev": "live-server public/",
+    "start": "concurrently npm:watch-css npm:serve-dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "tailwindcss": "^2.2.19"
+  },
+  "devDependencies": {
+    "concurrently": "^6.4.0",
+    "live-server": "^1.2.1"
+  }
+}

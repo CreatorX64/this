@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap");
+
+@layer components {
+  .btn {
+    @apply rounded-md px-6 py-3 shadow-md transition duration-300;
+  }
+
+  .btn--purple {
+    @apply text-white bg-bookmark-purple hover:bg-bookmark-white hover:text-black;
+  }
+
+  .btn--white {
+    @apply bg-bookmark-white hover:bg-bookmark-purple hover:text-white;
+  }
+}
