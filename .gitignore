@@ -108,6 +108,8 @@ out
 .nuxt
 dist
 
+dist-ssr
+
 # Gatsby files
 .cache/
 # Comment in the public line in if your project uses Gatsby and not Next.js
@@ -164,3 +166,5 @@ bundle*
 .env.development.local
 .env.test.local
 .env.production.local
+
+*.local
