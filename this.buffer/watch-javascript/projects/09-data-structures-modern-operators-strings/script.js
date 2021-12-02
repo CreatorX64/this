@@ -221,6 +221,37 @@ console.log(guestsCorrect); // 0
 */
 
 /*
+//-- Logical assignment operators (ES2021)
+
+const rest1 = {
+  name: "Capri",
+  // numGuests: 20
+
+  // This will cause the ||= operator to work unexpected! Use ??= instead.
+  numGuests: 0
+};
+const rest2 = {
+  name: "La Piazza",
+  owner: "Giovanni Rossi"
+};
+
+// OR assignment operator
+// rest1.numGuests ||= 10; // rest1.numGuests = rest1.numGuests || 10;
+// rest2.numGuests ||= 10; // rest2.numGuests = rest2.numGuests || 10;
+
+// Nullish coalescing assignment operator
+rest1.numGuests ??= 10; // rest1.numGuests = rest1.numGuests ?? 10;
+rest2.numGuests ??= 10; // rest2.numGuests = rest1.numGuests ?? 10;
+
+// AND assignment operator
+rest1.owner &&= "anonymous"; // rest1.owner = rest1.owner && "anonymous";
+rest2.owner &&= "anonymous"; // rest2.owner = rest2.owner && "anonymous";
+
+console.log(rest1);
+console.log(rest2);
+/*
+
+/*
 //-- Looping arrays: The for-of loop
 
 const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
