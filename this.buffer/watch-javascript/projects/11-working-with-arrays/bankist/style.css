@@ -1,9 +1,3 @@
-/*
- * Use this CSS to learn some intersting techniques,
- * in case you're wondering how I built the UI.
- * Have fun! 😁
- */
-
 * {
   margin: 0;
   padding: 0;
@@ -84,6 +78,7 @@ nav {
 }
 
 /* MAIN */
+
 .app {
   position: relative;
   max-width: 100rem;
@@ -123,6 +118,7 @@ nav {
 }
 
 /* MOVEMENTS */
+
 .movements {
   grid-row: 2 / span 3;
   background-color: #fff;
@@ -168,11 +164,12 @@ nav {
 }
 
 /* SUMMARY */
+
 .summary {
   grid-row: 5 / 6;
   display: flex;
   align-items: baseline;
-  padding: 0 0.3rem;
+  padding: 0 0.3rem 2rem 0;
   margin-top: 1rem;
 }
 
@@ -207,6 +204,7 @@ nav {
 }
 
 /* OPERATIONS */
+
 .operation {
   border-radius: 1rem;
   padding: 3rem 4rem;
@@ -240,12 +238,15 @@ h2 {
 }
 
 /* Exceptions for interst */
+
 .form.form--loan {
   grid-template-columns: 2.5fr 1fr 2.5fr;
 }
+
 .form__label--loan {
   grid-row: 2;
 }
+
 /* End exceptions */
 
 .form__input {
