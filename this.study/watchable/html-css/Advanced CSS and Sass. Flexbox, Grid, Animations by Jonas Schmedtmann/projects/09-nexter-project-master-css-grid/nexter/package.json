@@ -9,7 +9,7 @@
     "watch-sass": "sass sass/main.scss css/style.css -w",
     "build-css": "npm-run-all compile-sass prefix-css compress-css",
     "compile-sass": "sass sass/main.scss css/build/style.comp.css",
-    "prefix-css": "postcss --use autoprefixer -b 'last 10 versions' css/build/style.concat.css -o css/build/style.prefix.css",
+    "prefix-css": "postcss --use autoprefixer -b 'last 10 versions' css/build/style.comp.css -o css/build/style.prefix.css",
     "compress-css": "sass --style=compressed css/build/style.prefix.css css/style.css"
   },
   "keywords": [],
