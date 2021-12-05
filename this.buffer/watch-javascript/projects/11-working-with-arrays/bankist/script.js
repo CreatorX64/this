@@ -60,6 +60,7 @@ const inputClosePin = document.querySelector(".form__input--pin");
 //#endregion
 
 let currentAccount;
+let isSorted = false;
 createUsernames(accounts);
 
 //#region Event handlers
@@ -83,23 +84,103 @@ btnLogin.addEventListener("click", (event) => {
     inputLoginUsername.blur();
     inputLoginPin.blur();
 
-    // Display movements
-    displayMovements(currentAccount.movements);
-
-    // Display balance
-    calcDisplayBalance(currentAccount.movements);
-
-    // Display summary
-    calcDisplaySummary(currentAccount);
+    // Update UI
+    updateUi(currentAccount);
   }
+});
+
+btnTransfer.addEventListener("click", (event) => {
+  event.preventDefault();
+
+  const amount = Number(inputTransferAmount.value);
+  const receiverAccount = accounts.find(
+    (account) => account.username === inputTransferTo.value
+  );
+
+  inputTransferAmount.value = "";
+  inputTransferTo.value = "";
+
+  if (
+    receiverAccount &&
+    receiverAccount.username !== currentAccount.username &&
+    amount > 0 &&
+    currentAccount.balance >= amount
+  ) {
+    // Do the transfer
+    currentAccount.movements.push(-amount);
+    receiverAccount.movements.push(amount);
+
+    // Update UI
+    updateUi(currentAccount);
+  }
+});
+
+btnLoan.addEventListener("click", (event) => {
+  event.preventDefault();
+
+  const amount = Number(inputLoanAmount.value);
+
+  if (
+    amount > 0 &&
+    currentAccount.movements.some((mov) => mov >= amount * 0.1)
+  ) {
+    // Add movement
+    currentAccount.movements.push(amount);
+
+    // Update UI
+    updateUi(currentAccount);
+  }
+
+  inputLoanAmount.value = "";
+});
+
+btnClose.addEventListener("click", (event) => {
+  event.preventDefault();
+
+  if (
+    inputCloseUsername.value === currentAccount.username &&
+    inputClosePin.value === currentAccount.pin
+  ) {
+    const index = accounts.findIndex(
+      (account) => account.username === currentAccount.username
+    );
+
+    // Delete account
+    accounts.splice(index, 1);
+
+    // Hide UI
+    containerApp.style.opacity = 0;
+  }
+
+  inputCloseUsername.value = "";
+  inputClosePin.value = "";
+});
+
+btnSort.addEventListener("click", (event) => {
+  event.preventDefault();
+  isSorted = !isSorted;
+  displayMovements(currentAccount.movements, isSorted);
 });
 //#endregion
 
 //#region Functions
-function displayMovements(movements) {
+function updateUi(account) {
+  // Display movements
+  displayMovements(account.movements);
+  // Display balance
+  calcDisplayBalance(account);
+  // Display summary
+  calcDisplaySummary(account);
+}
+
+function displayMovements(movements, isSorted = false) {
   containerMovements.innerHTML = "";
 
-  movements.forEach((mov, idx) => {
+  const orderedMovements = isSorted
+    ? movements.slice().sort((a, b) => a - b)
+    : movements;
+
+  orderedMovements.forEach((mov, idx) => {
     const type = mov > 0 ? "deposit" : "withdrawal";
     const html = `
       <div class="movements__row">
@@ -114,9 +195,9 @@ function displayMovements(movements) {
   });
 }
 
-function calcDisplayBalance(movements) {
-  const balance = movements.reduce((acc, curr) => acc + curr, 0);
-  labelBalance.textContent = `${balance}€`;
+function calcDisplayBalance(account) {
+  account.balance = account.movements.reduce((acc, curr) => acc + curr, 0);
+  labelBalance.textContent = `${account.balance}€`;
 }
 
 function calcDisplaySummary({ movements, interestRate }) {
