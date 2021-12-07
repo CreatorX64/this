@@ -7,14 +7,14 @@ const account1 = {
   interestRate: 1.2, // %
   pin: "1111",
   movementsDates: [
-    "2019-11-18T21:31:17.178Z",
-    "2019-12-23T07:42:02.383Z",
-    "2020-01-28T09:15:04.904Z",
-    "2020-04-01T10:17:24.185Z",
-    "2020-05-08T14:11:59.604Z",
-    "2020-05-27T17:01:17.194Z",
-    "2020-07-11T23:36:17.929Z",
-    "2020-07-12T10:51:36.790Z"
+    "2021-12-06T09:15:04.904Z",
+    "2021-12-04T21:31:17.178Z",
+    "2021-12-03T07:42:02.383Z",
+    "2021-11-29T14:11:59.604Z",
+    "2021-10-22T10:17:24.185Z",
+    "2021-05-27T17:01:17.194Z",
+    "2021-07-11T23:36:17.929Z",
+    "2021-07-12T10:51:36.790Z"
   ],
   currency: "EUR",
   locale: "pt-PT" // de-DE
@@ -26,14 +26,14 @@ const account2 = {
   interestRate: 1.5,
   pin: "2222",
   movementsDates: [
-    "2019-11-01T13:15:33.035Z",
-    "2019-11-30T09:48:16.867Z",
-    "2019-12-25T06:04:23.907Z",
-    "2020-01-25T14:18:46.235Z",
-    "2020-02-05T16:33:06.386Z",
-    "2020-04-10T14:43:26.374Z",
-    "2020-06-25T18:49:59.371Z",
-    "2020-07-26T12:01:20.894Z"
+    "2021-11-01T13:15:33.035Z",
+    "2021-11-30T09:48:16.867Z",
+    "2021-12-06T06:04:23.907Z",
+    "2021-01-25T14:18:46.235Z",
+    "2021-02-05T16:33:06.386Z",
+    "2021-04-10T14:43:26.374Z",
+    "2021-06-25T18:49:59.371Z",
+    "2021-07-26T12:01:20.894Z"
   ],
   currency: "USD",
   locale: "en-US"
@@ -70,8 +70,15 @@ const inputClosePin = document.querySelector(".form__input--pin");
 //#endregion
 
 let currentAccount;
+let logoutTimer;
 let isSorted = false;
 createUsernames(accounts);
+
+//-- FAKE ALWAYS LOGGED IN
+// currentAccount = account1;
+// updateUi(currentAccount);
+// containerApp.style.opacity = 100;
+//----
 
 //#region Event handlers
 btnLogin.addEventListener("click", (event) => {
@@ -86,13 +93,44 @@ btnLogin.addEventListener("click", (event) => {
     labelWelcome.textContent = `Welcome back, ${
       currentAccount.owner.split(" ")[0]
     }`;
-    containerApp.style.opacity = 1;
+    containerApp.style.opacity = 100;
+
+    // Create current date & time
+    const now = new Date();
+
+    // Manually creating the date format
+    // const day = now.getDate().toString().padStart(2, "0");
+    // const month = (now.getMonth() + 1).toString().padStart(2, "0");
+    // const year = now.getFullYear();
+    // const hour = now.getHours().toString().padStart(2, "0");
+    // const min = now.getMinutes().toString().padStart(2, "0");
+    // labelDate.textContent = `${day}/${month}/${year}, ${hour}:${min}`;
+
+    // Using the user locale to generate the date format
+    const options = {
+      year: "numeric", // "numeric", "2-digit"
+      month: "numeric", // "numeric", "long", "2-digit"
+      day: "numeric",
+      hour: "numeric",
+      minute: "numeric"
+      // weekday: "long" // "long", "short", "narrow"
+    };
+    // const locale = navigator.language;
+    const locale = currentAccount.locale;
+    labelDate.textContent = new Intl.DateTimeFormat(locale, options).format(
+      now
+    );
 
     // Clear fields
     inputLoginUsername.value = "";
     inputLoginPin.value = "";
     inputLoginUsername.blur();
     inputLoginPin.blur();
+
+    if (logoutTimer) {
+      clearInterval(logoutTimer);
+    }
+    logoutTimer = startLogOutTimer();
 
     // Update UI
     updateUi(currentAccount);
@@ -120,8 +158,16 @@ btnTransfer.addEventListener("click", (event) => {
     currentAccount.movements.push(-amount);
     receiverAccount.movements.push(amount);
 
+    // Add transfer date
+    currentAccount.movementsDates.push(new Date().toISOString());
+    receiverAccount.movementsDates.push(new Date().toISOString());
+
     // Update UI
     updateUi(currentAccount);
+
+    // Reset timer
+    clearInterval(logoutTimer);
+    logoutTimer = startLogOutTimer();
   }
 });
 
@@ -134,14 +180,23 @@ btnLoan.addEventListener("click", (event) => {
     amount > 0 &&
     currentAccount.movements.some((mov) => mov >= amount * 0.1)
   ) {
-    // Add movement
-    currentAccount.movements.push(amount);
+    setTimeout(() => {
+      // Add movement
+      currentAccount.movements.push(amount);
 
-    // Update UI
-    updateUi(currentAccount);
+      // Add loan date
+      currentAccount.movementsDates.push(new Date().toISOString());
+
+      // Update UI
+      updateUi(currentAccount);
+    }, 2500);
   }
 
   inputLoanAmount.value = "";
+
+  // Reset timer
+  clearInterval(logoutTimer);
+  logoutTimer = startLogOutTimer();
 });
 
 btnClose.addEventListener("click", (event) => {
@@ -169,21 +224,85 @@ btnClose.addEventListener("click", (event) => {
 btnSort.addEventListener("click", (event) => {
   event.preventDefault();
   isSorted = !isSorted;
-  displayMovements(currentAccount.movements, isSorted);
+  displayMovements(currentAccount, isSorted);
 });
 //#endregion
 
 //#region Functions
 function updateUi(account) {
   // Display movements
-  displayMovements(account.movements);
+  displayMovements(account);
   // Display balance
   calcDisplayBalance(account);
   // Display summary
   calcDisplaySummary(account);
 }
 
-function displayMovements(movements, isSorted = false) {
+function startLogOutTimer() {
+  function tick() {
+    const min = String(Math.trunc(time / 60)).padStart(2, 0);
+    const sec = String(time % 60).padStart(2, 0);
+
+    // In each call, print remaining time to UI
+    labelTimer.textContent = `${min}:${sec}`;
+
+    // When 0 seconds, stop timer and log user out
+    if (time === 0) {
+      clearInterval(logoutTimer);
+      labelWelcome.textContent = "Login to get started";
+      containerApp.style.opacity = 0;
+    }
+
+    // Decresase 1s
+    --time;
+  }
+
+  // Set time
+  let time = 120;
+
+  // Call timer every second
+  tick();
+  const logoutTimer = setInterval(tick, 1000);
+
+  return logoutTimer;
+}
+
+function formatMovementDate(date, locale) {
+  function calcDaysPassed(date1, date2) {
+    // Dates are automatically converted to timestamps for subtraction
+    return Math.round(Math.abs(date2 - date1) / (1000 * 60 * 60 * 24));
+  }
+
+  const daysPassed = calcDaysPassed(new Date(), date);
+
+  if (daysPassed === 0) {
+    return "Today";
+  } else if (daysPassed === 1) {
+    return "Yesterday";
+  } else if (daysPassed <= 7) {
+    return `${daysPassed} days ago`;
+  }
+
+  // Manually creating a formatted date string
+  // const day = date.getDate().toString().padStart(2, "0");
+  // const month = (date.getMonth() + 1).toString().padStart(2, "0");
+  // const year = date.getFullYear();
+  // return `${day}/${month}/${year}`;
+
+  // Using the current user's locale to format date
+  return new Intl.DateTimeFormat(locale).format(date);
+}
+
+function formatCurrency(value, locale, currency) {
+  return new Intl.NumberFormat(locale, {
+    style: "currency",
+    currency: currency
+  }).format(value);
+}
+
+function displayMovements(account, isSorted = false) {
+  const { movements, movementsDates } = account;
+
   containerMovements.innerHTML = "";
 
   const orderedMovements = isSorted
@@ -192,12 +311,19 @@ function displayMovements(movements, isSorted = false) {
 
   orderedMovements.forEach((mov, idx) => {
     const type = mov > 0 ? "deposit" : "withdrawal";
+
+    const date = new Date(movementsDates[idx]);
+    const displayDate = formatMovementDate(date, account.locale);
+
+    const formattedMov = formatCurrency(mov, account.locale, account.currency);
+
     const html = `
       <div class="movements__row">
         <div class="movements__type movements__type--${type}">
           ${idx + 1} ${type}
         </div>
-        <div class="movements__value">${mov.toFixed(2)}€</div>
+        <div class="movements__date">${displayDate}</div>
+        <div class="movements__value">${formattedMov}</div>
       </div>
     `;
 
@@ -207,10 +333,14 @@ function displayMovements(movements, isSorted = false) {
 
 function calcDisplayBalance(account) {
   account.balance = account.movements.reduce((acc, curr) => acc + curr, 0);
-  labelBalance.textContent = `${account.balance.toFixed(2)}€`;
+  labelBalance.textContent = formatCurrency(
+    account.balance,
+    account.locale,
+    account.currency
+  );
 }
 
-function calcDisplaySummary({ movements, interestRate }) {
+function calcDisplaySummary({ movements, interestRate, locale, currency }) {
   const incomes = movements
     .filter((mov) => mov > 0)
     .reduce((acc, deposit) => acc + deposit, 0);
@@ -223,9 +353,9 @@ function calcDisplaySummary({ movements, interestRate }) {
     .filter((interest) => interest >= 1)
     .reduce((acc, interest) => acc + interest, 0);
 
-  labelSumIn.textContent = `${incomes.toFixed(2)}€`;
-  labelSumOut.textContent = `${Math.abs(out).toFixed(2)}€`;
-  labelSumInterest.textContent = `${interest.toFixed(2)}€`;
+  labelSumIn.textContent = formatCurrency(incomes, locale, currency);
+  labelSumOut.textContent = formatCurrency(Math.abs(out), locale, currency);
+  labelSumInterest.textContent = formatCurrency(interest, locale, currency);
 }
 
 function createUsernames(accounts) {
