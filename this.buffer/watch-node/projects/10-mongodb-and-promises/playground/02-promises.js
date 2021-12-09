@@ -1,11 +1,3 @@
-//
-//                          fulfilled
-//                        /
-// Promise -- pending -->
-//                        \
-//                          rejected
-//
-
 function doWorkPromise() {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -28,3 +20,11 @@ doWorkPromise()
   .catch((error) => {
     console.log("Error!", error);
   });
+
+//
+//                          fulfilled (resolved)
+//                        /
+// Promise -- pending -->
+//                        \
+//                          rejected (resolved)
+//
