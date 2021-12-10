@@ -159,8 +159,9 @@ btnTransfer.addEventListener("click", (event) => {
     receiverAccount.movements.push(amount);
 
     // Add transfer date
-    currentAccount.movementsDates.push(new Date().toISOString());
-    receiverAccount.movementsDates.push(new Date().toISOString());
+    const transferDate = new Date().toISOString();
+    currentAccount.movementsDates.push(transferDate);
+    receiverAccount.movementsDates.push(transferDate);
 
     // Update UI
     updateUi(currentAccount);
@@ -262,9 +263,7 @@ function startLogOutTimer() {
 
   // Call timer every second
   tick();
-  const logoutTimer = setInterval(tick, 1000);
-
-  return logoutTimer;
+  return setInterval(tick, 1000);
 }
 
 function formatMovementDate(date, locale) {
@@ -314,7 +313,6 @@ function displayMovements(account, isSorted = false) {
 
     const date = new Date(movementsDates[idx]);
     const displayDate = formatMovementDate(date, account.locale);
-
     const formattedMov = formatCurrency(mov, account.locale, account.currency);
 
     const html = `

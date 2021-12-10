@@ -38,7 +38,7 @@ console.log(Number.isNaN(20 / 0)); // false (it is Infinity)
 
 // Number.isFinite(): Check if a value is Inifity.
 
-console.log(Number.isFinite(20 / 0)); // true
+console.log(Number.isFinite(20 / 0)); // false
 
 // In addition to checking for Infinity, Number.isFinite() can also be used to
 // check if a value is a number.
@@ -196,7 +196,7 @@ const num = 23;
 // console.log(Math.sqrt(16n)); // TypeError: Cannot convert a BigInt value to a number
 console.log(huge * BigInt(num));
 
-// Logical operators are an exception to the above
+// Relational operators are an exception to the above
 console.log(20n > 15); // true
 console.log(20n === 20); // false! because === doesn't do type coercion
 console.log(20n == 20); // true
