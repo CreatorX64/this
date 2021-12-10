@@ -5,15 +5,68 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Workcation</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap"
-    />
+    <link rel="stylesheet" href="/css/tailwind.css" />
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <div class="grid lg:grid-cols-2 2xl:grid-cols-5">
+      <div
+        class="
+          max-w-md
+          mx-auto
+          px-8
+          py-12
+          sm:max-w-xl
+          lg:max-w-full lg:px-12 lg:py-24
+          xl:mr-0
+          2xl:col-span-2
+        "
+      >
+        <div class="xl:max-w-xl">
+          <img class="h-10" src="/img/logo.svg" alt="Workcation company logo" />
+          <img
+            class="
+              mt-6
+              rounded-lg
+              shadow-xl
+              sm:w-full sm:h-64 sm:object-cover sm:object-center sm:mt-8
+              lg:hidden
+            "
+            src="/img/beach-work.jpg"
+            alt="Woman workcationing on the beach"
+          />
+          <h1
+            class="
+              mt-6
+              text-2xl
+              font-bold
+              text-gray-900
+              sm:mt-8 sm:text-4xl
+              lg:text-3xl
+              xl:text-4xl
+            "
+          >
+            You can work from anywhere.
+            <br />
+            <span class="text-indigo-500">Take advantage of it.</span>
+          </h1>
+          <p class="mt-2 text-gray-600 sm:mt-4 sm:text-xl">
+            Workcation helps you find work-friendly rentals in beautiful
+            locations so you can enjoy some nice weather even when you're not on
+            vacation.
+          </p>
+          <div class="mt-4 space-x-1 sm:mt-6">
+            <a class="btn btn--primary" href="#!">Book your escape</a>
+            <a class="btn btn--secondary" href="#!">Learn more</a>
+          </div>
+        </div>
+      </div>
+      <div class="relative hidden lg:block 2xl:col-span-3">
+        <img
+          class="absolute inset-0 w-full h-full object-cover object-center"
+          src="/img/beach-work.jpg"
+          alt="Woman workcationing on the beach"
+        />
+      </div>
+    </div>
   </body>
 </html>

@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* We want to be able to override our custom components with utilities, so we
+put them before the utility classes. This component class will be inserted
+right between "components" and "utilities" layers in the generated CSS. */
+@layer components {
+  .btn {
+    @apply inline-block
+    px-5
+    py-3
+    rounded-lg
+    text-sm
+    uppercase
+    tracking-wider
+    font-semibold
+    focus:outline-none
+    focus:ring
+    focus:ring-offset-2
+    focus:ring-opacity-50
+    sm:text-base;
+  }
+
+  .btn--primary {
+    @apply shadow-lg
+      transition
+      text-white
+      bg-brand
+      hover:bg-brand-light
+      active:bg-brand-dark
+      focus:ring-brand
+      hover:-translate-y-0.5;
+  }
+
+  .btn--secondary {
+    @apply text-gray-800
+      bg-gray-300
+      hover:bg-gray-200
+      active:bg-gray-400
+      focus:outline-none
+      focus:ring
+      focus:ring-offset-2
+      focus:ring-opacity-50
+      focus:ring-gray-300;
+  }
+}
