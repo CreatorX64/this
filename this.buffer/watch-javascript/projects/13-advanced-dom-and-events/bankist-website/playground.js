@@ -120,6 +120,7 @@ logo.classList.contains("c");
 logo.className = "jonas";
 */
 
+/*
 //-- Types of events and event handlers
 
 const h1 = document.querySelector("h1");
@@ -139,3 +140,211 @@ setTimeout(() => h1.removeEventListener("mouseenter", alertH1), 3000);
 // h1.onmouseenter = (event) => {
 //   console.log("onmouseenter: You're reading the heading");
 // };
+*/
+
+/*
+//-- Smooth scrolling
+
+const btnScrollTo = document.querySelector(".btn--scroll-to");
+const sectionOne = document.querySelector("#section--1");
+
+btnScrollTo.addEventListener("click", (event) => {
+  // getBoundingClientRect returns an object containing information about where
+  // the element is located **relative to the viewport** (x & y pos, width & height,
+  // etc.).
+  // const targetOneCoords = sectionOne.getBoundingClientRect();
+
+  // console.log(targetOneCoords);
+  // console.log(event.target.getBoundingClientRect());
+
+  // How much the page is scrolled in X and Y axis
+  // console.log("Current scroll (x/y):", window.scrollX, window.scrollY);
+
+  // Get the width & height of the viewport (i.e. the root element)
+  // console.log(
+  //   "Width & height of window minus scrollbar and borders:",
+  //   document.documentElement.clientWidth,
+  //   document.documentElement.clientHeight
+  // );
+  // console.log(
+  //   "Width & height of window plus scrollbar and borders:",
+  //   window.innerWidth,
+  //   window.innerHeight
+  // );
+
+  // Scrolling
+
+  // This doesn't work when we click the button with a slightly scrolled
+  // viewport, because .top property is relative to the viewport and not the
+  // document. To make it relative to the document, we need to add the current
+  // scrolled amount to the .top property's value.
+  // window.scrollTo(targetOneCoords.left, targetOneCoords.top);
+
+  // This works:
+  // window.scrollTo(
+  //   targetOneCoords.left + window.scrollX,
+  //   targetOneCoords.top + window.scrollY
+  // );
+
+  // But we can even make it better (smooth scrolling):
+  // window.scrollTo({
+  //   left: targetOneCoords.left + window.scrollX,
+  //   top: targetOneCoords.top + window.scrollY,
+  //   behavior: "smooth"
+  // });
+
+  // Aaaand here is the modern way to do the same thing:
+  sectionOne.scrollIntoView({ behavior: "smooth" });
+});
+*/
+
+/*
+//-- Event propagation
+
+function randomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+function randomColor() {
+  return `rgb(${randomInt(0, 255)},${randomInt(0, 255)},${randomInt(0, 255)})`;
+}
+
+document
+  .querySelector(".nav__link")
+  // By default, addEventListener listens for events at the bubbling phase because
+  // it is the most useful option (e.g. in event delegation)
+  .addEventListener("click", function (event) {
+    // "this" refers to the element that we called the "addEventListener" on
+    this.style.backgroundColor = randomColor();
+    // "event.target" refers to the target of the event that is reached after the
+    // event capturing phase (there are three phases: capturing phase, target phase,
+    // bubbling phase). "event.target" will be the same element in the below
+    // handlers as well, because event target (the link that we click) is the
+    // same in all cases as well as the "event" object which is merely passed
+    // from one handler to another during capturing and bubbling phases.
+    console.log("Link", event.target);
+    // In contrast, the "event.currentTarget" is the element which the event handler is attached.
+    console.log(event.currentTarget);
+    console.log(event.currentTarget === this); // true
+    // We can stop the event from propagating in the bubbling phase
+    // event.stopPropagation();
+  });
+
+document
+  .querySelector(".nav__links")
+  .addEventListener("click", function (event) {
+    this.style.backgroundColor = randomColor();
+    console.log("Container", event.target);
+    console.log(event.currentTarget);
+    console.log(event.currentTarget === this); // true
+  });
+
+document.querySelector(".nav").addEventListener("click", function (event) {
+  this.style.backgroundColor = randomColor();
+  console.log("Nav", event.target);
+  console.log(event.currentTarget);
+  console.log(event.currentTarget === this); // true
+});
+
+// Listen for events in capturing phase, so this handler will be the first one
+// to run because it is at the top element
+// document.querySelector(".nav").addEventListener(
+//   "click",
+//   function (event) {
+//     this.style.backgroundColor = randomColor();
+//     console.log("Nav", event.target);
+//     console.log(event.currentTarget);
+//     console.log(event.currentTarget === this); // true
+//   },
+//   true
+// );
+*/
+
+/*
+//-- Page navigation
+
+// Exact same function is attached to each link, which is memory-inefficient.
+// What if we had 1000 elements to add the listener? Better option is to use
+// event delegation. See "script.js" > "Page navigation" part
+document.querySelectorAll(".nav__link").forEach((elem) => {
+  elem.addEventListener("click", function (event) {
+    event.preventDefault();
+    // const id = this.href; // We don't need the absolute URL
+    const id = this.getAttribute("href"); // We need the URL as written in HTML
+    document.querySelector(id).scrollIntoView({ behavior: "smooth" });
+  });
+});
+*/
+
+/*
+//-- DOM Traversing
+
+const h1 = document.querySelector("h1");
+
+// Going downwards: child
+console.log(h1.querySelectorAll(".highlight")); // NodeList
+console.log(h1.childNodes); // NodeList: All child nodes including text, comments, etc.
+console.log(h1.children); // HTMLCollection: Only direct children that are actual elements
+console.log(h1.firstElementChild); // First direct child that's an element
+console.log(h1.lastElementChild); // Last direct child that's an element
+
+// Going upwards: parents
+console.log(h1.parentNode); // Direct parent node, can be anything
+console.log(h1.parentElement); // Direct parent element
+console.log(h1.closest(".header")); // Closest parent element with the matching selector
+console.log(h1.closest("h1")); // The same element
+
+// Going sideways: siblings
+console.log(h1.previousElementSibling); // Previous direct sibling element
+console.log(h1.nextElementSibling); // Next direct sibling element
+console.log(h1.previousSibling); // Previous direct sibling node
+console.log(h1.nextSibling); // Next direct sibling node
+console.log(h1.parentElement.children); // All direct sibling elements
+*/
+
+/*
+//-- Sticky navigation: Old method. This way of doing it is pretty inefficient!
+// See "script.js" > "Sticky navigation" for the modern method.
+
+const initialCoords = sectionOne.getBoundingClientRect();
+
+window.addEventListener("scroll", (event) => {
+  if (window.scrollY > initialCoords.top) {
+    nav.classList.add("sticky");
+  } else {
+    nav.classList.remove("sticky");
+  }
+});
+*/
+
+/*
+//-- The IntersectionObserver API
+
+const observerOptions = {
+  // "root" is the element with which we want to observe our "target"
+  // intersect. If null, root is the viewport.
+  root: null,
+  // "threshold" is the percentage of intersection at which the observer
+  // callback will be called.
+  threshold: [0, 0.2],
+  // A box of margin that's applied outside of the target element which is
+  // the boundry that triggers intersection
+  rootMargin: "-90px" // Can be px or %
+};
+
+const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+// We pass in the target element as an argument.
+observer.observe(sectionOne);
+
+// This callback function will get called each time that the observed element
+// (target) intersects with the root element at the threshold that we defined.
+//   - entries: We can have multiple thresholds as an array in the
+//     configuration above, so the entries is an array of thresholds.
+//   - observer: The observer object itself.
+function observerCallback(entries, observer) {
+  entries.forEach((entry) => {
+    console.log(entry);
+  });
+}
+*/
