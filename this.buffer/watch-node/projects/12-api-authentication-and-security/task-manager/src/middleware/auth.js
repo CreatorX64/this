@@ -14,6 +14,7 @@ export default async function auth(req, res, next) {
       throw new Error();
     }
 
+    req.token = token;
     req.user = user;
     next();
   } catch (error) {
