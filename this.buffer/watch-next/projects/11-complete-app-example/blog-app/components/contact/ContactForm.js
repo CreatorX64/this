@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import Notification from "../ui/Notification";
 import classes from "./ContactForm.module.css";
 
 export default function ContactForm() {
@@ -7,17 +8,35 @@ export default function ContactForm() {
     name: "",
     message: ""
   });
+  const [requestStatus, setRequestStatus] = useState();
+  const [requestError, setRequestError] = useState();
 
-  function sendMessageHandler(event) {
+  useEffect(() => {
+    if (requestStatus === "success" || requestStatus === "error") {
+      const timer = setTimeout(() => {
+        setRequestStatus(null);
+        setRequestError(null);
+      }, 3000);
+
+      return () => {
+        clearTimeout(timer);
+      };
+    }
+  }, [requestStatus]);
+
+  async function sendMessageHandler(event) {
     event.preventDefault();
 
-    fetch("/api/contact", {
-      method: "POST",
-      body: JSON.stringify(formData),
-      headers: {
-        "Content-Type": "application/json"
-      }
-    });
+    setRequestStatus("pending");
+
+    try {
+      await sendContactData(formData);
+      setRequestStatus("success");
+      setFormData({ email: "", name: "", message: "" });
+    } catch (error) {
+      setRequestError(error.message);
+      setRequestStatus("error");
+    }
   }
 
   function handleChange(event) {
@@ -25,6 +44,28 @@ export default function ContactForm() {
       ...prevState,
       [event.target.name]: event.target.value
     }));
+  }
+
+  let notificationData;
+
+  if (requestStatus === "pending") {
+    notificationData = {
+      status: "pending",
+      title: "Sending message...",
+      message: "Your message is on its way!"
+    };
+  } else if (requestStatus === "success") {
+    notificationData = {
+      status: "success",
+      title: "Success!",
+      message: "Message sent successfully!"
+    };
+  } else if (requestStatus === "error") {
+    notificationData = {
+      status: "error",
+      title: "Error!",
+      message: requestError
+    };
   }
 
   return (
@@ -69,6 +110,29 @@ export default function ContactForm() {
           <button>Send message</button>
         </div>
       </form>
+      {notificationData && (
+        <Notification
+          status={notificationData.status}
+          title={notificationData.title}
+          message={notificationData.message}
+        />
+      )}
     </section>
   );
+}
+
+async function sendContactData(contactDetails) {
+  const response = await fetch("/api/contact", {
+    method: "POST",
+    body: JSON.stringify(contactDetails),
+    headers: {
+      "Content-Type": "application/json"
+    }
+  });
+
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new Error(data.message || "Something went wrong");
+  }
 }
