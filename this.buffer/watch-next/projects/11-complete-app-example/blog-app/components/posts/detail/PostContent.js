@@ -1,21 +1,59 @@
+import Image from "next/image";
+import ReactMarkdown from "react-markdown";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { atomDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import classes from "./PostContent.module.css";
 import PostHeader from "./PostHeader";
 
-const dummyPost = {
-  slug: "getting-started-with-nextjs",
-  title: "Getting Started with NextJS",
-  image: "getting-started-nextjs.png",
-  date: "2022-02-10",
-  content: "# This is a first post"
-};
-
 export default function PostContent(props) {
-  const imagePath = `/images/posts/${dummyPost.slug}/${dummyPost.image}`;
+  const { post } = props;
+  const imagePath = `/images/posts/${post.slug}/${post.image}`;
+  const customRenderers = {
+    // img(image) {
+    //   return (
+    //     <Image
+    //       src={`/images/posts/${post.slug}/${image.src}`}
+    //       alt={image.alt}
+    //       width={600}
+    //       height={300}
+    //     />
+    //   );
+    // },
+    p(paragraph) {
+      const { node } = paragraph;
+
+      if (node.children[0].tagName === "img") {
+        const image = node.children[0];
+
+        return (
+          <Image
+            src={`/images/posts/${post.slug}/${image.properties.src}`}
+            alt={image.alt}
+            width={600}
+            height={300}
+          />
+        );
+      }
+
+      return <p>{paragraph.children}</p>;
+    },
+    code(code) {
+      const { className, children } = code;
+      // className is something like language-js => We need the "js" part here
+      const language = className.split("-")[1];
+
+      return (
+        <SyntaxHighlighter style={atomDark} language={language}>
+          {children}
+        </SyntaxHighlighter>
+      );
+    }
+  };
 
   return (
     <article className={classes.content}>
-      <PostHeader title={dummyPost.title} image={imagePath} />
-      {dummyPost.content}
+      <PostHeader title={post.title} image={imagePath} />
+      <ReactMarkdown components={customRenderers}>{post.content}</ReactMarkdown>
     </article>
   );
 }
