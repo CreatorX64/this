@@ -348,3 +348,27 @@ function observerCallback(entries, observer) {
   });
 }
 */
+
+/*
+//-- Lifecycle DOM Events
+
+document.addEventListener("DOMContentLoaded", (event) => {
+  console.log("HTML parsed and DOM tree built!");
+  console.log(event);
+});
+
+window.addEventListener("load", (event) => {
+  console.log("Page full loaded (including assets like images)");
+  console.log(event);
+});
+
+window.addEventListener("beforeunload", (event) => {
+  event.preventDefault(); // We need to prevent the closing
+  console.log("User is about to close the tab or window!");
+  console.log(event);
+
+  // Display a leaving confirmation. This line looks weird, but it's for
+  // historical reasons
+  event.returnValue = "";
+});
+*/
