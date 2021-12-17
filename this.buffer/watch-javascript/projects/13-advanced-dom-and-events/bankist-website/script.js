@@ -128,24 +128,24 @@ function headerObserverCallback(entries) {
 
 //-- Reveal sections
 
-// const sectionObserver = new IntersectionObserver(revealSection, {
-//   root: null,
-//   threshold: 0.15 // 15%
-// });
+const sectionObserver = new IntersectionObserver(revealSection, {
+  root: null,
+  threshold: 0.15 // 15%
+});
 
-// allSections.forEach((section) => {
-//   sectionObserver.observe(section);
-//   section.classList.add("section--hidden");
-// });
+allSections.forEach((section) => {
+  sectionObserver.observe(section);
+  section.classList.add("section--hidden");
+});
 
-// function revealSection(entries, observer) {
-//   const [entry] = entries;
+function revealSection(entries, observer) {
+  const [entry] = entries;
 
-//   if (!entry.isIntersecting) return;
+  if (!entry.isIntersecting) return;
 
-//   entry.target.classList.remove("section--hidden");
-//   observer.unobserve(entry.target);
-// }
+  entry.target.classList.remove("section--hidden");
+  observer.unobserve(entry.target);
+}
 
 //-- Lazy loading images
 
