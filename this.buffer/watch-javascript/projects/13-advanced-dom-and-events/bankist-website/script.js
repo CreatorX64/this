@@ -46,6 +46,10 @@ function closeModal() {
 
 //-- Page navigation (smooth scrolling)
 
+btnScrollTo.addEventListener("click", () => {
+  sectionOne.scrollIntoView({ behavior: "smooth" });
+});
+
 document.querySelector(".nav__links").addEventListener("click", (event) => {
   if (
     event.target.hasAttribute("href") &&

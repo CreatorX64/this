@@ -341,7 +341,8 @@ observer.observe(sectionOne);
 // (target) intersects with the root element at the threshold that we defined.
 //   - entries: We can have multiple thresholds as an array in the
 //     configuration above, so the entries is an array of thresholds.
-//   - observer: The observer object itself.
+//   - observer: The observer object itself which might be needed to unobserve
+//     the element for example.
 function observerCallback(entries, observer) {
   entries.forEach((entry) => {
     console.log(entry);
@@ -358,17 +359,17 @@ document.addEventListener("DOMContentLoaded", (event) => {
 });
 
 window.addEventListener("load", (event) => {
-  console.log("Page full loaded (including assets like images)");
+  console.log("Page fully loaded (including assets like images)");
   console.log(event);
 });
 
 window.addEventListener("beforeunload", (event) => {
-  event.preventDefault(); // We need to prevent the closing
+  event.preventDefault(); // Prevent the closing
   console.log("User is about to close the tab or window!");
   console.log(event);
 
   // Display a leaving confirmation. This line looks weird, but it's for
-  // historical reasons
+  // historical reasons.
   event.returnValue = "";
 });
 */
