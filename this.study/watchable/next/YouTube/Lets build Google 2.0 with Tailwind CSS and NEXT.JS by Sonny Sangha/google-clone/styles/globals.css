@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .link {
+    @apply no-underline cursor-pointer text-inherit hover:underline;
+  }
+
+  .btn {
+    @apply rounded-md
+    p-3
+    text-sm
+    text-gray-800
+    bg-[#f8f9fa]
+    hover:ring-1
+    hover:ring-gray-200
+    hover:shadow-md
+    focus:outline-none
+    active:ring-gray-300
+    sm:whitespace-nowrap;
+  }
+}

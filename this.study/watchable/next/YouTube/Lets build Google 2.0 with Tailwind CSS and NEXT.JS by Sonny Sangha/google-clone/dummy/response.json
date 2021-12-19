@@ -1,0 +1,428 @@
+{
+  "kind": "customsearch#search",
+  "url": {
+    "type": "application/json",
+    "template": "https://www.googleapis.com/customsearch/v1?q={searchTerms}&num={count?}&start={startIndex?}&lr={language?}&safe={safe?}&cx={cx?}&sort={sort?}&filter={filter?}&gl={gl?}&cr={cr?}&googlehost={googleHost?}&c2coff={disableCnTwTranslation?}&hq={hq?}&hl={hl?}&siteSearch={siteSearch?}&siteSearchFilter={siteSearchFilter?}&exactTerms={exactTerms?}&excludeTerms={excludeTerms?}&linkSite={linkSite?}&orTerms={orTerms?}&relatedSite={relatedSite?}&dateRestrict={dateRestrict?}&lowRange={lowRange?}&highRange={highRange?}&searchType={searchType}&fileType={fileType?}&rights={rights?}&imgSize={imgSize?}&imgType={imgType?}&imgColorType={imgColorType?}&imgDominantColor={imgDominantColor?}&alt=json"
+  },
+  "queries": {
+    "request": [
+      {
+        "title": "Google Custom Search - dogs",
+        "totalResults": "57500000",
+        "searchTerms": "dogs",
+        "count": 10,
+        "startIndex": 1,
+        "inputEncoding": "utf8",
+        "outputEncoding": "utf8",
+        "safe": "off",
+        "cx": "85b722b7621063104"
+      }
+    ],
+    "nextPage": [
+      {
+        "title": "Google Custom Search - dogs",
+        "totalResults": "57500000",
+        "searchTerms": "dogs",
+        "count": 10,
+        "startIndex": 11,
+        "inputEncoding": "utf8",
+        "outputEncoding": "utf8",
+        "safe": "off",
+        "cx": "85b722b7621063104"
+      }
+    ]
+  },
+  "context": { "title": "Google" },
+  "searchInformation": {
+    "searchTime": 0.608354,
+    "formattedSearchTime": "0.61",
+    "totalResults": "57500000",
+    "formattedTotalResults": "57,500,000"
+  },
+  "items": [
+    {
+      "kind": "customsearch#result",
+      "title": "Isle of Dogs, England - Google Maps",
+      "htmlTitle": "Isle of <b>Dogs</b>, England - Google Maps",
+      "link": "https://www.google.com/maps/search/?api=1&query=Isle%20of%20Dogs%2C%20England&query_place_id=ChIJ7dvJUr0CdkgRaI4gDXIuHDU",
+      "displayLink": "www.google.com",
+      "snippet": "Isle of Dogs, England. Connect to internet to see place info.",
+      "htmlSnippet": "Isle of <b>Dogs</b>, England. Connect to internet to see place info.",
+      "cacheId": "R8HZpOX9iWUJ",
+      "formattedUrl": "https://www.google.com/.../search/?...Isle%20of%20Dogs%2C%20England...",
+      "htmlFormattedUrl": "https://www.google.com/.../search/?...Isle%20of%20<b>Dogs</b>%2C%20England...",
+      "pagemap": {
+        "cse_thumbnail": [
+          {
+            "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQUDTMfgWSotdHvbOKW4AmY1steqsilnDJS4q33zGx-d0AXvvxPiFY9Mvs",
+            "width": "204",
+            "height": "247"
+          }
+        ],
+        "metatags": [
+          {
+            "referrer": "origin",
+            "twitter:card": "summary",
+            "theme-color": "#3367d6",
+            "viewport": "initial-scale=1.0, user-scalable=no",
+            "google": "notranslate"
+          }
+        ],
+        "cse_image": [
+          {
+            "src": "https://maps.gstatic.com/tactile/basepage/pegman_sherlock.png"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "customsearch#result",
+      "title": "A01K 27 - Leads or collars, e.g. for dogs - Patents Sitemap",
+      "htmlTitle": "A01K 27 - Leads or collars, e.g. for <b>dogs</b> - Patents Sitemap",
+      "link": "http://www.google.com/patents/sitemap/en/Sitemap/A01/A01K/A01K_27.html",
+      "displayLink": "www.google.com",
+      "snippet": "02/11/2015 · 02/10/2015 · 02/05/2015 ; CN204146154U 一种犬用防虫项圈 One kind of dog collar with pest control · US8950364 Harnesses for dogs and other animals.",
+      "htmlSnippet": "02/11/2015 &middot; 02/10/2015 &middot; 02/05/2015 ; CN204146154U 一种犬用防虫项圈 One kind of dog collar with pest control &middot; US8950364 Harnesses for dogs and other animals.",
+      "formattedUrl": "www.google.com/patents/sitemap/en/Sitemap/A01/A01K/A01K_27.html",
+      "htmlFormattedUrl": "www.google.com/patents/sitemap/en/Sitemap/A01/A01K/A01K_27.html"
+    },
+    {
+      "kind": "customsearch#result",
+      "title": "Hot Dogs - Google My Maps",
+      "htmlTitle": "Hot <b>Dogs</b> - Google My Maps",
+      "link": "https://www.google.com/maps/ms?ie=UTF8&oe=UTF8&msa=0&msid=113218577841406326677.00045074cbda5c0c5cec1",
+      "displayLink": "www.google.com",
+      "snippet": "Hot Dogs. Collapse map legend. Map details. Copy map. Zoom to viewport. Embed map. Download KML. 2,032 views. Published on June 28, 2015.",
+      "htmlSnippet": "Hot <b>Dogs</b>. Collapse map legend. Map details. Copy map. Zoom to viewport. Embed map. Download KML. 2,032 views. Published on June 28, 2015.",
+      "cacheId": "Og9d0OQG22kJ",
+      "formattedUrl": "https://www.google.com/maps/ms?ie=UTF8&oe=UTF8&msa=0...",
+      "htmlFormattedUrl": "https://www.google.com/maps/ms?ie=UTF8&amp;oe=UTF8&amp;msa=0...",
+      "pagemap": {
+        "website": [
+          {
+            "image": "https://www.google.com/maps/d/thumbnail?mid=1qdApH0Swx5mQi9HFPwTI-rsbptY",
+            "name": "Hot Dogs - Google My Maps",
+            "description": "Hot Dogs",
+            "url": "https://www.google.com/maps/d/viewer?mid=1qdApH0Swx5mQi9HFPwTI-rsbptY"
+          }
+        ],
+        "metatags": [
+          {
+            "og:image": "https://www.google.com/maps/d/thumbnail?mid=1qdApH0Swx5mQi9HFPwTI-rsbptY",
+            "apple-itunes-app": "app-id=585027354, app-argument=comgooglemaps://?mapsurl=https://www.google.com/mymaps/viewer?mid%3D1qdApH0Swx5mQi9HFPwTI-rsbptY%26hl%3Den_US",
+            "og:type": "website",
+            "twitter:card": "summary_large_image",
+            "twitter:title": "Hot Dogs - Google My Maps",
+            "og:site_name": "Google My Maps",
+            "viewport": "initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=0,width=device-width",
+            "twitter:description": "Hot Dogs",
+            "og:title": "Hot Dogs - Google My Maps",
+            "og:url": "https://www.google.com/maps/d/viewer?mid=1qdApH0Swx5mQi9HFPwTI-rsbptY",
+            "og:description": "Hot Dogs",
+            "twitter:image:src": "https://www.google.com/maps/d/thumbnail?mid=1qdApH0Swx5mQi9HFPwTI-rsbptY"
+          }
+        ],
+        "cse_image": [
+          {
+            "src": "https://www.google.com/maps/d/thumbnail?mid=1qdApH0Swx5mQi9HFPwTI-rsbptY"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "customsearch#result",
+      "title": "US4403657A - Locking mandrel having dogs for latching to a ...",
+      "htmlTitle": "US4403657A - Locking mandrel having <b>dogs</b> for latching to a ...",
+      "link": "https://www.google.com/patents/US4403657",
+      "displayLink": "www.google.com",
+      "snippet": "Locking mandrel having dogs for latching to a landing nipple and lugs for ... 8 the full set down position in which the lug expander and dog prop-out have ...",
+      "htmlSnippet": "Locking mandrel having <b>dogs</b> for latching to a landing nipple and lugs for ... 8 the full set down position in which the lug expander and <b>dog</b> prop-out have&nbsp;...",
+      "formattedUrl": "https://www.google.com/patents/US4403657",
+      "htmlFormattedUrl": "https://www.google.com/patents/US4403657",
+      "pagemap": {
+        "metatags": [
+          {
+            "referrer": "origin-when-crossorigin",
+            "citation_patent_application_number": "US:06/222,773",
+            "citation_patent_number": "US:4403657",
+            "dc.description": "A valve for landing in a landing nipple which landing nipple includes an actuator for the valve with the valve including radially expansible locking means for locking the valve to the landing nipple and to the actua",
+            "dc.type": "patent",
+            "viewport": "width=device-width, initial-scale=1",
+            "dc.relation": "US:3744564",
+            "dc.title": "Locking mandrel having dogs for latching to a landing nipple and lugs for latching to an operator reciprocal in the landing nipple",
+            "citation_pdf_url": "https://patentimages.storage.googleapis.com/5f/6e/eb/5597c16ae59f17/US4403657.pdf",
+            "dc.date": "1981-01-06",
+            "dc.contributor": "James B. Adams, Jr."
+          }
+        ]
+      }
+    },
+    {
+      "kind": "customsearch#result",
+      "title": "Ted's Hot Dogs - Google Maps",
+      "htmlTitle": "Ted&#39;s Hot <b>Dogs</b> - Google Maps",
+      "link": "https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=43.051716,-78.87384",
+      "displayLink": "www.google.com",
+      "snippet": "We're sorry, but an error has occurred. Please reload the page. Reload nowLearn more. Ted's Hot Dogs. Chris Kivi. Street View - Feb 2017.",
+      "htmlSnippet": "We&#39;re sorry, but an error has occurred. Please reload the page. Reload nowLearn more. Ted&#39;s Hot <b>Dogs</b>. Chris Kivi. Street View - Feb 2017.",
+      "cacheId": "Cr1_tSwAzQAJ",
+      "formattedUrl": "https://www.google.com/maps/@?api=1&map_action=pano...43...",
+      "htmlFormattedUrl": "https://www.google.com/maps/@?api=1&amp;map_action=pano...43...",
+      "pagemap": {
+        "metatags": [
+          {
+            "referrer": "origin",
+            "og:image": "https://maps.google.com/maps/api/staticmap?center=43.051716%2C-78.87384&zoom=-1&size=256x256&language=en&sensor=false&client=google-maps-frontend&signature=0imKgIEYmqCQrs7Ut8gqtzzuf1c",
+            "og:image:width": "256",
+            "twitter:card": "summary",
+            "og:site_name": "Google Maps",
+            "viewport": "initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no",
+            "og:title": "Google Maps",
+            "og:image:height": "256",
+            "google": "notranslate",
+            "og:description": "Find local businesses, view maps and get driving directions in Google Maps."
+          }
+        ],
+        "place": [
+          {
+            "image": "https://maps.google.com/maps/api/staticmap?center=43.051716%2C-78.87384&zoom=-1&size=256x256&language=en&sensor=false&client=google-maps-frontend&signature=0imKgIEYmqCQrs7Ut8gqtzzuf1c",
+            "name": "Google Maps",
+            "description": "Find local businesses, view maps and get driving directions in Google Maps."
+          }
+        ],
+        "cse_image": [
+          {
+            "src": "https://maps.google.com/maps/api/staticmap?center=43.051716%2C-78.87384&zoom=-1&size=256x256&language=en&sensor=false&client=google-maps-frontend&signature=0imKgIEYmqCQrs7Ut8gqtzzuf1c"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "customsearch#result",
+      "title": "Google Docs: Free Online Document Editor | Google Workspace",
+      "htmlTitle": "Google Docs: Free Online Document Editor | Google Workspace",
+      "link": "https://www.google.com/docs/about/",
+      "displayLink": "www.google.com",
+      "snippet": "Use Google Docs to create, and collaborate on online documents. Edit together with secure sharing in real-time and from any device.",
+      "htmlSnippet": "Use Google Docs to create, and collaborate on online documents. Edit together with secure sharing in real-time and from any device.",
+      "cacheId": "B4Skq4M5akkJ",
+      "formattedUrl": "https://www.google.com/docs/about/",
+      "htmlFormattedUrl": "https://www.google.com/docs/about/",
+      "pagemap": {
+        "cse_thumbnail": [
+          {
+            "src": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSwELdtonBh-4WwJ2BtD4mygtEC5WJBYy4XjXbIvY4YA92EZHCyMfTD",
+            "width": "36",
+            "height": "36"
+          }
+        ],
+        "metatags": [
+          {
+            "referrer": "no-referrer",
+            "og:image": "https://kstatic.googleusercontent.com/files/97ecc831526fbe8c60fe88ef0d7a6cbf06361809f0acf857326681f6a1f35740d3bd7d69bf4a5381f5c31a863bccace4d9d1660379182901f73d24ef137f6fb4",
+            "twitter:title": "Google Docs: Free Online Document Editor | Google Workspace",
+            "og:type": "website",
+            "viewport": "initial-scale=1, minimum-scale=1, width=device-width",
+            "twitter:url": "https://twitter.com/googledocs",
+            "twitter:description": "Use Google Docs to create, and collaborate on online documents. Edit together with secure sharing in real-time and from any device.",
+            "og:title": "Google Docs: Free Online Document Editor | Google Workspace",
+            "og:url": "https://www.facebook.com/GoogleDocs/",
+            "twitter:creator": "Google",
+            "og:description": "Use Google Docs to create, and collaborate on online documents. Edit together with secure sharing in real-time and from any device.",
+            "twitter:image": "https://kstatic.googleusercontent.com/files/97ecc831526fbe8c60fe88ef0d7a6cbf06361809f0acf857326681f6a1f35740d3bd7d69bf4a5381f5c31a863bccace4d9d1660379182901f73d24ef137f6fb4"
+          }
+        ],
+        "cse_image": [
+          {
+            "src": "https://kstatic.googleusercontent.com/files/97ecc831526fbe8c60fe88ef0d7a6cbf06361809f0acf857326681f6a1f35740d3bd7d69bf4a5381f5c31a863bccace4d9d1660379182901f73d24ef137f6fb4"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "customsearch#result",
+      "title": "Ole Miss dog urination celebration penalty leads to missed extra ...",
+      "htmlTitle": "Ole Miss <b>dog</b> urination celebration penalty leads to missed extra ...",
+      "link": "https://www.google.com/appserve/mkt/p/AFnwnKWRp3VXKib04sfLT_PoPh9z9WCYO5GrANkjPfAh9G1X4sKLo0Mku8o9Lcix740MzveeJYgP_fKzVEzvsBdI31eDxCNdFnf66PoJRWC7202EXi7PvAEp-9rd6bqsY7_-lSUreaGxy7XUEuLasl9S1oTbJ9Rg_3GhaKrRFJGp5fojL47LBo5J5O3d4JGwTCpzIJuAUmcgxJIllWPmSC_ASCK_Wi5DSjtVlwo4KaSO2zrIrY_EQ_yoCqP0Ax4o0Oc2YYEzHwuk_fxwB_vZD90jxg",
+      "displayLink": "www.google.com",
+      "snippet": "Nov 29, 2019 ... The sophomore, who leads the Rebels in receiving this season, lifted his leg like a dog and pretended to urinate after his score that made it 21 ...",
+      "htmlSnippet": "Nov 29, 2019 <b>...</b> The sophomore, who leads the Rebels in receiving this season, lifted his leg like a <b>dog</b> and pretended to urinate after his score that made it 21&nbsp;...",
+      "cacheId": "6ZTo0-9MtOUJ",
+      "formattedUrl": "https://www.google.com/.../AFnwnKWRp3VXKib04sfLT_ PoPh9z9WCYO5GrANkjPfAh9G1X4sKLo0Mku8o9Lcix740MzveeJYgP_ ...",
+      "htmlFormattedUrl": "https://www.google.com/.../AFnwnKWRp3VXKib04sfLT_ PoPh9z9WCYO5GrANkjPfAh9G1X4sKLo0Mku8o9Lcix740MzveeJYgP_ ...",
+      "pagemap": {
+        "cse_thumbnail": [
+          {
+            "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpwFU-D1TEdSlwrgTJe_-2_t3gELdHf6VDv0XPgexW0YqrFygKAJk-NRo",
+            "width": "311",
+            "height": "162"
+          }
+        ],
+        "imageobject": [
+          {
+            "width": "1200",
+            "url": "https://sportshub.cbsistatic.com/i/r/2019/11/29/b2105b7a-fae3-451b-86ed-6dcfaa111046/thumbnail/1200x675/d072884890c8db213e5ab19032e89f15/ole-miss-piss-egg-bowl.png",
+            "height": "675"
+          },
+          {
+            "width": "289",
+            "url": "https://sportsfly.cbsistatic.com/fly-0125/bundles/sportsmediacss/images/core/cbssports-logo-60x289.png",
+            "height": "60"
+          }
+        ],
+        "person": [{ "name": "Ben Kercheval" }],
+        "speakablespecification": [{ "cssselector": ".article-headline" }],
+        "organization": [{ "name": "CBS Sports" }],
+        "metatags": [
+          {
+            "og:image": "https://sportsfly.cbsistatic.com/fly-0125/bundles/sportsmediacss/images/fantasy/default-article-image-large.png",
+            "twitter:card": "summary_large_image",
+            "og:site_name": "CBSSports.com",
+            "msapplication-tooltip": "CBSSports.com features live scoring and news for NFL football, MLB baseball, NBA basketball, NHL hockey, college basketball and football. CBSSports.com is also your source for fantasy sports news.",
+            "og:description": "The Rebels have to be pissed after Elijah Moore cemented his place in Egg Bowl history for the wrong reasons",
+            "twitter:creator": "@BenKercheval",
+            "article:publisher": "https://www.facebook.com/cbssports",
+            "twitter:image": "https://sportsfly.cbsistatic.com/fly-0125/bundles/sportsmediacss/images/fantasy/default-article-image-large.png",
+            "twitter:site": "@cbssports",
+            "fb:admins": "100002967552623",
+            "article:content_tier": "free",
+            "twitter:account_id": "14885860",
+            "msapplication-starturl": "https://www.cbssports.com/",
+            "og:type": "article",
+            "twitter:title": "Ole Miss dog urination celebration penalty leads to missed extra point, making Mississippi State bowl-eligible - CBSSports.com",
+            "msapplication-window": "width=1024;height=768",
+            "handheldfriendly": "True",
+            "og:title": "Ole Miss dog urination celebration penalty leads to missed extra point, making Mississippi State bowl-eligible",
+            "google": "notranslate",
+            "fb:pages": "25902406772",
+            "msapplication-navbutton-color": "#1483b2",
+            "fb:app_id": "297742330311988",
+            "apple-mobile-web-app-status-bar-style": "black",
+            "viewport": "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no",
+            "twitter:description": "The Rebels have to be pissed after Elijah Moore cemented his place in Egg Bowl history for the wrong reasons",
+            "apple-mobile-web-app-capable": "yes",
+            "mobileoptimized": "320",
+            "og:url": "https://www.cbssports.com/college-football/news/ole-miss-dog-urination-celebration-penalty-leads-to-missed-extra-point-making-mississippi-state-bowl-eligible/",
+            "google-play-app": "com.handmark.sportcaster",
+            "article:opinion": "false",
+            "format-detection": "telephone=no"
+          }
+        ],
+        "cse_image": [
+          {
+            "src": "https://sportsfly.cbsistatic.com/fly-0125/bundles/sportsmediacss/images/fantasy/default-article-image-large.png"
+          }
+        ],
+        "article": [
+          {
+            "articlebody": "With 4 seconds left in the Egg Bowl, Ole Miss wide receiver Elijah Moore caught a 2-yard touchdown pass that brought the Rebels to within one point of heated rival Mississippi State. The ensuing...",
+            "keywords": "College Football",
+            "datemodified": "2019-11-29 19:48:10",
+            "description": "The Rebels have to be pissed after Elijah Moore cemented his place in Egg Bowl history for the wrong reasons",
+            "headline": "Ole Miss dog urination celebration penalty leads to missed extra point, making Mississippi State bowl-eligible",
+            "url": "https://www.cbssports.com/college-football/news/ole-miss-dog-urination-celebration-penalty-leads-to-missed-extra-point-making-mississippi-state-bowl-eligible/",
+            "datepublished": "2019-11-29 19:48:00",
+            "mainentityofpage": "https://www.cbssports.com//college-football/news/ole-miss-dog-urination-celebration-penalty-leads-to-missed-extra-point-making-mississippi-state-bowl-eligible/",
+            "thumbnailurl": "https://sportshub.cbsistatic.com/i/r/2019/11/29/b2105b7a-fae3-451b-86ed-6dcfaa111046/thumbnail/1200x675/d072884890c8db213e5ab19032e89f15/ole-miss-piss-egg-bowl.png"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "customsearch#result",
+      "title": "Google Docs – create and edit documents online, for free.",
+      "htmlTitle": "Google Docs – create and edit documents online, for free.",
+      "link": "https://www.google.com/intl/en-GB/docs/about/",
+      "displayLink": "www.google.com",
+      "snippet": "Create a new document and edit with others at the same time – from your computer, phone or tablet. Get things done with or without an Internet connection.",
+      "htmlSnippet": "Create a new document and edit with others at the same time – from your computer, phone or tablet. Get things done with or without an Internet connection.",
+      "cacheId": "74i9kLyrVA4J",
+      "formattedUrl": "https://www.google.com/intl/en-GB/docs/about/",
+      "htmlFormattedUrl": "https://www.google.com/intl/en-GB/docs/about/",
+      "pagemap": {
+        "cse_thumbnail": [
+          {
+            "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfqO0pDoFK9gostQa4y-pPe9MFcA6On9lqSTUp35O0uudVcQ1m956g",
+            "width": "120",
+            "height": "120"
+          }
+        ],
+        "metatags": [
+          {
+            "viewport": "width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"
+          }
+        ],
+        "cse_image": [
+          {
+            "src": "https://www.google.com/intl/en-GB/docs/about/images/common/add-pam.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "customsearch#result",
+      "title": "Fourth of July 2019",
+      "htmlTitle": "Fourth of July 2019",
+      "link": "https://www.google.com/doodles/fourth-of-july-2019",
+      "displayLink": "www.google.com",
+      "snippet": "Jul 4, 2019 ... Looks like H-Dog's on a roll! Lettuce hope he can help his team ketchup! Will Power Pop hit a pop fly? Can Wild Slice slice one into left ...",
+      "htmlSnippet": "Jul 4, 2019 <b>...</b> Looks like H-<b>Dog&#39;s</b> on a roll! Lettuce hope he can help his team ketchup! Will Power Pop hit a pop fly? Can Wild Slice slice one into left&nbsp;...",
+      "formattedUrl": "https://www.google.com/doodles/fourth-of-july-2019",
+      "htmlFormattedUrl": "https://www.google.com/doodles/fourth-of-july-2019",
+      "pagemap": {
+        "cse_thumbnail": [
+          {
+            "src": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSdOpj2zpSBK8cjDtn3f2fZyxiOQDxrsI0tqmLQt4r5uMrdBREU3Fum2-I",
+            "width": "300",
+            "height": "168"
+          }
+        ],
+        "metatags": [
+          {
+            "og:image": "http://www.google.com/logos/doodles/2019/fourth-of-july-2019-6225363087654912.2-2xa.gif",
+            "twitter:card": "summary_large_image",
+            "twitter:title": "Fourth of July 2019",
+            "og:image:width": "800",
+            "og:type": "website",
+            "twitter:site": "@GoogleDoodles",
+            "viewport": "width=device-width",
+            "twitter:description": "Happy Fourth of July! Step up to the plate in today's #GoogleDoodle BBQ ball game! ⚾ 🇺🇸",
+            "og:title": "Fourth of July 2019",
+            "og:image:height": "450",
+            "og:description": "Happy Fourth of July! Step up to the plate in today's #GoogleDoodle BBQ ball game! ⚾ 🇺🇸",
+            "twitter:image": "http://www.google.com/logos/doodles/2019/fourth-of-july-2019-6225363087654912.2-2xa.gif"
+          }
+        ],
+        "cse_image": [
+          {
+            "src": "http://www.google.com/logos/doodles/2019/fourth-of-july-2019-6225363087654912.2-2xa.gif"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "customsearch#result",
+      "title": "Google's Search Algorithm and Ranking System - Google Search",
+      "htmlTitle": "Google&#39;s Search Algorithm and Ranking System - Google Search",
+      "link": "https://www.google.com/search/howsearchworks/algorithms/",
+      "displayLink": "www.google.com",
+      "snippet": "Just think: when you search for “dogs”, you likely don't want a page with the word “dogs” on it hundreds of times. With that in mind, algorithms assess if a ...",
+      "htmlSnippet": "Just think: when you search for “<b>dogs</b>”, you likely don&#39;t want a page with the word “<b>dogs</b>” on it hundreds of times. With that in mind, algorithms assess if a&nbsp;...",
+      "cacheId": "5_adyyTt9UUJ",
+      "formattedUrl": "https://www.google.com/search/howsearchworks/algorithms/",
+      "htmlFormattedUrl": "https://www.google.com/search/howsearchworks/algorithms/",
+      "pagemap": {
+        "metatags": [
+          {
+            "referrer": "no-referrer",
+            "twitter:title": "Google's Search Algorithm and Ranking System - Google Search",
+            "viewport": "width=device-width, initial-scale=1.0",
+            "twitter:description": "You want the answer, not billions of webpages, so Google's ranking systems use a search algorithm to give you useful and relevant Google search results in a fraction of a second.",
+            "og:title": "Google's Search Algorithm and Ranking System - Google Search",
+            "og:description": "You want the answer, not billions of webpages, so Google's ranking systems use a search algorithm to give you useful and relevant Google search results in a fraction of a second."
+          }
+        ]
+      }
+    }
+  ]
+}
