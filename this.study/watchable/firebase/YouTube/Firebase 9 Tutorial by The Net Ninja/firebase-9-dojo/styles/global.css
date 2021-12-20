@@ -1,0 +1,67 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: #f5f5f5;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+label,
+input,
+button {
+  display: block;
+}
+
+label,
+input {
+  width: 100%;
+}
+
+button {
+  margin-top: 0.8rem;
+  padding: 6px 16px;
+  font-weight: 600;
+}
+
+label {
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+}
+
+input {
+  padding: 6px 16px;
+}
+
+h2 {
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+}
+
+h3 {
+  margin: 0 0 1rem 0;
+}
+
+.container {
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
