@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Website</title>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@17/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <h1>My Website</h1>
+
+    <div id="banner"></div>
+
+    <footer>
+      <p>Footer &copy; 2049</p>
+    </footer>
+
+    <script type="text/babel">
+      function Banner() {
+        const title = "Welcome to my website!";
+        const subTitle = "This is a website for learning React.";
+        const address = "https://www.netninja.dev";
+
+        // function handleClick(evt) {
+        //   console.log("You clicked me");
+        //   console.log("The site title is:", title);
+        //   console.log(evt);
+        // }
+
+        return (
+          <div className="banner">
+            <h2>{title.toUpperCase()}</h2>
+            <p>{subTitle}</p>
+
+            {/*<p>Today&apos;s date is: {new Date().toLocaleDateString()}</p>
+            <p>Random number: {Math.random() * 100}</p>
+            <a href={address}>Visit the Net Ninja site</a>*/}
+
+            {/*<button onClick={handleClick}>Click me</button>*/}
+            <button onClick={(evt) => console.log(evt)}>Click me</button>
+          </div>
+        );
+      }
+
+      ReactDOM.render(<Banner />, document.getElementById("banner"));
+    </script>
+  </body>
+</html>
