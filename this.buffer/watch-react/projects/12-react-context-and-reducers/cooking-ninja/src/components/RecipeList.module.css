@@ -49,3 +49,13 @@
   color: #555;
   background: #e2e2e2;
 }
+
+.list .card.dark {
+  background-color: #555;
+}
+
+.list .card.dark p,
+.list .card.dark h3,
+.list .card.dark div {
+  color: #e4e4e4;
+}
