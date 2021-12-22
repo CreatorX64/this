@@ -1,22 +1,32 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 
-export const useFetch = (url, _options) => {
+export const useFetch = (url, method = "GET") => {
   const [data, setData] = useState(null);
   const [isPending, setIsPending] = useState(false);
   const [error, setError] = useState(null);
+  const [options, setOptions] = useState(null);
 
-  // Use useRef() to wrap a reference type argument (array, object) that is
-  // also a useEffect() dependency
-  const options = useRef(_options).current;
+  const setPostBody = (postData) => {
+    setOptions({
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(postData)
+    });
+  };
 
   useEffect(() => {
     const abortController = new AbortController();
 
-    const fetchData = async () => {
+    const fetchData = async (fetchOptions) => {
       setIsPending(true);
 
       try {
-        const res = await fetch(url, { signal: abortController.signal });
+        const res = await fetch(url, {
+          ...fetchOptions,
+          signal: abortController.signal
+        });
 
         if (!res.ok) {
           throw new Error(res.statusText);
@@ -37,12 +47,16 @@ export const useFetch = (url, _options) => {
       }
     };
 
-    fetchData();
+    if (method === "GET") {
+      fetchData();
+    } else if (method === "POST" && options) {
+      fetchData(options);
+    }
 
     return () => {
       abortController.abort();
     };
-  }, [url, options]);
+  }, [url, options, method]);
 
-  return { data, isPending, error };
+  return { data, isPending, error, setPostBody };
 };

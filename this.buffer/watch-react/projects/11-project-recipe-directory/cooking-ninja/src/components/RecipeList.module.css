@@ -17,7 +17,7 @@
 }
 
 .list .card:hover {
-  transform: rotate(3deg);
+  transform: rotate(2deg);
 }
 
 .list .card h3 {
