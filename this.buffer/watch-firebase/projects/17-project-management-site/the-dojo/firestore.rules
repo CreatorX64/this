@@ -1,0 +1,20 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Users collection
+    match /users/{uid} {
+      // Any authenticated user can read & create
+      allow read, create: if request.auth != null;
+      // Only users who own/created a doc can update it (user ids match)
+      allow update: if request.auth.uid == uid;
+    }
+
+    // Projects collection
+    match /projects/{pid} {
+      // Any authenticated user can read, create, update a document
+      allow read, create, update: if request.auth != null;
+      // Only users who own/created a document can delete it
+      allow delete: if request.auth.uid == resource.data.createdBy.id;
+    }
+  }
+}
