@@ -1,0 +1,49 @@
+h1 {
+  text-align: center;
+}
+
+.wrapper {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 16px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding: 20px;
+  color: #fff;
+  background-color: #008cba;
+}
+
+.navbar .create {
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.navbar .navbar-brand {
+  font-size: 2rem;
+  color: #fff;
+}
+
+.navbar-brand:hover,
+.create:hover {
+  color: #fff;
+}
+
+.form-container {
+  width: 400px;
+  margin: 20px auto;
+}
+
+.note-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 10px;
+}
