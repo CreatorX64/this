@@ -1,0 +1,7 @@
+{
+  "name": "primer",
+  "private": true,
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
