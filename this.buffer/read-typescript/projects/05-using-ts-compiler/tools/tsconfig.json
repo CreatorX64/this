@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
-    "target": "ES2021",
+    "rootDir": "./src",
     "outDir": "./dist",
-    "rootDir": "./src"
+    "target": "ES2021",
+    // "lib": ["ES5", "DOM", "ES2015.Collection"],
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "noEmitOnError": true
   }
 }
