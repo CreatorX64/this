@@ -1,8 +1,9 @@
-import "../styles/globals.css";
+import type { FC } from "react";
 import type { AppProps } from "next/app";
+import "../styles/globals.css";
 import Layout from "../components/layout";
 
-const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
+const MyApp: FC<AppProps> = ({ Component, pageProps }) => {
   return (
     <Layout>
       <Component {...pageProps} />

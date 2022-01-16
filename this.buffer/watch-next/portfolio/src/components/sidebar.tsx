@@ -1,8 +1,9 @@
+import type { FC } from "react";
 import { AiFillGithub, AiFillLinkedin, AiFillYoutube } from "react-icons/ai";
 import { GoLocation } from "react-icons/go";
 import { GiTie } from "react-icons/gi";
 
-const Sidebar = () => {
+const Sidebar: FC = () => {
   return (
     <div>
       <img
