@@ -23,7 +23,7 @@ const Navbar: FC = () => {
 
   return (
     <div className="flex justify-between my-3 px-5 py-3">
-      <span className="border-b-4 border-green font-bold text-xl text-green md:text-2xl">
+      <span className="border-b-4 mr-3 border-green font-bold text-xl text-green md:text-2xl">
         {activeItem}
       </span>
 

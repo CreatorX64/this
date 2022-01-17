@@ -8,11 +8,11 @@ interface IProps {
 
 const Layout: FC<IProps> = ({ children }) => {
   return (
-    <div className="grid grid-cols-12 gap-6 my-14 px-5 sm:px-20 md:px-32 lg:px-48">
-      <div className="col-span-12 rounded-2xl p-4 text-center bg-white lg:col-span-3">
+    <div className="grid gap-6 my-14 px-5 sm:px-32 md:grid-cols-layout md:px-20 lg:px-36">
+      <div className="rounded-2xl p-4 text-center bg-white dark:bg-dark-500 shadow-custom-light dark:shadow-custom-dark">
         <Sidebar />
       </div>
-      <div className="col-span-12 flex flex-col rounded-2xl bg-white lg:col-span-9">
+      <div className="flex flex-col overflow-hidden max-w-6xl mx-auto rounded-2xl bg-white dark:bg-dark-500 shadow-custom-light dark:shadow-custom-dark">
         <Navbar />
         {children}
       </div>
