@@ -12,7 +12,7 @@ const Layout: FC<IProps> = ({ children }) => {
       <div className="rounded-2xl p-4 text-center bg-white dark:bg-dark-500 shadow-custom-light dark:shadow-custom-dark">
         <Sidebar />
       </div>
-      <div className="flex flex-col overflow-hidden max-w-6xl mx-auto rounded-2xl bg-white dark:bg-dark-500 shadow-custom-light dark:shadow-custom-dark">
+      <div className="flex flex-col overflow-hidden w-full max-w-6xl mx-auto rounded-2xl bg-white dark:bg-dark-500 shadow-custom-light dark:shadow-custom-dark">
         <Navbar />
         {children}
       </div>

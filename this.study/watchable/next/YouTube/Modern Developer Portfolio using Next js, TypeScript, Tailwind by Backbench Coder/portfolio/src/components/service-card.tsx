@@ -10,7 +10,7 @@ const ServiceCard: FC<IProps> = ({ service: { title, about, Icon } }) => {
     <div className="flex items-center space-x-4 p-2">
       <Icon className="w-12 h-12 text-green" />
       <div>
-        <h4 className="font-bold">{title}</h4>
+        <h5 className="font-bold">{title}</h5>
         <p dangerouslySetInnerHTML={{ __html: about }} />
       </div>
     </div>

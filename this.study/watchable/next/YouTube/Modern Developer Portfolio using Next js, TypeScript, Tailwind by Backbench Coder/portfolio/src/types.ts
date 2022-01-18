@@ -13,6 +13,7 @@ export interface ISkill {
 }
 
 export interface IProject {
+  id: number;
   name: string;
   description: string;
   imagePath: string;

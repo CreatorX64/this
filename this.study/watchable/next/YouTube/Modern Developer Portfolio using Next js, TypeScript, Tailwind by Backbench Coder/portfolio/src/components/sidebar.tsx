@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { useTheme } from "next-themes";
 import type { FC } from "react";
 import { AiFillGithub, AiFillLinkedin, AiFillYoutube } from "react-icons/ai";
@@ -13,11 +14,22 @@ const Sidebar: FC = () => {
 
   return (
     <div>
-      <img
+      {/* <img
         src="/avatar.jpg"
         alt="User avatar"
         className="w-32 h-32 rounded-full mx-auto"
+      /> */}
+
+      <Image
+        src="/avatar.jpg"
+        alt="User avatar"
+        className="rounded-full mx-auto"
+        height={128}
+        width={128}
+        layout="intrinsic"
+        quality={100}
       />
+
       <h3 className="my-4 text-3xl font-medium tracking-wider font-display">
         <span className="text-green">Hakan</span> Güçlü
       </h3>
@@ -25,21 +37,21 @@ const Sidebar: FC = () => {
         Web Developer
       </p>
       <a
-        href="#!"
-        download="name"
+        href="/assets/hakan-guclu-resume.pdf"
+        download="Hakan Guclu Resume.pdf"
         className="flex justify-center items-center rounded-full my-3 px-2 py-1 bg-gray-200 dark:bg-dark-200"
       >
         <GiTie className="w-6 h-6" /> Download Resume
       </a>
       {/* Social icons */}
       <div className="flex justify-around w-9/12 mx-auto my-5 text-green md:w-full">
-        <a href="#!">
+        <a href="#!" aria-label="YouTube">
           <AiFillYoutube className="w-8 h-8 cursor-pointer" />
         </a>
-        <a href="#!">
+        <a href="#!" aria-label="GitHub">
           <AiFillGithub className="w-8 h-8 cursor-pointer" />
         </a>
-        <a href="#!">
+        <a href="#!" aria-label="LinkedIn">
           <AiFillLinkedin className="w-8 h-8 cursor-pointer" />
         </a>
       </div>

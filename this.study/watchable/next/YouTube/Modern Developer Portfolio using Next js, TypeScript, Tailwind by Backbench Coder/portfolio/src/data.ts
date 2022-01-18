@@ -101,6 +101,7 @@ export const tools: ISkill[] = [
 
 export const projects: IProject[] = [
   {
+    id: 1,
     name: "COVID Tracker",
     description:
       "This app shows a statistical view about corona virus over the world",
@@ -111,6 +112,7 @@ export const projects: IProject[] = [
     keyTechs: ["React", "Chart.js", "Material UI"]
   },
   {
+    id: 2,
     name: "Algorithm Visualizer",
     imagePath: "/images/algoVisual.png",
     deployedUrl: "https://visual-algorithm.web.app/",
@@ -121,6 +123,7 @@ export const projects: IProject[] = [
     keyTechs: ["React", "firebase", "Framer Motion"]
   },
   {
+    id: 3,
     name: "Dev Talks",
     imagePath: "/images/dev.jpg",
     deployedUrl: "https://dev-talks.herokuapp.com/",
@@ -139,6 +142,7 @@ export const projects: IProject[] = [
     ]
   },
   {
+    id: 4,
     name: "Realtime Chat App",
     imagePath: "/images/chatapp.jpg",
     deployedUrl: "https://sumit-chat.netlify.app/",
@@ -149,6 +153,7 @@ export const projects: IProject[] = [
     keyTechs: ["React", "Node", "Express", "Socket", "Bootstrap"]
   },
   {
+    id: 5,
     name: "Tweeter Clone",
     imagePath: "/images/tweetme.jpg",
     deployedUrl: "http://sumaxtweetme.pythonanywhere.com/",
@@ -159,6 +164,7 @@ export const projects: IProject[] = [
     keyTechs: ["React", "Django", "Django REST API"]
   },
   {
+    id: 6,
     name: "Color Classification using tf.js",
     imagePath: "/images/color.jpg",
     deployedUrl: "!#",
@@ -169,6 +175,7 @@ export const projects: IProject[] = [
     keyTechs: ["Express", "TensorFlow.js", "Vanilla js"]
   },
   {
+    id: 7,
     name: "YouTube using YouTube ",
     imagePath: "/images/youtubeClone.png",
     deployedUrl: "https://not-utube.web.app/",
@@ -186,6 +193,7 @@ export const projects: IProject[] = [
     ]
   },
   {
+    id: 8,
     name: "Football App",
     imagePath: "/images/football.png",
     deployedUrl: "https://o-my-goal.web.app/",
