@@ -1,0 +1,15 @@
+.main {
+  width: 750px;
+  max-width: calc(100vw - 50px);
+  margin: auto;
+}
+
+.mainImage {
+  width: 100%;
+}
+
+.body p {
+  text-indent: 50px;
+  font-size: 20px;
+  line-height: 2;
+}
