@@ -3,9 +3,9 @@ import * as FileSync from "lowdb/adapters/FileSync";
 import { TodoItem } from "./TodoItem";
 import { TodoCollection } from "./TodoCollection";
 
-type SchemaType = {
+interface SchemaType {
   tasks: { id: number; task: string; complete: boolean }[];
-};
+}
 
 export class JsonTodoCollection extends TodoCollection {
   private database: lowdb.LowdbSync<SchemaType>;

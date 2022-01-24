@@ -1,9 +1,9 @@
 import { TodoItem } from "./TodoItem";
 
-type ItemCounts = {
+interface ItemCounts {
   total: number;
   incomplete: number;
-};
+}
 
 export class TodoCollection {
   private nextId: number = 1;
