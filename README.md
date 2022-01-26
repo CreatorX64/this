@@ -22,30 +22,26 @@ All of the above types of items are developed through one of the following proce
 
 > “It does not matter where you go and what you study, what matters most is what you share with yourself and the world.” ― Santosh Kalwar
 
-The main purpose of this repository is to act as a reference _to me_ if I ever find myself needing to remember a concept, a term, or how an app feature was implemented in a specific use case. I do not claim ownership of any code or content you'll find here except items in _this.study_ and _this.template_ folders. The only reason that this repository's public is to expose to the outside world the materials that I use for self-studying. I'm aware that most people choose to keep their grinding process hidden from the rest of the community. The existence of this repository is just my way of doing the opposite.
+The main purpose of this repository is to act as a reference _to me_ if I ever find myself needing to remember a concept, a term, or how an app feature was implemented in a specific use case. I do not claim ownership of any code or content you'll find here. The only reason that this repository's public is to expose to the outside world the materials that I use for self-studying. I'm aware that most people choose to keep their grinding process hidden from the rest of the community. The existence of this repository is just my way of doing the opposite.
 
 ## Structure
 
-There are five folders under this repository:
+There are three folders under this repository:
 
 - assets
 - this.buffer
 - this.study
-- this.template
-- this.workshop
 
 The _assets_ folder acts as a catch-all folder for any file/folder that's not a project, like the tree image shown in this README.md file.
 
-The remaining four folders are designed to store files that are at different stages of learning and/or files for different purposes. This categorization makes it easy for me to pinpoint a resource/concept/code snippet that I need to remember in the least amount of time possible.
+The remaining two folders are designed to store files that are at different stages of learning and/or files for different purposes. This categorization makes it easy for me to pinpoint a resource/concept/code snippet that I need to remember in the least amount of time possible.
 
 Below you can see a table that summarizes the purpose of each subfolder in this repository:
 
-| Folder        | Contains                                                                                              |
-| ------------- | ----------------------------------------------------------------------------------------------------- |
-| this.buffer   | Practice projects or code-along projects that I'm currently working on.                               |
-| this.study    | Practice projects or code-along projects that I've worked on in the past.                             |
-| this.template | Boilerplate code (like a CSS reset file) that I've been accumulating over time.                       |
-| this.workshop | Projects that I independently wrote, from scratch, as part of an assignment or a personal experiment. |
+| Folder      | Contains                                                                  |
+| ----------- | ------------------------------------------------------------------------- |
+| this.buffer | Practice projects or code-along projects that I'm currently working on.   |
+| this.study  | Practice projects or code-along projects that I've worked on in the past. |
 
 ### this.buffer
 
@@ -63,16 +59,8 @@ Each project's folder name is derived from the following template:
 
 where _<CONTENT_NAME>_ is the name of a book/course/tutorial and _<CONTENT_CREATOR>_ is the name of the author/teacher.
 
-### this.template
-
-This folder contains boilerplate code snippets, configuration files, or folder hierarchies for new projects. Files in this folder are separated under different subfolders with each of them being named after their related technology. Note that configuration files and folder structures found here are highly opinionated. Thus, they reflect _a way_ of doing things rather than _the way_ of doing things.
-
-### this.workshop
-
-Projects in this folder sit at the top level. Each folder in here contains a fully (or partially) functional project.
-
 ## Contribution
 
 Being a source of reference doesn't make this repository closed to contribution. If you find yourself banging your head against the wall due to how a feature was implemented in a project, I would highly appreciate it if you let me know.
 
-Lastly, if you dig _really_ hard enough, you may or may not come accross with several API keys that were used for various experiments and purposes. You don't need to bother sending me a warning email though :) All of the API keys are revoked before they make it to GitHub.
+Lastly, if you dig _really_ hard enough, you may or may not come accross with several API keys that were used for various experiments and purposes. You don't need to bother sending me a warning email though :) I make sure _**all**_ the API keys are revoked before they make it to GitHub.

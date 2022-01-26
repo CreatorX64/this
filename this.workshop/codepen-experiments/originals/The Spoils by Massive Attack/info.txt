@@ -1,5 +1,0 @@
-From Notion > Apply > Web:
-
-A webpage concept inspired by The Spoils music video (by Massive Attack). Basically, as time passes, the parts of the web page get more and more concrete/dull/simple.
-
-This will probably require usage of CSS variables (or Sass if possible to manipulate from JS?) and manipulating those variables from JavaScript.
