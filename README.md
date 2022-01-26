@@ -22,7 +22,7 @@ All of the above types of items are developed through one of the following proce
 
 > “It does not matter where you go and what you study, what matters most is what you share with yourself and the world.” ― Santosh Kalwar
 
-The main purpose of this repository is to act as a reference _to me_ if I ever find myself needing to remember a concept, a term, or how an app feature was implemented in a specific use case. I do not claim ownership of any code or content you'll find here except items in _this.study_ and _this.template_ folders. The only reason I made this repository public is to expose to the outside world the materials that I use for self-studying. I'm aware that most people choose to keep their grinding process hidden from the rest of the community. The existence of this repository is just my way of doing the opposite.
+The main purpose of this repository is to act as a reference _to me_ if I ever find myself needing to remember a concept, a term, or how an app feature was implemented in a specific use case. I do not claim ownership of any code or content you'll find here except items in _this.study_ and _this.template_ folders. The only reason that this repository's public is to expose to the outside world the materials that I use for self-studying. I'm aware that most people choose to keep their grinding process hidden from the rest of the community. The existence of this repository is just my way of doing the opposite.
 
 ## Structure
 
@@ -36,7 +36,7 @@ There are five folders under this repository:
 
 The _assets_ folder acts as a catch-all folder for any file/folder that's not a project, like the tree image shown in this README.md file.
 
-All the remaining four folders are designed to store files that are at different stages of learning and/or files for different purposes. This categorization makes it easy for me to pinpoint a resource/concept/code snippet that I need to remember in the least amount of time possible.
+The remaining four folders are designed to store files that are at different stages of learning and/or files for different purposes. This categorization makes it easy for me to pinpoint a resource/concept/code snippet that I need to remember in the least amount of time possible.
 
 Below you can see a table that summarizes the purpose of each subfolder in this repository:
 
