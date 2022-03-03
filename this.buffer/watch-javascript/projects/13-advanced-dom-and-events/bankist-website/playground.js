@@ -327,7 +327,7 @@ const observerOptions = {
   // "threshold" is the percentage of intersection at which the observer
   // callback will be called.
   threshold: [0, 0.2],
-  // A box of margin that's applied outside of the target element which is
+  // A box of margin that's applied outside of the root element which is
   // the boundry that triggers intersection
   rootMargin: "-90px" // Can be px or %
 };

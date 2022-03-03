@@ -36,7 +36,7 @@ console.log(Number.isNaN("20")); // false
 console.log(Number.isNaN(Number("20X"))); // true
 console.log(Number.isNaN(20 / 0)); // false (it is Infinity)
 
-// Number.isFinite(): Check if a value is Inifity.
+// Number.isFinite(): Check if a value is NOT Inifity and is a number.
 
 console.log(Number.isFinite(20 / 0)); // false
 
@@ -79,7 +79,7 @@ function randomInt(min, max) {
   if (min === max) {
     return min;
   } else if (min > max) {
-    return null;
+    throw new Error("Minimum number cannot be greater than the maximum number");
   }
 
   // Instead of trunc() we use floor() because floor() rounds down negative numbers correctly.
@@ -266,6 +266,7 @@ console.log(future.toDateString()); // Mon Nov 19 2040
 console.log(future.toLocaleString()); // 11/19/2040, 3:23:00 PM
 console.log(future.toLocaleTimeString()); // 3:23:00 PM
 console.log(future.toLocaleDateString()); // 11/19/2040
+console.log(future.toLocaleString("ko-KR", { timeZone: "UTC" })); // 2012. 12. 20. 오전 3:00:00
 */
 
 /*
@@ -292,8 +293,8 @@ const num = 3884764.23;
 
 const options = {
   style: "currency", // "unit", "percent", "currency", ...
-  currency: "EUR",
-  unit: "celsius" // "mile-per-hour", "celsius", ...
+  currency: "EUR"
+  // unit: "celsius" // "mile-per-hour", "celsius", ...
   // useGrouping: false // omits number separators (not the decimal separator though)
 };
 

@@ -1,7 +1,8 @@
 "use strict";
 
-//-- Default parameters
 /*
+//-- Default parameters
+
 const bookings = [];
 
 const createBooking = (

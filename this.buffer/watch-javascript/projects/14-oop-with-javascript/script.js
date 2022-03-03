@@ -61,7 +61,7 @@ Person.prototype.species = "Homo Sapiens";
 console.log(jonas.species);
 console.log(matilda.species);
 console.log(jonas.hasOwnProperty("firstName")); // true
-console.log(jonas.hasOwnProperty("species")); // false (the prop. is on Person)
+console.log(jonas.hasOwnProperty("species")); // false (the prop. is on Person.prototype)
 
 //-- Prototypal inheritance on built-in objects
 
@@ -527,7 +527,7 @@ class Account {
   requestLoan(amount) {
     if (this._approveLoan(amount)) {
       this.deposit(amount);
-      console.log(`Load approved`);
+      console.log(`Loan approved`);
     }
   }
 }

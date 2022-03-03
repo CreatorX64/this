@@ -355,7 +355,7 @@ console.log(new Set("jonasschemdtmann").size);
 */
 
 /*
-//-- Maps: Fundaments. The main difference between a Map and a regular object
+//-- Maps: Fundamentals. The main difference between a Map and a regular object
 // is that Maps can have ANY value as a key, whereas objects can only have numbers
 // and strings.
 
@@ -454,7 +454,7 @@ console.log(gameEvents);
 
 // 3
 // const time = Math.max(...gameEvents.keys());
-const time = [gameEvents.keys()].pop();
+const time = [...gameEvents.keys()].pop();
 console.log(time);
 console.log(
   `An event happened, on average, every ${time / gameEvents.size} minutes`

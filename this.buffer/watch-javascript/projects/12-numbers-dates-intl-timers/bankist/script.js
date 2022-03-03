@@ -69,16 +69,10 @@ const inputCloseUsername = document.querySelector(".form__input--user");
 const inputClosePin = document.querySelector(".form__input--pin");
 //#endregion
 
-let currentAccount;
+let currentAccount; // Currently logged in account.
 let logoutTimer;
 let isSorted = false;
 createUsernames(accounts);
-
-//-- FAKE ALWAYS LOGGED IN
-// currentAccount = account1;
-// updateUi(currentAccount);
-// containerApp.style.opacity = 100;
-//----
 
 //#region Event handlers
 btnLogin.addEventListener("click", (event) => {
@@ -226,10 +220,24 @@ btnSort.addEventListener("click", (event) => {
   event.preventDefault();
   isSorted = !isSorted;
   displayMovements(currentAccount, isSorted);
+
+  // Reset timer
+  clearInterval(logoutTimer);
+  logoutTimer = startLogOutTimer();
 });
 //#endregion
 
 //#region Functions
+function createUsernames(accounts) {
+  accounts.forEach((account) => {
+    account.username = account.owner
+      .toLowerCase()
+      .split(" ")
+      .map((word) => word[0])
+      .join("");
+  });
+}
+
 function updateUi(account) {
   // Display movements
   displayMovements(account);
@@ -237,66 +245,6 @@ function updateUi(account) {
   calcDisplayBalance(account);
   // Display summary
   calcDisplaySummary(account);
-}
-
-function startLogOutTimer() {
-  function tick() {
-    const min = String(Math.trunc(time / 60)).padStart(2, 0);
-    const sec = String(time % 60).padStart(2, 0);
-
-    // In each call, print remaining time to UI
-    labelTimer.textContent = `${min}:${sec}`;
-
-    // When 0 seconds, stop timer and log user out
-    if (time === 0) {
-      clearInterval(logoutTimer);
-      labelWelcome.textContent = "Login to get started";
-      containerApp.style.opacity = 0;
-    }
-
-    // Decresase 1s
-    --time;
-  }
-
-  // Set time
-  let time = 120;
-
-  // Call timer every second
-  tick();
-  return setInterval(tick, 1000);
-}
-
-function formatMovementDate(date, locale) {
-  function calcDaysPassed(date1, date2) {
-    // Dates are automatically converted to timestamps for subtraction
-    return Math.round(Math.abs(date2 - date1) / (1000 * 60 * 60 * 24));
-  }
-
-  const daysPassed = calcDaysPassed(new Date(), date);
-
-  if (daysPassed === 0) {
-    return "Today";
-  } else if (daysPassed === 1) {
-    return "Yesterday";
-  } else if (daysPassed <= 7) {
-    return `${daysPassed} days ago`;
-  }
-
-  // Manually creating a formatted date string
-  // const day = date.getDate().toString().padStart(2, "0");
-  // const month = (date.getMonth() + 1).toString().padStart(2, "0");
-  // const year = date.getFullYear();
-  // return `${day}/${month}/${year}`;
-
-  // Using the current user's locale to format date
-  return new Intl.DateTimeFormat(locale).format(date);
-}
-
-function formatCurrency(value, locale, currency) {
-  return new Intl.NumberFormat(locale, {
-    style: "currency",
-    currency: currency
-  }).format(value);
 }
 
 function displayMovements(account, isSorted = false) {
@@ -356,13 +304,63 @@ function calcDisplaySummary({ movements, interestRate, locale, currency }) {
   labelSumInterest.textContent = formatCurrency(interest, locale, currency);
 }
 
-function createUsernames(accounts) {
-  accounts.forEach((account) => {
-    account.username = account.owner
-      .toLowerCase()
-      .split(" ")
-      .map((word) => word[0])
-      .join("");
-  });
+function startLogOutTimer() {
+  // Set time
+  let time = 120;
+
+  function tick() {
+    const min = String(Math.trunc(time / 60)).padStart(2, 0);
+    const sec = String(time % 60).padStart(2, 0);
+
+    // In each call, print remaining time to UI
+    labelTimer.textContent = `${min}:${sec}`;
+
+    // When 0 seconds, stop timer and log user out
+    if (time === 0) {
+      clearInterval(logoutTimer);
+      labelWelcome.textContent = "Login to get started";
+      containerApp.style.opacity = 0;
+    }
+
+    // Decresase 1s
+    --time;
+  }
+
+  // Call timer every second
+  tick();
+  return setInterval(tick, 1000);
+}
+
+function formatMovementDate(date, locale) {
+  function calcDaysPassed(date1, date2) {
+    // Dates are automatically converted to timestamps for subtraction
+    return Math.round(Math.abs(date2 - date1) / (1000 * 60 * 60 * 24));
+  }
+
+  const daysPassed = calcDaysPassed(new Date(), date);
+
+  if (daysPassed === 0) {
+    return "Today";
+  } else if (daysPassed === 1) {
+    return "Yesterday";
+  } else if (daysPassed <= 7) {
+    return `${daysPassed} days ago`;
+  }
+
+  // Manually creating a formatted date string
+  // const day = date.getDate().toString().padStart(2, "0");
+  // const month = (date.getMonth() + 1).toString().padStart(2, "0");
+  // const year = date.getFullYear();
+  // return `${day}/${month}/${year}`;
+
+  // Using the current user's locale to format date
+  return new Intl.DateTimeFormat(locale).format(date);
+}
+
+function formatCurrency(value, locale, currency) {
+  return new Intl.NumberFormat(locale, {
+    style: "currency",
+    currency: currency
+  }).format(value);
 }
 //#endregion

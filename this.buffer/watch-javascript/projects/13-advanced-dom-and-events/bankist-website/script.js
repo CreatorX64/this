@@ -162,16 +162,15 @@ const imgObserver = new IntersectionObserver(loadImg, {
 imgTargets.forEach((img) => imgObserver.observe(img));
 
 function loadImg(entries, observer) {
-  const [entry] = entries;
-
-  if (!entry.isIntersecting) return;
-
-  entry.target.src = entry.target.dataset.src;
-  entry.target.addEventListener("load", () => {
-    entry.target.classList.remove("lazy-img");
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.src = entry.target.dataset.src;
+      entry.target.addEventListener("load", () => {
+        entry.target.classList.remove("lazy-img");
+      });
+      observer.unobserve(entry.target);
+    }
   });
-
-  observer.unobserve(entry.target);
 }
 
 //-- Slider

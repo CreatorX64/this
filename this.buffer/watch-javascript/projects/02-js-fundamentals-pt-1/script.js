@@ -226,7 +226,7 @@ console.log(Number(inputYear), inputYear);
 console.log(Number(inputYear) + 18);
 
 console.log(Number("Jonas")); // NaN
-console.log(typeof NaN);
+console.log(typeof NaN); // number
 
 console.log(String(23), 23);
 
@@ -239,7 +239,7 @@ console.log("28" > "18");
 
 let n = "1" + 1;
 n = n - 1;
-console.log(n);
+console.log(n); // 10
 */
 
 /*
