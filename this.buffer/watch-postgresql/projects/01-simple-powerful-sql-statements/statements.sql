@@ -28,6 +28,8 @@ SELECT area, name, population FROM cities;
 
 SELECT name, name, name FROM cities;
 
+-- Calculated columns
+
 /*
 Math operators:
   +     Add

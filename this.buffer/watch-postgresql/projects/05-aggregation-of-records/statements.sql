@@ -102,11 +102,19 @@ GROUP BY
 /*
 Until this point, we've seen several SQL keywords. These keywords will always
 appear in a very specific order:
+
   1) FROM        Specifies set of rows to work with.
+
   2) JOIN        Merges in data from additional tables.
+
   3) WHERE       Filters the set of rows.
+
   4) GROUP BY    Groups rows by a unique set of values.
-  5) HAVING      Filters the set of groups. Always used alongside GROUP BY (see below).
+  
+  5) HAVING      Filters the set of groups. Difference between WHERE and HAVING
+                 is that WHERE is going to filter out some set of rows, whereas
+                 HAVING is going to filter out some number of groups. That's why
+                 you'll never see a HAVING without a GROUP BY (see below).
 */
 
 -- Find the number of comments for each photo where the photo_id is less than 3

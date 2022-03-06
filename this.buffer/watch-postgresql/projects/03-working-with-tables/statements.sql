@@ -64,9 +64,8 @@ DROP TABLE photos;
 
 /*
 Constraints Around Deletion
-  
-  ON DELETE RESTRICT       Throw an error
-  ON DELETE NO ACTION      Throw an error
+  ON DELETE RESTRICT       (default) Throw an error
+  ON DELETE NO ACTION      Throw an error (has a very small differnece with the one above, will discuss later)
   ON DELETE CASCADE        Delete the photo too
   ON DELETE SET NULL       Set the "user_id" of the photo to NULL
   ON DELETE SET DEFAULT    Set the "user_id" of the photo to a default value, if one is provided
