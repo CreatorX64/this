@@ -11,6 +11,7 @@ const inputElevation = document.querySelector(".form__input--elevation");
 class Workout {
   id = Date.now().toString().slice(-10) + Math.random().toString();
   date = new Date();
+  clicks = 0;
 
   constructor(coords, distance, duration) {
     this.coords = coords; // [lat, lng]
@@ -37,6 +38,10 @@ class Workout {
     this.description = `${this.type[0].toUpperCase()}${this.type.slice(1)} on ${
       months[this.date.getMonth()]
     } ${this.date.getDate()}`;
+  }
+
+  click() {
+    ++this.clicks;
   }
 }
 
@@ -76,13 +81,21 @@ class Cycling extends Workout {
 
 class App {
   #map;
+  #mapZoomLevel = 13;
   #mapEvent;
   #workouts = [];
 
   constructor() {
+    // Get user's position.
     this._getPosition();
+
+    // Get data from local storage.
+    this._getLocalStorage();
+
+    // Attach event handlers.
     form.addEventListener("submit", this._newWorkout.bind(this));
     inputType.addEventListener("change", this._toggleElevationField);
+    containerWorkouts.addEventListener("click", this._moveToPopup.bind(this));
   }
 
   _getPosition() {
@@ -97,7 +110,7 @@ class App {
   _loadMap(position) {
     const { latitude, longitude } = position.coords;
 
-    this.#map = L.map("map").setView([latitude, longitude], 13);
+    this.#map = L.map("map").setView([latitude, longitude], this.#mapZoomLevel);
 
     // The map is made up of small tiles, and those tiles come from the URL
     // we pass into L.tileLayer(), which is Open Street Map. Leaflet works
@@ -109,6 +122,11 @@ class App {
 
     // Handle clicks on map.
     this.#map.on("click", this._showForm.bind(this));
+
+    // Render existing workouts that were loaded from storage in _getLocalStorage().
+    this.#workouts.forEach((workout) => {
+      this._renderWorkoutMarker(workout);
+    });
   }
 
   _showForm(event) {
@@ -138,10 +156,10 @@ class App {
   _newWorkout(event) {
     event.preventDefault();
 
-    const validInputs = (...inputs) => {
+    const isAllNumbers = (...inputs) => {
       return inputs.every((input) => Number.isFinite(input));
     };
-    const allPositive = (...inputs) => {
+    const isAllPositive = (...inputs) => {
       return inputs.every((input) => input > 0);
     };
 
@@ -159,8 +177,8 @@ class App {
       const cadence = Number(inputCadence.value);
 
       if (
-        !validInputs(distance, duration, cadence) ||
-        !allPositive(distance, duration, cadence)
+        !isAllNumbers(distance, duration, cadence) ||
+        !isAllPositive(distance, duration, cadence)
       ) {
         return alert("Inputs have to be positive numbers!");
       }
@@ -173,8 +191,8 @@ class App {
       const elevation = Number(inputElevation.value);
 
       if (
-        !validInputs(distance, duration, elevation) ||
-        !allPositive(distance, duration)
+        !isAllNumbers(distance, duration, elevation) ||
+        !isAllPositive(distance, duration)
       ) {
         return alert("Inputs have to be positive numbers!");
       }
@@ -193,6 +211,9 @@ class App {
 
     // Hide form & clear input fields.
     this._hideForm();
+
+    // Set local storage to all workouts.
+    this._setLocalStorage();
   }
 
   _renderWorkoutMarker(workout) {
@@ -264,6 +285,55 @@ class App {
     }
 
     form.insertAdjacentHTML("afterend", html);
+  }
+
+  _moveToPopup(event) {
+    const workoutElem = event.target.closest(".workout");
+
+    if (!workoutElem) {
+      return;
+    }
+
+    const workout = this.#workouts.find((w) => w.id === workoutElem.dataset.id);
+
+    this.#map.setView(workout.coords, this.#mapZoomLevel, {
+      animate: true,
+      pan: {
+        duration: 1
+      }
+    });
+
+    // Using the public interface.
+    // workout.click();
+  }
+
+  _setLocalStorage() {
+    localStorage.setItem("workouts", JSON.stringify(this.#workouts));
+  }
+
+  _getLocalStorage() {
+    const data = JSON.parse(localStorage.getItem("workouts"));
+
+    if (!data) {
+      return;
+    }
+
+    // If workout objects had methods in their public API that were needed to
+    // call, we would have to convert the plain objects we got from local storage
+    // back into our Running or Cycling objects. However, since we don't have
+    // methods like that which we need to call after this point, we don't
+    // convert them.
+    this.#workouts = data;
+
+    this.#workouts.forEach((workout) => {
+      this._renderWorkout(workout);
+    });
+  }
+
+  // Utility method that we can call from developer console.
+  reset() {
+    localStorage.removeItem("workouts");
+    location.reload(); // Reload the page
   }
 }
 

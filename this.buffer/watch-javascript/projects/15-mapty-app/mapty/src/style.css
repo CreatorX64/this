@@ -121,8 +121,7 @@ a:visited {
   margin-bottom: 1.75rem;
   padding: 1.5rem 2.75rem;
   background-color: var(--color-dark--2);
-
-  /* Match height and activity boxes */
+  /* Match height of activity boxes */
   height: 9.25rem;
   transition: all 0.5s, transform 1ms;
 }
