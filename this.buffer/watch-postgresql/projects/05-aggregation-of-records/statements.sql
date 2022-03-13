@@ -44,14 +44,14 @@ SELECT COUNT(id) FROM comments;
 
 SELECT SUM(id) FROM comments;
 
--- When using aggregate functions, we do a normal SELECT next to it. The
+-- When using aggregate functions, we can't do a normal SELECT next to it. The
 -- following won't work:
 SELECT SUM(id), id FROM comments;
 
 -- We use aggregate functions either by themselves (see above), or as a part of
 -- a larger GROUP BY statement.
 
--- When we use aggregate functions while doint GROUP BY, the aggregate function
+-- When we use aggregate functions while doing GROUP BY, the aggregate function
 -- is only going to be applied to each individual group. The following query
 -- retrieves the number of comments each user has created:
 SELECT user_id, COUNT(id) AS num_comments_created
