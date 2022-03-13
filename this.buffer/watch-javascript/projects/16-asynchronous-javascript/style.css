@@ -45,17 +45,16 @@ body {
   /* overflow: hidden; */
 }
 
-.neighbour {
+.neighbor {
   transform: scale(0.8) translateY(1rem);
   margin-left: 0;
 }
 
-.neighbour::before {
-  content: "Neighbour country";
+.neighbor::before {
+  content: "Neighbor country";
   width: 100%;
   position: absolute;
   top: -4rem;
-
   text-align: center;
   font-size: 1.8rem;
   font-weight: 600;
@@ -104,6 +103,7 @@ body {
   padding: 2rem 5rem;
   border-radius: 0.7rem;
   color: white;
+  margin-top: 4rem;
   background-color: orangered;
   cursor: pointer;
 }
