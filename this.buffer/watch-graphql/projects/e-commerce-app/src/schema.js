@@ -1,5 +1,15 @@
 import { gql } from "apollo-server";
 
+/*
+There are a variety of types in GraphQL:
+  - Scalar types: String, Int, Float, Boolean, ID
+  - Lists
+  - Object types
+  - Enumeration types
+  - Input types
+  - The Query and Mutation types
+*/
+
 export const typeDefs = gql`
   type Query {
     hello: String

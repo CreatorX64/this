@@ -1,8 +1,8 @@
 import { ApolloServer } from "apollo-server";
 import { typeDefs } from "./schema.js";
-import { Query } from "./resolvers/query.js";
-import { Product } from "./resolvers/product.js";
-import { Category } from "./resolvers/category.js";
+import { Query } from "./resolvers/Query.js";
+import { Product } from "./resolvers/Product.js";
+import { Category } from "./resolvers/Category.js";
 import { products, categories, reviews } from "./db.js";
 
 const server = new ApolloServer({
