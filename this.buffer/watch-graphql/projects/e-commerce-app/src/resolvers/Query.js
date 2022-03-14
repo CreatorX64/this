@@ -4,16 +4,16 @@ export const Query = {
   hello: (parent, args, context) => {
     return "world!";
   },
-  products: (parent, { filter }, { products, reviews }) => {
-    return getFilteredProducts(filter, products, reviews);
+  products: (parent, { filter }, { db }) => {
+    return getFilteredProducts(filter, db.products, db.reviews);
   },
-  product: (parent, { id }, { products }) => {
-    return products.find((p) => p.id === id);
+  product: (parent, { id }, { db }) => {
+    return db.products.find((p) => p.id === id);
   },
-  categories: (parent, args, { categories }) => {
-    return categories;
+  categories: (parent, args, { db }) => {
+    return db.categories;
   },
-  category: (parent, { id }, { categories }) => {
-    return categories.find((c) => c.id === id);
+  category: (parent, { id }, { db }) => {
+    return db.categories.find((c) => c.id === id);
   }
 };
