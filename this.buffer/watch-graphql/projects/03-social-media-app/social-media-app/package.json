@@ -2,11 +2,14 @@
   "name": "social-media-app",
   "private": true,
   "scripts": {
-    "dev": "ts-node-dev --respawn src/index.ts"
+    "dev": "ts-node-dev --respawn src/index.ts",
+    "build": "tsc"
   },
   "dependencies": {
+    "@prisma/client": "^3.11.0",
     "apollo-server": "^3.6.4",
-    "graphql": "^16.3.0"
+    "graphql": "^16.3.0",
+    "prisma": "^3.11.0"
   },
   "devDependencies": {
     "ts-node-dev": "^1.1.8",
