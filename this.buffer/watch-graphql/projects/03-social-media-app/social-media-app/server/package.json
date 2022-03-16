@@ -1,5 +1,5 @@
 {
-  "name": "social-media-app",
+  "name": "server",
   "private": true,
   "scripts": {
     "dev": "ts-node-dev --respawn --require dotenv/config -- src/index.ts",
