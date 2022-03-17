@@ -1,6 +1,28 @@
+import { gql, useMutation } from "@apollo/client";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router";
 import Button from "@restart/ui/esm/Button";
 import { Form } from "react-bootstrap";
+
+const SIGN_UP = gql`
+  mutation SignUp(
+    $email: String!
+    $password: String!
+    $name: String!
+    $bio: String!
+  ) {
+    signUp(
+      credentials: { email: $email, password: $password }
+      name: $name
+      bio: $bio
+    ) {
+      userErrors {
+        message
+      }
+      token
+    }
+  }
+`;
 
 export const SignUp = () => {
   const [email, setEmail] = useState("");
@@ -8,8 +30,30 @@ export const SignUp = () => {
   const [name, setName] = useState("");
   const [bio, setBio] = useState("");
   const [error, setError] = useState(null);
+  const [signUp, { data }] = useMutation(SIGN_UP);
+  const navigate = useNavigate();
 
-  const handleClick = () => {};
+  const handleClick = () => {
+    signUp({
+      variables: {
+        email,
+        password,
+        name,
+        bio
+      }
+    });
+  };
+
+  useEffect(() => {
+    if (data) {
+      if (data.signUp.userErrors.length > 0) {
+        setError(data.signUp.userErrors[0].message);
+      } else if (data.signUp.token) {
+        localStorage.setItem("token", data.signUp.token);
+        navigate("/");
+      }
+    }
+  }, [data, navigate]);
 
   return (
     <div>
