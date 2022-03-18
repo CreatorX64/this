@@ -118,6 +118,7 @@ const getCountryAndNeighbor = (country) => {
 // getCountryAndNeighbor("usa");
 */
 
+/*
 //-- Promises and the Fetch API
 
 // const getCountryAndNeighbor = (country) => {
@@ -192,7 +193,167 @@ const getCountryAndNeighbor = (country) => {
       countriesContainer.style.opacity = 1;
     });
 };
+*/
 
-btn.addEventListener("click", () => {
-  getCountryAndNeighbor("turkey");
+/*
+//-- The event loop in practice
+
+// 1
+console.log("Test start");
+
+// 5
+setTimeout(() => console.log("0 sec timer"), 0);
+
+// 3
+Promise.resolve("Resolved promise 1").then(console.log);
+
+// 4
+Promise.resolve("Resolved promise 2").then((res) => {
+  for (let i = 0; i < 1000000000; i++) {}
+  console.log(res);
 });
+
+// 2
+console.log("Test end");
+*/
+
+/*
+//-- Building a simple Promise
+
+// Immediately creating a fulfilled or rejected Promise
+Promise.resolve("resolved value").then(console.log);
+Promise.reject("resolved value").catch(console.error);
+
+const lotteryPromise = new Promise((resolve, reject) => {
+  console.log("Lottery draw is happening... 🔮");
+  setTimeout(() => {
+    if (Math.random() >= 0.5) {
+      resolve("You WIN 💰");
+    } else {
+      reject(new Error("You lost your money 💩"));
+    }
+  }, 2000);
+});
+
+lotteryPromise.then(console.log).catch(console.log);
+
+// Promisifying setTimeout
+const wait = (seconds) => {
+  return new Promise((resolve) => {
+    setTimeout(resolve, seconds * 1000);
+  });
+};
+
+wait(1)
+  .then(() => {
+    console.log("1 seconds passed");
+    return wait(1);
+  })
+  .then(() => {
+    console.log("2 seconds passed");
+    return wait(1);
+  })
+  .then(() => {
+    console.log("3 seconds passed");
+    return wait(1);
+  })
+  .then(() => {
+    console.log("4 seconds passed");
+  });
+
+// Promisifying Geolocation API
+const getPosition = () => {
+  return new Promise((resolve, reject) => {
+    navigator.geolocation.getCurrentPosition(resolve, reject);
+  });
+};
+*/
+
+/*
+//-- Coding Challenge #1
+
+const whereAmI = () => {
+  const apiKey = "PASTE-YOUR-API-KEY-HERE";
+
+  getPosition()
+    .then((position) => {
+      const { latitude, longitude } = position.coords;
+
+      return fetch(
+        `https://geocode.xyz/${latitude},${longitude}?geoit=json&auth=${apiKey}`
+      );
+    })
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error(`Problem with geocoding (${res.status})`);
+      }
+
+      return res.json();
+    })
+    .then((data) => {
+      let { region, country } = data;
+
+      region = region.trim().endsWith(",")
+        ? region.trim().slice(0, -1)
+        : region;
+
+      console.log(`You are in ${region}, ${country}.`);
+
+      return getCountryAndNeighbor(country);
+    })
+    .catch((error) => {
+      console.error(`💥 Error: ${error.message}`);
+    });
+};
+
+btn.addEventListener("click", whereAmI);
+*/
+
+/*
+//-- Coding Challenge #2
+
+const wait = (seconds) => {
+  return new Promise((resolve) => {
+    setTimeout(resolve, seconds * 1000);
+  });
+};
+
+const createImage = (imagePath) => {
+  return new Promise((resolve, reject) => {
+    const img = document.createElement("img");
+
+    img.src = imagePath;
+
+    img.addEventListener("load", () => {
+      document.querySelector(".images").append(img);
+      resolve(img);
+    });
+
+    img.addEventListener("error", () => {
+      reject(new Error("Image not found"));
+    });
+  });
+};
+
+let currentImg;
+
+createImage("/img/img-1.jpg")
+  .then((img) => {
+    currentImg = img;
+    return wait(2);
+  })
+  .then(() => {
+    currentImg.style.display = "none";
+    return createImage("/img/img-2.jpg");
+  })
+  .then((img) => {
+    currentImg = img;
+    return wait(2);
+  })
+  .then(() => {
+    currentImg.style.display = "none";
+  })
+  .catch((error) => {
+    console.error(error.message);
+  });
+*/
