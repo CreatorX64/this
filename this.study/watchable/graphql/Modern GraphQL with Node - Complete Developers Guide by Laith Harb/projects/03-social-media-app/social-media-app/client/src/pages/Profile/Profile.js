@@ -54,6 +54,7 @@ export const Profile = () => {
           <h1>{profile.user.name}</h1>
           <p>{profile.bio}</p>
         </div>
+
         <div>{profile.isMyProfile ? <AddPostModal /> : null}</div>
       </div>
 

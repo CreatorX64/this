@@ -1,16 +1,60 @@
-import { useState } from "react";
+import { gql, useMutation } from "@apollo/client";
+import { useState, useEffect } from "react";
 import { Modal, Button, Form } from "react-bootstrap";
+
+const CREATE_POST = gql`
+  mutation CreatePost($title: String!, $content: String!) {
+    postCreate(post: { title: $title, content: $content }) {
+      userErrors {
+        message
+      }
+      post {
+        title
+        content
+        published
+        createdAt
+        user {
+          name
+        }
+      }
+    }
+  }
+`;
 
 export const AddPostModal = () => {
   const [show, setShow] = useState(false);
   const [content, setContent] = useState("");
   const [title, setTitle] = useState("");
+  const [error, setError] = useState(null);
+  const [createPost, { data }] = useMutation(CREATE_POST);
 
   const handleClose = () => setShow(false);
 
   const handleShow = () => setShow(true);
 
-  const handleClick = () => {};
+  const handleClick = () => {
+    if (!title || !content) {
+      setError("Please provide title and content.");
+      return;
+    }
+
+    createPost({
+      variables: {
+        title,
+        content
+      }
+    });
+
+    setShow(false);
+  };
+
+  useEffect(() => {
+    if (data) {
+      if (data.postCreate.userErrors.length > 0) {
+        setError(data.postCreate.userErrors[0].message);
+      }
+    }
+  }, [data]);
 
   return (
     <>
@@ -27,6 +71,7 @@ export const AddPostModal = () => {
         <Modal.Header closeButton>
           <Modal.Title>Add Post</Modal.Title>
         </Modal.Header>
+
         <Modal.Body>
           <Form>
             <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -53,10 +98,14 @@ export const AddPostModal = () => {
             </Form.Group>
           </Form>
         </Modal.Body>
+
         <Modal.Footer>
+          {error && <p>{error}</p>}
+
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
+
           <Button variant="primary" onClick={handleClick}>
             Add
           </Button>
