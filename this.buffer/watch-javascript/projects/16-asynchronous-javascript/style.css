@@ -27,7 +27,7 @@ body {
 }
 
 .countries {
-  /* margin-bottom: 8rem; */
+  margin-bottom: 8rem;
   display: flex;
 
   font-size: 2rem;
@@ -103,7 +103,6 @@ body {
   padding: 2rem 5rem;
   border-radius: 0.7rem;
   color: white;
-  margin-top: 4rem;
   background-color: orangered;
   cursor: pointer;
 }
