@@ -1,0 +1,14 @@
+{
+  "name": "02-parcel-module-bundler",
+  "scripts": {
+    "start": "parcel ./index.html",
+    "build": "parcel build ./index.html"
+  },
+  "dependencies": {
+    "leaflet": "^1.7.1",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "parcel": "^2.4.1"
+  }
+}
