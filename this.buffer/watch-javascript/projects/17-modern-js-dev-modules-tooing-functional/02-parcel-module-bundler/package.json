@@ -5,8 +5,10 @@
     "build": "parcel build ./index.html"
   },
   "dependencies": {
+    "core-js": "^3.21.1",
     "leaflet": "^1.7.1",
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "regenerator-runtime": "^0.13.9"
   },
   "devDependencies": {
     "parcel": "^2.4.1"
