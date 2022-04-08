@@ -7,13 +7,16 @@ import searchView from "./views/searchView";
 import resultsView from "./views/resultsView";
 import paginationView from "./views/paginationView";
 
-const controlRecipes = async () => {
+const controlRecipe = async () => {
   try {
-    recipeView.renderSpinner();
-
     // Get recipe id
     const id = window.location.hash.slice(1);
     if (!id) return;
+
+    recipeView.renderSpinner();
+
+    // Update results view to mark selected search result
+    resultsView.update(model.getSearchResultsPage());
 
     // load recipe
     await model.loadRecipe(id);
@@ -54,8 +57,18 @@ const controlPagination = (goToPage) => {
   paginationView.render(model.state.search);
 };
 
+const controlServings = (newServings) => {
+  // Update recipe servings in the state
+  model.updateServings(newServings);
+
+  // Update the recipe view
+  // recipeView.render(model.state.recipe);
+  recipeView.update(model.state.recipe);
+};
+
 const init = () => {
-  recipeView.addHandlerRender(controlRecipes);
+  recipeView.addHandlerRender(controlRecipe);
+  recipeView.addHandlerUpdateServings(controlServings);
   searchView.addHandlerSearch(controlSearchResults);
   paginationView.addHandlerClick(controlPagination);
 };
