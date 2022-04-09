@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>My Website</title>
+
+    <!-- React CDN -->
+    <script
+      crossorigin
+      src="https://unpkg.com/react@17/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+    ></script>
+
+    <!-- Babel CDN -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <h1>My Website</h1>
+
+    <hr />
+
+    <div id="banner"></div>
+
+    <hr />
+
+    <footer>
+      <p>Footer</p>
+    </footer>
+
+    <script type="text/babel">
+      const Banner = () => {
+        const title = "Welcome to my website!";
+        const subTitle = "This is a website for learning React.";
+        const address = "https://www.netninja.dev";
+
+        // const handleClick = (e) => {
+        //   console.log("You clicked me");
+        //   console.log("The stie title is:", title);
+        //   console.log(e);
+        // };
+
+        return (
+          <div className="banner">
+            <h2>{title.toUpperCase()}</h2>
+            <p>{subTitle}</p>
+            <p>Today's date is: {new Date().toLocaleDateString()}</p>
+            <p>Random number: {Math.floor(Math.random() * 100)}</p>
+            <div>
+              <a href={address}>Visit the Net Ninja website</a>
+            </div>
+            <br />
+            <div>
+              {/* <button onClick={handleClick}>Click me</button> */}
+              <button
+                onClick={(e) => {
+                  console.log("Hello");
+                  console.log(e);
+                }}
+              >
+                Click me
+              </button>
+            </div>
+          </div>
+        );
+      };
+
+      // Render the component to the DOM
+      ReactDOM.render(<Banner />, document.getElementById("banner"));
+    </script>
+  </body>
+</html>
