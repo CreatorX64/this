@@ -39,6 +39,7 @@ class RecipeView extends View {
       cookingTime,
       servings,
       ingredients,
+      key,
       publisher,
       sourceUrl
     } = this._data;
@@ -81,8 +82,10 @@ class RecipeView extends View {
             </button>
           </div>
         </div>
-        <div class="recipe__user-generated">
-          
+        <div class="recipe__user-generated ${key ? "" : "hidden"}">
+          <svg>
+            <use href="${iconsUrl}#icon-user"></use>
+          </svg>
         </div>
         <button class="btn--round btn--bookmark">
           <svg class="">
