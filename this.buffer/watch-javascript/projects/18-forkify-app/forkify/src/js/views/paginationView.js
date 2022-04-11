@@ -40,6 +40,7 @@ class PaginationView extends View {
 
   _generateMarkupButton(currentPage, isNext = true) {
     const targetPage = isNext ? currentPage + 1 : currentPage - 1;
+
     return `
       <button data-goto="${targetPage}" class="btn--inline pagination__btn--${
       isNext ? "next" : "prev"

@@ -8,7 +8,8 @@ export const state = {
     results: [],
     currentPage: 1,
     resultsPerPage: RESULTS_PER_PAGE
-  }
+  },
+  bookmarks: []
 };
 
 export const loadRecipe = async (id) => {
@@ -26,6 +27,13 @@ export const loadRecipe = async (id) => {
       cookingTime: recipe.cooking_time,
       ingredients: recipe.ingredients
     };
+
+    // If the recipe was bookmarked before, mark it
+    if (state.bookmarks.some((bookmark) => bookmark.id === recipe.id)) {
+      state.recipe.bookmarked = true;
+    } else {
+      state.recipe.bookmarked = false;
+    }
   } catch (err) {
     // You can do some custom logging logic here
     throw err;
@@ -45,6 +53,7 @@ export const loadSearchResults = async (query) => {
       publisher: recipe.publisher,
       image: recipe.image_url
     }));
+    state.search.currentPage = 1;
   } catch (err) {
     // You can do some custom logging logic here
     throw err;
@@ -66,3 +75,49 @@ export const updateServings = (newServings) => {
   });
   state.recipe.servings = newServings;
 };
+
+const persistBookmarks = () => {
+  localStorage.setItem("bookmarks", JSON.stringify(state.bookmarks));
+};
+
+export const addBookmark = (recipe) => {
+  // Add bookmark
+  state.bookmarks.push(recipe);
+
+  // Mark current recipe as bookmarked
+  if (recipe.id === state.recipe.id) {
+    state.recipe.bookmarked = true;
+  }
+
+  persistBookmarks();
+};
+
+export const deleteBookmark = (id) => {
+  // Delete from bookmarks so that when user comes back, the recipe is
+  // not bookmarked
+  state.bookmarks = state.bookmarks.filter((bookmark) => bookmark.id !== id);
+
+  // Update the current recipe so that the user can immediately see the recipe
+  // is not bookmarked anymore
+  if (id === state.recipe.id) {
+    state.recipe.bookmarked = false;
+  }
+
+  persistBookmarks();
+};
+
+const init = () => {
+  const storage = localStorage.getItem("bookmarks");
+
+  if (storage) {
+    state.bookmarks = JSON.parse(storage);
+  }
+};
+
+init();
+
+// Helper function to use in development
+const clearBookmarks = () => {
+  localStorage.clear("bookmarks");
+};
+// clearBookmarks();

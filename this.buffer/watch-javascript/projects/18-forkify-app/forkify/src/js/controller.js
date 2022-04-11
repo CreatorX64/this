@@ -6,6 +6,7 @@ import recipeView from "./views/recipeView";
 import searchView from "./views/searchView";
 import resultsView from "./views/resultsView";
 import paginationView from "./views/paginationView";
+import bookmarksView from "./views/bookmarksView";
 
 const controlRecipe = async () => {
   try {
@@ -17,6 +18,9 @@ const controlRecipe = async () => {
 
     // Update results view to mark selected search result
     resultsView.update(model.getSearchResultsPage());
+
+    // Update bookmarks view
+    bookmarksView.update(model.state.bookmarks);
 
     // load recipe
     await model.loadRecipe(id);
@@ -49,6 +53,14 @@ const controlSearchResults = async () => {
   }
 };
 
+const controlServings = (newServings) => {
+  // Update recipe servings in the state
+  model.updateServings(newServings);
+
+  // Update the recipe view
+  recipeView.update(model.state.recipe);
+};
+
 const controlPagination = (goToPage) => {
   // Render new results
   resultsView.render(model.getSearchResultsPage(goToPage));
@@ -57,18 +69,30 @@ const controlPagination = (goToPage) => {
   paginationView.render(model.state.search);
 };
 
-const controlServings = (newServings) => {
-  // Update recipe servings in the state
-  model.updateServings(newServings);
+const controlAddBookmark = () => {
+  // Add/remove bookmark
+  if (!model.state.recipe.bookmarked) {
+    model.addBookmark(model.state.recipe);
+  } else {
+    model.deleteBookmark(model.state.recipe.id);
+  }
 
-  // Update the recipe view
-  // recipeView.render(model.state.recipe);
+  // Update recipe view
   recipeView.update(model.state.recipe);
+
+  // Render the bookmarks
+  bookmarksView.render(model.state.bookmarks);
+};
+
+const controlBookmarks = () => {
+  bookmarksView.render(model.state.bookmarks);
 };
 
 const init = () => {
+  bookmarksView.addHandlerRender(controlBookmarks);
   recipeView.addHandlerRender(controlRecipe);
   recipeView.addHandlerUpdateServings(controlServings);
+  recipeView.addHandlerBookmark(controlAddBookmark);
   searchView.addHandlerSearch(controlSearchResults);
   paginationView.addHandlerClick(controlPagination);
 };
