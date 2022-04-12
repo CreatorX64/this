@@ -1,0 +1,226 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Noto Sans", sans-serif;
+    line-height: 1.6;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+p {
+    margin: 0;
+}
+
+section {
+    padding: 7em 0;
+}
+
+.container {
+    width: 85%;
+    max-width: 65em;
+    margin: 0 auto;
+}
+
+.split {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    flex-wrap: wrap;
+
+    & > * {
+        flex-basis: 30%;
+        min-width: 15em;
+    }
+}
+
+.spacing > * + * {
+    margin-top: var(--spacer, 2rem);
+}
+
+.btn {
+    display: inline-block;
+    border-radius: 0.25em;
+    padding: 0.5em 1.25em;
+    font-size: 1.125rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--color-text, #fff);
+    background-color: var(--color-accent, #00f);
+    transition: transform 250ms ease-in-out, opacity 250ms linear;
+}
+
+.btn:hover,
+.btn:focus {
+    transform: scale(1.1);
+    opacity: 0.9;
+}
+
+.primary-title {
+    font-size: 4rem;
+    font-size: clamp(3rem, calc(5vw + 1rem), 4.5rem);
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.section-title {
+    margin-bottom: 5rem;
+    text-align: center;
+    font-size: clamp(2.5rem, calc(5vw + 1rem), 4rem);
+    line-height: 1;
+    color: #17353d;
+}
+
+.hero {
+    padding: 15em 0;
+    text-align: center;
+    color: #fff;
+    background: #222;
+
+    @supports (background-blend-mode: multiply) {
+        background: url(../img/shoe-3.png), radial-gradient(#444, #111);
+        background-blend-mode: multiply;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+}
+
+.featured {
+    background-color: #eee;
+
+    &__item {
+        position: relative;
+        display: block;
+        transform: scale(0.85);
+        text-decoration: none;
+        color: #333;
+        text-align: center;
+        line-height: 1.2;
+        transition: transform 250ms ease-in-out;
+
+        &:hover,
+        &:focus {
+            transform: scale(1);
+
+            .featured__details {
+                opacity: 1;
+                text-shadow: 0 0 1em rgba(#fff, 1);
+            }
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            top: 10%;
+            left: 10%;
+            border-radius: 50%;
+            padding: 75% 75% 0 0;
+            background: #2193b0;
+        }
+    }
+
+    &__details {
+        opacity: 0;
+        transition: opacity 250ms linear;
+
+        span {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+    }
+}
+
+.product {
+    margin-bottom: 5em;
+    border-radius: 3em;
+    padding: 3em;
+    text-align: center;
+    background: radial-gradient(
+        var(--color-inner, limegreen),
+        var(--color-outer, purple)
+    );
+
+    &__title {
+        font-size: clamp(3rem, calc(5vw + 1rem), 5.5rem);
+        line-height: 1.1;
+        text-transform: uppercase;
+        color: #fff;
+        text-shadow: 0 0 0.2em rgba(#000, 0.2);
+    }
+
+    &__img {
+        margin: -5em 0 0 0;
+    }
+
+    &--white &__img {
+        float: left;
+    }
+
+    @media (min-width: 45em) {
+        text-align: left;
+        margin-bottom: 9rem;
+
+        &__title {
+            margin: 0;
+        }
+
+        &__img {
+            float: right;
+            margin: 0 -5em 0 0;
+            width: 65%;
+
+            &--1 {
+                shape-outside: url(../img/shoe-1.png);
+                shape-margin: 1em;
+            }
+
+            &--2 {
+                shape-outside: url(../img/shoe-2.png);
+                shape-margin: 1em;
+                margin: 0 0 0 -5em;
+                shape-margin: 2em;
+            }
+
+            &--3 {
+                shape-outside: url(../img/shoe-3.png);
+                shape-margin: 1em;
+            }
+        }
+    }
+}
+
+.hero {
+    --color-accent: #faa700;
+}
+
+.product--red {
+    --color-inner: #faa700;
+    --color-outer: #e48d00;
+    --color-accent: #a1173c;
+}
+
+.product--white {
+    --color-inner: #fce4b3;
+    --color-outer: #eac886;
+    --color-accent: #2f4858;
+}
+
+.product--blue {
+    --color-inner: #6dd5ed;
+    --color-outer: #2193b0;
+    --color-accent: #008951;
+}
