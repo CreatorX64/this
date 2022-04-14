@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const useSemiPersistentState = (key, initialState) => {
-  const [value, setValue] = useState(localStorage.getItem(key) || initialState);
+  const [value, setValue] = useState(localStorage.getItem(key) ?? initialState);
 
   useEffect(() => {
     localStorage.setItem(key, value);
@@ -13,20 +13,20 @@ const useSemiPersistentState = (key, initialState) => {
 export const App = () => {
   const stories = [
     {
+      objectId: 0,
       title: "React",
       url: "https://reactjs.org",
       author: "Jordan Walke",
       numComments: 3,
-      points: 4,
-      objectId: 0
+      points: 4
     },
     {
+      objectId: 1,
       title: "Redux",
       url: "https://redux.js.org",
       author: "Dan Abramov, Andrew Clark",
       numComments: 2,
-      points: 5,
-      objectId: 1
+      points: 5
     }
   ];
 
@@ -43,19 +43,51 @@ export const App = () => {
   return (
     <div>
       <h1>My Hacker Stories</h1>
-      <Search search={searchTerm} onSearch={handleSearch} />
+      <InputWithLabel
+        id="search"
+        value={searchTerm}
+        onInputChange={handleSearch}
+        isFocused
+      >
+        <strong>Search:</strong>
+      </InputWithLabel>
       <hr />
       <List list={searchedStories} />
     </div>
   );
 };
 
-const Search = ({ search, onSearch }) => (
-  <div>
-    <label htmlFor="search">Search: </label>
-    <input type="text" id="search" value={search} onChange={onSearch} />
-  </div>
-);
+const InputWithLabel = ({
+  children,
+  id,
+  value,
+  type = "text",
+  onInputChange,
+  isFocused
+}) => {
+  const inputRef = useRef();
+
+  useEffect(() => {
+    if (isFocused && inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [isFocused]);
+
+  return (
+    <>
+      <label htmlFor={id}>{children}</label>
+      &nbsp;
+      <input
+        ref={inputRef}
+        type={type}
+        id={id}
+        value={value}
+        onChange={onInputChange}
+        // autoFocus={isFocused}
+      />
+    </>
+  );
+};
 
 const List = ({ list }) => (
   <ul>
