@@ -8,6 +8,9 @@ const EventList = ({ events, onDelete }) => {
           <h2>
             {index} - {event.title}
           </h2>
+          <p>
+            {event.location} - {event.date}
+          </p>
           <button onClick={() => onDelete(event.id)}>Delete</button>
         </div>
       ))}

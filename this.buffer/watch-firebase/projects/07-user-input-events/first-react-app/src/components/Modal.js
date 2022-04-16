@@ -1,7 +1,7 @@
 import { createPortal } from "react-dom";
 import "./Modal.css";
 
-const Modal = ({ children, isOpen, onClose, isSalesModal = false }) => {
+const Modal = ({ children, isOpen, isSalesModal = false }) => {
   return isOpen
     ? createPortal(
         <div className="modal-backdrop">
@@ -14,12 +14,6 @@ const Modal = ({ children, isOpen, onClose, isSalesModal = false }) => {
             }}
           >
             <div>{children}</div>
-            <button
-              onClick={onClose}
-              className={isSalesModal ? "sales-btn" : null}
-            >
-              Close
-            </button>
           </div>
         </div>,
         document.body
