@@ -1,3 +1,5 @@
+import { useState, useCallback } from "react";
+
 const ComponentWithRefRead = () => {
   const [text, setText] = useState("Some text...");
 
@@ -49,3 +51,5 @@ const ComponentWithRefRead = () => {
     </div>
   );
 };
+
+export default ComponentWithRefRead;
