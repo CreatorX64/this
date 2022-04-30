@@ -1,0 +1,27 @@
+.app {
+  max-width: 860px;
+  margin: 40px auto;
+}
+
+.button {
+  border: 2px solid #fff;
+  border-radius: 4px;
+  padding: 6px 12px;
+  font-size: 1em;
+  font-weight: bold;
+  color: #fff;
+  background: none;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #c23866;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 20px;
+  margin-top: 40px;
+  cursor: pointer;
+}
