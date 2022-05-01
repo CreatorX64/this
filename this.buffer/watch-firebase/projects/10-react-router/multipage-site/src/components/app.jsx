@@ -1,9 +1,9 @@
 import { Routes, Route, NavLink, Navigate } from "react-router-dom";
-import Home from "../pages/home";
-import Contact from "../pages/contact";
-import About from "../pages/about";
-import Article from "../pages/article";
-import styles from "./app.module.css";
+import Home from "@/pages/Home";
+import Contact from "@/pages/Contact";
+import About from "@/pages/About";
+import Article from "@/pages/Article";
+import styles from "@/styles/App.module.css";
 
 const App = () => {
   return (

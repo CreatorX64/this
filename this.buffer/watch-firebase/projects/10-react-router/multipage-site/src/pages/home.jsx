@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import { useFetch } from "../hooks/fetch";
-import styles from "./home.module.css";
+import useFetch from "@/hooks/useFetch";
+import styles from "@/styles/Home.module.css";
 
 const Home = () => {
   const {
