@@ -1,8 +1,8 @@
-import styles from "./App.module.css";
+import styles from "@/styles/App.module.css";
 
 const App = () => {
   return (
-    <div>
+    <div className={styles.app}>
       <h1>App</h1>
     </div>
   );
