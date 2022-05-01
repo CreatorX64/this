@@ -1,9 +1,9 @@
-import "./App.css";
+import styles from "./App.module.css";
 
 const App = () => {
   return (
-    <div className="App">
-      <h1>Tripago</h1>
+    <div>
+      <h1>App</h1>
     </div>
   );
 };

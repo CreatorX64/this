@@ -1,0 +1,26 @@
+.app {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 auto 60px;
+}
+
+.nav h1 {
+  margin-right: auto;
+}
+
+.nav a {
+  padding: 4px 10px;
+  color: #333;
+}
+
+.nav a.active {
+  text-decoration: none;
+  color: #fff;
+  background-color: #333;
+}
