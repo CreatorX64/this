@@ -1,0 +1,49 @@
+.transactionForm {
+  border-radius: 10px;
+  padding: 20px;
+  background: #1f9751;
+}
+
+.transactionForm input,
+.transactionForm select {
+  display: block;
+  width: 100%;
+  margin-top: 8px;
+  border: 0;
+  border-radius: 4px;
+  padding: 10px;
+  font-size: 1em;
+  color: #555;
+}
+
+.transactionForm label {
+  display: block;
+  margin: 0 auto 20px;
+  color: #fff;
+}
+
+.transactionForm button {
+  display: block;
+  width: 100%;
+  border: 2px solid #fff;
+  border-radius: 4px;
+  padding: 6px 12px;
+  font-size: 1em;
+  cursor: pointer;
+  color: #fff;
+  background-color: transparent;
+}
+
+.transactionForm h3 {
+  margin-bottom: 20px;
+  color: #1f9751;
+}
+
+.transactionForm aside {
+  margin-top: 40px;
+  color: #555;
+}
+
+.transactionForm aside li {
+  margin: 10px;
+}
