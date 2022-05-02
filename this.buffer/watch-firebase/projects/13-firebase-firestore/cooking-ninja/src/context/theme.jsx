@@ -16,7 +16,7 @@ const themeReducer = (state, action) => {
 
 const initialState = {
   color: "#58249c",
-  mode: "dark"
+  mode: "light"
 };
 
 export const ThemeContext = createContext();

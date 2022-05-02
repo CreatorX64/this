@@ -8,6 +8,7 @@
     "json-server": "json-server --watch ./data/db.json --port 8080"
   },
   "dependencies": {
+    "firebase": "^9.7.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.3.0"

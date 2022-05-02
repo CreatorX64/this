@@ -8,6 +8,10 @@
   box-sizing: inherit;
 }
 
+html {
+  overflow-y: scroll;
+}
+
 html,
 body,
 #root {

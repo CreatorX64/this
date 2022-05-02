@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useFetch } from "@/hooks/fetch";
+import { addDoc, collection } from "firebase/firestore";
+import { firestore } from "@/firebase/config";
 import styles from "@/pages/create.module.css";
 
 const Create = () => {
@@ -12,19 +13,23 @@ const Create = () => {
   const ingredientInputRef = useRef(null);
 
   const navigate = useNavigate();
-  const { initPostRequest, data, error, isPending } = useFetch(
-    "http://localhost:8080/recipes",
-    "POST"
-  );
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    initPostRequest({
+
+    const doc = {
       title,
       method,
       cookingTime: `${cookingTime} minutes`,
       ingredients
-    });
+    };
+
+    try {
+      await addDoc(collection(firestore, "recipes"), doc);
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const handleAddIngredient = (e) => {
@@ -38,13 +43,6 @@ const Create = () => {
     setNewIngredient("");
     ingredientInputRef.current.focus();
   };
-
-  // Redirect to home page upon successful form submission
-  useEffect(() => {
-    if (!isPending && !error && data) {
-      navigate("/");
-    }
-  }, [isPending, error, data]);
 
   return (
     <div className={styles.create}>
@@ -102,7 +100,7 @@ const Create = () => {
           />
         </label>
 
-        <button type="submit" className="button" disabled={isPending}>
+        <button type="submit" className="button">
           Submit
         </button>
       </form>
