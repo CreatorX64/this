@@ -1,6 +1,6 @@
 import { useSearchParams } from "react-router-dom";
-import useFetch from "@/hooks/useFetch";
-import RecipeList from "@/components/RecipeList";
+import { useFetch } from "@/hooks/fetch";
+import RecipeList from "@/components/recipe-list";
 
 const Search = () => {
   const [searchParams] = useSearchParams();

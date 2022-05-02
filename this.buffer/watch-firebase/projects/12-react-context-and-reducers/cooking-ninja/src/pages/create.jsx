@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import useFetch from "@/hooks/useFetch";
-import styles from "@/pages/create/Create.module.css";
+import { useFetch } from "@/hooks/fetch";
+import styles from "@/pages/create.module.css";
 
 const Create = () => {
   const [title, setTitle] = useState("");

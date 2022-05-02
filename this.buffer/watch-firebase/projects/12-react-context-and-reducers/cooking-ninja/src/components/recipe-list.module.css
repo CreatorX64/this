@@ -49,3 +49,15 @@
   color: #555;
   background: #e2e2e2;
 }
+
+/* Dark mode */
+
+.recipeList .card.dark {
+  background: #555;
+}
+
+.recipeList .card.dark p,
+.recipeList .card.dark h3,
+.recipeList .card.dark div {
+  color: #e4e4e4;
+}

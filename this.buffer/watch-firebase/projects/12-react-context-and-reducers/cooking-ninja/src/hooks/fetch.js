@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const useFetch = (url, method = "GET") => {
+export const useFetch = (url, method = "GET") => {
   const [data, setData] = useState(null);
   const [isPending, setIsPending] = useState(false);
   const [error, setError] = useState(null);
@@ -60,5 +60,3 @@ const useFetch = (url, method = "GET") => {
 
   return { data, isPending, error, initPostRequest };
 };
-
-export default useFetch;
