@@ -1,0 +1,9 @@
+.app {
+  min-height: 100vh;
+}
+
+/* Dark mode */
+
+.app.dark {
+  background: #333;
+}
