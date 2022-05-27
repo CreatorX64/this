@@ -1,0 +1,217 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App renders snapshot 1`] = `
+<div>
+  <div
+    class="container"
+  >
+    <h1
+      class="headlinePrimary"
+    >
+      My Hacker Stories
+    </h1>
+    <form
+      class="searchForm"
+    >
+      <label
+        class="label"
+        for="search"
+      >
+        <strong>
+          Search:
+        </strong>
+      </label>
+       
+      <input
+        class="input"
+        id="search"
+        type="text"
+        value="JavaScript"
+      />
+      <button
+        class="button buttonLarge"
+        type="submit"
+      >
+        Submit
+      </button>
+    </form>
+    <p>
+      Loading...
+    </p>
+  </div>
+</div>
+`;
+
+exports[`InputWithLabel renders snapshot 1`] = `
+<div>
+  <label
+    class="label"
+    for="dummy-id"
+  >
+    dummy-label-text
+  </label>
+   
+  <input
+    class="input"
+    id="dummy-id"
+    type="text"
+    value="dummy-value"
+  />
+</div>
+`;
+
+exports[`Item renders snapshot 1`] = `
+<div>
+  <li
+    class="item"
+  >
+    <span
+      style="width: 40%;"
+    >
+      <a
+        href="https://reactjs.org"
+      >
+        React
+      </a>
+    </span>
+    <span
+      style="width: 30%;"
+    >
+      Jordan Walke
+    </span>
+    <span
+      style="width: 10%;"
+    >
+      3
+    </span>
+    <span
+      style="width: 10%;"
+    >
+      4
+    </span>
+    <span
+      style="width: 10%;"
+    >
+      <button
+        class="button buttonSmall"
+        type="button"
+      >
+        Dismiss
+      </button>
+    </span>
+  </li>
+</div>
+`;
+
+exports[`List renders snapshot 1`] = `
+<div>
+  <ul>
+    <li
+      class="item"
+    >
+      <span
+        style="width: 40%;"
+      >
+        <a
+          href="https://reactjs.org"
+        >
+          React
+        </a>
+      </span>
+      <span
+        style="width: 30%;"
+      >
+        Jordan Walke
+      </span>
+      <span
+        style="width: 10%;"
+      >
+        3
+      </span>
+      <span
+        style="width: 10%;"
+      >
+        4
+      </span>
+      <span
+        style="width: 10%;"
+      >
+        <button
+          class="button buttonSmall"
+          type="button"
+        >
+          Dismiss
+        </button>
+      </span>
+    </li>
+    <li
+      class="item"
+    >
+      <span
+        style="width: 40%;"
+      >
+        <a
+          href="https://redux.js.org"
+        >
+          Redux
+        </a>
+      </span>
+      <span
+        style="width: 30%;"
+      >
+        Dan Abramov, Andrew Clark
+      </span>
+      <span
+        style="width: 10%;"
+      >
+        2
+      </span>
+      <span
+        style="width: 10%;"
+      >
+        5
+      </span>
+      <span
+        style="width: 10%;"
+      >
+        <button
+          class="button buttonSmall"
+          type="button"
+        >
+          Dismiss
+        </button>
+      </span>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`SearchForm renders snapshot 1`] = `
+<div>
+  <form
+    class="searchForm"
+  >
+    <label
+      class="label"
+      for="search"
+    >
+      <strong>
+        Search:
+      </strong>
+    </label>
+     
+    <input
+      class="input"
+      id="search"
+      type="text"
+      value="React"
+    />
+    <button
+      class="button buttonLarge"
+      type="submit"
+    >
+      Submit
+    </button>
+  </form>
+</div>
+`;

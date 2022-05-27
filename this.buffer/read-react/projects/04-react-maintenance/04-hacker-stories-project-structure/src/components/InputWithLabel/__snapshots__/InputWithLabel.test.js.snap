@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InputWithLabel renders snapshot 1`] = `
+<div>
+  <label
+    class="label"
+    for="dummy-id"
+  >
+    dummy-label-text
+  </label>
+   
+  <input
+    class="input"
+    id="dummy-id"
+    type="text"
+    value="dummy-value"
+  />
+</div>
+`;

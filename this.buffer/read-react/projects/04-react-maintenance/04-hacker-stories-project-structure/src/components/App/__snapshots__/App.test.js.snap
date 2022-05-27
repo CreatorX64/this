@@ -1,0 +1,118 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App renders snapshot 1`] = `
+<div>
+  <div
+    class="container"
+  >
+    <h1
+      class="headlinePrimary"
+    >
+      My Hacker Stories
+    </h1>
+    <form
+      class="searchForm"
+    >
+      <label
+        class="label"
+        for="search"
+      >
+        <strong>
+          Search:
+        </strong>
+      </label>
+       
+      <input
+        class="input"
+        id="search"
+        type="text"
+        value="JavaScript"
+      />
+      <button
+        class="button button-large"
+        type="submit"
+      >
+        Submit
+      </button>
+    </form>
+    <ul>
+      <li
+        class="item"
+      >
+        <span
+          style="width: 40%;"
+        >
+          <a
+            href="https://reactjs.org"
+          >
+            React
+          </a>
+        </span>
+        <span
+          style="width: 30%;"
+        >
+          Jordan Walke
+        </span>
+        <span
+          style="width: 10%;"
+        >
+          3
+        </span>
+        <span
+          style="width: 10%;"
+        >
+          4
+        </span>
+        <span
+          style="width: 10%;"
+        >
+          <button
+            class="button button-small"
+            type="button"
+          >
+            Dismiss
+          </button>
+        </span>
+      </li>
+      <li
+        class="item"
+      >
+        <span
+          style="width: 40%;"
+        >
+          <a
+            href="https://redux.js.org"
+          >
+            Redux
+          </a>
+        </span>
+        <span
+          style="width: 30%;"
+        >
+          Dan Abramov, Andrew Clark
+        </span>
+        <span
+          style="width: 10%;"
+        >
+          2
+        </span>
+        <span
+          style="width: 10%;"
+        >
+          5
+        </span>
+        <span
+          style="width: 10%;"
+        >
+          <button
+            class="button button-small"
+            type="button"
+          >
+            Dismiss
+          </button>
+        </span>
+      </li>
+    </ul>
+  </div>
+</div>
+`;

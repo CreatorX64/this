@@ -1,0 +1,19 @@
+/* If using CSS-in-JS, where no CSS file is needed, one could still have a
+separate style.js file for all the styled components */
+
+.item {
+  display: flex;
+  align-items: center;
+  padding-bottom: 5px;
+}
+
+.item > span {
+  overflow: hidden;
+  padding: 0 5px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.item > span > a {
+  color: inherit;
+}

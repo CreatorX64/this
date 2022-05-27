@@ -1,0 +1,16 @@
+/* If using CSS-in-JS, where no CSS file is needed, one could still have a
+separate style.js file for all the styled components */
+
+.container {
+  min-height: 100vh;
+  padding: 20px;
+  color: #171212;
+  background: #83a4d4; /* fallback */
+  background: linear-gradient(to left, #b6fbff, #83a4d4);
+}
+
+.headlinePrimary {
+  font-size: 48px;
+  font-weight: 300;
+  letter-spacing: 2px;
+}

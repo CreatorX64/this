@@ -1,0 +1,9 @@
+/* If using CSS-in-JS, where no CSS file is needed, one could still have a
+separate style.js file for all the styled components */
+
+.searchForm {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 10px 0 20px;
+}

@@ -1,0 +1,14 @@
+/* If using CSS-in-JS, where no CSS file is needed, one could still have a
+separate style.js file for all the styled components */
+
+.label {
+  padding-left: 5px;
+  font-size: 24px;
+}
+
+.input {
+  border: none;
+  border-bottom: 1px solid #171212;
+  font-size: 24px;
+  background-color: transparent;
+}
