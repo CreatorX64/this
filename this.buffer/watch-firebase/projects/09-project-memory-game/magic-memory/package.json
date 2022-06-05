@@ -1,5 +1,5 @@
 {
-  "name": "project-template",
+  "name": "magic-memory",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",

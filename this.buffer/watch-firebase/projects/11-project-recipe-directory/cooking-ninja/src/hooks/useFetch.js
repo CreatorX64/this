@@ -34,16 +34,16 @@ const useFetch = (url, method = "GET") => {
 
         const resObj = await res.json();
 
-        setIsPending(false);
         setData(resObj);
         setError(null);
       } catch (error) {
         if (error.name === "AbortError") {
           console.log("Fetch was aborted");
         } else {
-          setIsPending(false);
           setError("Could not fetch the data");
         }
+      } finally {
+        setIsPending(false);
       }
     };
 

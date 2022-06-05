@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { v4 as uuid } from "uuid";
 
-import Card from "components/Card";
 import styles from "styles/App.module.css";
+import Card from "components/Card";
 
 const cardImages = [
   { src: "/img/helmet-1.png", matched: false },
