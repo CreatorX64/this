@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { doc, onSnapshot, updateDoc } from "firebase/firestore";
-import { firestore } from "@/firebase/config";
-import styles from "@/pages/recipe.module.css";
-import { useThemeContext } from "@/hooks/theme-context";
+
+import { firestore } from "lib/firebase";
+import useThemeContext from "hooks/useThemeContext";
+import styles from "pages/Recipe.module.css";
 
 const Recipe = () => {
   const [recipe, setRecipe] = useState(null);
@@ -38,7 +39,7 @@ const Recipe = () => {
     return () => {
       unsubscribe();
     };
-  }, []);
+  }, [id]);
 
   return (
     <div className={`${styles.recipe} ${styles[mode]}`}>

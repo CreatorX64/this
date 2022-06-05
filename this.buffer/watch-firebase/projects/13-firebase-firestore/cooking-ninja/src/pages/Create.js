@@ -1,8 +1,9 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { addDoc, collection } from "firebase/firestore";
-import { firestore } from "@/firebase/config";
-import styles from "@/pages/create.module.css";
+
+import { firestore } from "lib/firebase";
+import styles from "pages/Create.module.css";
 
 const Create = () => {
   const [title, setTitle] = useState("");

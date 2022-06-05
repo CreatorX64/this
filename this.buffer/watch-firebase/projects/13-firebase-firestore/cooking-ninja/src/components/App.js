@@ -1,12 +1,13 @@
 import { Routes, Route } from "react-router-dom";
-import Home from "@/pages/home";
-import Create from "@/pages/create";
-import Search from "@/pages/search";
-import Recipe from "@/pages/recipe";
-import Navbar from "@/components/navbar";
-import ThemeSelector from "@/components/theme-selector";
-import styles from "@/components/app.module.css";
-import { useThemeContext } from "@/hooks/theme-context";
+
+import useThemeContext from "hooks/useThemeContext";
+import Home from "pages/Home";
+import Create from "pages/Create";
+import Search from "pages/Search";
+import Recipe from "pages/Recipe";
+import Navbar from "components/Navbar";
+import ThemeSelector from "components/ThemeSelector";
+import styles from "components/App.module.css";
 
 const App = () => {
   const { mode } = useThemeContext();
@@ -14,7 +15,9 @@ const App = () => {
   return (
     <div className={`${styles.app} ${styles[mode]}`}>
       <Navbar />
+
       <ThemeSelector />
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/create" element={<Create />} />

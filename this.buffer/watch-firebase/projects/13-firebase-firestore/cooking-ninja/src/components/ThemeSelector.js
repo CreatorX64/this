@@ -1,6 +1,6 @@
-import { useThemeContext } from "@/hooks/theme-context";
-import styles from "@/components/theme-selector.module.css";
-import modeIcon from "@/assets/mode-icon.svg";
+import useThemeContext from "hooks/useThemeContext";
+import styles from "components/ThemeSelector.module.css";
+import modeIcon from "assets/mode-icon.svg";
 
 const themeColors = ["#58249c", "#249c6b", "#b70233"];
 

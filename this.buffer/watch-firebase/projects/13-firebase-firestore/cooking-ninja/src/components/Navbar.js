@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
-import { useThemeContext } from "@/hooks/theme-context";
-import SearchBar from "@/components/search-bar";
-import styles from "@/components/navbar.module.css";
+
+import useThemeContext from "hooks/useThemeContext";
+import SearchBar from "components/SearchBar";
+import styles from "components/Navbar.module.css";
 
 const Navbar = () => {
   const { color } = useThemeContext();
@@ -12,7 +13,9 @@ const Navbar = () => {
         <Link to="/" className={styles.brand}>
           <h1>Cooking Ninja</h1>
         </Link>
+
         <SearchBar />
+
         <Link to="/create">Create Recipe</Link>
       </nav>
     </div>

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export const useFetch = (url, method = "GET") => {
+const useFetch = (url, method = "GET") => {
   const [data, setData] = useState(null);
   const [isPending, setIsPending] = useState(false);
   const [error, setError] = useState(null);
@@ -34,16 +34,16 @@ export const useFetch = (url, method = "GET") => {
 
         const resObj = await res.json();
 
-        setIsPending(false);
         setData(resObj);
         setError(null);
       } catch (error) {
         if (error.name === "AbortError") {
           console.log("Fetch was aborted");
         } else {
-          setIsPending(false);
           setError("Could not fetch the data");
         }
+      } finally {
+        setIsPending(false);
       }
     };
 
@@ -60,3 +60,5 @@ export const useFetch = (url, method = "GET") => {
 
   return { data, isPending, error, initPostRequest };
 };
+
+export default useFetch;

@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
 import { deleteDoc, doc } from "firebase/firestore";
-import { firestore } from "@/firebase/config";
-import styles from "@/components/recipe-list.module.css";
-import { useThemeContext } from "@/hooks/theme-context";
-import TrashIcon from "@/assets/trash-icon.svg";
+
+import { firestore } from "lib/firebase";
+import useThemeContext from "hooks/useThemeContext";
+import styles from "components/RecipeList.module.css";
+import trashIcon from "assets/trash-icon.svg";
 
 const RecipeList = ({ recipes }) => {
   const { mode } = useThemeContext();
@@ -25,7 +26,7 @@ const RecipeList = ({ recipes }) => {
           <p>{recipe.method.substring(0, 100)}...</p>
           <Link to={`/recipes/${recipe.id}`}>Cook This</Link>
           <img
-            src={TrashIcon}
+            src={trashIcon}
             alt="Trash icon"
             aria-label="Delete recipe"
             className={styles.delete}

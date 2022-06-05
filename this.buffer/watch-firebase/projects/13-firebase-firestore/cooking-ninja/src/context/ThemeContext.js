@@ -14,15 +14,13 @@ const themeReducer = (state, action) => {
   }
 };
 
-const initialState = {
-  color: "#58249c",
-  mode: "light"
-};
-
-export const ThemeContext = createContext();
+const ThemeContext = createContext();
 
 export const ThemeContextProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(themeReducer, initialState);
+  const [state, dispatch] = useReducer(themeReducer, {
+    color: "#58249c",
+    mode: "light"
+  });
 
   const changeColor = (color) => {
     dispatch({ type: CHANGE_COLOR, payload: color });
@@ -44,3 +42,5 @@ export const ThemeContextProvider = ({ children }) => {
     </ThemeContext.Provider>
   );
 };
+
+export default ThemeContext;

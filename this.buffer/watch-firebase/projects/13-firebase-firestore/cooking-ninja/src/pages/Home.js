@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { collection, onSnapshot } from "firebase/firestore";
-import { firestore } from "@/firebase/config";
-import RecipeList from "@/components/recipe-list";
-import styles from "@/pages/home.module.css";
+
+import { firestore } from "lib/firebase";
+import RecipeList from "components/RecipeList";
+import styles from "pages/Home.module.css";
 
 const Home = () => {
   const [recipes, setRecipes] = useState(null);
