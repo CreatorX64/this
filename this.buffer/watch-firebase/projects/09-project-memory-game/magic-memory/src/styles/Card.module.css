@@ -1,0 +1,43 @@
+.card {
+  position: relative;
+  cursor: pointer;
+}
+
+.card img {
+  display: block;
+  width: 100%;
+  border: 2px solid #fff;
+  border-radius: 6px;
+}
+
+/* After the flipping is over (user guessed wrong), the flipped class will be
+removed and these classes will take effect. We put these first in the stylesheet
+so that they don't override the flipped alternatives below since they both sets
+of classes have the same specifity */
+
+.card .back {
+  transition: all ease-in 0.2s;
+  transition-delay: 0.2s;
+}
+
+.card .face {
+  position: absolute;
+  transform: rotateY(90deg);
+  transition: all ease-in 0.2s;
+  transition-delay: 0s;
+}
+
+/* When we first click a card, "flipped" class will be added to the card
+container and these classes will apply */
+
+/* We want the back of the card to turn to hide, ASAP, no delay */
+.flipped .back {
+  transform: rotateY(90deg);
+  transition-delay: 0s;
+}
+
+/* Wait until the back of the card is turned, then turn to reveal card face */
+.flipped .face {
+  transform: rotateY(0deg);
+  transition-delay: 0.2s;
+}

@@ -26,7 +26,6 @@ const useFetch = (url, _options) => {
 
         const resObj = await res.json();
 
-        setIsPending(false);
         setData(resObj);
         setError(null);
       } catch (error) {
@@ -34,12 +33,14 @@ const useFetch = (url, _options) => {
           console.dir(error);
           console.log("Fetch was aborted");
         } else {
-          setIsPending(false);
           setError("Could not fetch the data");
           console.log({ error: error.message });
         }
+      } finally {
+        setIsPending(false);
       }
     };
+
     fetchData();
 
     return () => {

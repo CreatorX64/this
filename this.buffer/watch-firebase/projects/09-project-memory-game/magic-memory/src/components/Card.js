@@ -1,4 +1,4 @@
-import styles from "./Card.module.css";
+import styles from "styles/Card.module.css";
 
 const Card = ({ card, onChoice, isFlipped, isDisabled }) => {
   const handleClick = () => {
@@ -10,9 +10,9 @@ const Card = ({ card, onChoice, isFlipped, isDisabled }) => {
       <div className={isFlipped ? styles.flipped : ""}>
         <img src={card.src} className={styles.face} alt="Card face" />
         <img
-          src="/img/cover.png"
-          className={styles.cover}
-          alt="Card cover"
+          src="/img/back.png"
+          className={styles.back}
+          alt="Card back"
           onClick={handleClick}
         />
       </div>

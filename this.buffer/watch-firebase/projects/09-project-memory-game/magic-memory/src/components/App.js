@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { v4 as uuid } from "uuid";
 
-import Card from "./components/Card";
-import styles from "./App.module.css";
+import Card from "components/Card";
+import styles from "styles/App.module.css";
 
 const cardImages = [
   { src: "/img/helmet-1.png", matched: false },
@@ -42,6 +42,11 @@ const App = () => {
     setIsDisabled(false);
   };
 
+  // Start a new game automatically
+  useEffect(() => {
+    shuffleCards();
+  }, []);
+
   // Compare 2 choices
   useEffect(() => {
     if (!choiceOne || !choiceTwo) return;
@@ -60,14 +65,10 @@ const App = () => {
     }
   }, [choiceOne, choiceTwo]);
 
-  // Start a new game automatically
-  useEffect(() => {
-    shuffleCards();
-  }, []);
-
   return (
     <div className={styles.app}>
       <h1>Magic Match</h1>
+
       <button className={styles.button} onClick={shuffleCards}>
         New Game
       </button>
