@@ -1,12 +1,13 @@
 .navbar {
   width: 100%;
   padding: 20px 10px;
-  background-color: #effaf0;
+  background: #effaf0;
 }
 
 .navbar ul {
   display: flex;
   align-items: center;
+  gap: 32px;
   max-width: 960px;
   margin: 0 auto;
 }
@@ -16,11 +17,6 @@
   font-size: 1.2em;
   font-weight: bold;
   letter-spacing: 1px;
-}
-
-.navbar button,
-.navbar a {
-  margin-left: 32px;
 }
 
 .navbar a {

@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
-/* Base styles */
+/* Base Styles */
 
 *,
 *::before,
@@ -9,7 +9,6 @@
 }
 
 html {
-  overflow-y: scroll;
   box-sizing: border-box;
 }
 
@@ -47,5 +46,5 @@ ul {
 
 .btn:hover {
   color: #fff;
-  background-color: #1f9751;
+  background: #1f9751;
 }
