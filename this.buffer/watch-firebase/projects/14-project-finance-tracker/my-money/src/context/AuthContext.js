@@ -1,4 +1,7 @@
-import { createContext, useReducer } from "react";
+import { createContext, useEffect, useReducer } from "react";
+import { onAuthStateChanged } from "firebase/auth";
+
+import { fbAuth } from "lib/firebase";
 
 const AuthContext = createContext();
 
@@ -14,6 +17,12 @@ const authReducer = (state, action) => {
         ...state,
         user: null
       };
+    case "AUTH_READY":
+      return {
+        ...state,
+        isAuthReady: true,
+        user: action.payload
+      };
     default:
       throw new Error("Unknown action type in authReducer()");
   }
@@ -21,11 +30,21 @@ const authReducer = (state, action) => {
 
 export const AuthContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(authReducer, {
-    user: null
+    user: null,
+    isAuthReady: false
   });
   console.log("AuthContext state:", state);
 
   const exposedState = { ...state, dispatch };
+
+  useEffect(() => {
+    const unsub = onAuthStateChanged(fbAuth, (user) => {
+      dispatch({ type: "AUTH_READY", payload: user });
+      unsub();
+    });
+
+    return () => unsub();
+  }, []);
 
   return (
     <AuthContext.Provider value={exposedState}>{children}</AuthContext.Provider>
