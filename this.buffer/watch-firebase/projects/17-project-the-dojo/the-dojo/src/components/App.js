@@ -2,8 +2,8 @@ import styles from "styles/App.module.css";
 
 const App = () => {
   return (
-    <div>
-      <h1>App</h1>
+    <div className={styles.app}>
+      <p>App</p>
     </div>
   );
 };
