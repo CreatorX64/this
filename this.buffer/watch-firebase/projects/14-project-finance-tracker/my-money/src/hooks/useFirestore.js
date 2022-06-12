@@ -1,5 +1,5 @@
 import { useReducer, useEffect, useState } from "react";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, doc, addDoc, deleteDoc } from "firebase/firestore";
 
 import { fbFirestore, fbTimestamp } from "lib/firebase";
 
@@ -28,6 +28,14 @@ const firestoreReducer = (state, action) => {
         isSuccess: true,
         errorMessage: null
       };
+    case "DELETED_DOCUMENT":
+      return {
+        ...state,
+        isPending: false,
+        document: null,
+        isSuccess: true,
+        errorMessage: null
+      };
     case "ERROR":
       return {
         ...state,
@@ -37,7 +45,9 @@ const firestoreReducer = (state, action) => {
         errorMessage: action.payload
       };
     default:
-      throw new Error("Unkown action type in firestoreReducer()");
+      throw new Error(
+        `Unknown action type in firestoreReducer(): ${action.type}`
+      );
   }
 };
 
@@ -66,7 +76,17 @@ const useFirestore = (collectionName) => {
     }
   };
 
-  const deleteDocument = async (id) => {};
+  const deleteDocument = async (id) => {
+    dispatch({ type: "START_PENDING" });
+
+    try {
+      await deleteDoc(doc(fbFirestore, collectionName, id));
+
+      dispatchIfNotCancelled({ type: "DELETED_DOCUMENT" });
+    } catch (error) {
+      dispatchIfNotCancelled({ type: "ERROR", payload: "Could not delete" });
+    }
+  };
 
   useEffect(() => {
     setIsCancelled(false);

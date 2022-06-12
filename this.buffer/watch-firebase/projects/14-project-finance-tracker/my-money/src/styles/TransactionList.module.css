@@ -1,0 +1,38 @@
+.transactions li {
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin: 30px auto;
+  border: 1px solid #f2f2f2;
+  border-left: 4px solid #1f9751;
+  padding: 20px;
+  box-shadow: 3px 3px 5px rgba(50, 50, 50, 0.1);
+}
+
+.transactions .name {
+  font-size: 1.4em;
+  color: #777;
+}
+
+.transactions .amount {
+  margin-left: auto;
+  margin-right: 40px;
+  font-size: 1.6em;
+  font-weight: bold;
+  color: #777;
+}
+
+.transactions button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: none;
+  padding: 4px;
+  text-align: center;
+  line-height: 0;
+  font-size: 0.9em;
+  cursor: pointer;
+  color: #777;
+  background: #ddd;
+}
