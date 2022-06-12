@@ -1,0 +1,19 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /transactions/{document=**} {
+      // Default rule which allows read & write requests until the specified date
+      // allow read, write: if request.time < timestamp.date(2022, 7, 10);
+
+      // Allow all read & write requests. "write" includes "create, delete, update"
+      // allow read, write;
+      // allow read, create, delete, update;
+
+      // Only authenticated users can create transactions
+      allow create: if request.auth != null;
+
+      // Logged in user uid must match the document creator to read & delete
+      allow read, delete: if request.auth.uid == resource.data.uid;
+    }
+  }
+}
