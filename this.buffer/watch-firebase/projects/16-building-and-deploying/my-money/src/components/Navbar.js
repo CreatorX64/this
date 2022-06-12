@@ -12,7 +12,7 @@ const Navbar = () => {
     <nav className={styles.navbar}>
       <ul>
         <li className={styles.title}>
-          <Link to="/">MyMoney</Link>
+          <Link to="/">MyMoney App</Link>
         </li>
 
         {user ? (
