@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
+import { doc, updateDoc } from "firebase/firestore";
 
-import { fbAuth } from "lib/firebase";
+import { fbAuth, fbFirestore } from "lib/firebase";
 import useAuthContext from "hooks/useAuthContext";
 
 const useLogin = () => {
@@ -15,7 +16,14 @@ const useLogin = () => {
     setIsPending(true);
 
     try {
+      // Sign the user in
       const res = await signInWithEmailAndPassword(fbAuth, email, password);
+
+      // Update online status
+      await updateDoc(doc(fbFirestore, "users", res.user.uid), {
+        online: true
+      });
+
       dispatch({ type: "LOGIN", payload: res.user });
 
       if (!isCancelled) {

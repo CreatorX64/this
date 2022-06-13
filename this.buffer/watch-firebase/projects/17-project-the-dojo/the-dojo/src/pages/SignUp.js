@@ -1,7 +1,6 @@
 import { useState } from "react";
 
 import useSignUp from "hooks/useSignUp";
-import styles from "pages/SignUp.module.css";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
@@ -40,8 +39,8 @@ const SignUp = () => {
   };
 
   return (
-    <form className={styles["auth-form"]} onSubmit={handleSubmit}>
-      <h2>SignUp</h2>
+    <form className="auth-form" onSubmit={handleSubmit}>
+      <h2>Sign Up</h2>
 
       <label>
         <span>Email:</span>

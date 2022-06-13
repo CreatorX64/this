@@ -19,6 +19,7 @@ html {
 }
 
 body {
+  overflow-y: scroll;
   margin: 0;
   font-size: 1.1em;
   font-family: Poppins, sans-serif;
@@ -96,4 +97,13 @@ textarea {
   padding: 8px;
   color: red;
   background: pink;
+}
+
+.auth-form {
+  max-width: 440px;
+  margin: 60px auto;
+  border: 1px solid #ddd;
+  padding: 40px;
+  background: #fff;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.05);
 }

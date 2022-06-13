@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { doc, setDoc } from "firebase/firestore";
 
-import { fbAuth, fbStorage } from "lib/firebase";
+import { fbAuth, fbStorage, fbFirestore } from "lib/firebase";
 import useAuthContext from "hooks/useAuthContext";
 
 const useSignUp = () => {
@@ -16,7 +17,7 @@ const useSignUp = () => {
     setIsPending(true);
 
     try {
-      // Sign up
+      // Sign up new user
       const res = await createUserWithEmailAndPassword(fbAuth, email, password);
 
       if (!res) {
@@ -31,8 +32,15 @@ const useSignUp = () => {
       const imgSnapshot = await uploadBytes(thumbnailRef, thumbnail);
       const photoURL = await getDownloadURL(imgSnapshot.ref);
 
-      // Add display name to new user
+      // Add display name & photo url to new user
       await updateProfile(res.user, { displayName, photoURL });
+
+      // Create a user document (for aggregated access later)
+      await setDoc(doc(fbFirestore, "users", res.user.uid), {
+        online: true,
+        displayName,
+        photoURL
+      });
 
       // Dispatch login action
       dispatch({ type: "LOGIN", payload: res.user });
