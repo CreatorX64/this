@@ -33,7 +33,6 @@ export const AuthContextProvider = ({ children }) => {
     user: null,
     isAuthReady: false
   });
-  console.log(state);
 
   const exposedState = { ...state, dispatch };
 

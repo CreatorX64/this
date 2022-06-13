@@ -8,6 +8,7 @@ import SignUp from "pages/SignUp";
 import Project from "pages/Project";
 import Sidebar from "components/Sidebar";
 import Navbar from "components/Navbar";
+import OnlineUsers from "components/OnlineUsers";
 import styles from "components/App.module.css";
 
 const App = () => {
@@ -45,6 +46,8 @@ const App = () => {
               />
             </Routes>
           </div>
+
+          {user && <OnlineUsers />}
         </>
       )}
     </div>
