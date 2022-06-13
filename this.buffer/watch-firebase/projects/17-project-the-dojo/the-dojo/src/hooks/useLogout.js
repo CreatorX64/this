@@ -7,11 +7,11 @@ import useAuthContext from "hooks/useAuthContext";
 const useLogout = () => {
   const [isCancelled, setIsCancelled] = useState(false);
   const [isPending, setIsPending] = useState(false);
-  const [error, setError] = useState(null);
+  const [errorMessage, setErrorMessage] = useState(null);
   const { dispatch } = useAuthContext();
 
   const logout = async () => {
-    setError(null);
+    setErrorMessage(null);
     setIsPending(true);
 
     try {
@@ -19,11 +19,11 @@ const useLogout = () => {
       dispatch({ type: "LOGOUT" });
 
       if (!isCancelled) {
-        setError(null);
+        setErrorMessage(null);
       }
     } catch (err) {
       if (!isCancelled) {
-        setError(err.message);
+        setErrorMessage(err.message);
       }
     } finally {
       if (!isCancelled) {
@@ -37,7 +37,7 @@ const useLogout = () => {
     return () => setIsCancelled(true);
   }, []);
 
-  return { logout, isPending, error };
+  return { logout, isPending, errorMessage };
 };
 
 export default useLogout;

@@ -8,6 +8,7 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  gap: 40px;
   margin: 0 auto;
 }
 
@@ -31,7 +32,6 @@
 }
 
 .navbar a {
-  margin-right: 20px;
   text-decoration: none;
   color: #333;
 }

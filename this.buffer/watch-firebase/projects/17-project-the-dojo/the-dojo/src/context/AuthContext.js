@@ -24,7 +24,7 @@ const authReducer = (state, action) => {
         isAuthReady: true
       };
     default:
-      throw new Error("Unknown action type in authReducer()");
+      throw new Error(`Unknown action type in authReducer(): ${action.type}`);
   }
 };
 

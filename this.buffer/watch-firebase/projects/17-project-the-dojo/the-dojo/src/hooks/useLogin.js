@@ -7,11 +7,11 @@ import useAuthContext from "hooks/useAuthContext";
 const useLogin = () => {
   const [isCancelled, setIsCancelled] = useState(false);
   const [isPending, setIsPending] = useState(false);
-  const [error, setError] = useState(null);
+  const [errorMessage, setErrorMessage] = useState(null);
   const { dispatch } = useAuthContext();
 
   const login = async (email, password) => {
-    setError(null);
+    setErrorMessage(null);
     setIsPending(true);
 
     try {
@@ -19,11 +19,11 @@ const useLogin = () => {
       dispatch({ type: "LOGIN", payload: res.user });
 
       if (!isCancelled) {
-        setError(null);
+        setErrorMessage(null);
       }
     } catch (err) {
       if (!isCancelled) {
-        setError(err.message);
+        setErrorMessage(err.message);
       }
     } finally {
       if (!isCancelled) {
@@ -37,7 +37,7 @@ const useLogin = () => {
     return () => setIsCancelled(true);
   }, []);
 
-  return { login, isPending, error };
+  return { login, isPending, errorMessage };
 };
 
 export default useLogin;

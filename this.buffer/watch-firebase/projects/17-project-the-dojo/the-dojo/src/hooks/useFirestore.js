@@ -1,7 +1,13 @@
 import { useReducer, useEffect, useState } from "react";
-import { collection, doc, addDoc, deleteDoc } from "firebase/firestore";
+import {
+  collection,
+  doc,
+  addDoc,
+  deleteDoc,
+  Timestamp
+} from "firebase/firestore";
 
-import { fbFirestore, fbTimestamp } from "lib/firebase";
+import { fbFirestore } from "lib/firebase";
 
 const initialState = {
   document: null,
@@ -14,7 +20,6 @@ const firestoreReducer = (state, action) => {
   switch (action.type) {
     case "START_PENDING":
       return {
-        ...state,
         isPending: true,
         document: null,
         isSuccess: false,
@@ -22,7 +27,6 @@ const firestoreReducer = (state, action) => {
       };
     case "ADDED_DOCUMENT":
       return {
-        ...state,
         isPending: false,
         document: action.payload,
         isSuccess: true,
@@ -30,7 +34,6 @@ const firestoreReducer = (state, action) => {
       };
     case "DELETED_DOCUMENT":
       return {
-        ...state,
         isPending: false,
         document: null,
         isSuccess: true,
@@ -38,7 +41,6 @@ const firestoreReducer = (state, action) => {
       };
     case "ERROR":
       return {
-        ...state,
         isPending: false,
         document: null,
         isSuccess: false,
@@ -55,7 +57,7 @@ const useFirestore = (collectionName) => {
   const [response, dispatch] = useReducer(firestoreReducer, initialState);
   const [isCancelled, setIsCancelled] = useState(false);
 
-  const ref = collection(fbFirestore, collectionName);
+  const collectionRef = collection(fbFirestore, collectionName);
 
   const dispatchIfNotCancelled = (action) => {
     if (!isCancelled) {
@@ -67,8 +69,8 @@ const useFirestore = (collectionName) => {
     dispatch({ type: "START_PENDING" });
 
     try {
-      const createdAt = fbTimestamp.fromDate(new Date());
-      const newDoc = await addDoc(ref, { ...objToAdd, createdAt });
+      const createdAt = Timestamp.fromDate(new Date());
+      const newDoc = await addDoc(collectionRef, { ...objToAdd, createdAt });
 
       dispatchIfNotCancelled({ type: "ADDED_DOCUMENT", payload: newDoc });
     } catch (error) {
