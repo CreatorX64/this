@@ -1,4 +1,4 @@
-import styles from "pages/Dashboard.module.css";
+// import styles from "pages/Dashboard.module.css";
 
 const Dashboard = () => {
   return (

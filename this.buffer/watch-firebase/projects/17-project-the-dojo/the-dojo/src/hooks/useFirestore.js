@@ -23,7 +23,7 @@ const firestoreReducer = (state, action) => {
         isPending: true,
         document: null,
         isSuccess: false,
-        error: null
+        errorMessage: null
       };
     case "ADDED_DOCUMENT":
       return {

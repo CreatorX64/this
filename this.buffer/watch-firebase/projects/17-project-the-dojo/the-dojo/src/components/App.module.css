@@ -4,5 +4,5 @@
 
 .app .container {
   flex-grow: 1;
-  padding: 0 60px;
+  padding: 0 60px 180px;
 }

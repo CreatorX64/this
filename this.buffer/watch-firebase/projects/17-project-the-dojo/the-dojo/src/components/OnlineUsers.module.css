@@ -31,8 +31,8 @@
 
 .user-list .online-user {
   position: absolute;
-  top: 0;
-  right: -4px;
+  top: -2px;
+  right: -6px;
   display: inline-block;
   width: 14px;
   height: 14px;

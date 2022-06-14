@@ -1,4 +1,4 @@
-import styles from "pages/Project.module.css";
+// import styles from "pages/Project.module.css";
 
 const Project = () => {
   return (
