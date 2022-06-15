@@ -1,11 +1,26 @@
-// import styles from "pages/Project.module.css";
+import { useParams } from "react-router-dom";
+
+import useDocument from "hooks/useDocument";
+import ProjectSummary from "components/ProjectSummary";
+import ProjectComments from "components/ProjectComments";
+import styles from "pages/Project.module.css";
 
 const Project = () => {
-  return (
-    <div>
-      <h2>Project</h2>
-    </div>
-  );
+  const { id } = useParams();
+  const { errorMessage, document: project } = useDocument("projects", id);
+
+  if (errorMessage) {
+    return <div className="error">{errorMessage}</div>;
+  } else if (!project) {
+    return <div className="loading">Loading...</div>;
+  } else {
+    return (
+      <div className={styles["project-details"]}>
+        <ProjectSummary project={project} />
+        <ProjectComments />
+      </div>
+    );
+  }
 };
 
 export default Project;
