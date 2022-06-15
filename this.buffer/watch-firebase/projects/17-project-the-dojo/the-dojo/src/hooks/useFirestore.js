@@ -4,7 +4,8 @@ import {
   doc,
   addDoc,
   deleteDoc,
-  Timestamp
+  Timestamp,
+  updateDoc
 } from "firebase/firestore";
 
 import { fbFirestore } from "lib/firebase";
@@ -26,6 +27,13 @@ const firestoreReducer = (state, action) => {
         errorMessage: null
       };
     case "ADDED_DOCUMENT":
+      return {
+        isPending: false,
+        document: action.payload,
+        isSuccess: true,
+        errorMessage: null
+      };
+    case "UPDATED_DOCUMENT":
       return {
         isPending: false,
         document: action.payload,
@@ -78,6 +86,27 @@ const useFirestore = (collectionName) => {
     }
   };
 
+  const updateDocument = async (id, updates) => {
+    dispatch({ type: "START_PENDING" });
+
+    try {
+      const updatedDocument = await updateDoc(
+        doc(fbFirestore, collectionName, id),
+        updates
+      );
+
+      dispatchIfNotCancelled({
+        type: "UPDATED_DOCUMENT",
+        payload: updatedDocument
+      });
+
+      return updatedDocument;
+    } catch (error) {
+      dispatchIfNotCancelled({ type: "ERROR", payload: error.message });
+      return null;
+    }
+  };
+
   const deleteDocument = async (id) => {
     dispatch({ type: "START_PENDING" });
 
@@ -95,7 +124,7 @@ const useFirestore = (collectionName) => {
     return () => setIsCancelled(true);
   }, []);
 
-  return { addDocument, deleteDocument, response };
+  return { addDocument, updateDocument, deleteDocument, response };
 };
 
 export default useFirestore;
