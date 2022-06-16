@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import useDocument from "hooks/useDocument";
 import ProjectSummary from "components/ProjectSummary";
 import ProjectComments from "components/ProjectComments";
-import styles from "pages/Project.module.css";
+import styles from "styles/Project.module.css";
 
 const Project = () => {
   const { id } = useParams();

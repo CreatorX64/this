@@ -1,3 +1,4 @@
+import formatDistanceToNow from "date-fns/formatDistanceToNow";
 import { Timestamp } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
@@ -5,7 +6,7 @@ import { v4 as uuidv4 } from "uuid";
 import useAuthContext from "hooks/useAuthContext";
 import useFirestore from "hooks/useFirestore";
 import Avatar from "components/Avatar";
-import styles from "components/ProjectComments.module.css";
+import styles from "styles/ProjectComments.module.css";
 
 const ProjectComments = ({ project }) => {
   const [newComment, setNewComment] = useState("");
@@ -50,7 +51,11 @@ const ProjectComments = ({ project }) => {
                 <p>{comment.displayName}</p>
               </div>
               <div className={styles["comment-date"]}>
-                <p>date here</p>
+                <p>
+                  {formatDistanceToNow(comment.createdAt.toDate(), {
+                    addSuffix: true
+                  })}
+                </p>
               </div>
               <div className={styles["comment-content"]}>
                 <p>{comment.content}</p>

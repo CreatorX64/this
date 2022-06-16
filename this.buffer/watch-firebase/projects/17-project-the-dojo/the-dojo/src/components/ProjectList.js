@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 import Avatar from "components/Avatar";
-import styles from "components/ProjectList.module.css";
+import styles from "styles/ProjectList.module.css";
 
 const ProjectList = ({ projects }) => {
   return (

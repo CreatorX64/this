@@ -1,6 +1,6 @@
 import useCollection from "hooks/useCollection";
 import Avatar from "components/Avatar";
-import styles from "components/OnlineUsers.module.css";
+import styles from "styles/OnlineUsers.module.css";
 
 const OnlineUsers = () => {
   const { documents, errorMessage } = useCollection("users");

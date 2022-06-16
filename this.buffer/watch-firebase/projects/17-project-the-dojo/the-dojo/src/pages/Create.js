@@ -6,7 +6,7 @@ import Select from "react-select";
 import useAuthContext from "hooks/useAuthContext";
 import useCollection from "hooks/useCollection";
 import useFirestore from "hooks/useFirestore";
-import styles from "pages/Create.module.css";
+import styles from "styles/Create.module.css";
 
 // This could've come from Firebase but for simplicity's sake, we'll
 // define our categories here
